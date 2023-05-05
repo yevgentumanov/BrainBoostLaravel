@@ -1,0 +1,18 @@
+/*-- Define todos los atributos de la clase --*/
+this.id_test = null; // (number) (se rescata de la BB.DD / se puede inventar desde el constructor con fines de pruebas internas del equipo de desarrollo, no se puede crear (cuando estemos creando un test mediante el creador de tests que desarrollaremos))
+this.length = null; // (number) (se rescata de la BB.DD / se rescata del objeto preguntas (cuando se esté creando un test con el creador de test que desarrollaremos))
+this.preguntas = null; // (array de objetos JSON) (se rescatan de la BB.DD / se pueden crear, modificar y eliminar con métodos específicos para ello)
+
+this.nombre_test = null; // (string) (se rescata de la BB.DD / se asigna con el setter desde el controlador)
+this.descripcion = null; // (string) (se rescata de la BB.DD / se asigna con el setter desde el controlador)
+this.numero_visitas = null; // (number) (solo se rescata de la BB.DD)
+
+this.id_usuario_creador = null; // (number) (se rescata de la BB.DD / no se puede asignar de otra forma, cuando un usuario cree un test desde el creador de tests, será desde el backend desde donde se reciba el id del usuario y se le asignará allí antes de guardar los datos en la BB.DD. Pero desde el frontend partirá con valor null)
+this.nombre_usuario_creador = null; // (string) (se rescata de la BB.DD / no se puede asignar de otra forma, cuando un usuario cree un test desde el creador de tests, será desde el backend desde donde se reciba el id del usuario y se le asignará allí antes de guardar los datos en la BB.DD. Pero desde el frontend partirá con valor null)
+
+this.id_materia = null; // (number) (se rescata de la BB.DD / se asigna con el setter desde el controlador, cuando el usuario esté creando un test en el creador de tests)
+this.nombre_materia = null; // (string) (se rescata de la BB.DD / se asigna con el setter desde el controlador, cuando el usuario esté creando un test en el creador de tests)
+
+this.id_usuario = null; // (number) (se rescata de la BB.DD desde el servidor)
+this.nota = null; // (number) (se rescata de la BB.DD / se asigna con el setter desde el controlador)
+this.fecha_realizacion = null; // (Date) (se rescata de la BB.DD / se asigna con el setter desde el controlador)

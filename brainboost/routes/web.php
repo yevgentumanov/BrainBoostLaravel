@@ -13,11 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*============================================================
+            PAGINAS WEB DEFINIDAS
+=============================================================*/
+
 Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/materia', function () {
+    return view('materia');
+})->name("materia");
 
-Route::get('/prueba', function () {
-    return view('prueba');
+Route::get('/pruebaLogicaApp', function () {
+    return view('pruebaLogicaApp');
+})->name("prueba");
+
+Route::get('/test', function () {
+    return view('test');
 });

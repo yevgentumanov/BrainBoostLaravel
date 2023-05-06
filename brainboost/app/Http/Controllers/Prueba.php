@@ -8,9 +8,20 @@ use Illuminate\Http\Request;
 class Prueba extends Controller
 {
     function vistaInicial() {
-        // $prueba = shell_exec('git --git-dir="/var/www/html/clinicadentalsanandres.com/BrainBoostLaravel/.git" --work-tree="/var/www/html/clinicadentalsanandres.com/BrainBoostLaravel" pull');
-        $prueba = shell_exec("git");
-        var_dump($prueba);
+        $comando = 'git --git-dir="/var/www/html/clinicadentalsanandres.com/BrainBoostLaravel/.git" --work-tree="/var/www/html/clinicadentalsanandres.com/BrainBoostLaravel" pull';
+        $output = array();
+        $returnValue = 0;
+        
+        exec($comando, $output, $returnValue);
+        
+        var_dump($comando);
+        echo "\n<br>\n";
+
+        var_dump($output);
+        echo "\n<br>\n";
+
+        var_dump($returnValue);
+        echo "\n<br>\n";
         
         // return redirect()->route('index');
     }

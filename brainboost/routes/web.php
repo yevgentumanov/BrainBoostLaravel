@@ -31,4 +31,4 @@ Route::get('/pruebaLogicaApp', function () {
 
 Route::get('/test', function () {
     return view('test');
-});
+})->name("test");

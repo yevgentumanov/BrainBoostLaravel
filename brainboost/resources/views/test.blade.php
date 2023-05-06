@@ -35,38 +35,12 @@
     <div class="container-fluid">
         <!-- Barra de la cabecera con los social-links -->
         <header>
-            <div class="row bg-dark">
-                <div class="col-8 col-md-9 col-lg-10"></div>
-                <div class="d-flex col-4 col-md-3 col-lg-2 justify-content-end align-items-center p-2">
-                    <!-- Pequeños -->
-                    <a href="https://es-es.facebook.com" class="fa fa-facebook-square d-md-none p-1"></a>
-                    <a href="https://www.instagram.com" class="fa fa-instagram ico d-md-none p-1"></a>
-                    <a href="https://es.linkedin.com" class="fa fa-linkedin ico d-md-none p-1"></a>
-                    <a href="https://www.whatsapp.com" class="fa fa-whatsapp ico d-md-none p-1"></a>
-                    <a href="https://twitter.com" class="fa fa-twitter ico d-md-none p-1"></a>
-                    <a href="https://twitter.com" class="fa fa-vimeo ico d-md-none p-1"></a>
-                    <a href="https://www.youtube.com" class="fa fa-youtube-play ico d-md-none p-1"></a>
-                    <a href="https://www.pinterest.es" class="fa fa-pinterest ico d-md-none p-1"></a>
-
-                    <!-- Grandes -->
-                    <a href="https://es-es.facebook.com" class="fa fa-lg fa-facebook-square d-none d-md-block p-1"></a>
-                    <a href="https://www.instagram.com" class="fa fa-lg fa-instagram ico d-none d-md-block p-1"></a>
-                    <a href="https://es.linkedin.com" class="fa fa-lg fa-linkedin ico d-none d-md-block p-1"></a>
-                    <a href="https://www.whatsapp.com" class="fa fa-lg fa-whatsapp ico d-none d-md-block p-1"></a>
-                    <a href="https://twitter.com" class="fa fa-lg fa-twitter ico d-none d-md-block p-1"></a>
-                    <a href="https://twitter.com" class="fa fa-lg fa-vimeo ico d-none d-md-block p-1"></a>
-                    <a href="https://www.youtube.com" class="fa fa-lg fa-youtube-play ico d-none d-md-block p-1"></a>
-                    <a href="https://www.pinterest.es" class="fa fa-lg fa-pinterest ico d-none d-md-block p-1"></a>
-                </div>
-            </div>
-
-
-            <!-- Barra de navegación con el logotipo, la barra de búsqueda y el login -->
+             <!-- Barra de navegación con el logotipo, la barra de búsqueda y el login -->
             <nav class="row navbar navbar-expand-sm bg-dark navbar-dark">
                 <!-- Logo -->
                 <div class="col-6">
-                    <a class="navbar-brand" href="#">
-                        <img src="{!!asset ('images/logo.png')!!}" alt="logo" style="width:40px;">
+                    <a class="navbar-brand" href="{{ route('index') }}">
+                        <img src="{!!asset ('images/logo.png')!!}" alt="logo">
                     </a>
                 </div>
 
@@ -310,8 +284,8 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-3 order-md-1">
-                <img src="{!!asset ('images/logo.png')!!}" height="150px" class="d-none mx-auto d-md-block" alt="Logo">
-                <img src="{!!asset ('images/logo.png')!!}" height="100px" class="mx-auto d-md-none" alt="Logo">
+                <img src="{!!asset ('images/logo.png')!!}" height="40px" class="d-none mx-auto d-md-block" alt="Logo">
+                <img src="{!!asset ('images/logo.png')!!}" height="40px" class="mx-auto d-md-none" alt="Logo">
             </div>
         </footer>
     </div>

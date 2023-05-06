@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\MateriaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,3 +32,7 @@ Route::get('/pruebaLogicaApp', function () {
 Route::get('/test', function () {
     return view('test');
 })->name("test");
+
+Route::get('/tmateria', 'App\Http\Controllers\MateriaController@index');
+//Route::get('/tmateria2', [MateriaController::class, 'index']);
+

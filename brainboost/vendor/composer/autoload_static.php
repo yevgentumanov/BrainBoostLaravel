@@ -165,7 +165,6 @@ class ComposerStaticInit6f17ccffd498d56c0cfff44a7e7a952b
         ),
         'A' => 
         array (
-            'App\\Http\\Controllers\\' => 21,
             'App\\' => 4,
         ),
     );
@@ -488,10 +487,6 @@ class ComposerStaticInit6f17ccffd498d56c0cfff44a7e7a952b
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
         ),
-        'App\\Http\\Controllers\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/Http/Controllers',
-        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -513,7 +508,6 @@ class ComposerStaticInit6f17ccffd498d56c0cfff44a7e7a952b
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-        'App\\Http\\Controllers\\Prueba' => __DIR__ . '/../..' . '/app/Http/Controllers/Prueba.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',

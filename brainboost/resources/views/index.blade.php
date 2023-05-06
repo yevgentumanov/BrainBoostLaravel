@@ -41,8 +41,8 @@
         <!-- Logo -->
         <div class="col-6">
           <a class="row" class="navbar-brand" href="#">
-{{--            <img class="col-4" style="margin: inherit; height: fit-content;" src="{!!asset ('images/logo.png')!!}" alt="logo" style="width:40px;">--}}
-            <img class="col-4" src="{!!asset ('images/logo.png')!!}" alt="logo" style="width:40px;">
+            <img class="col-4" style="margin: inherit; height: fit-content;" src="{!!asset ('images/logo.png')!!}" alt="logo" style="width:40px;">beta
+            {{--<img class="col-4" src="{!!asset ('images/logo.png')!!}" alt="logo" style="width:40px;">--}}
           </a>
         </div>
 
@@ -82,6 +82,8 @@
 
         <!-- Links -->
         <ul class="collapse navbar-collapse" id="navbarMaterias">
+          <!-- <a class="nav-link" href="{{ route('materia') }}">Inicio</a> -->
+          <a class="nav-link" href="{{ route('materia') }}">Inicio</a>
           <a class="nav-link" href="{{ route('materia') }}">Artes (Música, Artes Visuales, Teatro)</a>
           <a class="nav-link" href="{{ route('materia') }}">Ciencias Naturales (Biología, Química y Física)</a>
           <a class="nav-link" href="{{ route('materia') }}">Educación Física</a>

@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MateriaController;
+use App\Http\Controllers\Prueba;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +34,6 @@ Route::get('/test', function () {
     return view('test');
 })->name("test");
 
-Route::get('/tmateria', 'App\Http\Controllers\MateriaController@index');
-//Route::get('/tmateria2', [MateriaController::class, 'index']);
-
+Route::get('/prueba', [Prueba::class, "vistaInicial"]);
+// Route::get("/prueba", "\App\Http\Controllers\Prueba@vistaInicial"); // Si se quiere hacer sin el use de arriba
+// Route::get("/prueba", "Prueba@vistaInicial"); // No funciona

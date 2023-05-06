@@ -9,7 +9,7 @@ class Prueba extends Controller
 {
     function vistaInicial() {
         // $prueba = shell_exec('git --git-dir="/var/www/html/clinicadentalsanandres.com/BrainBoostLaravel/.git" --work-tree="/var/www/html/clinicadentalsanandres.com/BrainBoostLaravel" pull');
-        $prueba = shell_exec("pwd");
+        $prueba = shell_exec("git");
         var_dump($prueba);
         
         // return redirect()->route('index');

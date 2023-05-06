@@ -3,6 +3,13 @@
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
+/*-- CUSTOM (no es de Laravel): Vamos a sincronizar lo primero el GitHub --*/
+try {
+    `git pull | cd /var/www/html/clinicadentalsanandres.com/BrainBoostLaravel/brainboost`;
+} catch (\Throwable $th) {
+    //throw $th;
+}
+
 define('LARAVEL_START', microtime(true));
 
 /*

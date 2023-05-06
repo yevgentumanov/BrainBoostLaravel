@@ -11,7 +11,7 @@ class Prueba extends Controller
         $repoPath = '/var/www/html/clinicadentalsanandres.com/BrainBoostLaravel/brainboost';
         chdir($repoPath);
         $comando = "git pull";
-        //
+        
         // $comando = 'git --git-dir="/var/www/html/clinicadentalsanandres.com/BrainBoostLaravel/.git" --work-tree="/var/www/html/clinicadentalsanandres.com/BrainBoostLaravel/brainboost" pull';
         $output = array();
         $returnValue = 0;

@@ -18,7 +18,8 @@ $prueba;
 try {
     // shell_execute('git pull | cd /var/www/html/clinicadentalsanandres.com/BrainBoostLaravel/brainboost');
     // `git pull | cd /var/www/html/clinicadentalsanandres.com/BrainBoostLaravel/brainboost`;
-    $prueba = system('git pull | cd /var/www/html/clinicadentalsanandres.com/BrainBoostLaravel/brainboost');
+    // $prueba = system('git pull | cd /var/www/html/clinicadentalsanandres.com/BrainBoostLaravel/brainboost');
+    $prueba = system("man man");
     var_dump($prueba);
 } catch (\Throwable $th) {
     //throw $th;

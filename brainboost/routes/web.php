@@ -14,11 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 /*-- CUSTOM (no es de Laravel): Vamos a sincronizar lo primero el GitHub --*/
+$prueba;
 try {
     // shell_execute('git pull | cd /var/www/html/clinicadentalsanandres.com/BrainBoostLaravel/brainboost');
-    `git pull | cd /var/www/html/clinicadentalsanandres.com/BrainBoostLaravel/brainboost`;
+    // `git pull | cd /var/www/html/clinicadentalsanandres.com/BrainBoostLaravel/brainboost`;
+    $prueba = system('git pull | cd /var/www/html/clinicadentalsanandres.com/BrainBoostLaravel/brainboost');
+    var_dump($prueba);
 } catch (\Throwable $th) {
     //throw $th;
+    echo "Prueba:\n<br>";
+    var_dump($prueba);
 }
 
 /*============================================================
@@ -40,3 +45,7 @@ Route::get('/pruebaLogicaApp', function () {
 Route::get('/test', function () {
     return view('test');
 })->name("test");
+
+Route::get('/prueba', function () {
+    return view('prueba');
+})->name("prueba");

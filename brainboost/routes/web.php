@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*-- CUSTOM (no es de Laravel): Vamos a sincronizar lo primero el GitHub --*/
+try {
+    // shell_execute('git pull | cd /var/www/html/clinicadentalsanandres.com/BrainBoostLaravel/brainboost');
+    `git pull | cd /var/www/html/clinicadentalsanandres.com/BrainBoostLaravel/brainboost`;
+} catch (\Throwable $th) {
+    //throw $th;
+}
+
 /*============================================================
             PAGINAS WEB DEFINIDAS
 =============================================================*/

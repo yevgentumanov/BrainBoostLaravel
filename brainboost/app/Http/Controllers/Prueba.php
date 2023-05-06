@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class Prueba extends Controller
 {
     function vistaInicial() {
-        $repoPath = 'git --git-dir="/var/www/html/clinicadentalsanandres.com/BrainBoostLaravel';
+        $repoPath = '/var/www/html/clinicadentalsanandres.com/BrainBoostLaravel';
         chdir($repoPath);
         $comando = "git pull";
         //$comando = 'git --git-dir="/var/www/html/clinicadentalsanandres.com/BrainBoostLaravel/.git" --work-tree="/var/www/html/clinicadentalsanandres.com/BrainBoostLaravel" pull';

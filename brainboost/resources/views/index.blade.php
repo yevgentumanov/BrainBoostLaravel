@@ -41,8 +41,8 @@
         <!-- Logo -->
         <div class="col-6">
           <a class="row" class="navbar-brand" href="#">
-{{--            <img class="col-4" style="margin: inherit; height: fit-content;" src="{!!asset ('images/logo.png')!!}" alt="logo" style="width:40px;">--}}
-            <img class="col-4" src="{!!asset ('images/logo.png')!!}" alt="logo" style="width:40px;">
+            <img class="col-4" style="margin: inherit; height: fit-content;" src="{!!asset ('images/logo.png')!!}" alt="logo" style="width:40px;">
+            {{--<img class="col-4" src="{!!asset ('images/logo.png')!!}" alt="logo" style="width:40px;">--}}
           </a>
         </div>
 

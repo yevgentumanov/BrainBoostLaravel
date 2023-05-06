@@ -82,7 +82,7 @@
 
         <!-- Links -->
         <ul class="collapse navbar-collapse" id="navbarMaterias">
-          <a class="nav-link" href="{{ route('materia') }}">Inicio</a>
+          <!-- <a class="nav-link" href="{{ route('materia') }}">Inicio</a> -->
           <a class="nav-link" href="{{ route('materia') }}">Artes (Música, Artes Visuales, Teatro)</a>
           <a class="nav-link" href="{{ route('materia') }}">Ciencias Naturales (Biología, Química y Física)</a>
           <a class="nav-link" href="{{ route('materia') }}">Educación Física</a>

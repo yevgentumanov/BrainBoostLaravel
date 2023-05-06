@@ -41,7 +41,8 @@
         <!-- Logo -->
         <div class="col-6">
           <a class="row" class="navbar-brand" href="#">
-            <img class="col-4" style="margin: inherit; height: fit-content;" src="{!!asset ('images/logo.png')!!}" alt="logo" style="width:40px;">
+{{--            <img class="col-4" style="margin: inherit; height: fit-content;" src="{!!asset ('images/logo.png')!!}" alt="logo" style="width:40px;">--}}
+            <img class="col-4" src="{!!asset ('images/logo.png')!!}" alt="logo" style="width:40px;">
           </a>
         </div>
 
@@ -106,7 +107,7 @@
             <article class="border border-box m-2 d-flex justify-content-center bg-light">
               <div class="row">
                 <div class="col-12">
-                  <a class="row d-flex justify-content-center" href="test.html">
+                  <a class="row d-flex justify-content-center" href="{{ route('test') }}">
                     <img class="col-12" style="margin: inherit;" src="{!!asset ('images/test.png')!!}" alt="logo" style="width:40px;">
                   </a>
                 </div>

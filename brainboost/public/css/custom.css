@@ -32,6 +32,12 @@ body {
 }
 
 /*-- Navbar --*/
+
+nav > div > a > img {
+    margin: inherit;
+    height: 40px;
+}
+
 .form-control {
     background-color: var(--color10) !important;
     border-color: #03231d;

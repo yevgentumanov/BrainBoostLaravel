@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 
 /*-- CUSTOM (no es de Laravel): Vamos a sincronizar lo primero el GitHub --*/
 try {
-    shell_exec('git pull | cd /var/www/html/clinicadentalsanandres.com/BrainBoostLaravel/brainboost');
+    system('git pull | cd /var/www/html/clinicadentalsanandres.com/BrainBoostLaravel/brainboost');
 } catch (\Throwable $th) {
     //throw $th;
 }

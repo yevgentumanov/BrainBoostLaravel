@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Prueba;
 use App\Http\Controllers\MateriaController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\UsuariosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +43,9 @@ Route::get('/prueba', [Prueba::class, "vistaInicial"]);
 
 Route::get('/tmateria', 'App\Http\Controllers\MateriaController@index');
 //Route::get('/tmateria2', [MateriaController::class, 'index']);
+
+Route::get('/preguntas', 'App\Http\Controllers\PreguntaController@showFirst');
+
+Route::get('/test/first', [TestController::class, 'showFirstTest']);
+
+Route::get('/usuarios/first', [UsuariosController::class, 'showFirst']);

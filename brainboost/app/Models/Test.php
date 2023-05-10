@@ -4,7 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
+/**
+ * Post
+ *
+ * @mixin Builder
+ */
 class Test extends Model
 {
     use HasFactory;
@@ -18,4 +24,5 @@ class Test extends Model
         'numero_visitas',
         'id_usuario_creador',
     ];
+
 }

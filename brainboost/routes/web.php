@@ -25,6 +25,10 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
+//Route::get('/artes', function () {
+//    return view('artes');
+//})->name('artes');
+
 Route::get('/materia', function () {
     return view('materia');
 })->name("materia");
@@ -49,3 +53,5 @@ Route::get('/preguntas', 'App\Http\Controllers\PreguntaController@showFirst');
 Route::get('/test/first', [TestController::class, 'showFirstTest']);
 
 Route::get('/usuarios/first', [UsuariosController::class, 'showFirst']);
+
+Route::get('artes', [TestController::class, 'showTestListArtes']);

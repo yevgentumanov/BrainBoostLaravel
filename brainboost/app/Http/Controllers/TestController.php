@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Test;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
+
 
 class TestController extends Controller
 {
@@ -16,5 +18,12 @@ class TestController extends Controller
         } else {
             return "No tests found.";
         }
+    }
+
+    public function showTestListArtes()
+    {
+        $tests = Test::where('id_materia', 1);
+//        $tests = Test::all();
+        return view('artes', ['tests' => $tests]);
     }
 }

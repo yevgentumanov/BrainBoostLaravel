@@ -120,12 +120,12 @@
 
             @foreach ($tests as $test)
                 <section class="row bg-primary m-4 ">
-                    <div class="col-11 p-2">{{ $test->nombre_test }}                    </div>
+                    <div class="col-11 p-2">{{ $test->nombre_test }}</div>
                     <div class="col-1 p-2">
                         (10 preguntas)
                     </div>
                 </section>
-            @endforeach
+        @endforeach
 
     </main>
     <footer class="row bg-dark">

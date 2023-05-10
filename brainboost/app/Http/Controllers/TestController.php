@@ -22,8 +22,20 @@ class TestController extends Controller
 
     public function showTestListArtes()
     {
-        $tests = Test::where('id_materia', 1);
-//        $tests = Test::all();
+        $tests = Test::where('id_materia', 1)->get();
         return view('artes', ['tests' => $tests]);
     }
+    public function showTestListMusica()
+    {
+        $tests = Test::where('id_materia', 2)->get();
+        return view('musica', ['tests' => $tests]);
+    }
+    public function showTestListCienciasNaturales()
+    {
+        $tests = Test::where('id_materia', 5)->get();
+        return view('CienciasNaturales', ['tests' => $tests]);
+    }
+
+
+
 }

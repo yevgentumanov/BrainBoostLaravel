@@ -55,3 +55,5 @@ Route::get('/test/first', [TestController::class, 'showFirstTest']);
 Route::get('/usuarios/first', [UsuariosController::class, 'showFirst']);
 
 Route::get('artes', [TestController::class, 'showTestListArtes']);
+Route::get('musica', [TestController::class, 'showTestListMusica']);
+Route::get('cienciasnaturales', [TestController::class, 'showTestListCienciasNaturales']);

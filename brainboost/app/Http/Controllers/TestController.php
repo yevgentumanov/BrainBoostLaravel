@@ -23,21 +23,21 @@ class TestController extends Controller
     public function showTestListArtes()
     {
         $tests = Test::where('id_materia', 1)->get();
-        return view('artes', ['tests' => $tests]);
+        return view('materias.artes', ['tests' => $tests]);
     }
     public function showTestListMusica()
     {
         $tests = Test::where('id_materia', 2)->get();
-        return view('musica', ['tests' => $tests]);
+        return view('materias.musica', ['tests' => $tests]);
     }
     public function showTestListCienciasNaturales()
     {
         $tests = Test::where('id_materia', 5)->get();
-        return view('CienciasNaturales', ['tests' => $tests]);
+        return view('materias.сienciasNaturales', ['tests' => $tests]);
     }    public function showTestListMatematicas()
     {
         $tests = Test::where('id_materia', 18)->get();
-        return view('CienciasNaturales', ['tests' => $tests]);
+        return view('materias.matematicas', ['tests' => $tests]);
     }
 
 

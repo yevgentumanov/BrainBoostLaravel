@@ -34,8 +34,11 @@ class TestController extends Controller
     {
         $tests = Test::where('id_materia', 5)->get();
         return view('CienciasNaturales', ['tests' => $tests]);
+    }    public function showTestListMatematicas()
+    {
+        $tests = Test::where('id_materia', 18)->get();
+        return view('CienciasNaturales', ['tests' => $tests]);
     }
-
 
 
 }

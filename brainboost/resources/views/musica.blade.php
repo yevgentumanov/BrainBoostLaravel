@@ -64,36 +64,7 @@
         </nav>
 
         <!-- Barra de navegación para las materias de la aplicación -->
-        <nav class="row navbar bg-dark navbar-dark sticky-top">
-
-            <!-- Modo contraido -->
-            <button class="navbar-toggler nav-ico" type="button" data-toggle="collapse"
-                    data-target="#navbarMaterias" aria-controls="navbarMaterias" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>&nbsp;Materias
-            </button>
-
-            <!-- Enlace a la página de creación de test -->
-            <button class="navbar-toggler nav-ico" type="button" data-toggle="collapse" data-target="#"
-                    aria-controls="" aria-expanded="false" aria-label="Toggle navigation">
-                <span class=""></span>Crear un test personalizado
-            </button>
-
-            <!-- Links -->
-            <ul class="collapse navbar-collapse" id="navbarMaterias">
-                <a class="nav-link" href="{{ route('index') }}">Inicio</a>
-                <a class="nav-link" href="#">Artes (Música, Artes Visuales, Teatro)</a>
-                <a class="nav-link" href="#">Ciencias Naturales (Biología, Química y Física)</a>
-                <a class="nav-link" href="#">Educación Física</a>
-                <a class="nav-link" href="#">Filosofía</a>
-                <a class="nav-link" href="#">Geografía</a>
-                <a class="nav-link" href="#">Historia</a>
-                <a class="nav-link" href="#">Lengua Extranjera (Inglés, Francés, Alemán, etc.)</a>
-                <a class="nav-link" href="#">Literatura</a>
-                <a class="nav-link" href="#">Matemáticas</a>
-                <a class="nav-link" href="#">Tecnología</a>
-            </ul>
-        </nav>
+        @include('menu')
 
     </header>
     <main class="row">

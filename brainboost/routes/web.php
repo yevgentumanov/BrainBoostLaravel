@@ -25,10 +25,6 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
-//Route::get('/artes', function () {
-//    return view('artes');
-//})->name('artes');
-
 Route::get('/materia', function () {
     return view('materia');
 })->name("materia");
@@ -54,6 +50,7 @@ Route::get('/test/first', [TestController::class, 'showFirstTest']);
 
 Route::get('/usuarios/first', [UsuariosController::class, 'showFirst']);
 
-Route::get('artes', [TestController::class, 'showTestListArtes']);
-Route::get('musica', [TestController::class, 'showTestListMusica']);
-Route::get('cienciasnaturales', [TestController::class, 'showTestListCienciasNaturales']);
+Route::get('/artes', [TestController::class, 'showTestListArtes'])->name('artes');
+Route::get('/musica', [TestController::class, 'showTestListMusica'])->name('musica');
+Route::get('/cienciasnaturales', [TestController::class, 'showTestListCienciasNaturales'])->name('cienciasnaturales');
+Route::get('/matematicas', [TestController::class, 'showTestListMatematicas'])->name('matematicas');

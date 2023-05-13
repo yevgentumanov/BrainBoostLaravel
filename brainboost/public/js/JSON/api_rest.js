@@ -3,7 +3,7 @@
  * Para comprender cómo funciona el método que acontece, es necesario ver cómo funcionan las promesas de JavaScript:
  * https://desarrolloweb.com/articulos/introduccion-promesas-es6.html
  * @author Santiago San Pablo Raposo
- * @version 01.04.2023
+ * @version 13.05.2023
  */
 
 /**
@@ -12,9 +12,10 @@
  * @param {string} metodo (Opcional) Especifica mediante una cadena de texto el metodo que se quiere emplear en la cabecera de la petición HTTP.
  * @param {object} headers (Opcional) Especifica un objeto literal con los headers que deseas enviar al servidor.
  * @param {object} datos (Opcional) Especifica un objeto literal con los parámetros que deseas enviar al servidor.
+ * @param {object} controller (Opcional) Especifica un objeto de tipo AbortController con el fin de asignar un AbortController y poder abortar la operación de fetch desde fuera.
  * @returns Un JSON / objeto literal con los datos que devuelva la API en el servidor en la ruta especificada.
  */
-function obtenerJSON(url, metodo = "GET", headers = null, datos = null) {
+function obtenerJSON(url, metodo = "GET", headers = null, datos = null, controller = null) {
     return new Promise((resolve, reject) => {
         /*-- Verificar datos de los parámetros --*/
         if (metodo != "GET" && metodo != "POST" && metodo != "PUT" && metodo != "DELETE") {
@@ -27,6 +28,7 @@ function obtenerJSON(url, metodo = "GET", headers = null, datos = null) {
         // datos no tiene por qué ser un objeto literal/JSON.
 
         /*-- Efectúa la petición al servidor --*/
+        let objFetch;
         switch (metodo) {
             case "GET":
                 /*-- Prepara los parámetros en un objeto de tipo URL --*/
@@ -36,7 +38,7 @@ function obtenerJSON(url, metodo = "GET", headers = null, datos = null) {
                 }
 
                 /*-- Realiza la petición al servidor --*/
-                fetch(direccion, {method: metodo, "headers": headers})
+                objFetch = fetch(direccion, {method: metodo, "headers": headers})
                     .then(response => {
                         console.dir(response);
                         if (response.ok) {
@@ -50,6 +52,10 @@ function obtenerJSON(url, metodo = "GET", headers = null, datos = null) {
                         resolve(objJson);
                     })
                     .catch(err => reject(err));
+
+                    if (controller instanceof Object) {
+                        objFetch.abortController = controller;
+                    }
                 break;
             case "POST":
                 /*-- Prepara los parámetros en un objeto de tipo URLSearchParams --*/
@@ -59,7 +65,7 @@ function obtenerJSON(url, metodo = "GET", headers = null, datos = null) {
                 }
 
                 /*-- Realiza la petición al servidor --*/
-                fetch(url, {method: metodo, "headers": headers, body: datos})
+                objFetch = fetch(url, {method: metodo, "headers": headers, body: datos})
                     .then(response => {
                         if (response.ok) {
                             return response.text();
@@ -72,6 +78,10 @@ function obtenerJSON(url, metodo = "GET", headers = null, datos = null) {
                         resolve(objJson);
                     })
                     .catch(err => reject(err));
+            
+                    if (controller instanceof Object) {
+                        objFetch.abortController = controller;
+                    }
                 break;
             default:
                 /*-- PUT y DELETE no están implementados, ya que no he estudiado cómo funcionan --*/

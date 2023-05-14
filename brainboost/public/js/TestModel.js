@@ -3,7 +3,7 @@
  =====================================*/
 import * as globals from './globals.json';
 // import * as irregular from './example_rellenar_huecos.json';
-import * as apij from './JSON/json.js';
+import * as apij from './JSON/api_rest.js';
 import * as utilities from './utilidades.js';
 
 /*====================================
@@ -148,7 +148,7 @@ export class Test {
      * Método que devuelve la descripción del test.
      * @returns La descripción del test.
      */
-    getDescripcionTest() {
+    getDescripcion() {
         return this.descripcion;
     }
 
@@ -241,10 +241,10 @@ export class Test {
     }
 
     /**
-     * Método que devuelve lla fecha de realización en la que el usuario ha hecho o está haciendo el test.
+     * Método que devuelve la fecha de realización en la que el usuario ha hecho o está haciendo el test.
      * @returns La fecha de realización en la que el usuario ha hecho o está haciendo el test.
      */
-    getNota() {
+    getFechaRealizacion() {
         return this.fecha_realizacion;
     }
 

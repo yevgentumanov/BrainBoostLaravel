@@ -2,34 +2,28 @@
     {
         "id_pregunta": 1, "id_test": 2, "tipo_pregunta": 4, "nombre_pregunta": "Dime la palabra 'meta' en inglés, francés, alemán e italiano.", "datos_pregunta": 
             {
-                "huecos": {
-                    "Inglés": "goal",
-                    "Francés": "but",
-                    "Alemán": "ziel",
-                    "Italiano": "obiettivo"
-                }
+                "Inglés": "goal",
+                "Francés": "but",
+                "Alemán": "ziel",
+                "Italiano": "obiettivo"
             }
     },
     {
         "id_pregunta": 1, "id_test": 2, "tipo_pregunta": 4, "nombre_pregunta": "Los seres vivos necesitan ___ para vivir y crecer. Las plantas lo obtienen a través de la ___, mientras que los animales lo obtienen a través de la ___. El ___ es un recurso natural que debemos cuidar", "datos_pregunta": 
             {
-                "huecos": {
-                    "hueco1": "agua",
-                    "hueco2": "fotosíntesis",
-                    "hueco3": "alimentación",
-                    "hueco4": "agua"
-                }
+                "hueco1": "agua",
+                "hueco2": "fotosíntesis",
+                "hueco3": "alimentación",
+                "hueco4": "agua"
             }
     },
     {
         "id_pregunta": 3, "id_test": 2, "tipo_pregunta": 5, "nombre_pregunta": "Formas verbales del verbo to be", "datos_pregunta": 
             {
-                "huecos": {
-                    "Forma base": "be",
-                    "Pasado": "was/were",
-                    "Participio": "been",
-                    "Traduccion": "ser/estar"
-                }
+                "Forma base": "be",
+                "Pasado": "was/were",
+                "Participio": "been",
+                "Traduccion": "ser/estar"
             }
     }
 ]

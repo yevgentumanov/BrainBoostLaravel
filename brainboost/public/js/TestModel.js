@@ -12,7 +12,7 @@ import * as utilities from './utilidades.js';
 const TipoPregunta = {
     NONE: 0, // No se ha definido el tipo de pregunta
     MULTIPLE_RESPONSE: 1, // Múltiples respuestas, única opción correcta
-    MULTIPLE_RESPONSE_MULTIPLE_CHOICE: 2, // Múltiples respuestas, de múltiple elección (varias respuestas correctas posibles)
+    MULTIPLE_RESPONSE_MULTIPLE_CHOICE: 2, // Múltiples respuestas, de múltiple elección (varias respuestas correctas)
     UNIQUE_RESPONSE: 3, // Escribir la respuesta en una caja de texto
     FILL_IN_GAPS: 4, // Rellenar huecos (hay que rellenarlos todos)
     FILL_GAPS_GIVEN_ONE: 5 // Rellenar huecos dado uno (Ejemplo: verbos irregulares)

@@ -35,7 +35,7 @@
                     <div class="col-11 p-2">{{ $test->nombre_test }} {{ $test->id }}</div>
                     <div class="col-1 p-2">(10 preguntas)</div>
                 </section>
-        @endforeach
+            @endforeach
 
     </main>
 

@@ -24,12 +24,13 @@ const TipoPregunta = {
 export class Test {
     /**
      * Constructor para crear un objeto de tipo test, que contendrá un test recogido de la BB.DD de la aplicación.
-     * @param {number} idTest (Opcional) Especifica el id del test en la BB.DD. Lo especificará el controlador, observando la "bandera" que dejaremos mediante PHP dentro del código fuente de la página web.
      * @param {object} preguntas (Opcional) Objeto JSON que contiene las preguntas del test y respuestas a cada una de ellas, así como su respuesta correcta.
+     * @param {string} nombre (Opcional) El nombre del test.
+     * @param {string} descripcion (Opcional) La descripción del test.
      * @param {string} categoriaTest (Opcional) Especifica la categoría/materia a la que pertenece el test.
      * 
      */
-    constructor(idTest = null, preguntas = null, categoriaTest = null) {
+    constructor(preguntas = null, nombre = null, descripcion = null, categoriaTest = null) {
         /*====================================================
               Define todos los atributos de la clase
         =====================================================*/
@@ -37,12 +38,12 @@ export class Test {
         this.length = null; // (number) (se rescata de la BB.DD / se rescata del objeto preguntas (cuando se esté creando un test con el creador de test que desarrollaremos))
         this.preguntas = null; // (array de objetos JSON) (se rescatan de la BB.DD / se pueden crear, modificar y eliminar con métodos específicos para ello)
 
-        this.nombre_test = null; // (string) (se rescata de la BB.DD / se asigna con el setter desde el controlador)
+        this.nombreTest = null; // (string) (se rescata de la BB.DD / se asigna con el setter desde el controlador)
         this.descripcion = null; // (string) (se rescata de la BB.DD / se asigna con el setter desde el controlador)
-        this.numero_visitas = null; // (number) (solo se rescata de la BB.DD)
+        this.numeroVisitas = null; // (number) (solo se rescata de la BB.DD)
 
-        this.id_usuario_creador = null; // (number) (se rescata de la BB.DD / no se puede asignar de otra forma, cuando un usuario cree un test desde el creador de tests, será desde el backend desde donde se reciba el id del usuario y se le asignará allí antes de guardar los datos en la BB.DD. Pero desde el frontend partirá con valor null)
-        this.nombre_usuario_creador = null; // (string) (se rescata de la BB.DD / no se puede asignar de otra forma, cuando un usuario cree un test desde el creador de tests, será desde el backend desde donde se reciba el id del usuario y se le asignará allí antes de guardar los datos en la BB.DD. Pero desde el frontend partirá con valor null)
+        this.idUsuarioCreador = null; // (number) (se rescata de la BB.DD / no se puede asignar de otra forma, cuando un usuario cree un test desde el creador de tests, será desde el backend desde donde se reciba el id del usuario y se le asignará allí antes de guardar los datos en la BB.DD. Pero desde el frontend partirá con valor null)
+        this.nombreUsuarioCreador = null; // (string) (se rescata de la BB.DD / no se puede asignar de otra forma, cuando un usuario cree un test desde el creador de tests, será desde el backend desde donde se reciba el id del usuario y se le asignará allí antes de guardar los datos en la BB.DD. Pero desde el frontend partirá con valor null)
 
         this.id_materia = null; // (number) (se rescata de la BB.DD / se asigna con el setter desde el controlador, cuando el usuario esté creando un test en el creador de tests)
         this.nombre_materia = null; // (string) (se rescata de la BB.DD / se asigna con el setter desde el controlador, cuando el usuario esté creando un test en el creador de tests)
@@ -125,7 +126,7 @@ export class Test {
      * @param {string} nombreTest Especifica el nombre del test.
      */
     setNombreTest(nombreTest) {
-        this.nombre_test = nombreTest;
+        this.nombreTest = nombreTest;
     }
 
     /**
@@ -133,7 +134,7 @@ export class Test {
      * @returns El nombre del test.
      */
     getNombreTest() {
-        return this.nombre_test;
+        return this.nombreTest;
     }
 
     /**
@@ -165,7 +166,7 @@ export class Test {
      * @returns El ID del usuario creador del test.
      */
     getIDUsuarioCreador() {
-        return this.id_usuario_creador;
+        return this.idUsuarioCreador;
     }
 
     /**
@@ -173,7 +174,7 @@ export class Test {
      * @returns El nombre del usuario creador del test.
      */
     getNombreUsuarioCreador() {
-        return this.nombre_usuario_creador;
+        return this.nombreUsuarioCreador;
     }
 
     /**

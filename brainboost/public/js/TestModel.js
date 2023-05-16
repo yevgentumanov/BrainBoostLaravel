@@ -1,10 +1,10 @@
 /*=====================================
             IMPORTACIONES
  =====================================*/
-import * as globals from './globals.json';
+// import * as globals from './globals.json';
 // import * as irregular from './example_rellenar_huecos.json';
-import * as apij from './JSON/api_rest.js';
-import * as utilities from './utilidades.js';
+// import * as apij from './JSON/api_rest.js';
+// import * as utilities from './utilidades.js';
 
 /*====================================
             ENUMERADOS
@@ -21,20 +21,21 @@ const TipoPregunta = {
 /*====================================
             CLASES
 ======================================*/
-export class Test {
+
+class Test {
     /**
      * Constructor para crear un objeto de tipo test, que contendrá un test recogido de la BB.DD de la aplicación.
      * @param {object} preguntas (Opcional) Objeto JSON que contiene las preguntas del test y respuestas a cada una de ellas, así como su respuesta correcta.
      * @param {string} nombre (Opcional) El nombre del test.
      * @param {string} descripcion (Opcional) La descripción del test.
-     * @param {string} categoriaTest (Opcional) Especifica la categoría/materia a la que pertenece el test.
+     * @param {string} idMateria (Opcional) Especifica la materia a la que pertenece el test.
      * 
      */
-    constructor(preguntas = null, nombre = null, descripcion = null, categoriaTest = null) {
+    constructor(preguntas = null, nombre = null, descripcion = null, idMateria = null) {
         /*====================================================
               Define todos los atributos de la clase
         =====================================================*/
-        this.id_test = null; // (number) (se rescata de la BB.DD / se puede inventar desde el constructor con fines de pruebas internas del equipo de desarrollo, no se puede crear (cuando estemos creando un test mediante el creador de tests que desarrollaremos))
+        this.idTest = null; // (number) (se rescata de la BB.DD / se puede inventar desde el constructor con fines de pruebas internas del equipo de desarrollo, no se puede crear (cuando estemos creando un test mediante el creador de tests que desarrollaremos))
         this.length = null; // (number) (se rescata de la BB.DD / se rescata del objeto preguntas (cuando se esté creando un test con el creador de test que desarrollaremos))
         this.preguntas = null; // (array de objetos JSON) (se rescatan de la BB.DD / se pueden crear, modificar y eliminar con métodos específicos para ello)
 
@@ -45,28 +46,33 @@ export class Test {
         this.idUsuarioCreador = null; // (number) (se rescata de la BB.DD / no se puede asignar de otra forma, cuando un usuario cree un test desde el creador de tests, será desde el backend desde donde se reciba el id del usuario y se le asignará allí antes de guardar los datos en la BB.DD. Pero desde el frontend partirá con valor null)
         this.nombreUsuarioCreador = null; // (string) (se rescata de la BB.DD / no se puede asignar de otra forma, cuando un usuario cree un test desde el creador de tests, será desde el backend desde donde se reciba el id del usuario y se le asignará allí antes de guardar los datos en la BB.DD. Pero desde el frontend partirá con valor null)
 
-        this.id_materia = null; // (number) (se rescata de la BB.DD / se asigna con el setter desde el controlador, cuando el usuario esté creando un test en el creador de tests)
-        this.nombre_materia = null; // (string) (se rescata de la BB.DD / se asigna con el setter desde el controlador, cuando el usuario esté creando un test en el creador de tests)
+        this.idMateria = null; // (number, valor basado en los índices del array de Materias de MateriaModel.js) (se rescata de MateriaModel.js / se asigna con el setter desde el controlador, cuando el usuario esté creando un test en el creador de tests)
+        this.nombreMateria = null; // (string) (se rescata de la BB.DD / se asigna con el setter desde el controlador, cuando el usuario esté creando un test en el creador de tests)
 
-        this.id_usuario = null; // (number) (se rescata de la BB.DD desde el servidor)
+        this.idUsuarioRealizador = null; // (number) (se rescata de la BB.DD desde el servidor)
         this.nota = null; // (number) (se rescata de la BB.DD / se asigna con el setter desde el controlador)
-        this.fecha_realizacion = null; // (Date) (se rescata de la BB.DD / se asigna con el setter desde el controlador)
+        this.fechaRealizacion = null; // (Date) (se rescata de la BB.DD / se asigna con el setter desde el controlador)
         
         /*===========================================
                 Rellena todos los parámetros
         ============================================*/
-        /*-- Rellena los atributos en función de los parámetros que reciba el constructor --*/
-        if (typeof(idTest) == "number") {
-            /*-- Atributos del test en sí --*/
-            this.id_test = idTest;
+        /*-- Rellena los atributos de preguntas y size --*/
+        if (preguntas instanceof Array) {
+            this.preguntas = preguntas;
+            this.size = preguntas.length;
+        } else {
+            this.size = 0;
         }
 
-        /*-- Rellena los atributos de preguntas y length --*/
-        if (preguntas && typeof(preguntas) == "object" && preguntas instanceof Array) {
-            this.preguntas = preguntas;
-            this.length = preguntas.length;
-        } else {
-            this.length = 0;
+        /*-- Rellena los atributos en función de los parámetros que reciba el constructor --*/
+        if (typeof(nombre) == "string") {
+            this.nombreTest = nombre;
+        }
+        if (typeof(descripcion) == "string") {
+            this.descripcion = descripcion;
+        }
+        if (typeof(idMateria) == "number" && idMateria >= 0 && idMateria < Materias.length) {
+            this.idMateria = idMateria;
         }
     }
 
@@ -75,15 +81,22 @@ export class Test {
      * @returns El ID del test en la BB.DD.
      */
     getIdTest() {
-        return this.id_test;
+        return this.idTest;
     }
 
     /**
      * Devuelve el tamaño del test (nº de preguntas).
      * @returns El tamaño del test (nº de preguntas).
      */
-    getLength() {
-        return this.length;
+    getSize() {
+        return this.size;
+    }
+
+    /**
+     * Devuelve la longitud del array interno de preguntas almacenadas en él.
+     */
+    length() {
+        return this.preguntas.length;
     }
 
     /**
@@ -100,7 +113,7 @@ export class Test {
      */
     addPregunta(pregunta) {
         this.preguntas.push(pregunta);
-        this.length++;
+        this.size++;
     }
 
     /**
@@ -118,7 +131,7 @@ export class Test {
      */
     removePregunta(idPregunta) {
         this.preguntas.splice(idPregunta, 1);
-        this.length--;
+        this.size--;
     }
 
     /**
@@ -182,7 +195,7 @@ export class Test {
      * @param {number} idMateria Especifica el ID de la materia a la que pertenece este test.
      */
     setIDMateria(idMateria) {
-        this.id_materia = idMateria;
+        this.idMateria = idMateria;
     }
 
     /**
@@ -190,7 +203,7 @@ export class Test {
      * @returns El id de la materia a la que pertenece este test.
      */
     getIDMateria() {
-        return this.id_materia;
+        return this.idMateria;
     }
 
     /**
@@ -198,7 +211,7 @@ export class Test {
      * @param {number} idMateria Especifica el nombre de la materia a la que pertenece este test.
      */
     setNombreMateria(nombreMateria) {
-        this.nombre_materia = nombreMateria;
+        this.nombreMateria = nombreMateria;
     }
 
     /**
@@ -206,7 +219,7 @@ export class Test {
      * @returns El nombre de la materia a la que pertenece este test.
      */
     getNombreMateria() {
-        return this.nombre_materia;
+        return this.nombreMateria;
     }
 
     /**
@@ -214,7 +227,7 @@ export class Test {
      * @returns El id del usuario que ha hecho/está haciendo el test.
      */
     getIDUsuario() {
-        return this.id_usuario;
+        return this.idUsuarioRealizador;
     }
 
     /**
@@ -222,7 +235,7 @@ export class Test {
      * @param {number} idMateria Especifica la nota que está sacando el usuario en el test.
      */
     setNota(nombreMateria) {
-        this.nombre_materia = nombreMateria;
+        this.nombreMateria = nombreMateria;
     }
 
     /**
@@ -238,7 +251,7 @@ export class Test {
      * @param {Date} fechaRealizacion Especifica lla fecha de realización en la que el usuario ha hecho o está haciendo el test.
      */
     setNota(fechaRealizacion) {
-        this.fecha_realizacion = fechaRealizacion;
+        this.fechaRealizacion = fechaRealizacion;
     }
 
     /**
@@ -246,7 +259,7 @@ export class Test {
      * @returns La fecha de realización en la que el usuario ha hecho o está haciendo el test.
      */
     getFechaRealizacion() {
-        return this.fecha_realizacion;
+        return this.fechaRealizacion;
     }
 
     /**
@@ -261,7 +274,7 @@ export class Test {
      */
     downloadInfoAboutTestByIdTest() {
         /*-- Obtiene los datos del servidor --*/
-        apij.obtenerJSON(globals.constantes.HOST_NAME + globals.constantes.RUTA_TESTS, "GET", null, {idTest: this.id_test, diezPreguntasHasta: 10})
+        apij.obtenerJSON(globals.constantes.HOST_NAME + globals.constantes.RUTA_TESTS, "GET", null, {idTest: this.idTest, diezPreguntasHasta: 10})
         .then(response => {
             // ... To do
         }).catch(error => {
@@ -281,7 +294,7 @@ export class Test {
         // let preguntas = Array(); // Aquí se almacenarán las preguntas del test que se recojan del servidor
     
         /*-- Obtiene los datos del servidor --*/
-        apij.obtenerJSON(globals.constantes.HOST_NAME + globals.constantes.RUTA_PREGUNTAS, "GET", null, {idTest: this.id_test, diezPreguntasHasta: 10})
+        apij.obtenerJSON(globals.constantes.HOST_NAME + globals.constantes.RUTA_PREGUNTAS, "GET", null, {idTest: this.idTest, diezPreguntasHasta: 10})
         /* diezPreguntasHasta es un parámetro que se le pasa al servidor para indicarle que, por ejemplo, si estamos en viendo las preguntas del 1-10 y queremos ver las siguientes 10,
         se lo especificamos diciéndole que diezPreguntasHasta = 20, porque serían 10 preguntas desde la pregunta número 10 (que es la última visible en la página hasta el momento) */
         .then(response => {
@@ -298,27 +311,28 @@ export class Test {
     /**
      * Método que descarga del servidor (si existe) la información del usuario que ha realizado este intento del test.
      * Es decir, descarga su nota, dado un id de usuario y una fecha de realización (si existen).
-     * @param {number} idUsuario Especifica el id del usuario que ha realizado el intento del test.
-     * @param {Date} fechaRealizacion Especifica la fecha en la que el usuario realizó el intento del test.
+     * @param {number} idTestRealizado Especifica el id del usuario que ha realizado el intento del test.
      */
-    downloadInfoIntentoUsuario(idUsuario, fechaRealizacion) {
+    downloadInfoIntentoUsuario(idTestRealizado) {
         /*-- Descarta que el idUsuario no sea válido --*/
-        if (!idUsuario || typeof(idUsuario) != "number") {
-            return;
+        if (idTestRealizado != "number") {
+            throw new Error("No has especificado un id de test realizado.")
+        }
+        if (idTestRealizado < 1) {
+            throw new Error("El id de test realizado especificado no es válido. Ha de ser mayor o igual que 1.")
         }
 
-        /*-- Descarta que la fechaRealizacion no sea válida --*/
-        if (!fechaRealizacion || typeof(fechaRealizacion) != "object" || fechaRealizacion instanceof Date == false) {
-            return;
-        }
+        /*-- Creación de variables temporales --*/
+        let nota = null;
+        let idUsuario = null;
+        let fechaRealizacion = null;
 
         /*-- Descarta que la info no exista en el servidor --*/
-        let nota = null;
         // ... To do
 
         /*-- Descarga la nota y establece los datos en el objeto Test --*/
-        this.id_usuario = idUsuario;
-        this.fecha_realizacion = fechaRealizacion;
+        this.idUsuarioRealizador = idUsuario;
+        this.fechaRealizacion = fechaRealizacion;
         this.nota = nota;
     }
 }
@@ -331,7 +345,7 @@ export class Test {
  * Función para crear un test random con múltiples respuestas, con el único fin de realizar pruebas mientras no se tenga implementada la parte del lado del servidor.
  * @param {number} nPreguntas Especifica el numero de preguntas que quieres que tenga el test random.
  */
-export function crearTestMultiplesRespuestasRandom(nPreguntas) {
+function crearTestMultiplesRespuestasRandom(nPreguntas) {
     /*-- Creación de variables --*/
     let test;
     let preguntas = Array();
@@ -365,7 +379,7 @@ export function crearTestMultiplesRespuestasRandom(nPreguntas) {
  * @param {number} nPreguntas Especifica el número de preguntas que quieres que tenga el test random.
  * @returns Un test random de única respuesta posible (tiene que ser escrita).
  */
-export function crearTestRespuestaUnica(nPreguntas) {
+function crearTestRespuestaUnica(nPreguntas) {
     /*-- Creación de variables --*/
     let test;
     let preguntas = Array();
@@ -376,7 +390,7 @@ export function crearTestRespuestaUnica(nPreguntas) {
         preguntas.push(
             {
                 "id_pregunta": i + 1,
-                "id_test": utilities.Random.randomInt(),
+                "id_test": Random.randomInt(),
                 "nombre_pregunta": "Formulación de la pregunta " + (i + 1),
                 datos_pregunta: {
                     respuesta: palabras[utilities.Random.randomInt(0, palabras.length)]
@@ -397,7 +411,7 @@ export function crearTestRespuestaUnica(nPreguntas) {
  * @param {number} nPreguntas Especifica el número de preguntas que quieres que tenga el test random.
  * @returns Un test random de única respuesta posible (tiene que ser escrita).
  */
-export function crearTestRellenarHuecos(nPreguntas) {
+function crearTestRellenarHuecos(nPreguntas) {
     /*-- Creación de variables --*/
     let test;
     let preguntas = Array();
@@ -411,12 +425,10 @@ export function crearTestRellenarHuecos(nPreguntas) {
                 "id_test": utilities.Random.randomInt(),
                 "nombre_pregunta": "Formulación de la pregunta " + (i + 1),
                 datos_pregunta: {
-                    huecos: {
-                        "Hueco 1": palabras[utilities.Random.randomInt(0, palabras.length)],
-                        "Hueco 2": palabras[utilities.Random.randomInt(0, palabras.length)],
-                        "Hueco 3": palabras[utilities.Random.randomInt(0, palabras.length)],
-                        "Hueco 4": palabras[utilities.Random.randomInt(0, palabras.length)]
-                    }
+                    "Hueco 1": palabras[utilities.Random.randomInt(0, palabras.length)],
+                    "Hueco 2": palabras[utilities.Random.randomInt(0, palabras.length)],
+                    "Hueco 3": palabras[utilities.Random.randomInt(0, palabras.length)],
+                    "Hueco 4": palabras[utilities.Random.randomInt(0, palabras.length)]
                 }
             }
         );

@@ -2,8 +2,8 @@
 /*=====================================
             IMPORTACIONES
  =====================================*/
-import * as modelo from './TestModel.js';
-import * as vista from './TestView.js';
+// import * as modelo from './TestModel.js';
+// import * as vista from './TestView.js';
 
 /*==========================================
         MÉTODOS ASOCIADOS AL CONTROLADOR

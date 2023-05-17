@@ -302,8 +302,8 @@ class Test {
         se lo especificamos diciéndole que diezPreguntasHasta = 20, porque serían 10 preguntas desde la pregunta número 10 (que es la última visible en la página hasta el momento) */
         .then(response => {
             this.idTest = response.id_test;
-            // delete response.id_test
-            // response.datos_pregunta = JSON.parse(response.datos_pregunta);
+            delete response.id_test
+            response.datos_pregunta = JSON.parse(response.datos_pregunta);
             this.addPregunta(response);
         }).catch(error => {
             /*-- Descarta que haya dado error --*/

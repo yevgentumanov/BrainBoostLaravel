@@ -7,13 +7,35 @@
     <title>Document</title>
 
     <script src="utilidades.js"></script>
-    
+    <script src="globals.js"></script>
+    <script src="./JSON/api_rest.js"></script>    
+
     <script src="MateriaModel.js"></script>
     <script src="TestModel.js"></script>
     <script src="TestView.js"></script>
     <script src="TestController.js"></script>
 </head>
 <body>
-    
+    <script>
+        let test1 = new Test();
+        test1.downloadQuestionsByIdTest();
+        console.log(test1);
+        // obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_PREGUNTAS, "GET", null, null)
+        // .then(response => {
+        //     console.log(response);
+        // })
+
+        // fetch(Rutas.HOST_NAME + Rutas.RUTA_PREGUNTAS, {method: "GET", 'Content-Type': 'application/json',
+        // 'Accept': 'application/json', "Access-Control-Allow-Origin": "no-cors"})
+        // .then(response => {
+        //     if (response.ok) {
+        //         return response.json();
+        //     }
+        // })
+        // .then(responseText => {
+        //     console.log(responseText);
+        // })
+        // obtenerJSON("https://jsonplaceholder.typicode.com/users", "GET", null)
+    </script>
 </body>
 </html>

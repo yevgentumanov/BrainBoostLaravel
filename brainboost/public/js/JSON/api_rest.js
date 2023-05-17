@@ -3,7 +3,7 @@
  * Para comprender cómo funciona el método que acontece, es necesario ver cómo funcionan las promesas de JavaScript:
  * https://desarrolloweb.com/articulos/introduccion-promesas-es6.html
  * @author Santiago San Pablo Raposo
- * @version 13.05.2023
+ * @version 17.05.2023
  */
 
 /**
@@ -29,6 +29,7 @@ function obtenerJSON(url, metodo = "GET", headers = null, datos = null, controll
 
         /*-- Efectúa la petición al servidor --*/
         let objFetch;
+        let config = {method: metodo};
         switch (metodo) {
             case "GET":
                 /*-- Prepara los parámetros en un objeto de tipo URL --*/
@@ -37,10 +38,15 @@ function obtenerJSON(url, metodo = "GET", headers = null, datos = null, controll
                     direccion.searchParams.append(key, datos[key]);
                 }
 
+                /*-- Config --*/
+                if (headers != null && headers instanceof Object) {
+                    config.headers = headers;
+                }
+
                 /*-- Realiza la petición al servidor --*/
-                objFetch = fetch(direccion, {method: metodo, "headers": headers})
+                objFetch = fetch(direccion, config)
                     .then(response => {
-                        console.dir(response);
+                        // console.dir(response);
                         if (response.ok) {
                             return response.text();
                         } else {
@@ -64,9 +70,18 @@ function obtenerJSON(url, metodo = "GET", headers = null, datos = null, controll
                     parametros.append(key, datos[key]);
                 }
 
+                /*-- Config --*/
+                if (headers != null && headers instanceof Object) {
+                    config.headers = headers;
+                }
+                if (body != null && body instanceof Object) {
+                    config.body = body;
+                }
+
                 /*-- Realiza la petición al servidor --*/
-                objFetch = fetch(url, {method: metodo, "headers": headers, body: datos})
+                objFetch = fetch(url, config)
                     .then(response => {
+                        // console.dir(response);
                         if (response.ok) {
                             return response.text();
                         } else {

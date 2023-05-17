@@ -1,8 +1,0 @@
-{
-    "constantes": {
-        "HOST_NAME": "http://localhost/Proyectos/BrainBoost",
-        "RUTA_PREGUNTAS": "/preguntas",
-        "RUTA_TESTS": "/tests",
-        "RUTA_USUARIOS": "/usuarios"
-    }
-}

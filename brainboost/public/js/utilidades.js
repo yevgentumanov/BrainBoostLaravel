@@ -27,7 +27,3 @@ function copyObject(obj) {
     }
     return result;
 }
-
-function hola() {
-    console.log("Hola soy utilidades.js");
-}

@@ -9,18 +9,18 @@
         MÉTODOS ASOCIADOS A LA VISTA
 ===========================================*/
 
-function prueba() {
-    let prueba = new model.Test(utilities.Random.randomInt(1, 100), [
-        {"id_pregunta": 1, "id_test": 1, "nombre_pregunta": "Formulación de la pregunta 1", "respuestas":
-        ["Respuesta A", "Respuesta B", "Respuesta C", "Respuesta D"],
-        "respuesta_correcta": "Respuesta B"},
+// function prueba() {
+//     let prueba = new model.Test(utilities.Random.randomInt(1, 100), [
+//         {"id_pregunta": 1, "id_test": 1, "nombre_pregunta": "Formulación de la pregunta 1", "respuestas":
+//         ["Respuesta A", "Respuesta B", "Respuesta C", "Respuesta D"],
+//         "respuesta_correcta": "Respuesta B"},
     
-        {"id_pregunta": 2, "id_test": 1, "nombre_pregunta": "Formulación de la pregunta 2", "respuestas":
-        ["Respuesta A", "Respuesta B", "Respuesta C", "Respuesta D"],
-        "respuesta_correcta": "Respuesta C"}
-    ]);
+//         {"id_pregunta": 2, "id_test": 1, "nombre_pregunta": "Formulación de la pregunta 2", "respuestas":
+//         ["Respuesta A", "Respuesta B", "Respuesta C", "Respuesta D"],
+//         "respuesta_correcta": "Respuesta C"}
+//     ]);
 
-    console.log(prueba.getLength());
+//     console.log(prueba.getLength());
 
-    let prueba2 = model.crearTestRespuestaUnica(10);
-}
+//     let prueba2 = model.crearTestRespuestaUnica(10);
+// }

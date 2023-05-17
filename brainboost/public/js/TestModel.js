@@ -9,6 +9,7 @@
 /*====================================
             ENUMERADOS
 ======================================*/
+
 const TipoPregunta = {
     NONE: 0, // No se ha definido el tipo de pregunta
     MULTIPLE_RESPONSE: 1, // Múltiples respuestas, única opción correcta
@@ -56,6 +57,7 @@ class Test {
         /*===========================================
                 Rellena todos los parámetros
         ============================================*/
+        this.preguntas = Array();
         /*-- Rellena los atributos de preguntas y size --*/
         if (preguntas instanceof Array) {
             this.preguntas = preguntas;
@@ -274,9 +276,9 @@ class Test {
      */
     downloadInfoAboutTestByIdTest() {
         /*-- Obtiene los datos del servidor --*/
-        apij.obtenerJSON(globals.constantes.HOST_NAME + globals.constantes.RUTA_TESTS, "GET", null, {idTest: this.idTest, diezPreguntasHasta: 10})
+        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_TESTS, "GET", null, {idTest: this.idTest, diezPreguntasHasta: 10})
         .then(response => {
-            // ... To do
+            // To do
         }).catch(error => {
             /*-- Descarta que haya dado error --*/
             throw new Error("Se ha producido un error al intentar descargar la información de las preguntas del servidor. Mensaje de error: " + error.message);
@@ -294,11 +296,15 @@ class Test {
         // let preguntas = Array(); // Aquí se almacenarán las preguntas del test que se recojan del servidor
     
         /*-- Obtiene los datos del servidor --*/
-        apij.obtenerJSON(globals.constantes.HOST_NAME + globals.constantes.RUTA_PREGUNTAS, "GET", null, {idTest: this.idTest, diezPreguntasHasta: 10})
+        // datos cabecera (sustituir segundo null): {idTest: this.idTest, diezPreguntasHasta: 10}
+        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_PREGUNTAS, "GET", null, null)
         /* diezPreguntasHasta es un parámetro que se le pasa al servidor para indicarle que, por ejemplo, si estamos en viendo las preguntas del 1-10 y queremos ver las siguientes 10,
         se lo especificamos diciéndole que diezPreguntasHasta = 20, porque serían 10 preguntas desde la pregunta número 10 (que es la última visible en la página hasta el momento) */
         .then(response => {
-            this.preguntas.push(response); // Revisar a ver si está bien o no cuando esté implementada la parte del lado del servidor
+            this.idTest = response.id_test;
+            // delete response.id_test
+            // response.datos_pregunta = JSON.parse(response.datos_pregunta);
+            this.addPregunta(response);
         }).catch(error => {
             /*-- Descarta que haya dado error --*/
             throw new Error("Se ha producido un error al intentar descargar la información de las preguntas del servidor. Mensaje de error: " + error.message);

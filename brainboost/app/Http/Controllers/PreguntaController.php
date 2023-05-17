@@ -11,6 +11,10 @@ class PreguntaController extends Controller
     public function showFirst()
     {
         $pregunta = Pregunta::first();
-        return view('preguntas', compact('pregunta'));
+        $originalArray = $pregunta->getOriginal(); // Access the #original array
+        $json = json_encode($originalArray); // Convert the array to JSON
+
+        return view('preguntas', compact('json'));
     }
+
 }

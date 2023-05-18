@@ -10,6 +10,12 @@ use Illuminate\Database\Eloquent\Builder;
 
 class TestController extends Controller
 {
+    public function showTest(Test $test) {
+        // $test = Test::find($request->get("id"));
+        // return view("test")->with("test", $test);
+        return view("test");
+    }
+
     public function showFirstTest()
     {
         $test = Test::first();
@@ -34,11 +40,11 @@ class TestController extends Controller
     {
         $tests = Test::where('id_materia', 5)->get();
         return view('materias.сienciasNaturales', ['tests' => $tests]);
-    }    public function showTestListMatematicas()
+    }
+    public function showTestListMatematicas()
     {
         $tests = Test::where('id_materia', 18)->get();
         return view('materias.matematicas', ['tests' => $tests]);
     }
-
 
 }

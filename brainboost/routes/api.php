@@ -22,5 +22,7 @@ use App\Http\Controllers\Api\PreguntasController;
 //Route::get('/primerapregunta', [PreguntaController::class, 'showFirst']);
 //Route::get('/todaspreguntas', [PreguntaController::class, 'showAll']);
 
-
-Route::apiResource('pregunta', PreguntasController::class);
+/*--  Ver: https://stackoverflow.com/questions/54721576/laravel-route-apiresource-difference-between-apiresource-and-resource-in-route --*/
+// Route::apiResource('pregunta', PreguntasController::class);
+// En TestModel.js se necesita enviar por get/post para que se hagan de manera correcta las solicitudes a la API
+Route::get("pregunta", [PreguntasController::class, "show"]);

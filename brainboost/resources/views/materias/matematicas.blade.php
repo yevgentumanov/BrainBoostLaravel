@@ -1,4 +1,4 @@
-<!-- Inluimos head de la pagina -->
+<!-- Incluimos head de la pagina -->
 @include('fragments.head')
 
 <body>

@@ -287,9 +287,11 @@ class Test {
 
     /**
      * Método que descarga del servidor las 10 siguientes preguntas (y sus respuestas).
+     * 
+     * @param idTest Especifica el id del test del que se quieren descargar las preguntas.
      * @throws {Error} Puede lanzar un error si no consigue descargar la información de las preguntas del servidor.
      */
-    downloadQuestionsByIdTest() {
+    downloadQuestionsByIdTest(idTest) {
         // irregular[0].tabla_preguntas[0]['Forma base'] // Esta línea no sirve para nada, era solo una prueba, lo borraré
 
         /*-- Creación de un array de Tests --*/
@@ -297,14 +299,22 @@ class Test {
     
         /*-- Obtiene los datos del servidor --*/
         // datos cabecera (sustituir segundo null): {idTest: this.idTest, diezPreguntasHasta: 10}
-        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_PREGUNTAS, "GET", null, null)
+        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_PREGUNTAS, "GET", null, {id: idTest})
+        
         /* diezPreguntasHasta es un parámetro que se le pasa al servidor para indicarle que, por ejemplo, si estamos en viendo las preguntas del 1-10 y queremos ver las siguientes 10,
         se lo especificamos diciéndole que diezPreguntasHasta = 20, porque serían 10 preguntas desde la pregunta número 10 (que es la última visible en la página hasta el momento) */
         .then(response => {
-            this.idTest = response.id_test;
-            delete response.id_test
-            response.datos_pregunta = JSON.parse(response.datos_pregunta);
-            this.addPregunta(response);
+            response.forEach(pregunta => {
+                // if (this.idTest == null) {
+                //     this.idTest = response.id_test;
+                // }
+                // delete response.id_test;
+                this.idTest = idTest;
+
+                /*-- Agrega la pregunta al array de preguntas --*/
+                pregunta.datos_pregunta = JSON.parse(pregunta.datos_pregunta);
+                this.addPregunta(pregunta);
+            });
         }).catch(error => {
             /*-- Descarta que haya dado error --*/
             throw new Error("Se ha producido un error al intentar descargar la información de las preguntas del servidor. Mensaje de error: " + error.message);

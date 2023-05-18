@@ -15,10 +15,10 @@ const ModeAppEnum = {
 const modeApp = ModeAppEnum.PRODUCTION;
 
 const Rutas = {
-    "HOST_NAME": modeApp == ModeAppEnum.PRODUCTION ? 
+    "HOST_NAME": modeApp == ModeAppEnum.LOCALDEBUG ? 
                         "https://www.clinicadentalsanandres.com/BrainBoostLaravel/brainboost/public" :
                         "http://localhost/Proyectos/BrainBoostLaravel/brainboost/public",
-    "RUTA_PREGUNTAS": "/preguntas",
-    "RUTA_TESTS": "/tests",
-    "RUTA_USUARIOS": "/usuarios"
+    "RUTA_PREGUNTAS": "/api/pregunta",
+    "RUTA_TESTS": "/api/tests",
+    "RUTA_USUARIOS": "/api/usuarios"
 }

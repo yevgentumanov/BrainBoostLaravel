@@ -17,6 +17,13 @@ use App\Http\Controllers\UsuariosController;
 |
 */
 
+/*=============================================================
+                    REGLAS
+=============================================================*/
+// Route::get('/prueba', [Prueba::class, "vistaInicial"]); // Esta es la mejor manera para vincular con controladores
+// Route::get("/prueba", "\App\Http\Controllers\Prueba@vistaInicial"); // Si se quiere hacer sin el use de arriba
+// Route::get("/prueba", "Prueba@vistaInicial"); // No funciona
+
 /*============================================================
             PAGINAS WEB DEFINIDAS
 =============================================================*/
@@ -25,14 +32,19 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
-
-
-// rutas de las materias
+// Rutas de las materias
 Route::get('/artes', [TestController::class, 'showTestListArtes'])->name('artes');
 Route::get('/musica', [TestController::class, 'showTestListMusica'])->name('musica');
 Route::get('/cienciasnaturales', [TestController::class, 'showTestListCienciasNaturales'])->name('cienciasnaturales');
 Route::get('/matematicas', [TestController::class, 'showTestListMatematicas'])->name('matematicas');
 
+// Ruta de los tests individuales
+// Route::get('/test', function () {
+//     return view('test');
+// })->name("test");
+Route::get('/test/{test}', [TestController::class, 'showTest'])->name("test");
+
+Route::get('/test/first', [TestController::class, 'showFirstTest']);
 
 // por arreglar
 
@@ -44,17 +56,10 @@ Route::get('/pruebaLogicaApp', function () {
     return view('pruebaLogicaApp');
 })->name("prueba");
 
-Route::get('/test', function () {
-    return view('test');
-})->name("test");
-
-Route::get('/prueba', [Prueba::class, "vistaInicial"]);
-// Route::get("/prueba", "\App\Http\Controllers\Prueba@vistaInicial"); // Si se quiere hacer sin el use de arriba
-// Route::get("/prueba", "Prueba@vistaInicial"); // No funciona
 
 Route::get('/tmateria', 'App\Http\Controllers\MateriaController@index');
 //Route::get('/tmateria2', [MateriaController::class, 'index']);
 
-Route::get('/test/first', [TestController::class, 'showFirstTest']);
+
 
 Route::get('/usuarios/first', [UsuariosController::class, 'showFirst']);

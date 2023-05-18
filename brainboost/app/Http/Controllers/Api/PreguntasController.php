@@ -27,10 +27,16 @@ class PreguntasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id_test)
+    public function show(Request $request, string $id_test = null)
     {
-//        return Pregunta::find($id_test);
+        if (!isset($id_test)) {
+            $id_test = $request->get("id");
+        }
+        if (!isset($id_test) && !isset($id_test)) {
+            return $this->index();
+        }
 
+//        return Pregunta::find($id_test);
         $preguntas = Pregunta::where('id_test', $id_test)->get();
 
         return response()->json($preguntas);

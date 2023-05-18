@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PreguntaController;
+use App\Http\Controllers\Api\PreguntasController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+
+//Route::get('/primerapregunta', [PreguntaController::class, 'showFirst']);
+//Route::get('/todaspreguntas', [PreguntaController::class, 'showAll']);
+
+
+Route::apiResource('pregunta', PreguntasController::class);

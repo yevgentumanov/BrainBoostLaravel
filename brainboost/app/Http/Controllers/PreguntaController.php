@@ -12,10 +12,11 @@ class PreguntaController extends Controller
     {
         $pregunta = Pregunta::first();
         $originalArray = $pregunta->getOriginal(); // Access the #original array
-        // $json = json_encode($originalArray); // Convert the array to JSON
-
         return response()->json($originalArray);
-        // return view('preguntas', compact('json'));
+    }
+    public function showAll()
+    {
+        return Pregunta::all();
     }
 
 }

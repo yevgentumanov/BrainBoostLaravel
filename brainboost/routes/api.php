@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PreguntaController;
 use App\Http\Controllers\Api\PreguntasController;
+use App\Http\Controllers\Api\TestUsuarioController;
 
 
 /*
@@ -26,3 +27,11 @@ use App\Http\Controllers\Api\PreguntasController;
 // Route::apiResource('pregunta', PreguntasController::class);
 // En TestModel.js se necesita enviar por get/post para que se hagan de manera correcta las solicitudes a la API
 Route::get("pregunta", [PreguntasController::class, "show"]);
+
+Route::group(['prefix' => 'api'], function () {
+    Route::get('/test-usuarios', [TestUsuarioController::class, 'index']);
+    Route::post('/test-usuarios', [TestUsuarioController::class, 'store']);
+    Route::get('/test-usuarios/{id}', [TestUsuarioController::class, 'show']);
+    Route::put('/test-usuarios/{id}', [TestUsuarioController::class, 'update']);
+    Route::delete('/test-usuarios/{id}', [TestUsuarioController::class, 'destroy']);
+});

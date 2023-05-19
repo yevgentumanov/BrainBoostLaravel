@@ -32,7 +32,7 @@ class PreguntasController extends Controller
         if (!isset($id_test)) {
             $id_test = $request->get("id");
         }
-        if (!isset($id_test) && !isset($id_test)) {
+        if (!isset($id_test) && !isset($id_test)) { // esto no tiene sentido...
             return $this->index();
         }
 

@@ -57,9 +57,9 @@
         </div>
     </div>
     <div class="col-12 col-md-6 col-lg-3 order-md-1 d-flex align-items-center">
-        <img src="images/logo.png" height="150px" class="d-none mx-auto d-md-block"
+        <img src="{!! asset('images/logo.png') !!}" height="150px" class="d-none mx-auto d-md-block"
              style="width: 100%; height: fit-content;" alt="Logo">
-        <img src="images/logo.png" height="100px" class="mx-auto d-md-none"
+        <img src="{!! asset('images/logo.png') !!}" height="100px" class="mx-auto d-md-none"
              style="width: 100%; height: fit-content;" alt="Logo">
     </div>
 </footer>

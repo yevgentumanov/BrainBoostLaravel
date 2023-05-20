@@ -9,18 +9,22 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('MATERIAS', function (Blueprint $table) {
-            $table->id();
-            $table->strin("nombre_materia");
+        Schema::create('materias', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('id_categoria');
+            $table->string('nombre_materia', 50);
+            $table->string('descripcion', 1500)->nullable();
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('materias');
     }

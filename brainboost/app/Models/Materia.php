@@ -2,10 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Materia extends Model
+class TableName extends Model
 {
-    use HasFactory;
+    protected $table = 'materias';
+    protected $primaryKey = 'id';
+    public $timestamps = false;
+
+    protected $fillable = [
+        'id_categoria',
+        'nombre_materia',
+        'descripcion',
+    ];
+
+    // Define any additional properties or methods for the model here
 }

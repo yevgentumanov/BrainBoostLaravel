@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('descripcion', 250);
             $table->unsignedInteger('numero_visitas')->default(0);
             $table->unsignedBigInteger('id_usuario_creador');
-            $table->timestamps();
+            $table->timestamp('fecha_creacion')->nullable()->useCurrent();
 
             $table->foreign('id_materia')->references('id')->on('materias');
             $table->foreign('id_usuario_creador')->references('id')->on('users');

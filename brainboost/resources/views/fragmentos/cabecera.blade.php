@@ -1,7 +1,7 @@
 <!-- Barra de la cabecera con los social-links -->
 <header>
     <!-- Barra de navegación con el logotipo, la barra de búsqueda y el login -->
-    <nav class="row navbar navbar-expand-sm bg-dark navbar-dark">
+    <nav class="row navbar navbar-expand-sm bg-ligth navbar-dark">
         <!-- Logo -->
         <div class="col-6">
             <a class="navbar-brand" href="{{ route('index') }}">

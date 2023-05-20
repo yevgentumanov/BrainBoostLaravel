@@ -14,8 +14,8 @@ class Materia extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'id_materia',
-        'nombre_test',
+        'id_categoria',
+        'nombre_materia',
         'descripcion'
     ];
 }

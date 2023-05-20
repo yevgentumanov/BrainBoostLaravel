@@ -28,7 +28,7 @@
 
                 <script>
                     const rutaDesglosada = document.location.href.split("/");
-                    const id = rutaDesglosada[rutaDesglosada.length - 1];
+                    const id = Number.parseInt(rutaDesglosada[rutaDesglosada.length - 1]);
                     
                     let test1 = new Test();
                     test1.downloadQuestionsByIdTest(id);

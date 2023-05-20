@@ -12,8 +12,8 @@ class TestController extends Controller
 {
     public function showTest(Test $test) {
         // $test = Test::find($request->get("id"));
-        // return view("test")->with("test", $test);
-        return view("test");
+        // return view("test")->with("test", $test); // Solo usar para fines de testing
+        return view("test"); // Uso en entorno de producción
     }
 
     public function showFirstTest()

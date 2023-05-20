@@ -33,12 +33,6 @@ Route::get('/', function () { return view('index'); })->name('index');
 // Ruta genérica para las páginas de las diferentes materias
 Route::get('/materia/{nombreMateria}', [MateriaController::class, 'index'])->name('materia');
 
-// Rutas de las materias
-Route::get('/artes', [TestController::class, 'showTestListArtes'])->name('artes');
-Route::get('/musica', [TestController::class, 'showTestListMusica'])->name('musica');
-Route::get('/cienciasnaturales', [TestController::class, 'showTestListCienciasNaturales'])->name('cienciasnaturales');
-Route::get('/matematicas', [TestController::class, 'showTestListMatematicas'])->name('matematicas');
-
 // Ruta de los tests individuales
 // Route::get('/test', function () {
 //     return view('test');

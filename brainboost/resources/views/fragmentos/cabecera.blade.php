@@ -60,58 +60,58 @@
         <!-- Links -->
         <ul class="collapse navbar-collapse" id="navbarArtes">
             <a class="nav-link"
-                href="{{ route('materia', ['nombreMateria' => 'Artes', 'idMateria' => '1']) }}">Artes</a>
+                href="{{ route('materia', ['nombreMateria' => 'Artes']) }}">Artes</a>
             <a class="nav-link"
-                href="{{ route('materia', ['nombreMateria' => 'Música', 'idMateria' => '2']) }}">Música</a>
+                href="{{ route('materia', ['nombreMateria' => 'Música']) }}">Música</a>
             <a class="nav-link"
-                href="{{ route('materia', ['nombreMateria' => 'Artes Visuales', 'idMateria' => '3']) }}">Artes
+                href="{{ route('materia', ['nombreMateria' => 'Artes Visuales']) }}">Artes
                 Visuales</a>
             <a class="nav-link"
-                href="{{ route('materia', ['nombreMateria' => 'Teatro', 'idMateria' => '4']) }}">Teatro</a>
+                href="{{ route('materia', ['nombreMateria' => 'Teatro']) }}">Teatro</a>
         </ul>
         <ul class="collapse navbar-collapse" id="navbarNaturales">
             <a class="nav-link"
-                href="{{ route('materia', ['nombreMateria' => 'Ciencias Naturales', 'idMateria' => '5']) }}">Ciencias
+                href="{{ route('materia', ['nombreMateria' => 'Ciencias Naturales']) }}">Ciencias
                 Naturales</a>
             <a class="nav-link"
-                href="{{ route('materia', ['nombreMateria' => 'Biología', 'idMateria' => '6']) }}">Biología</a>
+                href="{{ route('materia', ['nombreMateria' => 'Biología']) }}">Biología</a>
             <a class="nav-link"
-                href="{{ route('materia', ['nombreMateria' => 'Química', 'idMateria' => '7']) }}">Química</a>
+                href="{{ route('materia', ['nombreMateria' => 'Química']) }}">Química</a>
             <a class="nav-link"
-                href="{{ route('materia', ['nombreMateria' => 'Física', 'idMateria' => '8']) }}">Física</a>
+                href="{{ route('materia', ['nombreMateria' => 'Física']) }}">Física</a>
             <a class="nav-link"
-                href="{{ route('materia', ['nombreMateria' => 'Educación Física', 'idMateria' => '9']) }}">Educación
+                href="{{ route('materia', ['nombreMateria' => 'Educación Física']) }}">Educación
                 Física</a>
         </ul>
         <ul class="collapse navbar-collapse" id="navbarHumanidades">
             <a class="nav-link"
-                href="{{ route('materia', ['nombreMateria' => 'Literatura', 'idMateria' => '17']) }}">Literatura</a>
+                href="{{ route('materia', ['nombreMateria' => 'Literatura']) }}">Literatura</a>
             <a class="nav-link"
-                href="{{ route('materia', ['nombreMateria' => 'Historia', 'idMateria' => '12']) }}">Historia</a>
+                href="{{ route('materia', ['nombreMateria' => 'Historia']) }}">Historia</a>
             <a class="nav-link"
-                href="{{ route('materia', ['nombreMateria' => 'Geografía', 'idMateria' => '11']) }}">Geografía</a>
+                href="{{ route('materia', ['nombreMateria' => 'Geografía']) }}">Geografía</a>
             <a class="nav-link"
-                href="{{ route('materia', ['nombreMateria' => 'Filosofía', 'idMateria' => '10']) }}">Filosofía</a>
+                href="{{ route('materia', ['nombreMateria' => 'Filosofía']) }}">Filosofía</a>
         </ul>
         <ul class="collapse navbar-collapse" id="navbarIdiomas">
             <a class="nav-link"
-                href="{{ route('materia', ['nombreMateria' => 'Inglés', 'idMateria' => '14']) }}">Inglés</a>
+                href="{{ route('materia', ['nombreMateria' => 'Inglés']) }}">Inglés</a>
             <a class="nav-link"
-                href="{{ route('materia', ['nombreMateria' => 'Francés', 'idMateria' => '15']) }}">Francés</a>
+                href="{{ route('materia', ['nombreMateria' => 'Francés']) }}">Francés</a>
             <a class="nav-link"
-                href="{{ route('materia', ['nombreMateria' => 'Italiano', 'idMateria' => '13']) }}">Italiano</a>
+                href="{{ route('materia', ['nombreMateria' => 'Italiano']) }}">Italiano</a>
             <a class="nav-link"
-                href="{{ route('materia', ['nombreMateria' => 'Alemán', 'idMateria' => '16']) }}">Alemán</a>
+                href="{{ route('materia', ['nombreMateria' => 'Alemán']) }}">Alemán</a>
         </ul>
         <ul class="collapse navbar-collapse" id="navbarMatemáticas">
             <a class="nav-link"
-                href="{{ route('materia', ['nombreMateria' => 'Matemáticas', 'idMateria' => '18']) }}">Matemáticas</a>
+                href="{{ route('materia', ['nombreMateria' => 'Matemáticas']) }}">Matemáticas</a>
         </ul>
         <ul class="collapse navbar-collapse" id="navbarTecnología">
             <a class="nav-link"
-                href="{{ route('materia', ['nombreMateria' => 'Tecnología', 'idMateria' => '19']) }}">Tecnología</a>
+                href="{{ route('materia', ['nombreMateria' => 'Tecnología']) }}">Tecnología</a>
             <a class="nav-link"
-                href="{{ route('materia', ['nombreMateria' => 'Informática', 'idMateria' => '20']) }}">Informática</a>
+                href="{{ route('materia', ['nombreMateria' => 'Informática']) }}">Informática</a>
         </ul>
 
     </nav>

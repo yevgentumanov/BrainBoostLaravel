@@ -14,13 +14,14 @@ class MateriaController extends Controller
     public function index(Request $request){
         // Recuperación de los parámetros pasados por la barra de navegación
         $nombreMateria = $request->nombreMateria;
-        $idMateria = $request->id;
 
         // Obtención de la materia
         $materia = Materia::where('nombre_materia', $nombreMateria)->first();
 
+        $idMateria = $materia->id;
+
         // Obtención de los tests de la materia
-        $tests = Test::where('id', $idMateria)->get();
+        $tests = Test::where('id_materia', $idMateria)->get();
 
         // Llamada a la vista con los parámetros obtenidos
         return view('materia', ['tests' => $tests, 'materia' => $materia]);

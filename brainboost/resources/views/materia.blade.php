@@ -5,7 +5,7 @@
         <div class="col-12">
             <section class="row bg-primary m-4">
                 <div class="col-2 p-4">
-                    <img style="width: inherit;" src="{!! asset('images/IMAGEN_DE_LA_MATERIA.png') !!}" alt="test">
+                    <img style="width: inherit;" src="{!! asset('images/materia' . $materia->id . '.jpg') !!}" alt="test">
                 </div>
                 <div class="col-10 p-4">
                     <div class="col-12">

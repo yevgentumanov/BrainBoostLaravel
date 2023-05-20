@@ -29,7 +29,7 @@ class TestController extends Controller
     public function showTestListArtes()
     {
         $tests = Test::where('id_materia', 1)->get();
-        return view('materias.artes', ['tests' => $tests]);
+        return view('materias', ['tests' => $tests]);
     }
     public function showTestListMusica()
     {

@@ -51,13 +51,12 @@
             <a class="nav-link" href="{{ route('cienciasnaturales') }}">Ciencias Naturales (Biología, Química y
                 Física)</a>
             <a class="nav-link" href="{{ route('matematicas') }}">Matemáticas</a>
-            <a class="nav-link" href="{{ route('materia') }}">Educación Física</a>
-            <a class="nav-link" href="{{ route('materia') }}">Filosofía</a>
-            <a class="nav-link" href="{{ route('materia') }}">Geografía</a>
-            <a class="nav-link" href="{{ route('materia') }}">Historia</a>
-            <a class="nav-link" href="{{ route('materia') }}">Lengua Extranjera (Inglés, Francés, Alemán, etc.)</a>
-            <a class="nav-link" href="{{ route('materia') }}">Literatura</a>
-            <a class="nav-link" href="{{ route('materia') }}">Tecnología</a>
+            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Educación Física', 'idMateria' => '9']) }}">Educación Física</a>
+            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Filosofía', 'idMateria' => '10']) }}">Filosofía</a>
+            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Geografía', 'idMateria' => '11']) }}">Geografía</a>
+            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Historia', 'idMateria' => '12']) }}">Historia</a>
+            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Literatura', 'idMateria' => '17']) }}">Literatura</a>
+            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Tecnología', 'idMateria' => '19']) }}">Tecnología</a>
         </ul>
 
     </nav>

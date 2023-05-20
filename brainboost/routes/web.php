@@ -28,9 +28,10 @@ use App\Http\Controllers\UsuariosController;
             PAGINAS WEB DEFINIDAS
 =============================================================*/
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/', function () { return view('index'); })->name('index');
+
+// Ruta genérica para las páginas de las diferentes materias
+Route::get('/materia/{nombreMateria}', [MateriaController::class, 'index'])->name('materia');
 
 // Rutas de las materias
 Route::get('/artes', [TestController::class, 'showTestListArtes'])->name('artes');
@@ -47,11 +48,11 @@ Route::get('/test/{test}', [TestController::class, 'showTest'])->name("test");
 Route::get('/test/first', [TestController::class, 'showFirstTest']);
 
 // por arreglar
-
+/*
 Route::get('/materia', function () {
     return view('materia');
 })->name("materia");
-
+*/
 Route::get('/pruebaLogicaApp', function () {
     return view('pruebaLogicaApp');
 })->name("prueba");

@@ -1,17 +1,11 @@
-<!-- Incluimos head de la pagina -->
-@include('fragments.head')
+@extends('plantillas.base')
 
-<body>
-<div class="container-fluid">
-
-    <!-- Menu superior -->
-    @include('fragments.menu')
-
+@section('main')
     <main class="row">
         <div class="col-12">
             <section class="row bg-primary m-4">
                 <div class="col-2 p-4">
-                    <img style="width: inherit;" src="{!!asset ('images/cienciasNaturales.jpg')!!}" alt="test">
+                    <img style="width: inherit;" src="{!! asset('images/cienciasNaturales.jpg') !!}" alt="test">
                 </div>
                 <div class="col-10 p-4">
                     <div class="col-12">
@@ -32,19 +26,11 @@
 
             @foreach ($tests as $test)
                 <section class="row bg-primary m-4 ">
-                    <div class="col-11 p-2">{{ $test->nombre_test }}                    </div>
+                    <div class="col-11 p-2">{{ $test->nombre_test }} </div>
                     <div class="col-1 p-2">
                         (10 preguntas)
                     </div>
                 </section>
-        @endforeach
-
+            @endforeach
     </main>
-
-    {{--    incluimos footer--}}
-    @include('fragments.footer')
-
-</div>
-</body>
-
-</html>
+@endsection

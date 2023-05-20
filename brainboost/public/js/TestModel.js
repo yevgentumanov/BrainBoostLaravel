@@ -114,6 +114,11 @@ class Test {
      * @param {object} pregunta Especifica el objeto JSON que contiene la pregunta y sus datos, tal como se muestra en los example_*.json.
      */
     addPregunta(pregunta) {
+        /*-- Realiza las validaciones --*/
+        if (typeof(pregunta) != "object") {
+            throw new Error("Se esperaba un objeto JSON como pregunta.")
+        }
+        /*-- Realiza la operación --*/
         this.preguntas.push(pregunta);
         this.size++;
     }
@@ -124,6 +129,14 @@ class Test {
      * @param {object} pregunta Especifica el objeto JSON que contiene la pregunta y sus datos, tal como se muestra en los example_*.json.
      */
     modifyPregunta(idPregunta, pregunta) {
+        /*-- Realiza las validaciones --*/
+        if (typeof(idPregunta) != "number" || idPregunta < 1) {
+            throw new Error("Se esperaba un id numérico mayor de 0 como id de pregunta.");
+        }
+        if (typeof(pregunta) != "object") {
+            throw new Error("Se esperaba un objeto JSON como pregunta.");
+        }
+        /*-- Realiza la operación --*/
         this.preguntas[idPregunta] = pregunta;
     }
 
@@ -132,6 +145,11 @@ class Test {
      * @param {number} idPregunta Especifica el id de la pregunta (id numérico para identificar dentro del array de preguntas).
      */
     removePregunta(idPregunta) {
+        /*-- Realiza las validaciones --*/
+        if (typeof(idPregunta) != "number" || idPregunta < 1) {
+            throw new Error("Se esperaba un id numérico mayor de 0 como id de pregunta.");
+        }
+        /*-- Realiza la operación --*/
         this.preguntas.splice(idPregunta, 1);
         this.size--;
     }
@@ -141,6 +159,11 @@ class Test {
      * @param {string} nombreTest Especifica el nombre del test.
      */
     setNombreTest(nombreTest) {
+        /*-- Realiza las validaciones --*/
+        if (typeof(nombreTest) != "string") {
+            throw new Error("Se esperaba una cadena de texto con el nombre del test.");
+        }
+        /*-- Realiza la operación --*/
         this.nombreTest = nombreTest;
     }
 
@@ -157,6 +180,11 @@ class Test {
      * @param {string} descripcionTest Especifica la descripción del test.
      */
     setDescripcion(descripcionTest) {
+        /*-- Realiza las validaciones --*/
+        if (typeof(descripcionTest) != "string") {
+            throw new Error("Se esperaba una cadena de texto con la descripción del test.");
+        }
+        /*-- Realiza la operación --*/
         this.descripcion = descripcionTest;
     }
 
@@ -197,6 +225,11 @@ class Test {
      * @param {number} idMateria Especifica el ID de la materia a la que pertenece este test.
      */
     setIDMateria(idMateria) {
+        /*-- Realiza las validaciones --*/
+        if (typeof(idMateria) != "number" || idMateria < 1) {
+            throw new Error("Se esperaba un id numérico mayor de 0 como id de materia.");
+        }
+        /*-- Realiza la operación --*/
         this.idMateria = idMateria;
     }
 
@@ -210,9 +243,14 @@ class Test {
 
     /**
      * Método que establece el nombre de la materia.
-     * @param {number} idMateria Especifica el nombre de la materia a la que pertenece este test.
+     * @param {number} nombreMateria Especifica el nombre de la materia a la que pertenece este test.
      */
     setNombreMateria(nombreMateria) {
+        /*-- Realiza las validaciones --*/
+        if (typeof(nombreMateria) != "string") {
+            throw new Error("Se esperaba una cadena de texto con el nombre de la materia.");
+        }
+        /*-- Realiza la operación --*/
         this.nombreMateria = nombreMateria;
     }
 
@@ -228,16 +266,32 @@ class Test {
      * Método que devuelve el id del usuario que ha hecho/está haciendo el test.
      * @returns El id del usuario que ha hecho/está haciendo el test.
      */
-    getIDUsuario() {
+    getIDUsuarioRealizador() {
         return this.idUsuarioRealizador;
     }
 
     /**
-     * Método que establece la nota que está sacando el usuario en el test.
-     * @param {number} idMateria Especifica la nota que está sacando el usuario en el test.
+     * Método que establece el usuario que ha realizado el test.
+     * @param {number} idUsuarioRealizador - Id del usuario que realiza el test.
      */
-    setNota(nombreMateria) {
-        this.nombreMateria = nombreMateria;
+    // setIDUsuarioRealizador(idUsuarioRealizador) {
+    //     if (typeof(idUsuarioRealizador) != "number" || idUsuarioRealizador < 1) {
+    //         throw new Error("Has especificado un id de usuario que no es válido.");
+    //     }
+    //     this.idUsuarioRealizador = idUsuarioRealizador;
+    // }
+
+    /**
+     * Método que establece la nota que está sacando el usuario en el test.
+     * @param {number} nota - Especifica la nota que está sacando el usuario en el test.
+     */
+    setNota(nota) {
+        /*-- Realiza las validaciones --*/
+        if (typeof(nota) != "number" || nota < 0 || nota > 10) {
+            throw new Error("Se esperaba un número mayor entre 0 y 10 como nota de test.");
+        }
+        /*-- Realiza la operación --*/
+        this.nota = nota;
     }
 
     /**
@@ -249,19 +303,22 @@ class Test {
     }
 
     /**
-     * Método que establece la fecha de realización en la que el usuario ha hecho o está haciendo el test.
-     * @param {Date} fechaRealizacion Especifica lla fecha de realización en la que el usuario ha hecho o está haciendo el test.
-     */
-    setNota(fechaRealizacion) {
-        this.fechaRealizacion = fechaRealizacion;
-    }
-
-    /**
      * Método que devuelve la fecha de realización en la que el usuario ha hecho o está haciendo el test.
      * @returns La fecha de realización en la que el usuario ha hecho o está haciendo el test.
      */
     getFechaRealizacion() {
         return this.fechaRealizacion;
+    }
+
+    /**
+     * Método que establece la fecha de realización en la que el usuario ha hecho o está haciendo el test.
+     * @param {Date} fechaRealizacion - Especifica la fecha de realización en la que el usuario ha hecho o está haciendo el test.
+     */
+    setFechaRealizacion(fechaRealizacion) {
+        if (fechaRealizacion instanceof Date == false || fechaRealizacion < 1) {
+            throw new Error("Has especificado una fecha de realización que no es válida.");
+        }
+        this.fechaRealizacion = fechaRealizacion;
     }
 
     /**
@@ -292,11 +349,10 @@ class Test {
      * @throws {Error} Puede lanzar un error si no consigue descargar la información de las preguntas del servidor.
      */
     downloadQuestionsByIdTest(idTest) {
-        // irregular[0].tabla_preguntas[0]['Forma base'] // Esta línea no sirve para nada, era solo una prueba, lo borraré
-
-        /*-- Creación de un array de Tests --*/
-        // let preguntas = Array(); // Aquí se almacenarán las preguntas del test que se recojan del servidor
-    
+        /*-- Realiza las validaciones --*/
+        if (typeof(idTest) != "number" || idTest < 1 ) {
+            throw new Error("Se esperaba un id numérico mayor de 0 como id de test.");
+        }
         /*-- Obtiene los datos del servidor --*/
         // datos cabecera (sustituir segundo null): {idTest: this.idTest, diezPreguntasHasta: 10}
         obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_PREGUNTAS, "GET", null, {id: idTest})
@@ -319,9 +375,6 @@ class Test {
             /*-- Descarta que haya dado error --*/
             throw new Error("Se ha producido un error al intentar descargar la información de las preguntas del servidor. Mensaje de error: " + error.message);
         });
-
-        /*-- Devuelve el resultado de la variable tests (el controlador se encargará de verificar si esto ha devuelto realmente la lista de tests o un error) --*/
-        // return tests; // Esto ya no hace falta
     }
 
     /**
@@ -331,7 +384,7 @@ class Test {
      */
     downloadInfoIntentoUsuario(idTestRealizado) {
         /*-- Descarta que el idUsuario no sea válido --*/
-        if (idTestRealizado != "number") {
+        if (typeof(idTestRealizado) != "number") {
             throw new Error("No has especificado un id de test realizado.")
         }
         if (idTestRealizado < 1) {

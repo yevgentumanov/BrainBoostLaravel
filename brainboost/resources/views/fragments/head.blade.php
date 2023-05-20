@@ -37,8 +37,8 @@
 
             <script src="{!! asset('js/MateriaModel.js') !!}"></script>
             <script src="{!! asset('js/TestModel.js') !!}"></script>
-            <script src="{!! asset('js/TestView.js') !!}"></script>
             <script src="{!! asset('js/TestController.js') !!}"></script>
+            <script src="{!! asset('js/TestVue.js') !!}"></script>
             
         @endif
     @endisset

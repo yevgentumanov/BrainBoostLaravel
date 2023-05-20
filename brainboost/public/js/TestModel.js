@@ -79,6 +79,74 @@ class Test {
     }
 
     /**
+     * Método genérico que sirve para validar ID's de la BB.DD.
+     * En qué se usa:
+     * - idTest
+     * - idIntentoTest
+     * @param {number} idBD - Especifica el ID de la tabla de la BB.DD que sea.
+     */
+    validaIdBD(idBD) {
+        if (typeof(idBD) != "number") {
+            return false;
+        }
+        if (idTestRealizado < 1) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Método que valida un id de pregunta. El índice que valida es el del array de preguntas, no el del ID en la BB.DD.
+     * @param {number} idPregunta - Especifica el id de la pregunta.
+     */
+    validaIdPregunta(idPregunta) {
+
+    }
+
+    /**
+     * Método que valida un objeto JSON que contiene los datos de una pregunta.
+     * @param {object} preguntaJSON - Especifica un objeto literal JSON con los datos de una pregunta.
+     */
+    validaPregunta(preguntaJSON) {
+
+    }
+
+    /**
+     * Método genérico que sirve para validar cadenas.
+     * En qué se usa:
+     * - nombreTest
+     * - descripcionTest
+     * - nombreMateria
+     * @param {string} cadena - Especifica la cadena de texto a validar.
+     */
+    validaCadenas(cadena) {
+
+    }
+
+    validaIdMateria(idMateria) {
+
+    }
+
+    validaNombreMateria(nombreMateria) {
+
+    }
+
+    validaNota(nota) {
+
+    }
+
+    /**
+     * Método genérico que valida una fecha. Este método intentará convertir la cadena a fecha, y verificará si la fecha no es posterior a la actual de hoy.
+     * En qué se usa:
+     * - fechaRealizacion
+     * - fechaCreacion // To do: incluir como atributo de la clase Test
+     * @param {string} fecha - Especifica una cadena que contenga la fecha.
+     */
+    validaFecha(fecha) {
+        
+    }
+
+    /**
      * Devuelve el ID del test en la BB.DD.
      * @returns El ID del test en la BB.DD.
      */
@@ -271,17 +339,6 @@ class Test {
     }
 
     /**
-     * Método que establece el usuario que ha realizado el test.
-     * @param {number} idUsuarioRealizador - Id del usuario que realiza el test.
-     */
-    // setIDUsuarioRealizador(idUsuarioRealizador) {
-    //     if (typeof(idUsuarioRealizador) != "number" || idUsuarioRealizador < 1) {
-    //         throw new Error("Has especificado un id de usuario que no es válido.");
-    //     }
-    //     this.idUsuarioRealizador = idUsuarioRealizador;
-    // }
-
-    /**
      * Método que establece la nota que está sacando el usuario en el test.
      * @param {number} nota - Especifica la nota que está sacando el usuario en el test.
      */
@@ -341,7 +398,7 @@ class Test {
         }
 
         /*-- Obtiene los datos del servidor --*/
-        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_TESTS, "GET", null, {id: idTest})
+        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_TEST, "GET", null, {id: idTest})
         .then(response => {
             // To do
         }).catch(error => {
@@ -364,7 +421,7 @@ class Test {
         /*-- Obtiene los datos del servidor --*/
         // datos cabecera (sustituir segundo null): {id: idTest, pagina: 1}
         // pagina es un atributo que indica el nº de página que se está mostrando. Los tests se van cargando en páginas, por ejemplo, de 10 en 10 preguntas, para reducir la carga del servidor cuando se trate de tests muy largos.
-        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_PREGUNTAS, "GET", null, {id: idTest})
+        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_PREGUNTAS, "GET", null, {id: idTest})
         
         .then(response => {
             response.forEach(pregunta => {
@@ -386,16 +443,21 @@ class Test {
 
     /**
      * Método que descarga del servidor (si existe) la información del usuario que ha realizado este intento del test.
-     * Es decir, descarga su nota, dado un id de usuario y una fecha de realización (si existen).
-     * @param {number} idTestRealizado Especifica el id del usuario que ha realizado el intento del test.
+     * - this.idUsuarioRealizador
+     * - this.idTest
+     * - this.nota
+     * - this.fecha_realizacion
+     * - this.respuestas // To do: crear este campo en la clase
+     * Es decir, descarga su nota, dado un id intento de test.
+     * @param {number} idIntentoTest Especifica el id del intento del test.
      */
-    downloadInfoIntentoUsuario(idTestRealizado) {
+    downloadInfoIntentoUsuario(idIntentoTest) {
         /*-- Descarta que el idUsuario no sea válido --*/
-        if (typeof(idTestRealizado) != "number") {
-            throw new Error("No has especificado un id de test realizado.")
+        if (typeof(idIntentoTest) != "number") {
+            throw new Error("No has especificado un id de intento de test.")
         }
         if (idTestRealizado < 1) {
-            throw new Error("El id de test realizado especificado no es válido. Ha de ser mayor o igual que 1.")
+            throw new Error("El id de intento de test especificado no es válido. Ha de ser mayor o igual que 1.")
         }
 
         /*-- Creación de variables temporales --*/

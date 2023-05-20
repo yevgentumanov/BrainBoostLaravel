@@ -12,7 +12,7 @@ class Materia extends Model
     protected $table = 'materias';
     protected $primaryKey = 'id';
     public $timestamps = false;
-
+    
     protected $fillable = [
         'id_categoria',
         'nombre_materia',

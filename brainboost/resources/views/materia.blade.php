@@ -18,7 +18,7 @@
             </section>
 
             @foreach ($tests as $test)
-                <a href="{{ route('test', ['idTest' => $test->id, 'test' => $test->nombre_test]) }}">
+                <a href="{{ route('test', ['idTest' => $test->id, 'name' => $test->nombre_test]) }}">
                     <section class="row bg-primary m-4 d-flex justify-content-center">
                         <div class="col-2 p-2">{{ $test->nombre_test }}</div>
                         <div class="col-8 p-2 text-center">{{ $test->descripcion }}</div>

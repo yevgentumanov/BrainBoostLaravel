@@ -12,13 +12,10 @@ use Illuminate\Database\Eloquent\Builder;
 class TestController extends Controller
 {
     public function showTest(Request $request) {
-        
-        $idTest = $request->idTest;
-        // dump($request);
-        // Obtención de los datos del test
-        $test = Test::find($idTest);
-
-        $preguntas = Pregunta::where('id_test', $idTest)->get();
+        /*-- Variables --*/
+        $idTest = $request->idTest; // Recupera el id del test del parámetro de la ruta
+        $test = Test::find($idTest); // Obtención de los datos del test
+        $preguntas = Pregunta::where('id_test', $idTest)->get(); // Obtención de las preguntas del test
 
         return view("test", ['test' => $test, 'preguntas' => $preguntas]);
     }

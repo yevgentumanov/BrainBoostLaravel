@@ -224,9 +224,26 @@ class Test {
         const datos = Object.entries(preguntaJSON);
 
         /*-- Comprueba que la estructura sea la correcta --*/
-
+        // if (datos[0] != "id") {
+        //     return false;
+        // }
+        // if (datos[1] != "id_test") {
+        //     return false;
+        // }
+        // if (datos[2] != "tipo_pregunta") {
+        //     return false;
+        // }
+        // if (datos[3] != "nombre_pregunta") {
+        //     return false;
+        // }
+        // if (datos[4] != "datos_pregunta") {
+        //     return false;
+        // }
+        // if (datos[5] != "retroalimentacion") {
+        //     return false;
+        // }
         /*-- Comprueba que los datos introducidos en cada propiedad del JSON sean válidos de acuerdo al tipo de contenido que deberían tener --*/
-        
+
         return true;
     }
 

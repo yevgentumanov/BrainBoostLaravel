@@ -54,17 +54,27 @@ iniMaterias();
 ===================================================*/
 function iniMaterias() {
     // Ejemplo:
-    Materias.push({
-        id: 1,
-        nombre_materia: "El que sea"
-    },
-        {
-            id: 2,
-            nombre_materia: "El que sea"
-        }
-    );
+    // Materias.push({
+    //     id: 1,
+    //     nombre_materia: "El que sea"
+    // },
+    //     {
+    //         id: 2,
+    //         nombre_materia: "El que sea"
+    //     }
+    // );
 
-    // To do: fetch
+    /*-- Obtiene los datos del servidor --*/
+    obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_MATERIAS, "GET", null, null)
+    .then(response => {
+        response.forEach(materia => {
+            /*-- Agrega la materia al array de materias --*/
+            Materias.push(materia);
+        });
+    }).catch(error => {
+        /*-- Descarta que haya dado error --*/
+        throw new Error(`${MensajesErrorTest["__ERR_TEST_INFO_FETCH"].message} Mensaje de error: ${error.message}`);
+    })
 }
 
 /**

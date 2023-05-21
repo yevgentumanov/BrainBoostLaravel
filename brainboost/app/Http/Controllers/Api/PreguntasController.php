@@ -36,7 +36,6 @@ class PreguntasController extends Controller
             return $this->index();
         }
 
-//        return Pregunta::find($id_test);
         $preguntas = Pregunta::where('id_test', $id_test)->get();
 
         return response()->json($preguntas);

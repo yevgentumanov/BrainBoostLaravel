@@ -221,6 +221,12 @@ class Test {
         if (typeof (preguntaJSON) != "object") {
             return false;
         }
+        const datos = Object.entries(preguntaJSON);
+
+        /*-- Comprueba que la estructura sea la correcta --*/
+
+        /*-- Comprueba que los datos introducidos en cada propiedad del JSON sean válidos de acuerdo al tipo de contenido que deberían tener --*/
+        
         return true;
     }
 
@@ -229,8 +235,8 @@ class Test {
      * @param {object} respuestaJSON - Especifica un objeto literal JSON con los datos de la respuesta.
      * @param {number} idPregunta - (Opcional) Especifica el id de la pregunta (índice del array interno). Para una validación más exhaustiva, es recomendable rellenar este argumento.
      */
-    validaRespuesta(respuesta, idPregunta = null) {
-        if (typeof(respuesta) != "object") {
+    validaRespuesta(respuestaJSON, idPregunta = null) {
+        if (typeof(respuestaJSON) != "object") {
             return false;
         }
         const keys = Object.keys(respuestaJSON);
@@ -238,20 +244,23 @@ class Test {
             return false;
         }
         if (idPregunta != null || typeof(idPregunta) != "number") {
-            const tipoPregunta = this.preguntas[idPregunta].tipo_pregunta
+            const pregunta = this.preguntas[idPregunta];
+            if (!this.validaPregunta(pregunta)) return false;
+
             const numTiposPregunta = Object.keys(TipoPregunta).length;
-            if (tipoPregunta < 1 || tipoPregunta >= numTiposPregunta) {
+            if (pregunta.tipo_pregunta < 1 || pregunta.tipo_pregunta >= numTiposPregunta) {
                 return false;
             }
 
             /*-- Valida para cada tipo de pregunta --*/
-            switch (tipoPregunta) {
+            const respuesta = respuestaJSON.respuesta;
+            let elementosRespuesta;
+            switch (pregunta.tipo_pregunta) {
                 case TipoPregunta.MULTIPLE_RESPONSE:
-                    if () {
-
-                    }
+                    if (typeof(respuesta) != "string" || pregunta.datos_pregunta) return false;
                     break;
                 case TipoPregunta.MULTIPLE_RESPONSE_MULTIPLE_CHOICE:
+                    elementosRespuesta = Object.entries(respuesta);
 
                     break;
                 case TipoPregunta.UNIQUE_RESPONSE:

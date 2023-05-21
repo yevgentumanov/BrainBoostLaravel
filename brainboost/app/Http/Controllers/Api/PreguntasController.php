@@ -11,7 +11,7 @@ class PreguntasController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index() // devuelve todas las preguntas
     {
         return Pregunta::all();
     }
@@ -27,7 +27,7 @@ class PreguntasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Request $request, string $id_test = null)
+    public function show(Request $request, string $id_test = null) // devuelve las preguntas con ID indicado o todas las preguntas
     {
         if (!isset($id_test)) {
             $id_test = $request->get("id");

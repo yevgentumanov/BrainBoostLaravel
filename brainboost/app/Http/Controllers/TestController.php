@@ -20,7 +20,7 @@ class TestController extends Controller
     {
         $test = Test::first();
         if ($test) {
-            return "The name of the first test is: " . $test->nombre_test;
+            return $test;
         } else {
             return "No tests found.";
         }

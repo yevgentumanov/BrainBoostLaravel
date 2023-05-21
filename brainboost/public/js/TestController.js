@@ -34,7 +34,6 @@ class TestController {
      * - Id usuario creador
      * - Nombre usuario creador
      * - Id materia
-     * - Nombre materia
      * 
      * @param {number} idTest - Especifica el id del test.
      */

@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('nombre_pregunta');
             $table->longText('datos_pregunta');
             $table->string('retroalimentacion')->nullable();
-            $table->timestamps();
 
             $table->foreign('id_test')->references('id')->on('tests');
             $table->foreign('tipo_pregunta')->references('id')->on('tipos_preguntas');

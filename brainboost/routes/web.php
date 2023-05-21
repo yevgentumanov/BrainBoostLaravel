@@ -28,15 +28,10 @@ use App\Http\Controllers\UsuariosController;
             PAGINAS WEB DEFINIDAS
 =============================================================*/
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/', function () { return view('index'); })->name('index');
 
-// Rutas de las materias
-Route::get('/artes', [TestController::class, 'showTestListArtes'])->name('artes');
-Route::get('/musica', [TestController::class, 'showTestListMusica'])->name('musica');
-Route::get('/cienciasnaturales', [TestController::class, 'showTestListCienciasNaturales'])->name('cienciasnaturales');
-Route::get('/matematicas', [TestController::class, 'showTestListMatematicas'])->name('matematicas');
+// Ruta genérica para las páginas de las diferentes materias
+Route::get('/materia/{nombreMateria}', [MateriaController::class, 'index'])->name('materia');
 
 // Ruta de los tests individuales
 // Route::get('/test', function () {
@@ -47,11 +42,11 @@ Route::get('/test/{test}', [TestController::class, 'showTest'])->name("test");
 Route::get('/test/first', [TestController::class, 'showFirstTest']);
 
 // por arreglar
-
+/*
 Route::get('/materia', function () {
     return view('materia');
 })->name("materia");
-
+*/
 Route::get('/pruebaLogicaApp', function () {
     return view('pruebaLogicaApp');
 })->name("prueba");

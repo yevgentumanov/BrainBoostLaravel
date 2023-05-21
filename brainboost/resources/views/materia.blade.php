@@ -18,12 +18,13 @@
             </section>
 
             @foreach ($tests as $test)
-                <section class="row bg-primary m-4 ">
-                    <div class="col-11 p-2">{{ $test->nombre_test }} </div>
-                    <div class="col-1 p-2">
-                        (10 preguntas)
-                    </div>
-                </section>
+                <a href="{{ route('test', ['test' => $test->id]) }}">
+                    <section class="row bg-primary m-4 d-flex justify-content-center">
+                        <div class="col-2 p-2">{{ $test->nombre_test }}</div>
+                        <div class="col-8 p-2 text-center">{{ $test->descripcion }}</div>
+                        <div class="col-2 p-2 text-right">(10 preguntas)</div>
+                    </section>
+                </a>
             @endforeach
     </main>
 @endsection

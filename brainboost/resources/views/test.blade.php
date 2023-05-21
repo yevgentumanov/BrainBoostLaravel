@@ -7,25 +7,25 @@
         <div class="col-12">
             <section class="row bg-primary m-4">
                 <div class="col-12 m-2">
-                    <h3>Materia - Test X</h3>
+                    <h3>TEST - {{ $test->nombre_test }}</h3>
                 </div>
             </section>
 
             {{-- Solo usar con fines de testing --}}
-            @isset($test)
+            {{-- @isset($test)
                 <section class="row bg-primary m-4">
                     <div class="col-12 m-2">
-                        
-                            @dump($test)
-                        
+
+                        @dump($test)
+
                     </div>
                 </section>
-            @endisset
+            @endisset --}}
 
             <script>
                 const rutaDesglosada = document.location.href.split("/");
                 const id = Number.parseInt(rutaDesglosada[rutaDesglosada.length - 1]);
-                
+
                 let test1 = new Test();
                 let testController1 = new TestController(test1);
                 // test1.downloadQuestionsByIdTest(id);
@@ -33,6 +33,36 @@
                 console.log(test1);
             </script>
 
+            @foreach ($preguntas as $pregunta)
+                @if ($pregunta->tipo_pregunta == 1)
+                    <section class="row bg-primary m-4 ">
+                        <div class="col-12 p-2 px-4">
+                            <h4>
+                                Pregunta {{ $loop->iteration }}:
+                            </h4>
+                        </div>
+                        <label class="p-2 px-4 font-weight-bold">{{ $pregunta->nombre_pregunta }}</label>
+                        <div class="col-12">
+                            <?php
+                            $datos = json_decode($pregunta->datos_pregunta);
+                            $respuestas = $datos->respuestas;
+                            // $respuestasCorrectas = $datos->respuestas_correctas;
+                            ?>
+
+                            <ul class="col-12">
+                                @foreach ($respuestas as $key => $respuesta)
+                                    <ul>
+                                        <input type="radio" id="respuesta{{ $key }}"
+                                            name="respuesta{{ $loop->parent->index }}" value="{{ $respuesta }}">
+                                        <label for="respuesta{{ $key }}">{{ $respuesta }}</label>
+                                    </ul>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </section>
+                @endif
+            @endforeach
+            {{--
             <section class="row bg-primary m-4 ">
                 <div class="col-11 p-2">
                     <h4>
@@ -172,7 +202,7 @@
                     <label class="col-12">respuesta 3</label>
                     <label class="col-12">respuesta 4</label>
                 </div>
-            </section>
+            </section> --}}
         </div>
     </main>
 @endsection

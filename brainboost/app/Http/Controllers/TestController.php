@@ -4,16 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Test;
+use App\Models\Pregunta;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 
 
 class TestController extends Controller
 {
-    public function showTest(Test $test) {
-        // $test = Test::find($request->get("id"));
-        // return view("test")->with("test", $test); // Solo usar para fines de testing
-        return view("test"); // Uso en entorno de producción
+    public function showTest(Request $request) {
+        $idTest = $request->test;
+
+        // Obtención de los datos del test
+        $test = Test::find($idTest);
+
+        $preguntas = Pregunta::where('id_test', $idTest)->get();
+
+        return view("test", ['test' => $test, 'preguntas' => $preguntas]);
     }
 
     public function showFirstTest()

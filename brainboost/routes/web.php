@@ -33,6 +33,9 @@ Route::get('/', function () { return view('index'); })->name('index');
 // Ruta genérica para las páginas de las diferentes materias
 Route::get('/materia/{nombreMateria}', [MateriaController::class, 'index'])->name('materia');
 
+// Ruta genérica para las páginas de los tests de las diferentes materias
+Route::get('/test/{nombreTest}', [TestController::class, 'showTest'])->name("test2"); // Después el caso general (rutas parametrizadas)
+
 // Ruta de los tests individuales
 // Route::get('/test', function () {
 //     return view('test');

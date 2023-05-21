@@ -41,7 +41,7 @@ Route::get('/test/{nombreTest}', [TestController::class, 'showTest'])->name("tes
 //     return view('test');
 // })->name("test");
 Route::get('/test/first', [TestController::class, 'showFirstTest']); // Primero los casos particulares
-Route::get('/test/{test}', [TestController::class, 'showTest'])->name("test"); // Después el caso general (rutas parametrizadas)
+// Route::get('/test/{test}', [TestController::class, 'showTest'])->name("test"); // Después el caso general (rutas parametrizadas)
 
 // por arreglar
 /*

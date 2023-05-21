@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,16 +9,20 @@
 
     <script src="utilidades.js"></script>
     <script src="globals.js"></script>
-    <script src="./JSON/api_rest.js"></script>    
+    <script src="./JSON/api_rest.js"></script>
+    <script src="./JSON/json.js"></script>
 
     <script src="MateriaModel.js"></script>
     <script src="TestModel.js"></script>
-    <script src="TestView.js"></script>
     <script src="TestController.js"></script>
+    <script src="TestVue.js"></script>
+
 </head>
+
 <body>
     <script>
         let test1 = new Test();
+
         test1.downloadQuestionsByIdTest();
         console.log(test1);
         // obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_PREGUNTAS, "GET", null, null)
@@ -38,4 +43,5 @@
         // obtenerJSON("https://jsonplaceholder.typicode.com/users", "GET", null)
     </script>
 </body>
+
 </html>

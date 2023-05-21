@@ -31,7 +31,9 @@
                     const id = Number.parseInt(rutaDesglosada[rutaDesglosada.length - 1]);
                     
                     let test1 = new Test();
-                    test1.downloadQuestionsByIdTest(id);
+                    let testController1 = new TestController(test1);
+                    // test1.downloadQuestionsByIdTest(id);
+                    testController1.downloadQuestionsByIdTest(id);
                     console.log(test1);
                 </script>
 

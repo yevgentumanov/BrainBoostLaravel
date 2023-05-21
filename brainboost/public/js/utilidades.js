@@ -27,3 +27,34 @@ function copyObject(obj) {
     }
     return result;
 }
+
+/**
+ * Función que da la vuelta a un objeto JSON: las keys pasan a ser values, y viceversa.
+ * @param {object} jsonObject - Especifica un objeto JSON.
+ * @return El objeto JSON invertido.
+ */
+function inversaJSON(jsonObject) {
+    let entradas = Object.entries(jsonObject);
+    let inversa = {};
+
+    for (let i = 0; i < entradas.length; i++) {
+        const entrada = entradas[i];
+        inversa[entrada[1]] = entrada[0];
+    }
+
+    return inversa;
+}
+
+/**
+ * Función que da la vuelta a un array: las keys pasan a ser values, y viceversa.
+ */
+function inversaArray(array) {
+    let inversa = [];
+
+    for (let i = 0; i < array.length; i++) {
+        const entrada = array[i];
+        inversa[entrada] = i;
+    }
+
+    return inversa;
+}

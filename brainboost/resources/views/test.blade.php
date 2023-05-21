@@ -24,7 +24,7 @@
 
             <script>
                 const rutaDesglosada = document.location.href.split("/");
-                const id = Number.parseInt(rutaDesglosada[rutaDesglosada.length - 1]);
+                const id = Number.parseInt(rutaDesglosada[rutaDesglosada.length - 1][0]);
 
                 let test1 = new Test();
                 let testController1 = new TestController(test1);

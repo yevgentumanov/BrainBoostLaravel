@@ -13,8 +13,8 @@ class TestController extends Controller
 {
     public function showTest(Request $request) {
         
-        $idTest = $request->test;
-
+        $idTest = $request->idTest;
+        // dump($request);
         // Obtención de los datos del test
         $test = Test::find($idTest);
 

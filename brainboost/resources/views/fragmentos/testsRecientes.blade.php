@@ -6,7 +6,7 @@
         <article class="border border-box m-2 d-flex justify-content-center bg-light">
             <div class="row">
                 <div class="col-12">
-                    <a class="row d-flex justify-content-center" href="{{ route('test', ['test' => 1]) }}">
+                    <a class="row d-flex justify-content-center" href="{{ route('test', ['idTest' => 1]) }}">
                         <!-- El 1 es el id de test. El id de test habrá que generarlo dinámicamente -->
                         <img class="col-12" style="margin: inherit;" src="{!! asset('images/test.png') !!}"
                             alt="logo" style="width:40px;">

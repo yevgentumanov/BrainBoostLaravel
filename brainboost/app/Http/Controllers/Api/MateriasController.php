@@ -17,6 +17,37 @@ class MateriasController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     */
+    public function show(Request $request, string $id = null) // devuelve las materias con ID indicado o todas
+    {
+        if (!isset($id)) {
+            $id = $request->get("id");
+        }
+        if (!isset($id)) {
+            return $this->index();
+        }
+
+        $materia = Materia::where('id', $id)->get();
+
+        return response()->json($materia);
+    }
+
+    public function showCategoria(Request $request, string $id_categoria = null) // devuelve las materias de categoria indicada
+    {
+        if (!isset($id_categoria)) {
+            $id_categoria = $request->get("id_categoria");
+        }
+        if (!isset($id_categoria)) {
+            return $this->index();
+        }
+
+        $materias = Materia::where('id_categoria', $id_categoria)->get();
+
+        return response()->json($materias);
+    }
+
+    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
@@ -24,13 +55,6 @@ class MateriasController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

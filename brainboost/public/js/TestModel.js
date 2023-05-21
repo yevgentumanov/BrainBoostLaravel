@@ -4,9 +4,9 @@
  * @version 21.05.2023
  */
 
-/*====================================
-            ENUMERADOS
-======================================*/
+/*===============================================
+            ENUMERADOS Y CONSTANTES
+=================================================*/
 
 const TipoPregunta = {
     NONE: 0, // No se ha definido el tipo de pregunta
@@ -17,6 +17,7 @@ const TipoPregunta = {
     FILL_GAPS_GIVEN_ONE: 5, // Rellenar huecos dado uno (Ejemplo: verbos irregulares)
     NUMBER_MATCHING: 6 // Acertar el número (Ejemplo: acertar la fecha de un acontecimiento histórico)
 }
+const numTiposPregunta = Object.keys(TipoPregunta).length;
 
 const ErroresTest = [
     "__ERR_TEST_OBJECT_INVALID", 
@@ -222,28 +223,79 @@ class Test {
             return false;
         }
         const datos = Object.entries(preguntaJSON);
-
+        console.log(datos);
         /*-- Comprueba que la estructura sea la correcta --*/
-        // if (datos[0] != "id") {
-        //     return false;
-        // }
-        // if (datos[1] != "id_test") {
-        //     return false;
-        // }
-        // if (datos[2] != "tipo_pregunta") {
-        //     return false;
-        // }
-        // if (datos[3] != "nombre_pregunta") {
-        //     return false;
-        // }
-        // if (datos[4] != "datos_pregunta") {
-        //     return false;
-        // }
-        // if (datos[5] != "retroalimentacion") {
-        //     return false;
-        // }
-        /*-- Comprueba que los datos introducidos en cada propiedad del JSON sean válidos de acuerdo al tipo de contenido que deberían tener --*/
+        if (datos[0][0] != "id") {
+            return false;
+        }
+        if (datos[1][0] != "id_test") {
+            return false;
+        }
+        if (datos[2][0] != "tipo_pregunta") {
+            return false;
+        }
+        if (datos[3][0] != "nombre_pregunta") {
+            return false;
+        }
+        if (datos[4][0] != "datos_pregunta") {
+            return false;
+        }
+        if (datos[5][0] != "retroalimentacion") {
+            return false;
+        }
 
+        /*-- Comprueba que los datos introducidos en cada propiedad del JSON sean válidos de acuerdo al tipo de contenido que deberían tener --*/
+        if (typeof(datos[2][1]) != "number" || pregunta.tipo_pregunta >= numTiposPregunta) {
+            return false;
+        }
+        if (typeof(datos[3][1]) != "string" || datos[3][1] == "") {
+            return false;
+        }
+        if (typeof(datos[4][1]) != "object") {
+            return false;
+        }
+        if (typeof(datos[5][1]) != "string") {
+            return false;
+        }
+
+        /*-- Comprueba los datos de la pregunta --*/
+        const tipoPregunta = preguntaJSON.tipo_pregunta;
+        const datosPregunta = Object.entries(preguntaJSON.datos_pregunta);
+        switch (tipoPregunta) {
+            case TipoPregunta.MULTIPLE_RESPONSE:
+                /*-- Comprueba que la estructura sea la correcta --*/
+                if (datosPregunta.length != 2) {
+                    return false;
+                }
+                if (datosPregunta[0][0] != "respuestas") {
+                    return false;
+                }
+                if (datosPregunta[1][0] != "respuesta_correcta") {
+                    return false;
+                }
+                /*-- Comprueba los datos que contienen estas propiedades de la pregunta --*/
+                if (datosPregunta[0][1] instanceof Array == false) {
+                    return false;
+                }
+                if (typeof(datosPregunta[1][1]) != "string") {
+                    return false;
+                }
+                break;
+            case TipoPregunta.MULTIPLE_RESPONSE_MULTIPLE_CHOICE:
+                
+                break;
+            case TipoPregunta.UNIQUE_RESPONSE:
+
+                break;
+            case TipoPregunta.FILL_IN_GAPS:
+
+                break;
+            case TipoPregunta.FILL_GAPS_GIVEN_ONE:
+
+                break;
+        }
+
+        /*-- Todo correcto --*/
         return true;
     }
 
@@ -264,7 +316,6 @@ class Test {
             const pregunta = this.preguntas[idPregunta];
             if (!this.validaPregunta(pregunta)) return false;
 
-            const numTiposPregunta = Object.keys(TipoPregunta).length;
             if (pregunta.tipo_pregunta < 1 || pregunta.tipo_pregunta >= numTiposPregunta) {
                 return false;
             }
@@ -287,9 +338,6 @@ class Test {
 
                     break;
                 case TipoPregunta.FILL_GAPS_GIVEN_ONE:
-
-                    break;
-                case TipoPregunta.NUMBER_MATCHING:
 
                     break;
             }

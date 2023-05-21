@@ -39,6 +39,7 @@ class TestController {
      */
     downloadInfoAboutTestByIdTest(idTest) {
         /*-- Realiza las validaciones --*/
+        if (this.test instanceof Test == false) throw new Error(MensajesErrorTest["__ERR_TEST_OBJECT_INVALID"].message);
         if (!this.test.validaIdBD(idTest)) throw new Error(MensajesErrorTest["__ERR_TEST_ID_INVALID"].message);
 
         /*-- Obtiene los datos del servidor --*/

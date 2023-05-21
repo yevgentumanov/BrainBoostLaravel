@@ -237,7 +237,7 @@ class Test {
         if (!keys.includes("id_pregunta") || !keys.includes("tipo_pregunta") || keys.includes("respuesta")) {
             return false;
         }
-        if (idPregunta != null) {
+        if (idPregunta != null || typeof(idPregunta) != "number") {
             const tipoPregunta = this.preguntas[idPregunta].tipo_pregunta
             const numTiposPregunta = Object.keys(TipoPregunta).length;
             if (tipoPregunta < 1 || tipoPregunta >= numTiposPregunta) {
@@ -247,7 +247,9 @@ class Test {
             /*-- Valida para cada tipo de pregunta --*/
             switch (tipoPregunta) {
                 case TipoPregunta.MULTIPLE_RESPONSE:
+                    if () {
 
+                    }
                     break;
                 case TipoPregunta.MULTIPLE_RESPONSE_MULTIPLE_CHOICE:
 

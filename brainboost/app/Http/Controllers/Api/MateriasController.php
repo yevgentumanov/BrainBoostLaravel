@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Pregunta;
 use Illuminate\Http\Request;
+use App\Models\Materia;
 
-class PreguntasController extends Controller
+class MateriasController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index() // devuelve todas las preguntas
+    public function index()
     {
-        return Pregunta::all();
+        return Materia::all();
     }
 
     /**
@@ -27,19 +27,9 @@ class PreguntasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Request $request, string $id_test = null) // devuelve las preguntas con ID indicado o todas las preguntas
+    public function show(string $id)
     {
-        if (!isset($id_test)) {
-            $id_test = $request->get("id");
-        }
-        if (!isset($id_test)) {
-            return $this->index();
-        }
-
-//        return Pregunta::find($id_test);
-        $preguntas = Pregunta::where('id_test', $id_test)->get();
-
-        return response()->json($preguntas);
+        //
     }
 
     /**

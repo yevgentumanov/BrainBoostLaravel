@@ -25,8 +25,9 @@ use App\Http\Controllers\Api\MateriasController;
 
 // Devuelve todas las materias
 Route::get("materias", [MateriasController::class, "index"]); // devuelve todas las materias
-// Route::get("materias/{id}", [MateriasController::class, "show"]); // devuelve materia con ID de materia indicado -> necesito que me lo hagas con parametro GET, no con parametro Laravel
-// Route::get("categoria/{id_categoria}", [MateriasController::class, "showCategoria"]); // devuelve materia con ID de materia indicado -> necesito que me lo hagas con parametro GET, no con parametro Laravel
+Route::get("materias", [MateriasController::class, "show"]); // devuelve materia con ID de materia indicado
+Route::get("categoria", [MateriasController::class, "showCategoria"]); // devuelve materia con ID de materia indicado 
+
 
 // Rutas de preguntas
 // Route::get("pregunta", [PreguntasController::class, "index"]); // devuelve todas las preguntas -> no hace falta, ya que con show puedo hacer lo mismo

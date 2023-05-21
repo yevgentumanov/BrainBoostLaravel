@@ -34,7 +34,8 @@
         @if ($enableScriptTest == true)
             <script src="{!! asset('js/utilidades.js') !!}"></script>
             <script src="{!! asset('js/globals.js') !!}"></script>
-            <script src="{!! asset('js/JSON/api_rest.js') !!}"></script>    
+            <script src="{!! asset('js/JSON/api_rest.js') !!}"></script>
+            <script src="{!! asset('js/JSON/json.js') !!}"></script>   
 
             <script src="{!! asset('js/MateriaModel.js') !!}"></script>
             <script src="{!! asset('js/TestModel.js') !!}"></script>

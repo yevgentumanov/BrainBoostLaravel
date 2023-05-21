@@ -6,6 +6,7 @@ use App\Http\Controllers\PreguntaController;
 use App\Http\Controllers\Api\PreguntasController;
 use App\Http\Controllers\Api\TestUsuarioController;
 use App\Http\Controllers\Api\MateriasController;
+use App\Http\Controllers\Api\TestController;
 
 
 /*
@@ -27,8 +28,11 @@ use App\Http\Controllers\Api\MateriasController;
 Route::get("materias", [MateriasController::class, "show"]); // devuelve materia con ID de materia indicado
 Route::get("categoria", [MateriasController::class, "showCategoria"]); // devuelve materia con ID de materia indicado
 
-// Rutas de preguntas
+// Ruta de preguntas
 Route::get("pregunta", [PreguntasController::class, "show"]); // devuelve todas las preguntas o las preguntas del ID test
+
+// Ruta de test
+Route::get("test", [TestController::class, "show"]); // devuelve todas las preguntas de un test con ID indicado
 
 Route::group(['prefix' => 'api'], function () {
     Route::get('/test-usuarios', [TestUsuarioController::class, 'index']);

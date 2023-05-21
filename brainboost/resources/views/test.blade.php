@@ -53,8 +53,7 @@
                                 <ul class="col-12">
                                     @foreach ($respuestas as $key => $respuesta)
                                         <ul>
-                                            <input type="radio" id="respuesta{{ $key }}"
-                                                name="respuesta{{ $loop->parent->index }}" value="{{ $respuesta }}">
+                                            <input type="radio" id="respuesta{{ $loop->parent->index + $key }}" name="respuesta{{ $loop->parent->index }}" value="{{ $respuesta }}">
                                             <label for="respuesta{{ $key }}">{{ $respuesta }}</label>
                                         </ul>
                                     @endforeach

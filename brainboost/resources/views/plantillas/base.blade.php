@@ -29,6 +29,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
 
+    <!-- JavaScript lógica test -->
+    @isset($enableScriptTest)
+        @if ($enableScriptTest == true)
+            <script src="{!! asset('js/utilidades.js') !!}"></script>
+            <script src="{!! asset('js/globals.js') !!}"></script>
+            <script src="{!! asset('js/JSON/api_rest.js') !!}"></script>    
+
+            <script src="{!! asset('js/MateriaModel.js') !!}"></script>
+            <script src="{!! asset('js/TestModel.js') !!}"></script>
+            <script src="{!! asset('js/TestController.js') !!}"></script>
+            <script src="{!! asset('js/TestVue.js') !!}"></script>
+            
+        @endif
+    @endisset
     <!-- Título de la página -->
     <title>BrainBoost</title>
 </head>

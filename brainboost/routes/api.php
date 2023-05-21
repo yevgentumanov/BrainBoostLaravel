@@ -31,7 +31,7 @@ Route::get("categoria", [MateriasController::class, "showCategoria"]); // devuel
 
 // Rutas de preguntas
 // Route::get("pregunta", [PreguntasController::class, "index"]); // devuelve todas las preguntas -> no hace falta, ya que con show puedo hacer lo mismo
-Route::get("pregunta", [PreguntasController::class, "show"]); // devuelve todas las preguntas
+Route::get("/pregunta", [PreguntasController::class, "show"]); // devuelve todas las preguntas
 // Route::get("pregunta/{id}", [PreguntasController::class, "show"]); // devuelve preguntas con ID de test indicado -> no vale con parametro Laravel, ha de ser con parámetro GET
 
 Route::group(['prefix' => 'api'], function () {

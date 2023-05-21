@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Builder;
 class TestController extends Controller
 {
     public function showTest(Request $request) {
+        
         $idTest = $request->test;
 
         // Obtención de los datos del test

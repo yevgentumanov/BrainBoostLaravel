@@ -33,35 +33,37 @@
                 console.log(test1);
             </script>
 
-            @foreach ($preguntas as $pregunta)
-                @if ($pregunta->tipo_pregunta == 1)
-                    <section class="row bg-primary m-4 ">
-                        <div class="col-12 p-2 px-4">
-                            <h4>
-                                Pregunta {{ $loop->iteration }}:
-                            </h4>
-                        </div>
-                        <label class="p-2 px-4 font-weight-bold">{{ $pregunta->nombre_pregunta }}</label>
-                        <div class="col-12">
-                            <?php
-                            $datos = json_decode($pregunta->datos_pregunta);
-                            $respuestas = $datos->respuestas;
-                            // $respuestasCorrectas = $datos->respuestas_correctas;
-                            ?>
+            @isset($preguntas)
+                @foreach ($preguntas as $pregunta)
+                    @if ($pregunta->tipo_pregunta == 1)
+                        <section class="row bg-primary m-4 ">
+                            <div class="col-12 p-2 px-4">
+                                <h4>
+                                    Pregunta {{ $loop->iteration }}:
+                                </h4>
+                            </div>
+                            <label class="p-2 px-4 font-weight-bold">{{ $pregunta->nombre_pregunta }}</label>
+                            <div class="col-12">
+                                <?php
+                                $datos = json_decode($pregunta->datos_pregunta);
+                                $respuestas = $datos->respuestas;
+                                // $respuestasCorrectas = $datos->respuestas_correctas;
+                                ?>
 
-                            <ul class="col-12">
-                                @foreach ($respuestas as $key => $respuesta)
-                                    <ul>
-                                        <input type="radio" id="respuesta{{ $key }}"
-                                            name="respuesta{{ $loop->parent->index }}" value="{{ $respuesta }}">
-                                        <label for="respuesta{{ $key }}">{{ $respuesta }}</label>
-                                    </ul>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </section>
-                @endif
-            @endforeach
+                                <ul class="col-12">
+                                    @foreach ($respuestas as $key => $respuesta)
+                                        <ul>
+                                            <input type="radio" id="respuesta{{ $key }}"
+                                                name="respuesta{{ $loop->parent->index }}" value="{{ $respuesta }}">
+                                            <label for="respuesta{{ $key }}">{{ $respuesta }}</label>
+                                        </ul>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </section>
+                    @endif
+                @endforeach
+            @endisset
             {{--
             <section class="row bg-primary m-4 ">
                 <div class="col-11 p-2">

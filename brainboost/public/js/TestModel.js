@@ -329,7 +329,7 @@ class Test {
                     break;
                 case TipoPregunta.MULTIPLE_RESPONSE_MULTIPLE_CHOICE:
                     elementosRespuesta = Object.entries(respuesta);
-
+                    
                     break;
                 case TipoPregunta.UNIQUE_RESPONSE:
 

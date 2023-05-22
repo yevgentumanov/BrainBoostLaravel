@@ -16,10 +16,16 @@ class TestController extends Controller
         $idTest = $request->idTest; // Recupera el id del test del parámetro de la ruta
         $test = Test::find($idTest); // Obtención de los datos del test
         $preguntas = Pregunta::where('id_test', $idTest)->get(); // Obtención de las preguntas del test
-
-        return view("test", ['test' => $test, 'preguntas' => $preguntas]);
+        if (sizeof($preguntas) > 0) {
+            return view("test", ['test' => $test, 'preguntas' => $preguntas]);
+        } else {
+            abort(404);
+        }        
     }
 
+    /**
+     * @deprecated
+     */
     public function showFirstTest()
     {
         $test = Test::first();
@@ -30,21 +36,33 @@ class TestController extends Controller
         }
     }
 
+    /**
+     * @deprecated
+     */
     public function showTestListArtes()
     {
         $tests = Test::where('id_materia', 1)->get();
         return view('materias', ['tests' => $tests]);
     }
+    /**
+     * @deprecated
+     */
     public function showTestListMusica()
     {
         $tests = Test::where('id_materia', 2)->get();
         return view('materias.musica', ['tests' => $tests]);
     }
+    /**
+     * @deprecated
+     */
     public function showTestListCienciasNaturales()
     {
         $tests = Test::where('id_materia', 5)->get();
         return view('materias.сienciasNaturales', ['tests' => $tests]);
     }
+    /**
+     * @deprecated
+     */
     public function showTestListMatematicas()
     {
         $tests = Test::where('id_materia', 18)->get();

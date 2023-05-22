@@ -222,8 +222,6 @@ class Test {
         if (typeof (preguntaJSON) != "object") {
             return false;
         }
-        // const datos = Object.entries(preguntaJSON);
-        // console.log(preguntaJSON);
         
         /*-- Comprueba que la estructura sea la correcta --*/
         if ("id" in preguntaJSON == false) {
@@ -255,27 +253,27 @@ class Test {
         if (typeof(preguntaJSON.datos_pregunta) != "object") {
             return false;
         }
-        if (typeof(preguntaJSON.retroalimentacion) != "string") {
+        if (typeof(preguntaJSON.retroalimentacion) != "string" && preguntaJSON.retroalimentacion != null) {
             return false;
         }
 
         /*-- Comprueba los datos de la pregunta --*/
-        const tipoPregunta = preguntaJSON.tipo_pregunta;
-        switch (tipoPregunta) {
+        // const tipoPregunta = ;
+        switch (preguntaJSON.tipo_pregunta) {
             case TipoPregunta.MULTIPLE_RESPONSE:
                 /*-- Comprueba que la estructura sea la correcta --*/
                 if ("respuestas" in preguntaJSON.datos_pregunta == false) {
                     return false;
                 }
                 if ("respuestas_correctas" in preguntaJSON.datos_pregunta == false) {
-                    // return false; // To do en la BB.DD: respuesta_correcta => respuestas_correctas
+                    return false; // To do en la BB.DD: respuesta_correcta => respuestas_correctas
                 }
                 /*-- Comprueba los datos que contienen estas propiedades de la pregunta --*/
                 if (preguntaJSON.datos_pregunta.respuestas instanceof Array == false) {
                     return false;
                 }
                 if (typeof(preguntaJSON.datos_pregunta.respuestas_correctas) != "string") {
-                    // return false; // To do en la BB.DD: respuesta_correcta => respuestas_correctas
+                    return false; // To do en la BB.DD: respuesta_correcta => respuestas_correctas
                 }
                 break;
             case TipoPregunta.MULTIPLE_RESPONSE_MULTIPLE_CHOICE:
@@ -284,22 +282,23 @@ class Test {
                     return false;
                 }
                 if ("respuestas_correctas" in preguntaJSON.datos_pregunta == false) {
-                    // return false; // To do en la BB.DD: respuesta_correcta => respuestas_correctas
+                    return false; // To do en la BB.DD: respuesta_correcta => respuestas_correctas
                 }
                 /*-- Comprueba los datos que contienen estas propiedades de la pregunta --*/
                 if (preguntaJSON.datos_pregunta.respuestas instanceof Array == false) {
                     return false;
                 }
                 if (preguntaJSON.datos_pregunta.respuestas_correctas instanceof Array == false) {
-                    // return false; // To do en la BB.DD: respuesta_correcta => respuestas_correctas
+                    return false; // To do en la BB.DD: respuesta_correcta => respuestas_correctas
                 }
                 break;
             case TipoPregunta.UNIQUE_RESPONSE:
                 /*-- Comprueba que la estructura sea la correcta --*/
-                if ("respuestas" in preguntaJSON.datos_pregunta == false) {
+                if ("respuesta" in preguntaJSON.datos_pregunta == false) {
                     return false;
                 }
-                if ("respuesta" in preguntaJSON.datos_pregunta == false) {
+                /*-- Comprueba que no tengan retroalimentación --*/
+                if (preguntaJSON.retroalimentacion != null) { // To do: verificar si finalmente esto será así
                     return false;
                 }
                 /*-- Comprueba los datos que contienen estas propiedades de la pregunta --*/
@@ -309,17 +308,14 @@ class Test {
                 break;
             case TipoPregunta.FILL_IN_GAPS:
             case TipoPregunta.FILL_GAPS_GIVEN_ONE:
-                /*-- Comprueba que la estructura sea la correcta --*/
-                if ("respuestas" in preguntaJSON.datos_pregunta == false) {
-                    return false;
-                }
-                if ("respuesta" in preguntaJSON.datos_pregunta == false) {
+                /*-- Comprueba que no tengan retroalimentación --*/
+                if (preguntaJSON.retroalimentacion != null) {
                     return false;
                 }
                 /*-- Comprueba los datos que contienen estas propiedades de la pregunta --*/
                 const datosPregunta = Object.values(preguntaJSON.datos_pregunta);
                 datosPregunta.forEach(element => {
-                    if (typeof(element) != "string") {
+                    if (typeof(element) != "string" && typeof(element) != "number") {
                         return false;
                     }
                 });

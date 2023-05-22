@@ -21,8 +21,15 @@
                 </div>
             </section>
             
-            <section v-for="(pregunta, indexPregunta) in testObj.preguntas" :key="indexPregunta" class="row bg-primary m-4">
-                <div v-if="pregunta.tipo_pregunta" class="col-11 p-2">
+            <section :class="['row', 'bg-primary', 'm-4']">
+                <div class="col-11 p-2">
+                    <p>Elige la dificultad:</p>
+                    <p>Empezar test</p>
+                </div>
+            </section>
+
+            <section v-for="(pregunta, indexPregunta) in testObj.preguntas" :key="indexPregunta" id="logicaTest" :class="['row', 'bg-primary', 'm-4']">
+                <div v-if="pregunta.tipo_pregunta == tiposPregunta.MULTIPLE_RESPONSE" class="col-11 p-2">
                     <h4>
                         Pregunta @{{ indexPregunta + 1 }}:
                     </h4>

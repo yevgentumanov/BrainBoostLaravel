@@ -222,76 +222,107 @@ class Test {
         if (typeof (preguntaJSON) != "object") {
             return false;
         }
-        const datos = Object.entries(preguntaJSON);
-        console.log(datos);
+        // const datos = Object.entries(preguntaJSON);
+        // console.log(preguntaJSON);
+        
         /*-- Comprueba que la estructura sea la correcta --*/
-        if (datos[0][0] != "id") {
+        if ("id" in preguntaJSON == false) {
             return false;
         }
-        if (datos[1][0] != "id_test") {
+        if ("id_test" in preguntaJSON == false) {
             return false;
         }
-        if (datos[2][0] != "tipo_pregunta") {
+        if ("tipo_pregunta" in preguntaJSON == false) {
             return false;
         }
-        if (datos[3][0] != "nombre_pregunta") {
+        if ("nombre_pregunta" in preguntaJSON == false) {
             return false;
         }
-        if (datos[4][0] != "datos_pregunta") {
+        if ("datos_pregunta" in preguntaJSON == false) {
             return false;
         }
-        if (datos[5][0] != "retroalimentacion") {
+        if ("retroalimentacion" in preguntaJSON == false) {
             return false;
         }
 
         /*-- Comprueba que los datos introducidos en cada propiedad del JSON sean válidos de acuerdo al tipo de contenido que deberían tener --*/
-        if (typeof(datos[2][1]) != "number" || pregunta.tipo_pregunta >= numTiposPregunta) {
+        if (typeof(preguntaJSON.tipo_pregunta) != "number" || preguntaJSON.tipo_pregunta >= numTiposPregunta) {
             return false;
         }
-        if (typeof(datos[3][1]) != "string" || datos[3][1] == "") {
+        if (typeof(preguntaJSON.nombre_pregunta) != "string" || preguntaJSON.nombre_pregunta == "") {
             return false;
         }
-        if (typeof(datos[4][1]) != "object") {
+        if (typeof(preguntaJSON.datos_pregunta) != "object") {
             return false;
         }
-        if (typeof(datos[5][1]) != "string") {
+        if (typeof(preguntaJSON.retroalimentacion) != "string") {
             return false;
         }
 
         /*-- Comprueba los datos de la pregunta --*/
         const tipoPregunta = preguntaJSON.tipo_pregunta;
-        const datosPregunta = Object.entries(preguntaJSON.datos_pregunta);
         switch (tipoPregunta) {
             case TipoPregunta.MULTIPLE_RESPONSE:
                 /*-- Comprueba que la estructura sea la correcta --*/
-                if (datosPregunta.length != 2) {
+                if ("respuestas" in preguntaJSON.datos_pregunta == false) {
                     return false;
                 }
-                if (datosPregunta[0][0] != "respuestas") {
-                    return false;
-                }
-                if (datosPregunta[1][0] != "respuesta_correcta") {
-                    return false;
+                if ("respuestas_correctas" in preguntaJSON.datos_pregunta == false) {
+                    // return false; // To do en la BB.DD: respuesta_correcta => respuestas_correctas
                 }
                 /*-- Comprueba los datos que contienen estas propiedades de la pregunta --*/
-                if (datosPregunta[0][1] instanceof Array == false) {
+                if (preguntaJSON.datos_pregunta.respuestas instanceof Array == false) {
                     return false;
                 }
-                if (typeof(datosPregunta[1][1]) != "string") {
-                    return false;
+                if (typeof(preguntaJSON.datos_pregunta.respuestas_correctas) != "string") {
+                    // return false; // To do en la BB.DD: respuesta_correcta => respuestas_correctas
                 }
                 break;
             case TipoPregunta.MULTIPLE_RESPONSE_MULTIPLE_CHOICE:
-                
+                /*-- Comprueba que la estructura sea la correcta --*/
+                if ("respuestas" in preguntaJSON.datos_pregunta == false) {
+                    return false;
+                }
+                if ("respuestas_correctas" in preguntaJSON.datos_pregunta == false) {
+                    // return false; // To do en la BB.DD: respuesta_correcta => respuestas_correctas
+                }
+                /*-- Comprueba los datos que contienen estas propiedades de la pregunta --*/
+                if (preguntaJSON.datos_pregunta.respuestas instanceof Array == false) {
+                    return false;
+                }
+                if (preguntaJSON.datos_pregunta.respuestas_correctas instanceof Array == false) {
+                    // return false; // To do en la BB.DD: respuesta_correcta => respuestas_correctas
+                }
                 break;
             case TipoPregunta.UNIQUE_RESPONSE:
-
+                /*-- Comprueba que la estructura sea la correcta --*/
+                if ("respuestas" in preguntaJSON.datos_pregunta == false) {
+                    return false;
+                }
+                if ("respuesta" in preguntaJSON.datos_pregunta == false) {
+                    return false;
+                }
+                /*-- Comprueba los datos que contienen estas propiedades de la pregunta --*/
+                if (typeof(preguntaJSON.datos_pregunta.respuesta) != "string") {
+                    return false;
+                }
                 break;
             case TipoPregunta.FILL_IN_GAPS:
-
-                break;
             case TipoPregunta.FILL_GAPS_GIVEN_ONE:
-
+                /*-- Comprueba que la estructura sea la correcta --*/
+                if ("respuestas" in preguntaJSON.datos_pregunta == false) {
+                    return false;
+                }
+                if ("respuesta" in preguntaJSON.datos_pregunta == false) {
+                    return false;
+                }
+                /*-- Comprueba los datos que contienen estas propiedades de la pregunta --*/
+                const datosPregunta = Object.values(preguntaJSON.datos_pregunta);
+                datosPregunta.forEach(element => {
+                    if (typeof(element) != "string") {
+                        return false;
+                    }
+                });
                 break;
         }
 

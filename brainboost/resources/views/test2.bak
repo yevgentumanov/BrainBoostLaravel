@@ -4,7 +4,14 @@
 <!-- Página de test -->
 @section('main')
     <main class="row">
-        {{-- Solo usar con fines de testing --}}
+        <div class="col-12">
+            <section class="row bg-primary m-4">
+                <div class="col-12 m-2">
+                    <h3>TEST - {{ $test->nombre_test }}</h3>
+                </div>
+            </section>
+
+            {{-- Solo usar con fines de testing --}}
             {{-- @isset($test)
                 <section class="row bg-primary m-4">
                     <div class="col-12 m-2">
@@ -14,25 +21,49 @@
                     </div>
                 </section>
             @endisset --}}
-        <div id="appVue" class="col-12">
-            <section class="row bg-primary m-4">
-                <div class="col-12 m-2">
-                    <h3>TEST - {{ $test->nombre_test }}</h3>
-                </div>
-            </section>
-            
-            <section v-for="(pregunta, indexPregunta) in testObj.preguntas" :key="indexPregunta" class="row bg-primary m-4">
-                <div v-if="pregunta.tipo_pregunta" class="col-11 p-2">
-                    <h4>
-                        Pregunta @{{ indexPregunta + 1 }}:
-                    </h4>
-                    <label class="p-2 px-4 font-weight-bold">@{{ pregunta.nombre_pregunta }}</label>
-                    <div v-for="(respuesta, indexRespuesta) in pregunta.datos_pregunta.respuestas" :key="indexRespuesta">
-                        <input type="radio" :id="indexPregunta + '' +  indexRespuesta" :name="indexPregunta" :value="indexRespuesta">
-                        <label :for="indexPregunta + '' +  indexRespuesta">@{{ respuesta }}</label>
-                    </div>
-                </div>
-            </section>
+
+            <script>
+                const rutaDesglosada = document.location.href.split("/");
+                const id = Number.parseInt(rutaDesglosada[rutaDesglosada.length - 1][0]);
+
+                let test1 = new Test();
+                let testController1 = new TestController(test1);
+                // test1.downloadQuestionsByIdTest(id);
+                testController1.downloadQuestionsByIdTest(id);
+                console.log(test1);
+            </script>
+
+            @isset($preguntas)
+                @foreach ($preguntas as $pregunta)
+                    @if ($pregunta->tipo_pregunta == 1)
+                        <section class="row bg-primary m-4 ">
+                            <div class="col-12 p-2 px-4">
+                                <h4>
+                                    Pregunta {{ $loop->iteration }}:
+                                </h4>
+                            </div>
+                            <label class="p-2 px-4 font-weight-bold">{{ $pregunta->nombre_pregunta }}</label>
+                            <div class="col-12">
+                                <?php
+                                $datos = json_decode($pregunta->datos_pregunta);
+                                $respuestas = $datos->respuestas;
+                                // $respuestasCorrectas = $datos->respuestas_correctas;
+                                ?>
+
+                                <ul class="col-12">
+                                    @foreach ($respuestas as $key => $respuesta)
+                                        <ul>
+                                            <input type="radio" id="respuesta{{ $key }}"
+                                                name="respuesta{{ $loop->parent->index }}" value="{{ $respuesta }}">
+                                            <label for="respuesta{{ $key }}">{{ $respuesta }}</label>
+                                        </ul>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </section>
+                    @endif
+                @endforeach
+            @endisset
             {{--
             <section class="row bg-primary m-4 ">
                 <div class="col-11 p-2">

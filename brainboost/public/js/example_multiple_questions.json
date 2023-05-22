@@ -3,7 +3,8 @@
         "respuestas": ["Respuesta A", "Respuesta B", "Respuesta C", "Respuesta D"],
         "respuestas_correctas": [
             "Respuesta B"
-        ]}
+        ]},
+        "retroalimentacion": ""
     },
 
     {"id": 2, "id_test": 1, "tipo_pregunta": 2, "nombre_pregunta": "Formulación de la pregunta 2", "datos_pregunta": {

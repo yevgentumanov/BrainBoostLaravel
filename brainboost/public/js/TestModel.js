@@ -1,7 +1,7 @@
 /**
  * Fichero donde se implementa el modelo de datos que manejará el controlador.
  * @author Santiago
- * @version 21.05.2023
+ * @version 24.05.2023
  */
 
 /*===============================================
@@ -339,19 +339,24 @@ class Test {
         if (!keys.includes("id_pregunta") || !keys.includes("tipo_pregunta") || keys.includes("respuesta")) {
             return false;
         }
+
+        /*-- Realiza una validación más exhaustiva en caso de que se especifique un idPregunta por parámetro --*/
         if (idPregunta != null || typeof(idPregunta) != "number") {
-            const pregunta = this.preguntas[idPregunta];
+            const pregunta = this.preguntas[idPregunta]; // Obtiene la pregunta
+            /*-- Verifica que la pregunta sea válida --*/
             if (!this.validaPregunta(pregunta)) return false;
 
+            /*-- Verifica que el tipo de pregunta sea válido --*/
             if (pregunta.tipo_pregunta < 1 || pregunta.tipo_pregunta >= numTiposPregunta) {
                 return false;
             }
 
             /*-- Valida para cada tipo de pregunta --*/
-            const respuesta = respuestaJSON.respuesta;
+            const respuesta = respuestaJSON.respuesta; // Obtiene la respuesta
             let elementosRespuesta;
             switch (pregunta.tipo_pregunta) {
                 case TipoPregunta.MULTIPLE_RESPONSE:
+
                     if (typeof(respuesta) != "string" || pregunta.datos_pregunta) return false;
                     break;
                 case TipoPregunta.MULTIPLE_RESPONSE_MULTIPLE_CHOICE:
@@ -712,7 +717,7 @@ class Test {
                 // To do
             }).catch(error => {
                 /*-- Descarta que haya dado error --*/
-                throw new Error(`${MensajesErrorTest["__ERR_TEST_INFO_FETCH"].message} Mensaje de error: ${error.message}`);
+                throw new Error(`${MensajesErrorTest["__ERR_TEST_INFO_FETCH"].message} Mensaje de error: ${error}`);
             })
     }
 
@@ -746,7 +751,7 @@ class Test {
                 });
             }).catch(error => {
                 /*-- Descarta que haya dado error --*/
-                throw new Error(`${MensajesErrorTest["__ERR_QUESTIONS_FETCH"].message} Mensaje de error: ${error.message}`);
+                throw new Error(`${MensajesErrorTest["__ERR_QUESTIONS_FETCH"].message} Mensaje de error: ${error}`);
             });
     }
 

@@ -1,7 +1,7 @@
 /**
- * Fichero donde se implementarán métodos para crear el controlador, es decir, la lógica de la página de test
+ * Fichero donde se implementarán métodos para crear el controlador, es decir, la lógica de la página de test, así como la descarga de preguntas y la subida de respuestas al servidor.
  * @author Santiago
- * @version 21.05.2023
+ * @version 24.05.2023
  */
 
 class TestController {
@@ -48,7 +48,7 @@ class TestController {
                 // To do
             }).catch(error => {
                 /*-- Descarta que haya dado error --*/
-                throw new Error(`${MensajesErrorTest["__ERR_TEST_INFO_FETCH"].message} Mensaje de error: ${error.message}`);
+                throw new Error(`${MensajesErrorTest["__ERR_TEST_INFO_FETCH"].message} Mensaje de error: ${error}`);
             })
     }
 
@@ -82,7 +82,7 @@ class TestController {
                 });
             }).catch(error => {
                 /*-- Descarta que haya dado error --*/
-                throw new Error(`${MensajesErrorTest["__ERR_QUESTIONS_FETCH"].message} Mensaje de error: ${error.message}`);
+                throw new Error(`${MensajesErrorTest["__ERR_QUESTIONS_FETCH"].message} Mensaje de error: ${error}`);
             });
     }
 

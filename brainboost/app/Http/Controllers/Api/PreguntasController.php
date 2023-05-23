@@ -37,8 +37,11 @@ class PreguntasController extends Controller
         }
 
         $preguntas = Pregunta::where('id_test', $id_test)->get();
-
-        return response()->json($preguntas);
+        if (sizeof($preguntas) > 0) {
+            return response()->json($preguntas);
+        } else {
+            abort(404);
+        }
     }
 
     /**

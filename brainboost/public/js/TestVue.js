@@ -1,4 +1,9 @@
-/*-- Fichero donde se implementarán métodos para crear la vista del test dinámicamente, con los datos que reciba de TestModel --*/
+/**
+ * Fichero donde se implementarán métodos para crear la vista del test dinámicamente mediante Vue, con los datos que reciba de TestModel, gracias a TestController.
+ * @author Santiago
+ * @version 23.05.2023
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
     const app = new Vue({
         el: '#appVue',
@@ -30,6 +35,4 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(this.testObj);
         }
     });
-
-
 });

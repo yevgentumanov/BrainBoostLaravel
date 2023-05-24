@@ -9,7 +9,6 @@
             </a>
         </div>
 
-
         <div class="d-flex col-4 justify-content-end">
             <form class="form-inline" action="/action_page.php">
                 <input class="form-control mr-2" type="text" placeholder="Buscar">
@@ -17,15 +16,8 @@
             </form>
         </div>
         <div class="col-2">
-            <form class="form-inline justify-content-end" action="/action_page.php">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Usuario">
-                </div>
-            </form>
-        </div>
+            <a href="{{ route('login') }}" class="btn btn-primary">Iniciar sesión</a>
+            <a href="{{ route('registro') }}" class="btn btn-secondary">Nuevo usuario</a>
     </nav>
 
     <!-- Barra de navegación para las materias de la aplicación -->

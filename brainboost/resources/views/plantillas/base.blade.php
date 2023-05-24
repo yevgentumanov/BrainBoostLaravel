@@ -35,7 +35,7 @@
             <script src="{!! asset('js/utilidades.js') !!}"></script>
             <script src="{!! asset('js/globals.js') !!}"></script>
             <script src="{!! asset('js/JSON/api_rest.js') !!}"></script>
-            <script src="{!! asset('js/JSON/json.js') !!}"></script>   
+            <script src="{!! asset('js/JSON/json.js') !!}"></script>
 
             <script src="{!! asset('js/MateriaModel.js') !!}"></script>
             <script src="{!! asset('js/TestModel.js') !!}"></script>
@@ -51,8 +51,11 @@
 <body>
     <div class="container-fluid">
         {{-- Inserción de la cabecera --}}
-        @include('fragmentos.cabecera')
-
+        @auth
+            @include('fragmentos.cabeceraLogoff')
+        @else
+            @include('fragmentos.cabeceraLogin')
+        @endauth
         {{-- Punto de inserción del main en cada página --}}
         @yield('main')
 

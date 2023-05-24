@@ -111,7 +111,6 @@ const MensajesErrorTest = (() => {
         message: "Se ha producido un error al intentar descargar la información del intento del test del servidor."
     }
 
-    //
     return mensajes;
 })();
 
@@ -244,7 +243,7 @@ class Test {
         }
 
         /*-- Comprueba que los datos introducidos en cada propiedad del JSON sean válidos de acuerdo al tipo de contenido que deberían tener --*/
-        if (typeof(preguntaJSON.tipo_pregunta) != "number" || preguntaJSON.tipo_pregunta >= numTiposPregunta) {
+        if (typeof(preguntaJSON.tipo_pregunta) != "number" || preguntaJSON.tipo_pregunta <= 0 || preguntaJSON.tipo_pregunta >= numTiposPregunta) {
             return false;
         }
         if (typeof(preguntaJSON.nombre_pregunta) != "string" || preguntaJSON.nombre_pregunta == "") {
@@ -318,6 +317,10 @@ class Test {
                     if (typeof(element) != "string" && typeof(element) != "number") {
                         return false;
                     }
+                    let cadena = "";
+                    if (cadena) { // To do: comprobar expresión regular ${1}: preguntaJSON.nombre_pregunta.
+
+                    }
                 });
                 break;
         }
@@ -335,14 +338,13 @@ class Test {
         if (typeof(respuestaJSON) != "object") {
             return false;
         }
-        const keys = Object.keys(respuestaJSON);
-        if (!keys.includes("id_pregunta") || !keys.includes("tipo_pregunta") || keys.includes("respuesta")) {
-            return false;
-        }
 
         /*-- Realiza una validación más exhaustiva en caso de que se especifique un idPregunta por parámetro --*/
-        if (idPregunta != null || typeof(idPregunta) != "number") {
-            const pregunta = this.preguntas[idPregunta]; // Obtiene la pregunta
+        if (idPregunta != null && typeof(idPregunta) == "number") {
+            /*-- Comprueba que el id de pregunta exista dentro del array de preguntas --*/
+            if (!this.validaIdPregunta()) return false;
+            /*-- Obtiene la pregunta --*/
+            const pregunta = this.preguntas[idPregunta];
             /*-- Verifica que la pregunta sea válida --*/
             if (!this.validaPregunta(pregunta)) return false;
 
@@ -351,20 +353,26 @@ class Test {
                 return false;
             }
 
+            // prueba.includes(pregunta.datos_pregunta.respuestas.)
             /*-- Valida para cada tipo de pregunta --*/
-            const respuesta = respuestaJSON.respuesta; // Obtiene la respuesta
             let elementosRespuesta;
-            switch (pregunta.tipo_pregunta) {
-                case TipoPregunta.MULTIPLE_RESPONSE:
 
-                    if (typeof(respuesta) != "string" || pregunta.datos_pregunta) return false;
-                    break;
+            switch (pregunta.tipo_pregunta) {
+                                    // respuestaJSON.forEach(element => {
+                    //     if (typeof(element) != "string" || pregunta.datos_pregunta.respuestas.includes(element)) {
+                    //         return false;
+                    //     }
+                    // });
+                case TipoPregunta.MULTIPLE_RESPONSE:
                 case TipoPregunta.MULTIPLE_RESPONSE_MULTIPLE_CHOICE:
-                    elementosRespuesta = Object.entries(respuesta);
-                    
+                    /*-- Comprueba si la respuesta que ha dado el usuario coincide con alguna de las respuestas posibles para la pregunta --*/
+                    if (compareArraysWithoutOrder(respuestaJSON, preguntas.datos_pregunta.respuestas).length == 0) {
+                        return false;
+                    }
                     break;
                 case TipoPregunta.UNIQUE_RESPONSE:
-
+                    /*-- Comprueba si la respuesta dada por el usuario es de tipo string o number --*/
+                    if (typeof(respuestaJSON[0]) != "string" && typeof(respuestaJSON[0]) != "number") return false;
                     break;
                 case TipoPregunta.FILL_IN_GAPS:
 

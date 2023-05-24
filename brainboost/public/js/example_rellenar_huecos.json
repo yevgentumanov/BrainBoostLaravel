@@ -10,12 +10,12 @@
             , "retroalimentacion": ""
     },
     {
-        "id": 1, "id_test": 2, "tipo_pregunta": 4, "nombre_pregunta": "Los seres vivos necesitan ___ para vivir y crecer. Las plantas lo obtienen a través de la ___, mientras que los animales lo obtienen a través de la ___. El ___ es un recurso natural que debemos cuidar", "datos_pregunta": 
+        "id": 1, "id_test": 2, "tipo_pregunta": 4, "nombre_pregunta": "Los seres vivos necesitan ${1} para vivir y crecer. Las plantas lo obtienen a través de la ${2}, mientras que los animales lo obtienen a través de la ${3}. El ${4} es un recurso natural que debemos cuidar", "datos_pregunta": 
             {
-                "hueco1": "agua",
-                "hueco2": "fotosíntesis",
-                "hueco3": "alimentación",
-                "hueco4": "agua"
+                "${1}": "agua",
+                "${2}": "fotosíntesis",
+                "${3}": "alimentación",
+                "${4}": "agua"
             },
             "retroalimentacion": ""
     },

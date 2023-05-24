@@ -58,3 +58,17 @@ function inversaArray(array) {
 
     return inversa;
 }
+
+/**
+ * Función que compara el contenido de dos arrays, cuyo contenido no tiene por qué estar en el mismo orden.
+ * Devuelve un array que es el producto de ambas matrices, es decir, devuelve un array que contiene los elementos comunes.
+ * @param arr1 - Especifica el primer array.
+ * @param arr2 - Especifica el segundo array.
+ * @link Fuente: https://es.stackoverflow.com/questions/415123/c%c3%b3mo-miro-si-dos-arrays-tienen-los-mismos-valores-aunque-sea-en-diferente-orde#:~:text=Tengo%202%20arrays%20con%20el%20mismo%20contenido%20%28valores,%28array%20%5Bi%5D%3D%3Darray1%20%5Bi%5D%20%7B%20total.push%20%28array%20%5Bi%5D%29%20%7D
+ * @return Un array que contiene los elementos comunes a ambos arrays.
+ */
+function compareArraysWithoutOrder(arr1, arr2) {
+    if (Array.isArray(arr1) && Array.isArray(arr2)) {
+        return arr1.filter(x => arr2.some(y => x === y));
+    }
+}

@@ -27,7 +27,7 @@
 
     <!-- Font Awesome 5 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="{!! asset('images/favicon.ico') !!}">
 
     <!-- JavaScript lógica test -->
     @isset($enableScriptTest)

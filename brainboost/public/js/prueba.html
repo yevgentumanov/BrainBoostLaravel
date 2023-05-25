@@ -21,6 +21,8 @@
 
 <body>
     <h3>Entorno de pruebas para el desarrollo</h3>
+    <p id="pregunta"></p>
+    <form action="" method="post"></form>
     <script>
         let test1 = new Test();
         let testController1 = new TestController(test1);
@@ -29,11 +31,57 @@
         
         console.log(test1);
 
-        const arr1 = ['1', '2']
-const arr2 = ['2', '1', '3']
+        /*-- Expresiones regulares --*/
+        const regex = /\$\{(.*?)\}/g;
+        let webElements = [];
+        let pregunta = "I ${hueco1} to work by bus every day. She ${hueco2} from the University of California last year. We ${hueco3} a great time at the party last night. My brother ${hueco4} me his car for the weekend."
+        const enunciado = document.querySelector("#pregunta");
+        enunciado.innerHTML = pregunta.replace(regex, (match, contenido) => `<b>${contenido}</b>`);
+        
+        /*-- Prueba a acceder a cada hueco y a crear un input text para cada uno --*/
+        let aparicion;
+        while ((aparicion = regex.exec(pregunta)) !== null) {
+            const element = document.createElement("input");
+            element.type = "text";
+            element.name = aparicion[0];
+            webElements.push(element)
+        }
 
-const out = arr1.filter(x => arr2.some(c => x === c))
-console.log(out)
+        /*-- Crea un boton --*/
+        const boton = document.createElement("input");
+        boton.type = "submit";
+        boton.value = "Comprobar";
+        webElements.push(boton);
+
+        /*-- Añade todos los elementos al formulario --*/
+        const form = document.querySelector("form");
+        form.append(webElements[0], webElements[1], webElements[2], webElements[3], webElements[4]);
+
+        /*-- Programa las correcciones --*/
+        const respuestasCorrectas = {
+            "${hueco1}": "go",
+            "${hueco2}": "graduated",
+            "${hueco3}": "had",
+            "${hueco4}": "lent"
+        }
+        form.addEventListener("submit", (evento) => {
+            evento.preventDefault();
+            /*-- Comprueba si la respuesta introducida en cada hueco es correcta --*/
+            if (form.elements.item(0).value == respuestasCorrectas[form.elements.item(0).name] &&
+            form.elements.item(1).value == respuestasCorrectas[form.elements.item(1).name] &&
+            form.elements.item(2).value == respuestasCorrectas[form.elements.item(2).name] &&
+            form.elements.item(3).value == respuestasCorrectas[form.elements.item(3).name]) {
+                window.alert("Has acertado todas las preguntas")
+            } else {
+                window.alert("No has acertado todas las preguntas")
+            }
+            
+        });
+        
+
+
+
+
 
         // obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_PREGUNTAS, "GET", null, null)
         // .then(response => {

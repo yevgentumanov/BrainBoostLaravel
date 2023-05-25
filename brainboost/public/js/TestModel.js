@@ -312,6 +312,9 @@ class Test {
                     return false;
                 }
                 /*-- Comprueba los datos que contienen estas propiedades de la pregunta --*/
+                const regex = /\$\{(.*?)\}/g;
+
+                
                 const datosPregunta = Object.values(preguntaJSON.datos_pregunta);
                 datosPregunta.forEach(element => {
                     if (typeof(element) != "string" && typeof(element) != "number") {
@@ -374,7 +377,7 @@ class Test {
                     /*-- Comprueba si la respuesta dada por el usuario es de tipo string o number --*/
                     if (typeof(respuestaJSON[0]) != "string" && typeof(respuestaJSON[0]) != "number") return false;
                     break;
-                case TipoPregunta.FILL_IN_GAPS:
+                case TipoPregunta.FILL_IN_GAPS: // To do
 
                     break;
                 case TipoPregunta.FILL_GAPS_GIVEN_ONE:

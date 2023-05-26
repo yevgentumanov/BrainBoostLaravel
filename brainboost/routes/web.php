@@ -1,12 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Prueba;
-use App\Http\Controllers\MateriaController;
-use App\Http\Controllers\TestController;
-use App\Http\Controllers\UsuariosController;
-use App\Http\Controllers\RegistroController;
+use App\Http\Controllers\Api\IntentosPreguntaController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MateriaController;
+use App\Http\Controllers\RegistroController;
+use App\Http\Controllers\TestController;
+use Illuminate\Support\Facades\Route;
 
 
 /*
@@ -56,3 +55,7 @@ Route::get('/materia/{nombreMateria}', [MateriaController::class, 'index'])->nam
 // Ruta genérica para las páginas de los tests de las diferentes materias
 //Route::get('/test/{idTest}', [TestController::class, 'showTest'])->name("test")->middleware('guest'); // Después el caso general (rutas parametrizadas)
 Route::get('/test/{idTest}', [TestController::class, 'showTest'])->name("test"); // Después el caso general (rutas parametrizadas)
+
+// Ruta para guardar y mostrar informacion sobre intentos test
+Route::post('/intentos_pregunta', [IntentosPreguntaController::class, 'store']); // Ruta que guarda informacion
+Route::post('/intentos_pregunta', [IntentosPreguntaController::class, 'show']); // Ruta que obtiene informacion por id

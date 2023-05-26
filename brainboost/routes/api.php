@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PreguntaController;
 use App\Http\Controllers\Api\PreguntasController;
-use App\Http\Controllers\Api\TestUsuarioController;
+use App\Http\Controllers\Api\BorrarTestUsuarioController;
 use App\Http\Controllers\Api\MateriasController;
 use App\Http\Controllers\Api\TestController;
 
@@ -35,9 +35,9 @@ Route::get("pregunta", [PreguntasController::class, "show"]); // devuelve todas 
 Route::get("test", [TestController::class, "show"]); // devuelve todas las preguntas de un test con ID indicado
 
 Route::group(['prefix' => 'api'], function () {
-    Route::get('/test-usuarios', [TestUsuarioController::class, 'index']);
-    Route::post('/test-usuarios', [TestUsuarioController::class, 'store']);
-    Route::get('/test-usuarios/{id}', [TestUsuarioController::class, 'show']);
-    Route::put('/test-usuarios/{id}', [TestUsuarioController::class, 'update']);
-    Route::delete('/test-usuarios/{id}', [TestUsuarioController::class, 'destroy']);
+    Route::get('/test-usuarios', [BorrarTestUsuarioController::class, 'index']);
+    Route::post('/test-usuarios', [BorrarTestUsuarioController::class, 'store']);
+    Route::get('/test-usuarios/{id}', [BorrarTestUsuarioController::class, 'show']);
+    Route::put('/test-usuarios/{id}', [BorrarTestUsuarioController::class, 'update']);
+    Route::delete('/test-usuarios/{id}', [BorrarTestUsuarioController::class, 'destroy']);
 });

@@ -1,4 +1,4 @@
-[
+[//Tipo 3
     {"id": 1, "id_test": 1, "tipo_pregunta": 3, "nombre_pregunta": "Concepto / frase a completar", "datos_pregunta": {
         "respuesta": "Explicación / significado / completar una frase"},
         "retroalimentacion": ""

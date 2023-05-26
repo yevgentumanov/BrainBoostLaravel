@@ -1,5 +1,5 @@
 [
-    { // Tipo 4
+    { // Tipo 6
         "id": 1, "id_test": 2, "tipo_pregunta": 4, "nombre_pregunta": "Dime la palabra 'meta' en inglés, francés, alemán e italiano.", "datos_pregunta": 
             {
                 "Inglés": "goal",

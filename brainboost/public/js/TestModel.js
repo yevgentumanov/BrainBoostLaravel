@@ -15,7 +15,7 @@ const TipoPregunta = {
     UNIQUE_RESPONSE: 3, // Escribir la respuesta en una caja de texto
     FILL_IN_GAPS: 4, // Rellenar huecos (hay que rellenarlos todos)
     FILL_GAPS_GIVEN_ONE: 5, // Rellenar huecos dado uno (Ejemplo: verbos irregulares)
-    NUMBER_MATCHING: 6 // Acertar el número (Ejemplo: acertar la fecha de un acontecimiento histórico)
+    FILL_TABLE: 6 // Rellenar tabla
 }
 const numTiposPregunta = Object.keys(TipoPregunta).length;
 

@@ -79,6 +79,9 @@ class TestController {
                     /*-- Agrega la pregunta al array de preguntas --*/
                     pregunta.datos_pregunta = JSON.parse(pregunta.datos_pregunta);
                     this.test.addPregunta(pregunta);
+
+                    /*-- To do: Debo inicializar el array de respuestas de TestModel a null, pero con la estructura creada --*/
+                    
                 });
             }).catch(error => {
                 /*-- Descarta que haya dado error --*/

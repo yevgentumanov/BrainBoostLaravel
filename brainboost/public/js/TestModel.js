@@ -25,6 +25,7 @@ const ErroresTest = [
     "__ERR_ATTEMPT_TEST_ID_INVALID",
     "__ERR_QUESTION_ID_INVALID",
     "__ERR_QUESTION_INVALID",
+    "__ERR_RESPONSE_INVALID",
     "__ERR_TEST_NAME_INVALID",
     "__ERR_TEST_DESCRIPTION_INVALID",
     "__ERR_MARK_INVALID", // Nota de test inválida
@@ -74,40 +75,45 @@ const MensajesErrorTest = (() => {
         errorName: ErroresTest[4],
         errorCode: CodigosErrorTest[4],
         message: "Se esperaba un objeto JSON como pregunta, o bien tiene una estructura incorrecta."
-    }
+    },
     mensajes[ErroresTest[5]] = {
         errorName: ErroresTest[5],
         errorCode: CodigosErrorTest[5],
-        message: "Se esperaba una cadena de texto con el nombre del test."
-    }
+        message: "Se esperaba una respuesta válida con el formato JSON."
+    },
     mensajes[ErroresTest[6]] = {
         errorName: ErroresTest[6],
         errorCode: CodigosErrorTest[6],
-        message: "Se esperaba una cadena de texto con la descripción del test."
+        message: "Se esperaba una cadena de texto con el nombre del test."
     }
     mensajes[ErroresTest[7]] = {
         errorName: ErroresTest[7],
         errorCode: CodigosErrorTest[7],
-        message: "Se esperaba un número mayor entre 0 y 10 como nota de test."
+        message: "Se esperaba una cadena de texto con la descripción del test."
     }
     mensajes[ErroresTest[8]] = {
         errorName: ErroresTest[8],
         errorCode: CodigosErrorTest[8],
-        message: "Has especificado una fecha de realización que no es válida."
+        message: "Se esperaba un número mayor entre 0 y 10 como nota de test."
     }
     mensajes[ErroresTest[9]] = {
         errorName: ErroresTest[9],
         errorCode: CodigosErrorTest[9],
-        message: "Se ha producido un error al intentar descargar la información del test del servidor."
+        message: "Has especificado una fecha de realización que no es válida."
     }
     mensajes[ErroresTest[10]] = {
         errorName: ErroresTest[10],
         errorCode: CodigosErrorTest[10],
-        message: "Se ha producido un error al intentar descargar la información de las preguntas del servidor."
+        message: "Se ha producido un error al intentar descargar la información del test del servidor."
     }
     mensajes[ErroresTest[11]] = {
         errorName: ErroresTest[11],
         errorCode: CodigosErrorTest[11],
+        message: "Se ha producido un error al intentar descargar la información de las preguntas del servidor."
+    }
+    mensajes[ErroresTest[12]] = {
+        errorName: ErroresTest[12],
+        errorCode: CodigosErrorTest[12],
         message: "Se ha producido un error al intentar descargar la información del intento del test del servidor."
     }
 
@@ -312,18 +318,37 @@ class Test {
                     return false;
                 }
                 /*-- Comprueba los datos que contienen estas propiedades de la pregunta --*/
-                const regex = /\$\{(.*?)\}/g;
-
+                const regex = /^\$\{((\d+):(.*?))\}$/g;
+                const regexEnCualquierParte = /\$\{((\d+):(.*?))\}/g; // ${1:hueco1}, esto es: pregunta 1, hueco 1
                 
-                const datosPregunta = Object.values(preguntaJSON.datos_pregunta);
-                datosPregunta.forEach(element => {
-                    if (typeof(element) != "string" && typeof(element) != "number") {
+                // Si el enunciado contiene referencias a los huecos, comprueba que el enunciado tenga exactamente los mismos huecos que hay almacenados en datos_pregunta (mismo nº y nombre de ellos)
+                const enunciadoTieneHuecos = preguntaJSON.nombre_pregunta.test(regexEnCualquierParte);
+                // Si el enunciado no contiene huecos, 
+                const datosPregunta = Object.entries(preguntaJSON.datos_pregunta);
+                for (let i = 0; i < datosPregunta.length; i++) {
+                    /*-- Variables --*/
+                    const element = datosPregunta[i];
+
+                    /*-- Valida si los huecos son válidos y su contenido es number o string --*/
+                    if (!element[0].test(regex)) {
+                        return false;
+                    }
+                    if (typeof(element[1]) != "string" && typeof(element[1]) != "number") {
                         return false;
                     }
                     let cadena = "";
-                    if (cadena) { // To do: comprobar expresión regular ${1}: preguntaJSON.nombre_pregunta.
 
+                    /*-- Comprueba si existen los huecos de la preguntaJSON --*/
+                    if (enunciadoTieneHuecos) {
+                        /*-- Si existen los huecos, comprueba que coincidan con los que hay almacenados en datos_pregunta --*/
+                        if (preguntaJSON.nombre_pregunta.test(regex)) { // To do: comprobar expresión regular ${1}: preguntaJSON.nombre_pregunta.
+                            /*-- Comprueba a ver si las referencias --*/
+                            
+                        }
                     }
+                }
+                datosPregunta.forEach(element => {
+                    
                 });
                 break;
         }
@@ -651,6 +676,22 @@ class Test {
     getIDUsuarioRealizador() {
         return this.idUsuarioRealizador;
     }
+    
+    /**
+     * Método que devuelve las respuestas dadas por el usuario que han sido almacenadas.
+     */
+    getRespuestas() {
+        return this.respuestas;
+    }
+
+    /**
+     * Método que devuelve la respuesta dada por el usuario a una determinada pregunta.
+     * @param {number} indice - Especifica el índice de la pregunta sobre la que se quiere conocer su respuesta.
+     */
+    getRespuestaByQuestion(indice) {
+        if (!this.validaIdPregunta(indice)) throw new Error(MensajesErrorTest["__ERR_QUESTION_ID_INVALID"].message);
+        return this.respuestas[indice];
+    }
 
     /**
      * Método que permite guardar la respuesta dada por el usuario a una pregunta.
@@ -659,11 +700,18 @@ class Test {
      */
     setRespuesta(indice, respuesta) {
         if (!this.validaIdPregunta(indice)) throw new Error(MensajesErrorTest["__ERR_QUESTION_ID_INVALID"].message);
-        
+        if (!this.validaRespuesta(respuesta)) throw new Error(MensajesErrorTest["__ERR_RESPONSE_INVALID"].message);
+
+        this.respuestas[indice] = respuesta;
     }
 
+    /**
+     * Método que sirve para eliminar la respuesta a una pregunta.
+     * @param {number} indice - Especifica el índice de la pregunta sobre la que se desea eliminar la respuesta.
+     */
     removeRespuesta(indice) {
-
+        if (!this.validaIdPregunta(indice)) throw new Error(MensajesErrorTest["__ERR_QUESTION_ID_INVALID"].message);
+        this.respuestas[indice] = null;
     }
 
     /**

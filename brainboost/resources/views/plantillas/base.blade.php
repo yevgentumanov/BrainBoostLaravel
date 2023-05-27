@@ -40,8 +40,9 @@
             <script src="{!! asset('js/MateriaModel.js') !!}"></script>
             <script src="{!! asset('js/TestModel.js') !!}"></script>
             <script src="{!! asset('js/TestController.js') !!}"></script>
-            <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> <!-- Importa la librería de Vue.js -->
-            <script src="{!! asset('js/TestVue.js') !!}"></script>
+            {{-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> <!-- Importa la librería de Vue.js --> --}}
+            {{-- <script src="{!! asset('js/TestVue.js') !!}"></script> --}}
+            @vite('public/js/TestVue.js')
         @endif
     @endisset
     <!-- Título de la página -->

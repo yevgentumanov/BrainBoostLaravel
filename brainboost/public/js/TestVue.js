@@ -10,10 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
         data: {
             tiposPregunta: TipoPregunta,
             testObj: new Test(),
-            testCtrl: null
+            testCtrl: null,
+        },
+        computed: {
+            preguntasRandomOrder() {
+                return this.testObj.preguntas.sort(() => 0.5 - Random.randomFloat());
+            }
         },
         methods: {
-
+            respuestasRandomOrder(i) {
+                return this.preguntasRandomOrder[i].datos_pregunta.respuestas.sort(() => 0.5 - Random.randomFloat());
+            }
         },
         created() {
             console.log("created"); // Mera bandera de debug

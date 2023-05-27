@@ -24,8 +24,8 @@ while ((aparicion = regex.exec(pregunta)) !== null) {
 console.log(aparicion);
 console.log(aparicion = regex.exec(pregunta));
 console.log(aparicion);
-
-console.log(aparicion = regex.exec(pregunta));
+console.log(aparicion = regex.exec(""));
+console.log(aparicion);
 
 /*-- Crea un boton --*/
 const boton = document.createElement("input");

@@ -28,7 +28,7 @@
                 </div>
             </section>
 
-            <section v-for="(pregunta, indexPregunta) in preguntasRandomOrder" :key="indexPregunta" id="logicaTest" :class="['row', 'bg-primary', 'm-4']">
+            <section v-for="(pregunta, indexPregunta) in preguntasRandomOrder" :key="indexPregunta" id="logicaTest" class="d-none" :class="['d-block', 'row', 'bg-primary', 'm-4']">
                 <div v-if="pregunta.tipo_pregunta == tiposPregunta.MULTIPLE_RESPONSE" class="col-11 p-2">
                     <h4>
                         Pregunta @{{ indexPregunta + 1 }}:

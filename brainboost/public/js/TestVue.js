@@ -3,14 +3,15 @@
  * @author Santiago
  * @version 23.05.2023
  */
-
+import { createApp } from 'vue'
 document.addEventListener('DOMContentLoaded', () => {
-    const app = new Vue({
-        el: '#appVue',
-        data: {
-            tiposPregunta: TipoPregunta,
-            testObj: new Test(),
-            testCtrl: null,
+    const app = createApp({
+        data() {
+            return {
+                tiposPregunta: TipoPregunta,
+                testObj: new Test(),
+                testCtrl: null,
+            }
         },
         computed: {
             preguntasRandomOrder() {
@@ -42,4 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(this.testObj);
         }
     });
+
+    app.mount("#appVue");
 });

@@ -28,18 +28,19 @@
                 </div>
             </section>
 
-            <section v-for="(pregunta, indexPregunta) in testObj.preguntas" :key="indexPregunta" id="logicaTest" :class="['row', 'bg-primary', 'm-4']">
+            <section v-for="(pregunta, indexPregunta) in preguntasRandomOrder" :key="indexPregunta" id="logicaTest" :class="['row', 'bg-primary', 'm-4']">
                 <div v-if="pregunta.tipo_pregunta == tiposPregunta.MULTIPLE_RESPONSE" class="col-11 p-2">
                     <h4>
                         Pregunta @{{ indexPregunta + 1 }}:
                     </h4>
                     <label class="p-2 px-4 font-weight-bold">@{{ pregunta.nombre_pregunta }}</label>
-                    <div v-for="(respuesta, indexRespuesta) in pregunta.datos_pregunta.respuestas" :key="indexRespuesta">
+                    <div v-for="(respuesta, indexRespuesta) in respuestasRandomOrder(indexPregunta)" :key="indexRespuesta">
                         <input type="radio" :id="indexPregunta + '' +  indexRespuesta" :name="indexPregunta" :value="indexRespuesta">
                         <label :for="indexPregunta + '' +  indexRespuesta">@{{ respuesta }}</label>
                     </div>
                 </div>
             </section>
+
             {{--
             <section class="row bg-primary m-4 ">
                 <div class="col-11 p-2">

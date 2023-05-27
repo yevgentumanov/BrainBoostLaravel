@@ -2,9 +2,7 @@
     //Tipo 1
     {"id": 1, "id_test": 1, "tipo_pregunta": 1, "nombre_pregunta": "Formulación de la pregunta 1", "datos_pregunta": {
         "respuestas": ["Respuesta A", "Respuesta B", "Respuesta C", "Respuesta D"],
-        "respuestas_correctas": [
-            "Respuesta B"
-        ]},
+        "respuestas_correctas": "Respuesta B"},
         "retroalimentacion": ""
     },
 

@@ -1,12 +1,12 @@
 {
-  "resources/css/app.css": {
-    "file": "assets/app-4ed993c7.js",
+  "public/css/custom.css": {
+    "file": "assets/custom-c970c1c1.css",
     "isEntry": true,
-    "src": "resources/css/app.css"
+    "src": "public/css/custom.css"
   },
-  "resources/js/app.js": {
-    "file": "assets/app-032e7394.js",
+  "public/js/TestVue.js": {
+    "file": "assets/TestVue-dfaba920.js",
     "isEntry": true,
-    "src": "resources/js/app.js"
+    "src": "public/js/TestVue.js"
   }
 }

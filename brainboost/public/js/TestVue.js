@@ -11,17 +11,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 tiposPregunta: TipoPregunta,
                 testObj: new Test(),
                 testCtrl: null,
+                respuestasRandomOrder: null
             }
         },
         computed: {
             preguntasRandomOrder() {
-                return this.testObj.preguntas.sort(() => 0.5 - Random.randomFloat());
+                const devolucion = this.testObj.preguntas.sort(() => 0.5 - Random.randomFloat());
+                devolucion.forEach(element => {
+                    switch (element.tipo_pregunta) {
+                        case TipoPregunta.MULTIPLE_RESPONSE:
+                        case TipoPregunta.MULTIPLE_RESPONSE_MULTIPLE_CHOICE:
+                            element.datos_pregunta.respuestas.sort(() => 0.5 - Random.randomFloat());
+                            break;
+                    }
+                });
+                // this.respuestasRandomOrder = this.preguntasRandomOrder[this.indexPregunta].datos_pregunta.respuestas.sort(() => 0.5 - Random.randomFloat());
+                return devolucion;
             }
         },
         methods: {
-            respuestasRandomOrder(i) {
-                return this.preguntasRandomOrder[i].datos_pregunta.respuestas.sort(() => 0.5 - Random.randomFloat());
-            }
+            
         },
         created() {
             console.log("created"); // Mera bandera de debug

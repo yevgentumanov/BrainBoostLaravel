@@ -48,6 +48,11 @@ Route::get('/registro', function () { return view('registro'); })->name('registr
 //Route::post('/registrar', [RegistroController::class, 'registrar'])->name("registrar")->middleware('guest');
 Route::post('/registrar', [RegistroController::class, 'registrar'])->name("registrar");
 
+// Rutas para gestion de cuenta de usuario
+//Route::get('/registro', function () { return view('registro'); })->name('registro')->middleware('guest');
+Route::get('/cuenta', function () { return view('cuenta'); })->name('cuenta');
+Route::post('/cambiarpassword', [RegistroController::class, 'cambiarpassword'])->name("cambiarpassword"); // Ruta para cambiar password
+
 // Ruta genérica para las páginas de las diferentes materias
 //Route::get('/materia/{nombreMateria}', [MateriaController::class, 'index'])->name('materia')->middleware('guest');
 Route::get('/materia/{nombreMateria}', [MateriaController::class, 'index'])->name('materia');

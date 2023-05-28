@@ -17,7 +17,7 @@
             </form>
         </div>
         <div class="col-2">
-            <a href="{{ route('login') }}" class="btn btn-primary">Cuenta usuario</a>
+            <a href="{{ route('cuenta') }}" class="btn btn-primary">Cuenta usuario</a>
             <a href="{{ route('logout') }}" class="btn btn-secondary">Log off, {{ auth()->user()->nombre_usuario }}</a>
     </nav>
 

@@ -406,10 +406,12 @@ class Test {
                     break;
                 case TipoPregunta.FILL_IN_GAPS: // Tipo 4
                     /*-- Comprueba si la respuesta que ha dado el usuario coincide con alguna de las respuestas posibles para la pregunta --*/
-                    if (compareArraysWithoutOrder(respuestaJSON, preguntas.datos_pregunta.respuestas).length == 0,
-                    (x, y) => {
-                        
-                    }) return false;
+                    if (compareArraysWithoutOrder(respuestaJSON, this.preguntas.datos_pregunta.respuestas, // To do
+                        (x, y) => {
+                            const respuestaX = Object.values(x)[0];
+                            const respuestaY = Object.values(y)[0];
+                            return respuestaX === respuestaY;                            
+                        }).length == 0) return false;
                     break;
                 case TipoPregunta.FILL_GAPS_GIVEN_ONE:
 

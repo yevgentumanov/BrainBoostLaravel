@@ -64,6 +64,7 @@ function inversaArray(array) {
  * Devuelve un array que es el producto de ambas matrices, es decir, devuelve un array que contiene los elementos comunes.
  * @param arr1 - Especifica el primer array.
  * @param arr2 - Especifica el segundo array.
+ * @param compareFunction - (Opcional) Especifica una función comparadora que se encargará de determinar si los objetos del array coinciden con los requisitos requeridos (por ejemplo, ser iguales) o no.
  * @link Fuente: https://es.stackoverflow.com/questions/415123/c%c3%b3mo-miro-si-dos-arrays-tienen-los-mismos-valores-aunque-sea-en-diferente-orde#:~:text=Tengo%202%20arrays%20con%20el%20mismo%20contenido%20%28valores,%28array%20%5Bi%5D%3D%3Darray1%20%5Bi%5D%20%7B%20total.push%20%28array%20%5Bi%5D%29%20%7D
  * @return Un array que contiene los elementos comunes a ambos arrays.
  */

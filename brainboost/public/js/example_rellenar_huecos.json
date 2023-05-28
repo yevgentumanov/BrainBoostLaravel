@@ -1,5 +1,6 @@
 [
-    { // Tipo 6
+    {
+        // Tipo 6
         "id": 1, "id_test": 2, "tipo_pregunta": 4, "nombre_pregunta": "Dime la palabra 'meta' en inglés, francés, alemán e italiano.", "datos_pregunta": 
             {
                 "Inglés": "goal",
@@ -7,9 +8,10 @@
                 "Alemán": "ziel",
                 "Italiano": "obiettivo"
             }
-            , "retroalimentacion": ""
+            , "retroalimentacion": "no tiene"
     },
-    { // Tipo 4
+    {
+        // Tipo 4
         "id": 1, "id_test": 2, "tipo_pregunta": 4, "nombre_pregunta": "Los seres vivos necesitan ${1:1} para vivir y crecer. Las plantas lo obtienen a través de la ${1:2}, mientras que los animales lo obtienen a través de la ${1:3}. El ${1:4} es un recurso natural que debemos cuidar", "datos_pregunta": 
             {
                 "${1:1}": "agua",
@@ -17,9 +19,10 @@
                 "${1:3}": "alimentación",
                 "${1:4}": "agua"
             },
-            "retroalimentacion": ""
+            "retroalimentacion": "no tiene"
     },
-    { // Tipo 5
+    {
+        // Tipo 5
         "id": 3, "id_test": 2, "tipo_pregunta": 5, "nombre_pregunta": "Formas verbales del verbo to be", "datos_pregunta": 
             {
                 "Forma base": "be",
@@ -27,6 +30,6 @@
                 "Participio": "been",
                 "Traduccion": "ser/estar"
             },
-            "retroalimentacion": ""
+            "retroalimentacion": "no tiene"
     }
 ]

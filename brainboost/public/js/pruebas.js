@@ -1,21 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
     let test1 = new Test();
     let testController1 = new TestController(test1);
-    testController1.downloadQuestionsByIdTest(81);
+    testController1.downloadQuestionsByIdTest(1);
     // test1.downloadQuestionsByIdTest(91);
     
     console.log(test1);
     
     /*-- Expresiones regulares --*/
     // const regex = /\$\{(.*?)\}/g;
-    // const regex = /\$\{((\d+):(.*?))\}/g; // ${1:hueco1}, esto es: pregunta 1, hueco 1
-    const regex = /^\$\{((\d+):(.*?))\}$/g;
+    const regex = /\$\{((\d+):(.*?))\}/g; // ${1:hueco1}, esto es: pregunta 1, hueco 1
+    // const regex = /^\$\{((\d+):(.*?))\}$/g;
     let webElements = [];
     let pregunta = "I ${1:hueco1} to work by bus every day. She ${1:hueco2} from the University of California last year. We ${1:hueco3} a great time at the party last night. My brother ${1:hueco4} me his car for the weekend."
     const enunciado = document.querySelector("#pregunta");
     enunciado.innerHTML = pregunta.replace(regex, (match, contenido) => `<b>${contenido}</b>`);
-    console.log("${1:1}");
-    console.log(regex.test("${1:1}"))
+    // console.log("${1:1}");
+    // console.log(regex.test("${1:1}"))
     /*-- Prueba a acceder a cada hueco y a crear un input text para cada uno --*/
     let aparicion;
     while ((aparicion = regex.exec(pregunta)) !== null) {
@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(aparicion);
     console.log(aparicion = regex.exec(pregunta));
     console.log(aparicion);
+    console.log(pregunta.match(regex));
     
     /*-- Crea un boton --*/
     const boton = document.createElement("input");

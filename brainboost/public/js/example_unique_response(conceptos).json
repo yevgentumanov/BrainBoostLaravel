@@ -1,11 +1,11 @@
 [//Tipo 3
     {"id": 1, "id_test": 1, "tipo_pregunta": 3, "nombre_pregunta": "Concepto / frase a completar", "datos_pregunta": {
         "respuesta": "Explicación / significado / completar una frase"},
-        "retroalimentacion": ""
+        "retroalimentacion": "no tiene"
     },
 
     {"id": 2, "id_test": 1, "tipo_pregunta": 3, "nombre_pregunta": "Cual es el elemento químico cuyo símbolo es: Ca", "datos_pregunta": {
         "respuesta": "Calcio"},
-        "retroalimentacion": ""
+        "retroalimentacion": "no tiene"
     }
 ]

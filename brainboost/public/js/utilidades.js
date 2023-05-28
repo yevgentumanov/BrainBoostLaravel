@@ -67,8 +67,16 @@ function inversaArray(array) {
  * @link Fuente: https://es.stackoverflow.com/questions/415123/c%c3%b3mo-miro-si-dos-arrays-tienen-los-mismos-valores-aunque-sea-en-diferente-orde#:~:text=Tengo%202%20arrays%20con%20el%20mismo%20contenido%20%28valores,%28array%20%5Bi%5D%3D%3Darray1%20%5Bi%5D%20%7B%20total.push%20%28array%20%5Bi%5D%29%20%7D
  * @return Un array que contiene los elementos comunes a ambos arrays.
  */
-function compareArraysWithoutOrder(arr1, arr2) {
+function compareArraysWithoutOrder(arr1, arr2, compareFunction = null) {
+    if (!Array.isArray(arr1) || !Array.isArray(arr2)) throw new Error("compareArraysWithoutOrder: No se han pasado arrays por parámetro.");
     if (Array.isArray(arr1) && Array.isArray(arr2)) {
-        return arr1.filter(x => arr2.some(y => x === y));
+        if (compareFunction != null) {
+            if (compareFunction instanceof Function == false) {
+                throw new Error("compareArraysWithoutOrder: No se ha pasado una función de comparación como parámetro del argumento 'compareFunction'.")
+            }
+            return arr1.filter(x => arr2.some(y => compareFunction(x, y)));
+        } else {
+            return arr1.filter(x => arr2.some(y => x === y));
+        }
     }
 }

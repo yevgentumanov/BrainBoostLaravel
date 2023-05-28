@@ -404,10 +404,17 @@ class Test {
                     /*-- Comprueba si la respuesta dada por el usuario es de tipo string o number --*/
                     if (typeof(respuestaJSON[0]) != "string" && typeof(respuestaJSON[0]) != "number") return false;
                     break;
-                case TipoPregunta.FILL_IN_GAPS: // To do
-
+                case TipoPregunta.FILL_IN_GAPS: // Tipo 4
+                    /*-- Comprueba si la respuesta que ha dado el usuario coincide con alguna de las respuestas posibles para la pregunta --*/
+                    if (compareArraysWithoutOrder(respuestaJSON, preguntas.datos_pregunta.respuestas).length == 0,
+                    (x, y) => {
+                        
+                    }) return false;
                     break;
                 case TipoPregunta.FILL_GAPS_GIVEN_ONE:
+
+                    break;
+                case TipoPregunta.FILL_TABLE:
 
                     break;
             }

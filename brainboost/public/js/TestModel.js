@@ -266,21 +266,6 @@ class Test {
         // const tipoPregunta = ;
         switch (preguntaJSON.tipo_pregunta) {
             case TipoPregunta.MULTIPLE_RESPONSE: // Tipo 1
-                /*-- Comprueba que la estructura sea la correcta --*/
-                if ("respuestas" in preguntaJSON.datos_pregunta == false) {
-                    return false;
-                }
-                if ("respuestas_correctas" in preguntaJSON.datos_pregunta == false) {
-                    return false; // To do en la BB.DD: respuesta_correcta => respuestas_correctas
-                }
-                /*-- Comprueba los datos que contienen estas propiedades de la pregunta --*/
-                if (preguntaJSON.datos_pregunta.respuestas instanceof Array == false) {
-                    return false;
-                }
-                if (typeof(preguntaJSON.datos_pregunta.respuestas_correctas) != "string") {
-                    return false; // To do en la BB.DD: respuesta_correcta => respuestas_correctas
-                }
-                break;
             case TipoPregunta.MULTIPLE_RESPONSE_MULTIPLE_CHOICE: // Tipo 2
                 /*-- Comprueba que la estructura sea la correcta --*/
                 if ("respuestas" in preguntaJSON.datos_pregunta == false) {
@@ -293,8 +278,14 @@ class Test {
                 if (preguntaJSON.datos_pregunta.respuestas instanceof Array == false) {
                     return false;
                 }
-                if (preguntaJSON.datos_pregunta.respuestas_correctas instanceof Array == false) {
-                    return false; // To do en la BB.DD: respuesta_correcta => respuestas_correctas
+                if (preguntaJSON.tipo_pregunta == TipoPregunta.MULTIPLE_RESPONSE) {
+                    if (typeof(preguntaJSON.datos_pregunta.respuestas_correctas) != "string") {
+                        return false; // To do en la BB.DD: respuesta_correcta => respuestas_correctas
+                    }
+                } else if (preguntaJSON.tipo_pregunta == TipoPregunta.MULTIPLE_RESPONSE_MULTIPLE_CHOICE) {
+                    if (preguntaJSON.datos_pregunta.respuestas_correctas instanceof Array == false) {
+                        return false; // To do en la BB.DD: respuesta_correcta => respuestas_correctas
+                    }
                 }
                 break;
             case TipoPregunta.UNIQUE_RESPONSE: // Tipo 3
@@ -303,7 +294,7 @@ class Test {
                     return false;
                 }
                 /*-- Comprueba que no tengan retroalimentación --*/
-                if (preguntaJSON.retroalimentacion != null) { // To do: verificar si finalmente esto será así
+                if (preguntaJSON.retroalimentacion != null && preguntaJSON.retroalimentacion.length > 0) { // To do: verificar si finalmente esto será así
                     return false;
                 }
                 /*-- Comprueba los datos que contienen estas propiedades de la pregunta --*/
@@ -315,7 +306,7 @@ class Test {
             case TipoPregunta.FILL_GAPS_GIVEN_ONE: // Tipo 5
             case TipoPregunta.FILL_TABLE: // Tipo 6
                 /*-- Comprueba que no tengan retroalimentación --*/
-                if (preguntaJSON.retroalimentacion != null) {
+                if (preguntaJSON.retroalimentacion != null && preguntaJSON.retroalimentacion.length > 0) {
                     return false;
                 }
 
@@ -324,42 +315,46 @@ class Test {
                 const regexEnCualquierParte = /\$\{((\d+):(.*?))\}/g; // ${1:hueco1}, esto es: pregunta 1, hueco 1
                 const datosPregunta = Object.entries(preguntaJSON.datos_pregunta);
                 
+                /*-- Comprueba si existen los huecos en el enunciado de la preguntaJSON --*/
+                let huecosEnunciado = Array();
+
+                if (preguntaJSON.tipo_pregunta != TipoPregunta.FILL_IN_GAPS) { // Si no es de tipo 4
+                    const enunciadoTieneHuecos = regexEnCualquierParte.test(preguntaJSON.nombre_pregunta); // bandera boolean
+                    if (enunciadoTieneHuecos) return false; // Da error si el enunciado contiene huecos, ya que no es de tipo 4
+                } else { // Es de tipo 4 (tiene huecos en el enunciado)
+                    /*-- Si existen los huecos, comprueba que cumplan con la expresión regular y que coincidan con los que hay almacenados en datos_pregunta --*/
+                    let aparicion;
+                    while ((aparicion = regex.exec(pregunta)) !== null) {
+                        huecosEnunciado.push(aparicion);
+                    }
+                }
+
                 /*-- Comprueba los datos que contienen estas propiedades de la pregunta --*/
                 for (let i = 0; i < datosPregunta.length; i++) {
                     /*-- Variables --*/
                     const element = datosPregunta[i];
-                    // console.log(element[0]);
-                    // /*-- Valida si los huecos son válidos y su contenido es number o string --*/
+                    
+                    /*-- Valida si los huecos son válidos y su contenido es number o string --*/
                     const validacionHuecos = regex.test(element[0]);
                     if (!validacionHuecos) {
                         return false;
                     }
-                    // if (typeof(element[1]) != "string" && typeof(element[1]) != "number") {
-                    //     return false;
-                    // }
+                    if (typeof(element[1]) != "string" && typeof(element[1]) != "number") {
+                        return false;
+                    }
 
-                    // /*-- Comprueba si existen los huecos en el enunciado de la preguntaJSON --*/
-                    // if (preguntaJSON.tipo_pregunta != TipoPregunta.FILL_IN_GAPS) { // Si no es de tipo 4
-                    //     const enunciadoTieneHuecos = regexEnCualquierParte.test(preguntaJSON.nombre_pregunta); // bandera boolean
-                    //     if (!enunciadoTieneHuecos) return false; // Da error si el enunciado no contiene huecos y es de tipo 4
-                    // } else { // Es de tipo 4 (tiene huecos en el enunciado)
-                    //     /*-- Si existen los huecos, comprueba que cumplan con la expresión regular --*/
-                    //     const apariciones = regex.exec();
-                    //     console.log(apariciones);
-                    //     if (!apariciones) {
-                    //         return false;                            
-                    //     }
+                    /*-- Verifica que existan los huecos en el enunciado de la preguntaJSON --*/
+                    if (preguntaJSON.tipo_pregunta == TipoPregunta.FILL_IN_GAPS && huecosEnunciado.length <= 0) {
+                        return false;
+                    }
 
-                    //     /*-- Comprueba que los huecos del enunciado coincidan con los que hay almacenados en datos_pregunta --*/
-                        
-                    //     if (preguntas) { // To do: comprobar expresión regular ${1}: preguntaJSON.nombre_pregunta.
-                            
-                    //     }
-                    // }
+                    /*-- Comprueba si los huecos coinciden con los de datosPregunta (las respuestas posibles) --*/
+                    if (huecosEnunciado[i] != element[0]) {
+                        return false;
+                    }
                 }
                 break;
         }
-
         /*-- Todo correcto --*/
         return true;
     }

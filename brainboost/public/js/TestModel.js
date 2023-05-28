@@ -328,32 +328,34 @@ class Test {
                 for (let i = 0; i < datosPregunta.length; i++) {
                     /*-- Variables --*/
                     const element = datosPregunta[i];
-
-                    /*-- Valida si los huecos son válidos y su contenido es number o string --*/
-                    if (!element[0].test(regex)) {
+                    // console.log(element[0]);
+                    // /*-- Valida si los huecos son válidos y su contenido es number o string --*/
+                    const validacionHuecos = regex.test(element[0]);
+                    if (!validacionHuecos) {
                         return false;
                     }
-                    if (typeof(element[1]) != "string" && typeof(element[1]) != "number") {
-                        return false;
-                    }
+                    // if (typeof(element[1]) != "string" && typeof(element[1]) != "number") {
+                    //     return false;
+                    // }
 
-                    /*-- Comprueba si existen los huecos en el enunciado de la preguntaJSON --*/
-                    if (preguntaJSON.tipo_pregunta != TipoPregunta.FILL_IN_GAPS) { // Si no es de tipo 4
-                        const enunciadoTieneHuecos = preguntaJSON.nombre_pregunta.test(regexEnCualquierParte); // bandera boolean
-                        if (!enunciadoTieneHuecos) return false; // Da error si el enunciado no contiene huecos y es de tipo 4
-                    } else { // Es de tipo 4 (tiene huecos en el enunciado)
-                        /*-- Si existen los huecos, comprueba que cumplan con la expresión regular --*/
-                        const apariciones = regex.exec()
-                        if (!apariciones) {
-                            return false;                            
-                        }
+                    // /*-- Comprueba si existen los huecos en el enunciado de la preguntaJSON --*/
+                    // if (preguntaJSON.tipo_pregunta != TipoPregunta.FILL_IN_GAPS) { // Si no es de tipo 4
+                    //     const enunciadoTieneHuecos = regexEnCualquierParte.test(preguntaJSON.nombre_pregunta); // bandera boolean
+                    //     if (!enunciadoTieneHuecos) return false; // Da error si el enunciado no contiene huecos y es de tipo 4
+                    // } else { // Es de tipo 4 (tiene huecos en el enunciado)
+                    //     /*-- Si existen los huecos, comprueba que cumplan con la expresión regular --*/
+                    //     const apariciones = regex.exec();
+                    //     console.log(apariciones);
+                    //     if (!apariciones) {
+                    //         return false;                            
+                    //     }
 
-                        /*-- Comprueba que los huecos del enunciado coincidan con los que hay almacenados en datos_pregunta --*/
+                    //     /*-- Comprueba que los huecos del enunciado coincidan con los que hay almacenados en datos_pregunta --*/
                         
-                        if (preguntas) { // To do: comprobar expresión regular ${1}: preguntaJSON.nombre_pregunta.
+                    //     if (preguntas) { // To do: comprobar expresión regular ${1}: preguntaJSON.nombre_pregunta.
                             
-                        }
-                    }
+                    //     }
+                    // }
                 }
                 break;
         }

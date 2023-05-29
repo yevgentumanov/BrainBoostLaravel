@@ -2,11 +2,11 @@
 
 @section('main')
     <main class="row">
-        <div class="col-6">
+        <div class="col-4 m-0 p-4">
             {{-- Insercion del bloque de cuenta de usuario --}}
             @include('fragmentos.cuenta')
         </div>
-        <div class="col-6">
+        <div class="col-8 m-0 p-4">
             {{-- Insercion del bloque de cuenta de estadísticas del usuario --}}
             @include('fragmentos.estadistica')
         </div>

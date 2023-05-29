@@ -5,10 +5,9 @@
         <!-- Logo -->
         <div class="col-6">
             <a class="navbar-brand" href="{{ route('index') }}">
-                <img src="{!! asset('images/Logo_letras_chicas_con_sombra en blanco y negro-trayectos-v2.svg') !!}" alt="logo">
+                <img src="{!! asset('images/Logo_letras_chicas_con_sombra en blanco y negro-trayectos-v3.svg') !!}" alt="logo">
             </a>
         </div>
-
 
         <div class="d-flex col-4 justify-content-end">
             <form class="form-inline" action="/action_page.php">

@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="row justify-content-center">
-        <div id="divregistro" class="col-md-6">
+    <div class="row justify-content-left">
+        <div id="divregistro" class="col-md-6 p-4">
             <div class="card ">
                 <div class="card-body bg-primary">
 

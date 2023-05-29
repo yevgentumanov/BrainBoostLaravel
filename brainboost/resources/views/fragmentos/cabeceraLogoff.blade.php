@@ -75,8 +75,7 @@
         <ul class="collapse navbar-collapse" id="navbarArtes">
             <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Artes']) }}">Artes</a>
             <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Música']) }}">Música</a>
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Artes Visuales']) }}">Artes
-                Visuales</a>
+            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Artes Visuales']) }}">Artes Visuales</a>
             <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Teatro']) }}">Teatro</a>
         </ul>
         <ul class="collapse navbar-collapse" id="navbarNaturales">
@@ -95,6 +94,7 @@
             <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Filosofía']) }}">Filosofía</a>
         </ul>
         <ul class="collapse navbar-collapse" id="navbarIdiomas">
+            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Idiomas']) }}">Todos</a>
             <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Inglés']) }}">Inglés</a>
             <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Francés']) }}">Francés</a>
             <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Italiano']) }}">Italiano</a>

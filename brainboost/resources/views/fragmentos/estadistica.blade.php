@@ -14,39 +14,42 @@
                     </section>
                     <section id="ultimostests" class="row p-1">
                         <h2>Últimos test realizados</h2>
-                        <div class="rounded bg-light p-3">
-                            <a href="test1.html">Test 1</a>
+                        <div class="col-12">
+                            <div class="row rounded bg-light p-3 mt-1">
+                                <a href="test1.html">Test 1</a>
+                            </div>
+                            <div class="row rounded bg-light p-3 mt-1">
+                                <a href="test2.html">Test 2</a>
+                            </div>
+                            <div class="row rounded bg-light p-3 mt-1">
+                                <a href="test3.html">Test 3</a>
+                            </div>
+                            <div class="row rounded bg-light p-3 mt-1">
+                                <a href="test4.html">Test 4</a>
+                            </div>
+                            <div class="row rounded bg-light p-3 mt-1">
+                                <a href="test5.html">Test 5</a>
+                            </div>
+                            <div class="row rounded bg-light p-3 mt-1">
+                                <a href="test6.html">Test 6</a>
+                            </div>
                         </div>
-                        <div class="rounded bg-light p-3">
-                            <a href="test2.html">Test 2</a>
-                        </div>
-                        <div class="rounded bg-light p-3">
-                            <a href="test3.html">Test 3</a>
-                        </div>
-                        <div class="rounded bg-light p-3">
-                            <a href="test4.html">Test 4</a>
-                        </div>
-                        <div class="rounded bg-light p-3">
-                            <a href="test5.html">Test 5</a>
-                        </div>
-                        <div class="rounded bg-light p-3">
-                            <a href="test6.html">Test 6</a>
-                        </div>
-
                     </section>
                     <section id="masrepetidos" class="row p-1">
                         <h2>Tests con más intentos realizados</h2>
-                        <div class="rounded bg-light p-3">
-                            <a href="test1.html">Test 1</a>
-                        </div>
-                        <div class="rounded bg-light p-3">
-                            <a href="test2.html">Test 2</a>
-                        </div>
-                        <div class="rounded bg-light p-3">
-                            <a href="test3.html">Test 3</a>
-                        </div>
-                        <div class="rounded bg-light p-3">
-                            <a href="test4.html">Test 4</a>
+                        <div class="col-12">
+                            <div class="row rounded bg-light p-3 mt-1">
+                                <a href="test1.html">Test 1</a>
+                            </div>
+                            <div class="row rounded bg-light p-3 mt-1">
+                                <a href="test2.html">Test 2</a>
+                            </div>
+                            <div class="row rounded bg-light p-3 mt-1">
+                                <a href="test3.html">Test 3</a>
+                            </div>
+                            <div class="row rounded bg-light p-3 mt-1">
+                                <a href="test4.html">Test 4</a>
+                            </div>
                         </div>
                     </section>
                 </div>

@@ -5,15 +5,15 @@
                 <div class="card-body bg-primary">
                     <h1>Estadísticas</h1>
                     <section id="general" class="row">
-                        <input type="text" class="col-3" value="Nota media:" />
-                        <input type="text" class="col-3" value="Test realizados:" />
-                        <input type="text" class="col-3" value="Materia favorita:" />
-                        <input type="text" class="col-3" value="Última nota:" />
+                        <div type="text" class="col-3" >Nota media:</div>
+                        <div type="text" class="col-3" >Test realizados:"</div>
+                        <div type="text" class="col-3" >Materia favorita:"</div>
+                        <div type="text" class="col-3" >Última nota:"</div>
                     </section>
-                    <section id="ultimostests" class="row">
+                    <section id="ultimostests" class="row p-1">
                         <h2>Últimos test realizados</h2>
                     </section>
-                    <section id="masrepetidos" class="row">
+                    <section id="masrepetidos" class="row p-1">
                         <h2>Tests con más intentos realizados</h2>
                     </section>
                 </div>

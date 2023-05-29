@@ -46,14 +46,13 @@
         </button>
         <button class="navbar-toggler nav-ico" type="button" data-toggle="collapse" data-target="#navbarMatematicas"
             aria-controls="navbarMatematicas" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""></span>&nbsp;Matemáticas
+            <span class=""></span>
+            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Matemáticas']) }}">Matemáticas</a>
         </button>
         <button class="navbar-toggler nav-ico" type="button" data-toggle="collapse" data-target="#navbarTecnología"
             aria-controls="navbarTecnología" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""></span>&nbsp;Tecnología
         </button>
-
-
 
         <!-- Enlace a la página de creación de test -->
         <button class="navbar-toggler nav-ico" type="button" data-toggle="collapse" data-target="#" aria-controls=""
@@ -66,7 +65,6 @@
             <li class="navbar-brand" data-toggle="collapse" data-target="#navbarNaturales">Naturales</li>
             <li class="navbar-brand" data-toggle="collapse" data-target="#navbarHumanidades">Humanidades</li>
             <li class="navbar-brand" data-toggle="collapse" data-target="#navbarIdiomas">Idiomas</li>
-            <li class="navbar-brand" data-toggle="collapse" data-target="#navbarMatematicas">Matemáticas</li>
             <li class="navbar-brand" data-toggle="collapse" data-target="#navbarTecnología">Tecnología</li>
         </ul>
 
@@ -98,9 +96,6 @@
             <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Francés']) }}">Francés</a>
             <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Italiano']) }}">Italiano</a>
             <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Alemán']) }}">Alemán</a>
-        </ul>
-        <ul class="collapse navbar-collapse" id="navbarMatematicas">
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Matemáticas']) }}">Matemáticas</a>
         </ul>
         <ul class="collapse navbar-collapse" id="navbarTecnología">
             <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Tecnología']) }}">Tecnología</a>

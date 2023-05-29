@@ -52,12 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         mounted() {
             console.log("mounted"); // Mera bandera de debug
-            /*-- Ordena al controlador que descargue dentro del TestModel las preguntas --*/
-            // this.testCtrl.downloadInfoAboutTestByIdTest(id);
+            /*-- Ordena al controlador que descargue dentro del TestModel las preguntas y la info del test --*/
             try {
+                this.testCtrl.downloadInfoAboutTestByIdTest(this.testObj.getIdTest());
                 this.testCtrl.downloadQuestionsByIdTest(this.testObj.getIdTest());
             } catch (error) {
-                // console.error(error);
+                console.error(error);
             }
             
             console.log(this.testObj);

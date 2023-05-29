@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let test1 = new Test();
     let testController1 = new TestController(test1);
     testController1.downloadQuestionsByIdTest(1);
+    testController1.downloadInfoAboutTestByIdTest(1);
     // test1.downloadQuestionsByIdTest(91);
     
     console.log(test1);

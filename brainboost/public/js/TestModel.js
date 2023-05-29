@@ -138,7 +138,7 @@ class Test {
               Define todos los atributos de la clase
         =====================================================*/
         this.idTest = null; // (number) (este dato se settea solo desde el método downloadInfoAboutTestByIdTest o desde el método downloadQuestionsByIdTest, es decir, solo cuando se recupera de la BB.DD)
-        this.length = null; // (number) (este dato se incrementa y se disminuye desde los métodos addPregunta y removePregunta, métodos que pueden ser llamados para crear tests, o ser llamados desde la función downloadQuestionsByIdTest)
+        this.size = null; // (number) (este dato se incrementa y se disminuye desde los métodos addPregunta y removePregunta, métodos que pueden ser llamados para crear tests, o ser llamados desde la función downloadQuestionsByIdTest)
         this.preguntas = null; // (array de objetos JSON) (se rescatan de la BB.DD con el método downloadQuestionsByIdTest, o bien se pueden crear, modificar y eliminar con métodos específicos para ello)
 
         this.nombreTest = null; // (string) (se rescata de la BB.DD / se asigna con el setter desde el controlador)
@@ -294,7 +294,7 @@ class Test {
                     return false;
                 }
                 /*-- Comprueba que no tengan retroalimentación --*/
-                if (preguntaJSON.retroalimentacion != null && preguntaJSON.retroalimentacion.length > 0) { // To do: verificar si finalmente esto será así
+                if (typeof(preguntaJSON.retroalimentacion) != "string" || preguntaJSON.retroalimentacion.length > 0) { // To do: verificar si finalmente esto será así
                     return false;
                 }
                 /*-- Comprueba los datos que contienen estas propiedades de la pregunta --*/
@@ -405,19 +405,27 @@ class Test {
                     if (typeof(respuestaJSON[0]) != "string" && typeof(respuestaJSON[0]) != "number") return false;
                     break;
                 case TipoPregunta.FILL_IN_GAPS: // Tipo 4
-                    /*-- Comprueba si la respuesta que ha dado el usuario coincide con alguna de las respuestas posibles para la pregunta --*/
-                    if (compareArraysWithoutOrder(respuestaJSON, this.preguntas.datos_pregunta.respuestas, // To do
-                        (x, y) => {
-                            const respuestaX = Object.values(x)[0];
-                            const respuestaY = Object.values(y)[0];
-                            return respuestaX === respuestaY;                            
-                        }).length == 0) return false;
-                    break;
                 case TipoPregunta.FILL_GAPS_GIVEN_ONE:
-
-                    break;
                 case TipoPregunta.FILL_TABLE:
-
+                    /*-- Convierte datos_pregunta en un Array iterable --*/
+                    const datosPregunta = Object.entries(preguntaJSON.datos_pregunta);
+                    let arrDatosPregunta = [];
+                    for (const key in datosPregunta) {
+                        if (Object.hasOwnProperty.call(datosPregunta, key)) {
+                            let element = {};
+                            element[key] = datosPregunta[key];
+                            arrDatosPregunta.push(element);
+                        }
+                    }
+                    if (pregunta.tipo_pregunta == FILL_IN_GAPS) { // Tipo 4
+                        /*-- Comprueba si la respuesta que ha dado el usuario coincide con alguna de las respuestas posibles para la pregunta --*/
+                        if (compareArraysWithoutOrder(respuestaJSON, arrDatosPregunta,
+                            (x, y) => comparar(x, y)).length != datosPregunta.length) return false;
+                    } else { // Tipos 5 y 6
+                        if (compareArraysInOrder(respuestaJSON, arrDatosPregunta,
+                            (x, y) => comparar(x, y)).length ) return false;
+                    }
+                    
                     break;
             }
         }

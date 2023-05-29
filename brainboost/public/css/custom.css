@@ -74,3 +74,18 @@ section.bg-primary > div > article {
 /* footer.bg-dark {
 
 } */
+
+/* Login page */
+
+#divlogin {
+    padding: 15% 0; /* Apply 15% vertical padding and no horizontal padding */
+}
+
+#divregistro {
+    padding: 4% 0; /* Apply 15% vertical padding and no horizontal padding */
+}
+
+.separacionbotones{
+    padding-left: 20px;
+    padding-right: 20px;
+}

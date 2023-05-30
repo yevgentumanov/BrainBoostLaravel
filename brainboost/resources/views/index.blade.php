@@ -1,6 +1,7 @@
 @extends('plantillas.base')
 
 @section('main')
+
     <main class="row">
         <div class="col-12">
             {{-- Inserción del bloque de test Recientes --}}
@@ -11,4 +12,5 @@
             @include('fragmentos.testsPopulares')
         </div>
     </main>
+
 @endsection

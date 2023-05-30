@@ -57,6 +57,26 @@
         @else
             @include('fragmentos.cabeceraLogin')
         @endauth
+
+        <!-- Identificador de ventanas -->
+        <div id="ventana" class="row d-bg">
+            <div class="col-12 d-sm-none">
+                <h2 class="font-weight-bold">movil</h2>
+            </div>
+            <div class="col-12 d-none d-sm-block d-md-none">
+                <h2 class="font-weight-bold">tablet - sm</h2>
+            </div>
+            <div class="col-12 d-none d-md-block d-lg-none">
+                <h2 class="font-weight-bold">tablet - md</h2>
+            </div>
+            <div class="col-12 d-none d-lg-block d-xl-none">
+                <h2 class="font-weight-bold">pc - lg</h2>
+            </div>
+            <div class="col-12 d-none d-xl-block">
+                <h2 class="font-weight-bold">tv - xl</h2>
+            </div>
+        </div>
+
         {{-- Punto de inserción del main en cada página --}}
         @yield('main')
 

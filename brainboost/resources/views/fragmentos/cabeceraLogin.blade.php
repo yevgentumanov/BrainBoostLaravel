@@ -22,7 +22,6 @@
 
     <!-- Barra de navegación para las materias de la aplicación -->
     <nav class="row navbar bg-dark navbar-light sticky-top">
-
         <!-- Modo contraido -->
         <button class="navbar-toggler nav-ico" type="button" data-toggle="collapse" data-target="#" aria-controls=""
             aria-expanded="false" aria-label="Toggle navigation">

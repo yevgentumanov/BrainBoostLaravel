@@ -53,6 +53,14 @@ Route::post('/registrar', [RegistroController::class, 'registrar'])->name("regis
 Route::get('/cuenta', function () { return view('cuenta'); })->name('cuenta');
 Route::post('/cambiarpassword', [RegistroController::class, 'cambiarpassword'])->name("cambiarpassword"); // Ruta para cambiar password
 
+// Ruta para ver el historial completo de test realizados.
+Route::get('/testhistorial', function () { // devuelve los test realizados por el usuario
+    $idUsuarioAccediendo = auth()->user()->id;
+    $nombreUsuarioAccediendo= auth()->user()->nombre_usuario;
+    $intentosPreguntaController = new IntentosPreguntaController();
+    return $intentosPreguntaController->returnHistorial($idUsuarioAccediendo, $nombreUsuarioAccediendo);
+})->name('testhistorial');
+
 // Ruta genérica para las páginas de las diferentes materias
 //Route::get('/materia/{nombreMateria}', [MateriaController::class, 'index'])->name('materia')->middleware('guest');
 Route::get('/materia/{nombreMateria}', [MateriaController::class, 'index'])->name('materia');
@@ -64,3 +72,4 @@ Route::get('/test/{idTest}', [TestController::class, 'showTest'])->name("test");
 // Ruta para guardar y mostrar informacion sobre intentos test
 Route::post('/intentos_pregunta', [IntentosPreguntaController::class, 'store']); // Ruta que guarda informacion
 Route::post('/intentos_pregunta', [IntentosPreguntaController::class, 'show']); // Ruta que obtiene informacion por id
+

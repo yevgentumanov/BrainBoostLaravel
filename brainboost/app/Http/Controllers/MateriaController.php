@@ -22,6 +22,7 @@ class MateriaController extends Controller
 
         // Obtención de los tests de la materia
         $tests = Test::where('id_materia', $idMateria)->get();
+        $tests = $tests->sortBy('id');
 
         // Llamada a la vista con los parámetros obtenidos
         return view('materia', ['tests' => $tests, 'materia' => $materia]);

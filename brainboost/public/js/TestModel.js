@@ -396,7 +396,7 @@ class Test {
                 case TipoPregunta.MULTIPLE_RESPONSE:
                 case TipoPregunta.MULTIPLE_RESPONSE_MULTIPLE_CHOICE:
                     /*-- Comprueba si la respuesta que ha dado el usuario coincide con alguna de las respuestas posibles para la pregunta --*/
-                    if (compareArraysWithoutOrder(respuestaJSON, preguntas.datos_pregunta.respuestas).length == 0) {
+                    if (compareArraysWithoutOrder(respuestaJSON, pregunta.datos_pregunta.respuestas).length == 0) {
                         return false;
                     }
                     break;
@@ -405,8 +405,8 @@ class Test {
                     if (typeof(respuestaJSON[0]) != "string" && typeof(respuestaJSON[0]) != "number") return false;
                     break;
                 case TipoPregunta.FILL_IN_GAPS: // Tipo 4
-                case TipoPregunta.FILL_GAPS_GIVEN_ONE:
-                case TipoPregunta.FILL_TABLE:
+                case TipoPregunta.FILL_GAPS_GIVEN_ONE: // Tipo 5
+                case TipoPregunta.FILL_TABLE: // Tipo 6
                     /*-- Convierte datos_pregunta en un Array iterable --*/
                     const datosPregunta = Object.entries(preguntaJSON.datos_pregunta);
                     let arrDatosPregunta = [];

@@ -36,7 +36,53 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
         methods: {
-            
+            corregirPregunta(indice) {
+                const pregunta = this.testObj.preguntas[indice];
+                const respuesta = this.testObj.respuestas[indice];
+                switch (pregunta.tipo_pregunta) {
+                    case TipoPregunta.MULTIPLE_RESPONSE:
+                    case TipoPregunta.MULTIPLE_RESPONSE_MULTIPLE_CHOICE:
+                        /*-- Comprueba si la respuesta que ha dado el usuario coincide con alguna de las respuestas posibles para la pregunta --*/
+                        const preguntasAcertadas = compareArraysWithoutOrder(respuesta, pregunta.datos_pregunta.respuestas_correctas).length
+                        this.testObj.nota += preguntasAcertadas / pregunta.datos_pregunta.respuestas_correctas.length;
+                        break;
+                    case TipoPregunta.UNIQUE_RESPONSE:
+                        
+                    case TipoPregunta.FILL_IN_GAPS: // Tipo 4
+                    case TipoPregunta.FILL_GAPS_GIVEN_ONE: // Tipo 5
+                    case TipoPregunta.FILL_TABLE: // Tipo 5
+                }
+                
+            },
+            opcionSeleccionada(evento) {
+                const input = evento.target;
+                const label = input.labels[0].textContent;
+                const divRespuesta = input.parentElement;
+                const divPregunta = divRespuesta.parentElement.parentElement; // section.row, por eso hago dos parentElement
+                const padre = divPregunta.parentElement;
+                const listaPreguntas = Array.from(padre.children);
+
+                /*-- Obtiene el índice de la pregunta --*/
+                const indice = listaPreguntas.indexOf(divPregunta);
+                // console.log(padre);
+                // console.dir(padre);
+                // console.log(divPregunta);
+                // console.dir(divPregunta);
+                // console.log(divRespuesta);
+                // console.dir(divRespuesta);
+                // console.log(input);
+                // console.dir(input);
+                // console.log(label);
+                // console.dir(label);
+
+                /*-- Almacena la respuesta en el objeto test --*/
+                let respuesta = [label];
+                console.log(respuesta);
+                this.testObj.setRespuesta(indice, respuesta);
+
+                /*-- Comprueba si la respuesta era correcta --*/
+                this.corregirPregunta(indice);
+            }
         },
         created() {
             console.log("created"); // Mera bandera de debug

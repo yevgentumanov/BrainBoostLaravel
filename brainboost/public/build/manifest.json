@@ -1,11 +1,11 @@
 {
   "public/css/custom.css": {
-    "file": "assets/custom-0c7d03fd.css",
+    "file": "assets/custom-c970c1c1.css",
     "isEntry": true,
     "src": "public/css/custom.css"
   },
   "public/js/TestVue.js": {
-    "file": "assets/TestVue-41151982.js",
+    "file": "assets/TestVue-d53db25b.js",
     "isEntry": true,
     "src": "public/js/TestVue.js"
   }

@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\IntentosPreguntaController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PreguntaController;
 use App\Http\Controllers\Api\PreguntasController;
-use App\Http\Controllers\Api\BorrarTestUsuarioController;
+//use App\Http\Controllers\Api\BorrarTestUsuarioController;
 use App\Http\Controllers\Api\MateriasController;
 use App\Http\Controllers\Api\TestController;
 
@@ -34,10 +33,9 @@ Route::get("pregunta", [PreguntasController::class, "show"]); // devuelve todas 
 // Ruta de test
 Route::get("test", [TestController::class, "show"]); // devuelve todas las preguntas de un test con ID indicado
 
-Route::group(['prefix' => 'api'], function () {
-    Route::get('/test-usuarios', [BorrarTestUsuarioController::class, 'index']);
-    Route::post('/test-usuarios', [BorrarTestUsuarioController::class, 'store']);
-    Route::get('/test-usuarios/{id}', [BorrarTestUsuarioController::class, 'show']);
-    Route::put('/test-usuarios/{id}', [BorrarTestUsuarioController::class, 'update']);
-    Route::delete('/test-usuarios/{id}', [BorrarTestUsuarioController::class, 'destroy']);
-});
+Route::get('/fake', [IntentosPreguntaController::class, 'addFakeData']);
+Route::get('/intentos-preguntas', [IntentosPreguntaController::class, 'index']);
+Route::post('/intentos-preguntas', [IntentosPreguntaController::class, 'store']);
+Route::post('/intentos-preguntas/{id}', [IntentosPreguntaController::class, 'show']);
+Route::post('/intentos-preguntas/{id}/update', [IntentosPreguntaController::class, 'update']);
+Route::post('/intentos-preguntas/{id}/delete', [IntentosPreguntaController::class, 'destroy']);

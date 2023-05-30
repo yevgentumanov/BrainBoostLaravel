@@ -5,23 +5,15 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Intentos_pregunta;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class IntentosPreguntaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        // Retrieve all Intentos_pregunta records
         $intentosPreguntas = Intentos_pregunta::all();
-
         return response()->json(['data' => $intentosPreguntas], 200);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -38,14 +30,10 @@ class IntentosPreguntaController extends Controller
         ]);
 
         $intentosPregunta = Intentos_pregunta::create($data);
-
         return response()->json(['message' => 'Registro guardado correctamente', 'data' => $intentosPregunta], 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show(Request $request, string $id)
     {
         $intentosPregunta = Intentos_pregunta::find($id);
 
@@ -56,12 +44,8 @@ class IntentosPreguntaController extends Controller
         return response()->json(['data' => $intentosPregunta], 200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        // Update the Intentos_pregunta record with the given ID
         $intentosPregunta = Intentos_pregunta::find($id);
 
         if (!$intentosPregunta) {
@@ -82,14 +66,10 @@ class IntentosPreguntaController extends Controller
         ]);
 
         $intentosPregunta->update($data);
-
         return response()->json(['message' => 'Registro actualizado', 'data' => $intentosPregunta], 200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(Request $request, string $id)
     {
         $intentosPregunta = Intentos_pregunta::find($id);
 
@@ -98,7 +78,42 @@ class IntentosPreguntaController extends Controller
         }
 
         $intentosPregunta->delete();
-
         return response()->json(['message' => 'Registro eliminado'], 200);
     }
+
+    public function addFakeData()
+    {
+        $fakeData = [
+            'id_usuario' => random_int(1, 3),
+            'id_pregunta' => random_int(1, 2300),
+            'intento' => 1,
+            'nota' => random_int(1, 10),
+            'fecha_realizacion' => now(),
+            'respuestas' => '',
+            'dificultad' => 1,
+            'modalidad' => 1,
+            'tiempoInicio' => now(),
+            'tiempoFin' => now(),
+        ];
+
+        $intentosPregunta = Intentos_pregunta::create($fakeData);
+        return "done";
+    }
+
+    public function returnHistorial($idUsuario, $nombreUsuarioAccediendo)
+    {
+        $tests = DB::table('tests')
+            ->whereIn('id', function ($query) use ($idUsuario) {
+                $query->select('id_test')
+                    ->from('preguntas')
+                    ->whereIn('id', function ($subquery) use ($idUsuario) {
+                        $subquery->select('id_pregunta')
+                            ->from('intentos_preguntas')
+                            ->where('id_usuario', $idUsuario);
+                    });
+            })
+            ->pluck('nombre_test');
+        return view('historialTestRealizados', ['tests' => $tests]);
+    }
+
 }

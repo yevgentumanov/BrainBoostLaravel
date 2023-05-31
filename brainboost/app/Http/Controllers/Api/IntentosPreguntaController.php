@@ -84,6 +84,7 @@ class IntentosPreguntaController extends Controller
     public function addFakeData()
     {
         $fakeData = [
+            'id' => random_int(1, 2300),
             'id_usuario' => random_int(1, 4),
             'id_pregunta' => random_int(1, 2300),
             'intento' => 1,

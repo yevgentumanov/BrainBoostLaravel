@@ -22,7 +22,7 @@
                     <h5>@{{testObj.getNota() ? "Nota: " + testObj.getNota() : ""}}</h5>
                 </div>
             </section>
-            
+
             <section :class="['row', 'bg-primary', 'm-4']">
                 <div class="col-11 p-2">
                     <p>Elige la dificultad:</p>
@@ -30,7 +30,7 @@
                 </div>
             </section>
 
-            <section :class="['row', 'm-4']">
+            <section id="bloque-praguntas" :class="['row', 'm-4']">
                 <div :class="['col-12']">
                     <section v-for="(pregunta, indexPregunta) in preguntasRandomOrder" :key="indexPregunta" id="logicaTest" class="d-none" :class="['d-block', 'row', 'bg-primary', 'my-4']">
                         <div v-if="pregunta.tipo_pregunta == tiposPregunta.MULTIPLE_RESPONSE" class="col-11 p-2">
@@ -47,7 +47,7 @@
                     </section>
                 </div>
             </section>
-            
+
 
             {{--
             <section class="row bg-primary m-4 ">

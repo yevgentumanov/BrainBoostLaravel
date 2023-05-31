@@ -3,21 +3,24 @@
     <!-- Barra de navegación con el logotipo, la barra de búsqueda y el login -->
     <nav class="row navbar navbar-expand-sm bg-ligth navbar-dark">
         <!-- Logo -->
-        <div class="col-6">
+        <div class="col-4">
             <a class="navbar-brand" href="{{ route('index') }}">
                 <img src="{!! asset('images/Logo_letras_chicas_con_sombra en blanco y negro-trayectos-v3.svg') !!}" alt="logo">
             </a>
         </div>
 
-        <div class="d-flex col-4 justify-content-end">
+        <div class="col-6 d-flex justify-content-end">
             <form class="form-inline" action="/action_page.php">
                 <input class="form-control mr-2" type="text" placeholder="Buscar">
                 <button class="btn btn-success" type="submit">Buscar</button>
             </form>
         </div>
+
+        <!-- Botones de cuenta de usuario -->
         <div class="col-2">
-            <a href="{{ route('cuenta') }}" class="btn btn-primary">Cuenta usuario</a>
-            <a href="{{ route('logout') }}" class="btn btn-secondary">Log off, {{ auth()->user()->nombre_usuario }}</a>
+            <a href="{{ route('logout') }}" class="btn btn-secondary m-2 w-100 sombra">Log off, {{ auth()->user()->nombre_usuario }}</a>
+            <a href="{{ route('cuenta') }}" class="btn btn-primary m-2 w-100 sombra">Cuenta usuario</a>
+        </div>
     </nav>
 
     <!-- Barra de navegación para las materias de la aplicación -->

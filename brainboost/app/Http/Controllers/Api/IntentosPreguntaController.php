@@ -84,12 +84,12 @@ class IntentosPreguntaController extends Controller
     public function addFakeData()
     {
         $fakeData = [
-            'id_usuario' => random_int(1, 3),
+            'id_usuario' => random_int(1, 4),
             'id_pregunta' => random_int(1, 2300),
             'intento' => 1,
             'nota' => random_int(1, 10),
             'fecha_realizacion' => now(),
-            'respuestas' => '',
+            'respuestas' => '{"respuestas": ["Claude Debussy", "Johann Sebastian Bach", "Wolfgang Amadeus Mozart", "Ludwig van Beethoven"], "respuestas_correctas": "Claude Debussy"}',
             'dificultad' => 1,
             'modalidad' => 1,
             'tiempoInicio' => now(),

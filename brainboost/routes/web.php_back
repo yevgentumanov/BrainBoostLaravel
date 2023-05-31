@@ -34,35 +34,35 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () { return view('index'); })->name('index');
 
 // Rutas para Login
-Route::get('/login', function () { return view('login'); })->name('login')->middleware('guest'); // Ruta para acceder al formulario Login
-//Route::get('/login', function () { return view('login'); })->name('login');
+//Route::get('/login', function () { return view('login'); })->name('login')->middleware('guest');
+Route::get('/login', function () { return view('login'); })->name('login');
 //Route::post('/logintoapp', [LoginController::class, 'logintoapp'])->name('logintoapp')->middleware('guest');
-Route::post('/logintoapp', [LoginController::class, 'logintoapp'])->name('logintoapp'); // Ruta para inicio session POST
+Route::post('/logintoapp', [LoginController::class, 'logintoapp'])->name('logintoapp');
 
 // Rutas para Logoff
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout'); // Ruta que desloguea al usuario
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Rutas para Registro
-Route::get('/registro', function () { return view('registro'); })->name('registro')->middleware('guest'); // Ruta para acceder al formulario de registro
-//Route::get('/registro', function () { return view('registro'); })->name('registro');
+//Route::get('/registro', function () { return view('registro'); })->name('registro')->middleware('guest');
+Route::get('/registro', function () { return view('registro'); })->name('registro');
 //Route::post('/registrar', [RegistroController::class, 'registrar'])->name("registrar")->middleware('guest');
-Route::post('/registrar', [RegistroController::class, 'registrar'])->name("registrar");  // Ruta para registro de usuario POST
+Route::post('/registrar', [RegistroController::class, 'registrar'])->name("registrar");
 
 // Rutas para gestion de cuenta de usuario
-Route::get('/cuenta', function () { return view('cuenta'); })->name('cuenta')->middleware('auth'); // Ruta que devuelve la vista de la cuenta de usuario
-Route::post('/cambiarpassword', [RegistroController::class, 'cambiarpassword'])->name("cambiarpassword")->middleware('auth'); // Ruta para cambiar password POST
+//Route::get('/registro', function () { return view('registro'); })->name('registro')->middleware('guest');
+Route::get('/cuenta', function () { return view('cuenta'); })->name('cuenta');
+Route::post('/cambiarpassword', [RegistroController::class, 'cambiarpassword'])->name("cambiarpassword"); // Ruta para cambiar password
 
-//Rutas de historial de los test realizados
-
-// Ruta para ver el historial completo de test realizados por el usuario
-Route::get('/testhistorial', function () {
+// Ruta para ver el historial completo de test realizados.
+Route::get('/testhistorial', function () { // devuelve los test realizados por el usuario
     $idUsuarioAccediendo = auth()->user()->id;
     $nombreUsuarioAccediendo= auth()->user()->nombre_usuario;
     $intentosPreguntaController = new IntentosPreguntaController();
     return $intentosPreguntaController->returnHistorial($idUsuarioAccediendo, $nombreUsuarioAccediendo);
-})->name('testhistorial')->middleware('auth');
+})->name('testhistorial');
 
-// Ruta genérica que devuelve la pagina de materia, dependiendo de que materia se le pase por materia.
+// Ruta genérica para las páginas de las diferentes materias
+//Route::get('/materia/{nombreMateria}', [MateriaController::class, 'index'])->name('materia')->middleware('guest');
 Route::get('/materia/{nombreMateria}', [MateriaController::class, 'index'])->name('materia');
 
 // Ruta genérica para las páginas de los tests de las diferentes materias

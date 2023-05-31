@@ -33,6 +33,14 @@ Route::get("pregunta", [PreguntasController::class, "show"]); // devuelve todas 
 // Ruta de test
 Route::get("test", [TestController::class, "show"]); // devuelve todas las preguntas de un test con ID indicado
 
+Route::group(['prefix' => 'api'], function () {
+    Route::get('/test-usuarios', [BorrarTestUsuarioController::class, 'index']);
+    Route::post('/test-usuarios', [BorrarTestUsuarioController::class, 'store']);
+    Route::get('/test-usuarios/{id}', [BorrarTestUsuarioController::class, 'show']);
+    Route::put('/test-usuarios/{id}', [BorrarTestUsuarioController::class, 'update']);
+    Route::delete('/test-usuarios/{id}', [BorrarTestUsuarioController::class, 'destroy']);
+});
+
 Route::get('/fake', [IntentosPreguntaController::class, 'addFakeData']);
 Route::get('/intentos-preguntas', [IntentosPreguntaController::class, 'index']);
 Route::post('/intentos-preguntas', [IntentosPreguntaController::class, 'store']);

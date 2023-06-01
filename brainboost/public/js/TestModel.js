@@ -19,6 +19,18 @@ const TipoPregunta = {
 }
 const numTiposPregunta = Object.keys(TipoPregunta).length;
 
+const TipoModalidad = {
+    ESTUDIAR: 1,
+    PRACTICAR: 2,
+    DESAFIO: 3,
+    REVISAR: 4
+}
+
+const TipoDificultad = {
+    FACIL: 1,
+    DIFICIL: 2
+}
+
 const ErroresTest = [
     "__ERR_TEST_OBJECT_INVALID", 
     "__ERR_TEST_ID_INVALID",
@@ -32,7 +44,9 @@ const ErroresTest = [
     "__ERR_COMPLETION_DATE_TEST_INVALID", // Fecha de realización inválida
     "__ERR_TEST_INFO_FETCH", // Error al recuperar la información del test del servidor
     "__ERR_QUESTIONS_FETCH", // Error al recuperar las preguntas del test del servidor
-    "__ERR_ATTEMPT_FETCH" // Error al recuperar la información del intento del test del servidor
+    "__ERR_ATTEMPT_FETCH", // Error al recuperar la información del intento del test del servidor
+    "__ERR_MODALITY",
+    "__ERR_DIFFICULTY"
 ]
 
 const CodigosErrorTest = (() => {
@@ -115,6 +129,16 @@ const MensajesErrorTest = (() => {
         errorName: ErroresTest[12],
         errorCode: CodigosErrorTest[12],
         message: "Se ha producido un error al intentar descargar la información del intento del test del servidor."
+    },
+    mensajes[ErroresTest[13]] = {
+        errorName: ErroresTest[13],
+        errorCode: CodigosErrorTest[13],
+        message: "La modalidad de test especificada no es válida."
+    },
+    mensajes[ErroresTest[14]] = {
+        errorName: ErroresTest[14],
+        errorCode: CodigosErrorTest[14],
+        message: "La dificultad de test especificada no es válida."
     }
 
     return mensajes;
@@ -161,15 +185,18 @@ class Test {
         this.nota = null; // (number) (se rescata de la BB.DD / se asigna con el setter desde el controlador)
         this.fechaRealizacion = null; // (Date) (se rescata de la BB.DD / se asigna con el setter desde el controlador)
 
-        /*===========================================
-                Rellena todos los parámetros
-        ============================================*/
+        /*================================================================
+                Rellena todos los parámetros (con valores por defecto)
+        =================================================================*/
         this.preguntas = Array();
         this.respuestas = Array();
         this.nombreTest = "";
         this.descripcion = "";
         this.nombreMateria = "";
         this.setFechaCreacion();
+        this.modalidad = TipoModalidad.PRACTICAR;
+        this.dificultad = TipoDificultad.FACIL;
+
         /*-- Rellena los atributos de preguntas y size --*/
         if (preguntas instanceof Array) {
             this.preguntas = preguntas;
@@ -428,6 +455,38 @@ class Test {
                     
                     break;
             }
+        }
+        return true;
+    }
+
+    /**
+     * Método que permite validar si el tipo de modalidad elegido es correcto.
+     * @param {number} modalidad - Especifica el valor de modalidad elegida para la realización del test.
+     */
+    validaModalidad(modalidad) {
+        /*-- Realiza las validaciones --*/
+        if (typeof(modalidad) != "number") {
+            return false;
+        }
+        const valores = Object.values(TipoModalidad);
+        if (modalidad in valores == false) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Método que permite validar si el tipo de dificultad elegido es correcto.
+     * @param {number} dificultad - Especifica el valor de dificultad elegida para la realización del test.
+     */
+    validaDificultad(dificultad) {
+        /*-- Realiza las validaciones --*/
+        if (typeof(dificultad) != "number") {
+            return false;
+        }
+        const valores = Object.values(TipoDificultad);
+        if (dificultad in valores == false) {
+            return false;
         }
         return true;
     }
@@ -769,6 +828,46 @@ class Test {
         if (!this.validaFechaByDate(fechaRealizacion)) throw new Error(MensajesErrorTest["__ERR_COMPLETION_DATE_TEST_INVALID"].message);
         /*-- Realiza la operación --*/
         this.fechaRealizacion = fechaRealizacion;
+    }
+
+    /**
+     * Método que permite establecer una modalidad de test.
+     * @param {number} modalidad - Especifica el valor de modalidad elegida para la realización del test.
+     */
+    setModalidad(modalidad) {
+        /*-- Realiza las validaciones --*/
+        if (!this.validaModalidad(fechaRealizacion)) throw new Error(MensajesErrorTest["__ERR_MODALITY"].message);
+
+        /*-- Realiza la operación --*/
+        this.modalidad = modalidad;
+    }
+
+    /**
+     * Getter de la modalidad del test.
+     * @returns La modalidad del test.
+     */
+    getModalidad() {
+        return this.modalidad;
+    }
+
+    /**
+     * Método que permite establecer una dificultad de test.
+     * @param {number} dificultad - Especifica el valor de dificultad elegida para la realización del test.
+     */
+    setDificultad(dificultad) {
+        /*-- Realiza las validaciones --*/
+        if (!this.validaDificultad(fechaRealizacion)) throw new Error(MensajesErrorTest["__ERR_MODALITY"].message);
+
+        /*-- Realiza la operación --*/
+        this.dificultad = dificultad;
+    }
+
+    /**
+     * Getter de la dificultad del test.
+     * @returns La dificultad del test.
+     */
+    getDificultad() {
+        return this.dificultad;
     }
 
     /**

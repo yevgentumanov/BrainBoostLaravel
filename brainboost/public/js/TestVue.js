@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
         methods: {
-            corregirPregunta(indice, respuesta) {
+            corregirPregunta(indice, respuesta, divPregunta) {
                 const pregunta = this.testObj.preguntas[indice];
                 const anteriorRespuestaUsuario = this.testObj.respuestas[indice];
                 switch (pregunta.tipo_pregunta) {
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (!Array.isArray(respuestaEnObjTest)) {
                             respuestaEnObjTest = [respuestaEnObjTest];
                         }
-                        console.log(anteriorRespuestaUsuario);
+                        // console.log(anteriorRespuestaUsuario);
                         console.log(respuestaEnObjTest);
                         const preguntasAcertadas = compareArraysWithoutOrder(respuesta, respuestaEnObjTest).length
                         console.log(preguntasAcertadas);
@@ -55,8 +55,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         /*-- Suma nota (siempre que no estuviera ya contestada una pregunta) --*/
                         const anteriorPreguntasAcertadas = anteriorRespuestaUsuario != null ? compareArraysWithoutOrder(anteriorRespuestaUsuario, respuestaEnObjTest).length : 0;
                         if (anteriorRespuestaUsuario == null || anteriorPreguntasAcertadas == 0) {
-                            console.log("Prueba");
                             this.testObj.nota += preguntasAcertadas / respuestaEnObjTest.length;
+                            if (preguntasAcertadas == respuestaEnObjTest.length) {
+                                const inputs = divPregunta.querySelectorAll("input");
+                                inputs.forEach(element => {
+                                    element.setAttribute("disabled", "disabled")
+                                });
+                            }
                         } else {
                             this.testObj.nota -= anteriorPreguntasAcertadas / respuestaEnObjTest.length;
                         }
@@ -99,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
 
                 /*-- Comprueba si la respuesta era correcta --*/
-                this.corregirPregunta(indice, respuesta);
+                this.corregirPregunta(indice, respuesta, divPregunta);
 
                 /*-- Deshabilita los campos de la pregunta --*/
                 switch (this.testObj.modalidad) {

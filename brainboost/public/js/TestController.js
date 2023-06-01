@@ -45,7 +45,6 @@ class TestController {
         /*-- Obtiene los datos del servidor --*/
         obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_TEST, "GET", null, { id: idTest })
             .then(response => {
-                console.log(response);
                 this.test.size = response.cant_preguntas;
                 this.test.setDescripcion(response.descripcion);
                 this.test.fechaCreacion = response.fecha_creacion;

@@ -599,8 +599,12 @@ class Test {
         /*-- Realiza las validaciones --*/
         if (!this.validaPregunta(pregunta)) throw new Error();
         /*-- Realiza la operación --*/
-        this.preguntas.push(pregunta);
-        this.size++;
+        if (this.preguntas.length < this.size) {
+            this.preguntas.push(pregunta);
+        } else {
+            this.preguntas.push(pregunta);
+            this.size++;
+        }
     }
 
     /**

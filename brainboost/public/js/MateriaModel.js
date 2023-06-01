@@ -82,9 +82,9 @@ function iniMaterias() {
  * @param {number} idMateria - Especifica el id de la materia.
  * @returns true si el idMateria es válido; false si no.
  */
-function validaIdMateria(idMateria) {
+function validaIdMateria(idMateria, withoutDownload = false) {
     /*-- Realiza las validaciones --*/
-    if (typeof (idMateria) != "number" || idMateria < 0 || idMateria >= Materias.length) {
+    if (typeof (idMateria) != "number" || idMateria < 0) {
         return false;
     }
     return true;

@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         const preguntasAcertadas = compareArraysWithoutOrder(respuesta, respuestaEnObjTest).length
                         console.log(preguntasAcertadas);
 
-                        /*-- Suma nota (siempre que no estuviera ya contestada una pregunta) --*/;
+                        /*-- Suma nota (siempre que no estuviera ya contestada una pregunta) --*/
                         const anteriorPreguntasAcertadas = anteriorRespuestaUsuario != null ? compareArraysWithoutOrder(anteriorRespuestaUsuario, respuestaEnObjTest).length : 0;
                         if (anteriorRespuestaUsuario == null || anteriorPreguntasAcertadas == 0) {
                             console.log("Prueba");

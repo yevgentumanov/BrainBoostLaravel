@@ -45,18 +45,20 @@ class TestController {
         /*-- Obtiene los datos del servidor --*/
         obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_TEST, "GET", null, { id: idTest })
             .then(response => {
-                // To do
+                console.log(response);
                 this.test.size = response.cant_preguntas;
                 this.test.setDescripcion(response.descripcion);
                 this.test.fechaCreacion = response.fecha_creacion;
                 this.test.idTest = response.id;
-                this.test.setIDMateria(response.id_materia);
+                this.test.idMateria = response.id_materia; // No usa setIDMateria, porque este invoca a la validacion, y esta podría tener lugar antes de que se hayan descargado los datos de las materias desde la API
                 this.test.idUsuarioCreador = response.id_usuario_creador;
                 this.test.setNombreTest(response.nombre_test);
                 this.test.nombreUsuarioCreador = response.nombreUsuarioCreador;
                 this.test.numeroVisitas = response.numero_visitas;
             }).catch(error => {
                 /*-- Descarta que haya dado error --*/
+                console.log(this.test);
+                console.dir(error);
                 throw new Error(`${MensajesErrorTest["__ERR_TEST_INFO_FETCH"].message} Mensaje de error: ${error}`);
             })
     }

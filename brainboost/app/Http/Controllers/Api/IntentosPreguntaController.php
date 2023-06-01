@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Intentos_pregunta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 class IntentosPreguntaController extends Controller
 {
     public function index()
@@ -83,21 +84,21 @@ class IntentosPreguntaController extends Controller
 
     public function addFakeData()
     {
-        $fakeData = [
-            'id' => random_int(1, 2300),
-            'id_usuario' => random_int(1, 4),
-            'id_pregunta' => random_int(1, 2300),
-            'intento' => 1,
-            'nota' => random_int(1, 10),
-            'fecha_realizacion' => now(),
-            'respuestas' => '{"respuestas": ["Claude Debussy", "Johann Sebastian Bach", "Wolfgang Amadeus Mozart", "Ludwig van Beethoven"], "respuestas_correctas": "Claude Debussy"}',
-            'dificultad' => 1,
-            'modalidad' => 1,
-            'tiempoInicio' => now(),
-            'tiempoFin' => now(),
-        ];
-
-        $intentosPregunta = Intentos_pregunta::create($fakeData);
+        for ($i = 1; $i < 11; $i++) {
+            $fakeData = [
+                'id_usuario' => 1,
+                'id_pregunta' => $i,
+                'intento' => 1,
+                'nota' => 1.0,
+                'fecha_realizacion' => now(),
+                'respuestas' => '{"respuestas_correctas": "Claude Debussy"}',
+                'dificultad' => 1,
+                'modalidad' => 1,
+                'tiempoInicio' => now(),
+                'tiempoFin' => now(),
+            ];
+            $intentosPregunta = Intentos_pregunta::create($fakeData);
+        }
         return "done";
     }
 
@@ -116,5 +117,4 @@ class IntentosPreguntaController extends Controller
             ->pluck('nombre_test');
         return view('historialTestRealizados', ['tests' => $tests]);
     }
-
 }

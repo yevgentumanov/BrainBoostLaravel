@@ -49,25 +49,30 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                         // console.log(anteriorRespuestaUsuario);
                         console.log(respuestaEnObjTest);
-                        const preguntasAcertadas = compareArraysWithoutOrder(respuesta, respuestaEnObjTest).length
-                        console.log(preguntasAcertadas);
+                        const actualPreguntasAcertadas = compareArraysWithoutOrder(respuesta, respuestaEnObjTest).length
+                        console.log(actualPreguntasAcertadas);
 
                         /*-- Suma nota (siempre que no estuviera ya contestada una pregunta) --*/
                         const anteriorPreguntasAcertadas = anteriorRespuestaUsuario != null ? compareArraysWithoutOrder(anteriorRespuestaUsuario, respuestaEnObjTest).length : 0;
                         if (anteriorRespuestaUsuario == null || anteriorPreguntasAcertadas == 0) {
-                            this.testObj.nota += preguntasAcertadas / respuestaEnObjTest.length;
-                            if (preguntasAcertadas == respuestaEnObjTest.length) {
+                            this.testObj.nota += actualPreguntasAcertadas / respuestaEnObjTest.length;
+                            if (actualPreguntasAcertadas == respuestaEnObjTest.length) {
                                 const inputs = divPregunta.querySelectorAll("input");
+                                /*-- Deshabilita los inputs cuando la pregunta sea acertada --*/
                                 inputs.forEach(element => {
-                                    element.setAttribute("disabled", "disabled")
+                                    element.setAttribute("disabled", "disabled");
                                 });
                             }
-                        } else {
-                            this.testObj.nota -= anteriorPreguntasAcertadas / respuestaEnObjTest.length;
-                        }
 
-                        /*-- Guarda la respuesta --*/
-                        this.testObj.setRespuesta(indice, respuesta);
+                            /*-- Guarda la respuesta --*/
+                            this.testObj.setRespuesta(indice, respuesta);
+                        } else {
+                            // this.testObj.nota -= anteriorPreguntasAcertadas / respuestaEnObjTest.length; // Esto es por si se usa en algun futuro
+                            const inputs = divPregunta.querySelectorAll("input");
+                            inputs.forEach(element => {
+                                element.setAttribute("disabled", "disabled")
+                            });
+                        }
                         break;
                     case TipoPregunta.UNIQUE_RESPONSE:
                         

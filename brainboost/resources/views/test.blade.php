@@ -34,15 +34,15 @@
                 <div :class="['col-12']">
                     <section v-for="(pregunta, indexPregunta) in preguntasRandomOrder" :key="indexPregunta" id="logicaTest" class="d-none pregunta" :class="['d-block', 'row', 'bg-primary', 'my-4']">
                         <div v-if="pregunta.tipo_pregunta == tiposPregunta.MULTIPLE_RESPONSE" class="col-11 p-2">
-                            <div>
-                                <h4>Pregunta @{{ indexPregunta + 1 }}:</h4>
-                                <h5></h5>
-                            </div>
+                            <h4>Pregunta @{{ indexPregunta + 1 }}:</h4>
                             {{-- @{{ indexPregunta = indexPregunta }} --}}
                             <label class="p-2 px-4 font-weight-bold">@{{ pregunta.nombre_pregunta }}</label>
                             <div v-for="(respuesta, indexRespuesta) in pregunta.datos_pregunta.respuestas" :key="indexRespuesta" class="px-4">
                                 <input type="radio" :id="indexPregunta + ':' +  indexRespuesta" :name="indexPregunta" :value="indexRespuesta" class="mr-2" @change="opcionSeleccionada">
                                 <label :for="indexPregunta + ':' +  indexRespuesta">@{{ respuesta }}</label>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <span>Nota individual</span>
                             </div>
                         </div>
                     </section>

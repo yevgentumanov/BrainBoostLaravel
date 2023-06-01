@@ -11,7 +11,7 @@
 
         <div class="col-6 d-flex justify-content-end">
             <form class="form-inline" action="/action_page.php">
-                <input class="form-control mr-2" type="text" placeholder="Buscar">
+                <input class="form-control mr-2 flex-grow-1" type="text" placeholder="Buscar">
                 <button class="btn btn-success" type="submit">Buscar</button>
             </form>
         </div>

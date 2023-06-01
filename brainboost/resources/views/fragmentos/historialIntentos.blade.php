@@ -8,7 +8,14 @@
                         <div class="col-12">
                             @foreach($tests as $test)
                                 <div class="row rounded bg-light p-3 mt-1">
-                                    <a href="">{{ $test }}</a>
+                                    <p>
+                                    ID de usuario: {{ $test['id_usuario'] }} <br>
+                                    Nombre del test: {{ $test['nombre_test'] }}<br>
+                                    ID de pregunta: {{ $test['id_pregunta'] }}<br>
+                                    Nombre de la pregunta: {{ $test['nombre_pregunta'] }}<br>
+                                    Respuestas: {{ $test['respuestas'] }}<br>
+                                    Nota: {{ $test['nota'] }}
+                                    </p>
                                 </div>
                             @endforeach
                         </div>

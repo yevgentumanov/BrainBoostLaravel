@@ -27,7 +27,7 @@ class Intentos_pregunta extends Model
     ];
 
     protected $casts = [
-        'nota' => 'decimal:5,2',
+        'nota' => 'float',
     ];
 
     protected $dates = [

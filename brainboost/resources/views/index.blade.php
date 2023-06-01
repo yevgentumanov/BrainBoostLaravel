@@ -6,11 +6,11 @@
         <div class="col-12">
 
             @auth
-            @endauth
             {{-- Inserción del bloque de test Recientes si el usuario esta logueado--}}
             @include('fragmentos.testsRecientes')
             {{-- Inserción del bloque de test Relacionados si el usuario esta logueado--}}
             @include('fragmentos.testsRelacionados')
+            @endauth
             {{-- Inserción del bloque de test Populares --}}
             @include('fragmentos.testsPopulares')
         </div>

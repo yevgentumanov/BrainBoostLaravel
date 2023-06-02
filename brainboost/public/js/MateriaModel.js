@@ -71,6 +71,7 @@ function iniMaterias() {
             /*-- Agrega la materia al array de materias --*/
             Materias.push(materia);
         });
+        MATERIAS_LOADED = true; // Cambia el flag a true
     }).catch(error => {
         /*-- Descarta que haya dado error --*/
         throw new Error(`${MensajesErrorTest["__ERR_TEST_INFO_FETCH"].message} Mensaje de error: ${error.message}`);

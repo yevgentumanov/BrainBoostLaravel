@@ -24,3 +24,8 @@ const Rutas = {
     "RUTA_API_CATEGORIAS": "/api/categorias",
     "RUTA_API_USUARIOS": "/api/usuarios"
 }
+
+/*=====================================
+        FLAGS GLOBALES
+======================================*/
+let MATERIAS_LOADED = false;

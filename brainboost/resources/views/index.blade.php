@@ -10,7 +10,7 @@
             @include('fragmentos.testsRecientes')
             {{-- Inserción del bloque de test Relacionados si el usuario esta logueado--}}
             @include('fragmentos.testsRelacionados')
-            @endauth
+            cd @endauth
             {{-- Inserción del bloque de test Populares --}}
             @include('fragmentos.testsPopulares')
         </div>

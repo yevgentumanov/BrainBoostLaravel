@@ -14,26 +14,14 @@ class Intentos_pregunta extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'id_usuario',
+        'id_intento_test',
         'id_pregunta',
-        'intento',
-        'nota',
-        'fecha_realizacion',
+        'nota_pregunta',
         'respuestas',
-        'dificultad',
-        'modalidad',
-        'tiempoInicio',
-        'tiempoFin',
     ];
 
     protected $casts = [
-        'nota' => 'float',
-    ];
-
-    protected $dates = [
-        'fecha_realizacion',
-        'tiempoInicio',
-        'tiempoFin',
+        'nota_pregunta' => 'decimal:5,2',
     ];
 
     public function pregunta()
@@ -41,9 +29,9 @@ class Intentos_pregunta extends Model
         return $this->belongsTo(Pregunta::class, 'id_pregunta');
     }
 
-    public function usuario()
+    public function intentoTest()
     {
-        return $this->belongsTo(Usuario::class, 'id_usuario');
+        return $this->belongsTo(IntentoTest::class, 'id_intento_test');
     }
 
     public $timestamps = false;

@@ -4,8 +4,10 @@
     --color3: #5DA360;
     --color4: #A6141B;
     --color5: #FFCCCC;
-    --color6: #F8F9FA; /* background-color y test-items */
-    --color7: #D1EEF0; /* secciones */
+    --color6: #F8F9FA;
+    /* background-color y test-items */
+    --color7: #D1EEF0;
+    /* secciones */
     --color8: #9EB3B5;
     --color10: white;
 }
@@ -18,9 +20,9 @@ section {
     padding: 10px;
     border-radius: 1em;
     box-shadow:
-    inset 0 -3em 3em rgba(0, 0, 0, 0.1),
-    0 0 0 2px var(--color6),
-    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+        inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+        0 0 0 2px var(--color6),
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
 
 article {
@@ -31,9 +33,18 @@ article {
         0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
 
+
 /*****************************************************************************/
 /*****************************************************************************/
 /*****************************************************************************/
+
+.cabecera {
+    background-color: rgb(0, 0, 0, 0.5);
+}
+
+.container-fluid {
+    padding: 0;
+}
 
 .sombra {
     box-shadow:
@@ -54,8 +65,9 @@ article {
 }
 
 .sacudida:hover {
-    animation: sacudido 2s ease 0s 1 normal forwards;
+    animation: sacudido 1s ease 0s 1 normal forwards;
 }
+
 /*****************************************************************************/
 /*****************************************************************************/
 /*****************************************************************************/
@@ -93,7 +105,7 @@ article {
 
 /*-- Navbar --*/
 
-nav > div > a > img {
+nav>div>a>img {
     margin: inherit;
     height: 40px;
 }
@@ -120,10 +132,128 @@ nav > div > a > img {
 /****************************************************************************/
 /****************************************************************************/
 
+/* ********************************************* */
+/*                    LOGIN                      */
+/* ********************************************* */
+
+.superpuesto {
+    position: fixed !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+  }
+
+  #divlogin {
+
+  }
+/****************************************************************************/
+/****************************************************************************/
+/****************************************************************************/
+
+/* ********************************************* */
+/*       EFECTO PARALLAX PARA PRESENTACIÓN       */
+/* ********************************************* */
+
+.parallax0 {
+    /* The image used */
+    background-image: url("../images/presentacion0.jpg");
+
+    /* Full height */
+    height: 100vh;
+    /* width: 100%; */
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.parallax1 {
+    /* The image used */
+    background-image: url("../images/presentacion1.jpg");
+
+    /* Full height */
+    height: 1000px;
+    /* width: 100%; */
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax2 {
+    /* The image used */
+    background-image: url("../images/presentacion2.jpg");
+
+    /* Full height */
+    height: 1000px;
+    /* width: 100%; */
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax3 {
+    /* The image used */
+    background-image: url("../images/presentacion3.jpg");
+
+    /* Full height */
+    height: 1000px;
+    /* width: 100%; */
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax4 {
+    /* The image used */
+    background-image: url("../images/presentacion4.jpg");
+
+    /* Full height */
+    height: 1000px;
+    /* width: 100%; */
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax5 {
+    /* The image used */
+    background-image: url("../images/presentacion5.jpg");
+
+    /* Full height */
+    height: 1000px;
+    /* width: 100%; */
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.texto-presentacion {
+    border: 6px solid var(--color6);
+}
 
 /* ************************************** */
 /*       ANIMACION PARA LOS BLOQUES       */
 /* ************************************** */
+
 .caida-izquierda {
     animation: caida-anuncio-izquierda 1.5s 1;
 }
@@ -141,29 +271,38 @@ nav > div > a > img {
 }
 
 @keyframes sacudido {
-	0%,
-	100% {
-		transform: translateX(0);
-	}
 
-	10%,
-	30%,
-	50%,
-	70% {
-		transform: translateX(-10px);
-	}
+    0%,
+    100% {
+        transform: translateX(0);
+    }
 
-	20%,
-	40%,
-	60% {
-		transform: translateX(10px);
-	}
+    10%,
+    30%,
+    50%,
+    70% {
+        transform: translateX(-10px);
+    }
 
-	80% {
-		transform: translateX(8px);
-	}
+    20%,
+    40%,
+    60% {
+        transform: translateX(10px);
+    }
 
-	90% {
-		transform: translateX(-8px);
-	}
+    80% {
+        transform: translateX(8px);
+    }
+
+    90% {
+        transform: translateX(-8px);
+    }
+}
+
+
+
+/*********************************************************/
+/*********************************************************/
+/*********************************************************/
+}
 }

@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container superpuesto">
     <div class="row justify-content-center">
         <div id="divlogin" class="col-md-6">
-            <div class="card ">
+            <div class="card sombra_borde">
                 <div class="card-body bg-primary">
                     <form action="{{ route('logintoapp') }}" method="POST">
                         @csrf
@@ -15,6 +15,9 @@
                                 {{ session('warning') }}
                             </div>
                         @endif
+                        <div class="row justify-content-end">
+                            <a  href="{{ route('index') }}">X</a>
+                        </div>
                         <div class="form-group">
                             <label for="email">Correo electrónico</label>
                             <input type="email" id="email" name="email" class="form-control" required>

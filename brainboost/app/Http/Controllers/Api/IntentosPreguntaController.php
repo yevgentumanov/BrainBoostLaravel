@@ -7,7 +7,7 @@ use App\Models\Intentos_pregunta;
 use Illuminate\Http\Request;
 use App\Models\Pregunta;
 use App\Models\Test;
-
+use App\Models\Intentos_test;
 class IntentosPreguntaController extends Controller
 {
     public function index()
@@ -15,21 +15,44 @@ class IntentosPreguntaController extends Controller
         $intentosPreguntas = Intentos_pregunta::all();
         return response()->json(['data' => $intentosPreguntas], 200);
     }
-
-    public function store(Request $request)
+        public function store(Request $request)
     {
-        $data = $request->validate([
-            'id_intento_test' => 'required|integer',
-            'id_pregunta' => 'required|integer',
-            'nota_pregunta' => 'nullable|numeric',
-            'respuestas' => 'required|string',
-        ]);
+        // Get the user ID from the authenticated user
+        $userId = $request->user()->id;
 
-        $data['nota_pregunta'] = floatval($data['nota_pregunta']); // Convert 'nota_pregunta' to float
+        $datosTest = [
+            'id_test' => $request->id_test,
+            'id_usuario' => $userId,
+            'intento' => 1,
+            'fecha_realizacion' => now(),
+            'dificultad' => $request->dificultad,
+            'modalidad' => $request->modalidad,
+            'tiempo_inicio' => now(),
+            'tiempo_fin' => now(),
+        ];
+        $intentosTest = Intentos_test::create($datosTest);
 
-        $intentosPregunta = Intentos_pregunta::create($data);
-        return response()->json(['message' => 'Registro guardado correctamente', 'data' => $intentosPregunta], 201);
+        // Return the response data
+        return response()->json($datosTest);
     }
+
+//        public function store(Request $request)
+//    {
+//        // Get the user ID from the authenticated user
+//        $userId = $request->user()->id;
+//
+//        // Get the request data
+//        $requestData = $request->all();
+//
+//        // Combine the user ID and request data
+//        $responseData = [
+//            'user_id' => $userId,
+//            'request_data' => $requestData
+//        ];
+//
+//        // Return the response data
+//        return response()->json($responseData);
+//    }
 
     public function show(Request $request, string $id)
     {

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
@@ -29,10 +30,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/x-icon" href="{!! asset('images/favicon.ico') !!}">
 
-    <!-- Cabecera login -->
+    <!-- JavaScript: Cabecera login -->
     <script src="{!! asset('js/login.js') !!}"></script>
-    
-    <!-- JavaScript lógica test -->
+
+    <!-- JavaScript: páginas en general -->
+    <script src="{!! asset('js/main.js') !!}"></script>
+
+    <!-- Pruebas API guardar -->
+    <script src="{!! asset('js/pruebaEnviar.js') !!}"></script>
+
+    <!-- JavaScript: lógica test -->
     @isset($enableScriptTest)
         @if ($enableScriptTest == true)
             <script src="{!! asset('js/utilidades.js') !!}"></script>

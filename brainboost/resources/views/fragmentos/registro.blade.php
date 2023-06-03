@@ -3,7 +3,7 @@
 <div class="container superpuesto">
     <div class="row justify-content-center">
         <div id="divregistro" class="col-md-6">
-            <div class="card ">
+            <div class="card sombra_borde">
                 <div class="card-body bg-primary pt-0">
                     <div class="row justify-content-end">
                         <a class="exit-card" href="{{ route('index') }}">X</a>

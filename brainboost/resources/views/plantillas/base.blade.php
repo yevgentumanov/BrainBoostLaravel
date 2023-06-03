@@ -29,10 +29,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/x-icon" href="{!! asset('images/favicon.ico') !!}">
 
-    <!-- Cabecera login -->
+    <!-- JavaScript: Cabecera login -->
     <script src="{!! asset('js/login.js') !!}"></script>
+
+    <!-- JavaScript: páginas en general -->
+    <script src="{!! asset('js/main.js') !!}"></script>
     
-    <!-- JavaScript lógica test -->
+    <!-- JavaScript: lógica test -->
     @isset($enableScriptTest)
         @if ($enableScriptTest == true)
             <script src="{!! asset('js/utilidades.js') !!}"></script>

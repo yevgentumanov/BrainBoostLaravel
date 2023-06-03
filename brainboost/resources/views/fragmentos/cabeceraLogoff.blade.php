@@ -63,6 +63,7 @@
             <span class=""></span>Crear un test personalizado
         </button>
 
+        <!-- Opciones de cada submenú -->
         <ul class="collapse navbar-collapse" id="navbarCategorias">
             <li class="navbar-brand" data-toggle="collapse" data-target="#navbarArtes">Artes</li>
             <li class="navbar-brand" data-toggle="collapse" data-target="#navbarNaturales">Naturales</li>

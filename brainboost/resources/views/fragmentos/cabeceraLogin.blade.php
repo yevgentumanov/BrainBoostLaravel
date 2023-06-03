@@ -30,10 +30,10 @@
                             NUESTROS EXÁMENES</p>
                     </h1>
                 </div>
-                <div class="indicador-down">
-                    <img src="{!! asset('images/indicadorDown.png') !!}" alt="">
-                </div>
             </div>
+        </div>
+        <div class="d-flex justify-content-center indicador-down">
+            <img src="{!! asset('images/indicadorDown.png') !!}" alt="">
         </div>
 
         <!-- Barra de navegación para las materias de la aplicación -->

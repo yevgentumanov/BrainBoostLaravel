@@ -12,7 +12,6 @@ class Intentos_preguntaController extends Controller
         $intentosPreguntas = Intentos_pregunta::all();
         return response()->json(['data' => $intentosPreguntas], 200);
     }
-
     public function store(Request $request)
     {
         $data = $request->validate([

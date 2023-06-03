@@ -59,7 +59,7 @@
         @endauth
 
         <!-- Identificador de ventanas -->
-        <div id="ventana" class="row d-bg">
+        {{-- <div id="ventana" class="row d-bg">
             <div class="col-12 d-sm-none">
                 <h2 class="font-weight-bold">movil</h2>
             </div>
@@ -75,7 +75,7 @@
             <div class="col-12 d-none d-xl-block">
                 <h2 class="font-weight-bold">tv - xl</h2>
             </div>
-        </div>
+        </div> --}}
 
         {{-- Punto de inserción del main en cada página --}}
         @yield('main')

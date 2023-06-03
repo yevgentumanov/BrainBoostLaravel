@@ -10,6 +10,17 @@
     /* secciones */
     --color8: #9EB3B5;
     --color10: white;
+
+    --color1_05: #cae6e880;
+    --color2_05: #16878C80;
+    --color3_05: #5DA36080;
+    --color4_05: #A6141B80;
+    --color5_05: #FFCCCC80;
+    --color6_05: #F8F9FA80;
+    /* background-color y test-items */
+    --color7_05: #D1EEF080;
+    /* secciones */
+    --color8_05: #9EB3B580;
 }
 
 body {
@@ -259,7 +270,17 @@ nav>div>a>img {
 }
 
 .texto-presentacion {
-    border: 6px solid var(--color6);
+    white-space: pre-wrap;
+}
+
+.texto-presentacion p {
+    padding: 1em;
+    font-size: 160%;
+    color: var(--color6);
+    border: 16px solid var(--color6);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: var(--color2_05);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* ************************************** */
@@ -316,5 +337,3 @@ nav>div>a>img {
 /*********************************************************/
 /*********************************************************/
 /*********************************************************/
-}
-}

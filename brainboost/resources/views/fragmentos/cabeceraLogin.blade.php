@@ -18,7 +18,8 @@
             </div>
             <div class="col-2">
                 <a href="{{ route('registro') }}" class="btn btn-secondary m-2 w-100 sombra">Nuevo usuario</a>
-                <a href="{{ route('login') }}" class="btn btn-primary m-2 w-100 sombra">Iniciar sesión</a>
+                <a id="btnLogin" href="{{ route('login') }}" class="btn btn-primary m-2 w-100 sombra">Iniciar sesión</a>
+            </div>
         </nav>
 
 

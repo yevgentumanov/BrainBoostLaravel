@@ -16,19 +16,23 @@ class IntentosPreguntaController extends Controller
         return response()->json(['data' => $intentosPreguntas], 200);
     }
 
+
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'id_intento_test' => 'required|integer',
-            'id_pregunta' => 'required|integer',
-            'nota_pregunta' => 'nullable|numeric',
-            'respuestas' => 'required|string',
-        ]);
+        // Get the user ID from the authenticated user
+        $userId = $request->user()->id;
 
-        $data['nota_pregunta'] = floatval($data['nota_pregunta']); // Convert 'nota_pregunta' to float
+        // Get the request data
+        $requestData = $request->all();
 
-        $intentosPregunta = Intentos_pregunta::create($data);
-        return response()->json(['message' => 'Registro guardado correctamente', 'data' => $intentosPregunta], 201);
+        // Combine the user ID and request data
+        $responseData = [
+            'user_id' => $userId,
+            'request_data' => $requestData
+        ];
+
+        // Return the response data
+        return response()->json($responseData);
     }
 
     public function show(Request $request, string $id)

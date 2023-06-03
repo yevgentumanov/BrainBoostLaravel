@@ -44,18 +44,6 @@
             </div>
         </div>
 
-
-        {{-- <div class="parallax"></div>
-
-    <div style="height:1000px;background-color:red;font-size:36px">
-        Scroll Up and Down this page to see the parallax scrolling effect.
-        This div is just here to enable scrolling.
-        Tip: Try to remove the background-attachment property to remove the scrolling effect.
-        </div>
-
-    <div class="parallax"></div> --}}
-
-
         <!-- Barra de navegación para las materias de la aplicación -->
         {{-- <nav class="row navbar bg-dark navbar-light sticky-top">
 

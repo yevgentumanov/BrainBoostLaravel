@@ -23,13 +23,15 @@
 
 
         <div class="d-flex justify-content-center">
-            <div class="">
-                <div class="text-center p-5">
-                    <div class="texto-presentacion">
-                        <h1>
-                            <p>ABRE LAS PUERTAS DEL CONOCIMIENTO, DESAFÍA TUS LÍMITES Y ALCANZA EL ÉXITO A TRAVÉS DE NUESTROS EXÁMENES</p>
-                        </h1>
-                    </div>
+            <div class="text-center p-5">
+                <div class="texto-presentacion">
+                    <h1>
+                        <p>ABRE LAS PUERTAS DEL CONOCIMIENTO, DESAFÍA TUS LÍMITES Y ALCANZA EL ÉXITO A TRAVÉS DE
+                            NUESTROS EXÁMENES</p>
+                    </h1>
+                </div>
+                <div class="indicador-down">
+                    <img src="{!! asset('images/indicadorDown.png') !!}" alt="">
                 </div>
             </div>
         </div>

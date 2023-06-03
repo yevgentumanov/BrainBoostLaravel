@@ -34,7 +34,10 @@
 
     <!-- JavaScript: páginas en general -->
     <script src="{!! asset('js/main.js') !!}"></script>
-    
+
+    <!-- Pruebas API guardar -->
+    <script src="{!! asset('js/pruebaEnviar.js') !!}"></script>
+
     <!-- JavaScript: lógica test -->
     @isset($enableScriptTest)
         @if ($enableScriptTest == true)

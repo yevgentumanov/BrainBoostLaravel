@@ -1,14 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Intentos_pregunta;
 use Illuminate\Http\Request;
-use App\Models\Pregunta;
-use App\Models\Test;
 
-class IntentosPreguntaController extends Controller
+class Intentos_preguntaController extends Controller
 {
     public function index()
     {
@@ -71,40 +68,5 @@ class IntentosPreguntaController extends Controller
 
         $intentosPregunta->delete();
         return response()->json(['message' => 'Registro eliminado'], 200);
-    }
-
-    public function addFakeData()
-    {
-        for ($i = 21; $i < 31; $i++) {
-            $fakeData = [
-                'id_intento_test' => 1,
-                'id_pregunta' => $i,
-                'nota_pregunta' => 12.34,
-                'respuestas' => '{"respuestas_correctas": "Claude Debussy"}',
-            ];
-            $intentosPregunta = Intentos_pregunta::create($fakeData);
-        }
-        return "done";
-    }
-
-    public function returnHistorial($idUsuario, $nombreUsuarioAccediendo)
-    {
-        $tests = Intentos_pregunta::join('preguntas', 'preguntas.id', '=', 'intentos_preguntas.id_pregunta')
-            ->join('tests', 'preguntas.id_test', '=', 'tests.id')
-            ->select('intentos_preguntas.id_usuario', 'tests.nombre_test', 'intentos_preguntas.id_pregunta', 'preguntas.nombre_pregunta', 'intentos_preguntas.respuestas', 'intentos_preguntas.nota_pregunta as nota')
-            ->get();
-
-        return view('historialTestRealizados', ['tests' => $tests]);
-    }
-
-    public function returnHistorialPreguntasRespondidas($idUsuario)
-    {
-        $preguntas = Intentos_pregunta::join('preguntas', 'preguntas.id', '=', 'intentos_preguntas.id_pregunta')
-            ->join('tests', 'preguntas.id_test', '=', 'tests.id')
-            ->where('intentos_preguntas.id_usuario', $idUsuario) // Add where clause
-            ->select('intentos_preguntas.id_usuario', 'tests.nombre_test', 'intentos_preguntas.id_pregunta', 'preguntas.nombre_pregunta', 'intentos_preguntas.respuestas', 'intentos_preguntas.nota_pregunta as nota')
-            ->get();
-
-        return view('historialPreguntasRespondidas', ['preguntas' => $preguntas]);
     }
 }

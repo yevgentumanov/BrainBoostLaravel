@@ -31,7 +31,7 @@ class Intentos_pregunta extends Model
 
     public function intentoTest()
     {
-        return $this->belongsTo(IntentoTest::class, 'id_intento_test');
+        return $this->belongsTo(Intentos_test::class, 'id_intento_test');
     }
 
     public $timestamps = false;

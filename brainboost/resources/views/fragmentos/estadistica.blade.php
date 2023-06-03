@@ -16,6 +16,8 @@
                     </section>
                     <div id="ultimostests" class="row m-2 p-4">
                         <h2>Últimos test realizados</h2>
+                        <a href="{{ route('testhistorial') }}">Ver todos los test</a>
+                        <a href="{{ route('testhistorial') }}">Ver todas las preguntas</a>
                         <div class="col-12">
                             <div class="row rounded bg-light p-3 mt-1">
                                 <a href="test1.html">Test 1</a>

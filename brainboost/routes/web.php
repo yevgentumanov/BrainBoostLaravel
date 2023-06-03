@@ -6,6 +6,10 @@ use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Intentos_preguntaController;
+use App\Http\Controllers\Intentos_testController;
+use App\Http\Controllers\VIntentosTestController;
+
 
 
 /*
@@ -55,11 +59,17 @@ Route::post('/cambiarpassword', [RegistroController::class, 'cambiarpassword'])-
 //Rutas de historial de los test realizados
 
 // Ruta para ver el historial completo de test realizados por el usuario
+//Route::get('/testhistorial', function () {
+//    $idUsuarioAccediendo = auth()->user()->id;
+//    $nombreUsuarioAccediendo= auth()->user()->nombre_usuario;
+//    $intentosPreguntaController = new IntentosPreguntaController();
+//    return $intentosPreguntaController->returnHistorial($idUsuarioAccediendo, $nombreUsuarioAccediendo);
+//})->name('testhistorial')->middleware('auth');
 Route::get('/testhistorial', function () {
     $idUsuarioAccediendo = auth()->user()->id;
     $nombreUsuarioAccediendo= auth()->user()->nombre_usuario;
-    $intentosPreguntaController = new IntentosPreguntaController();
-    return $intentosPreguntaController->returnHistorial($idUsuarioAccediendo, $nombreUsuarioAccediendo);
+    $intentosPreguntaController = new VIntentosTestController();
+    return $intentosPreguntaController->historialTestRealizados($idUsuarioAccediendo, $nombreUsuarioAccediendo);
 })->name('testhistorial')->middleware('auth');
 
 // Ruta genérica que devuelve la pagina de materia, dependiendo de que materia se le pase por materia.
@@ -72,4 +82,7 @@ Route::get('/test/{idTest}', [TestController::class, 'showTest'])->name("test");
 // Ruta para guardar y mostrar informacion sobre intentos test
 Route::post('/intentos_pregunta', [IntentosPreguntaController::class, 'store']); // Ruta que guarda informacion
 Route::post('/intentos_pregunta', [IntentosPreguntaController::class, 'show']); // Ruta que obtiene informacion por id
+
+Route::get('/addfaketest', [Intentos_testController::class, 'addFakeData']); // Ruta para añadir test falso
+
 

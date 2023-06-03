@@ -4,29 +4,12 @@
 <!-- Página de test -->
 @section('main')
     <main class="row">
-        {{-- Solo usar con fines de testing --}}
-            {{-- @isset($test)
-                <section class="row bg-primary m-4">
-                    <div class="col-12 m-2">
-
-                        @dump($test)
-
-                    </div>
-                </section>
-            @endisset --}}
         <div id="appVue" class="col-12">
             <section class="row bg-primary m-4">
                 <div class="col-12 m-2 d-flex justify-content-between align-items-center">
                     <h3>TEST - {{ $test->nombre_test }}</h3>
                     <h5>Tiempo</h5>
                     <h5>@{{testObj.getNota() ? "Nota: " + testObj.getNota() : ""}}</h5>
-                </div>
-            </section>
-
-            <section :class="['row', 'bg-primary', 'm-4']">
-                <div class="col-11 p-2">
-                    <p>Elige la dificultad:</p>
-                    <p>Empezar test</p>
                 </div>
             </section>
 

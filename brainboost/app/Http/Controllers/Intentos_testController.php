@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Intentos_test;
 use Illuminate\Http\Request;
+use App\Models\Intentos_pregunta;
 
 class Intentos_testController extends Controller
 {
@@ -79,6 +80,23 @@ class Intentos_testController extends Controller
         return response()->json(['message' => 'Registro eliminado'], 200);
     }
 
+//    public function addFakeData()
+//    {
+//        for ($i = 1; $i <= 10; $i++) {
+//            $fakeData = [
+//                'id_test' => $i,
+//                'id_usuario' => 1,
+//                'intento' => 1,
+//                'fecha_realizacion' => now(),
+//                'dificultad' => 1,
+//                'modalidad' => 1,
+//                'tiempo_inicio' => now(),
+//                'tiempo_fin' => now(),
+//            ];
+//            $intentosTest = Intentos_test::create($fakeData);
+//        }
+//        return "Fake data added successfully";
+//    }
     public function addFakeData()
     {
         for ($i = 1; $i <= 10; $i++) {
@@ -93,6 +111,17 @@ class Intentos_testController extends Controller
                 'tiempo_fin' => now(),
             ];
             $intentosTest = Intentos_test::create($fakeData);
+
+            // Create 10 intentos_preguntas records for each intentos_test
+            for ($j = 1; $j <= 10; $j++) {
+                $intentosPreguntaData = [
+                    'id_intento_test' => $intentosTest->id,
+                    'id_pregunta' => $j,
+                    'nota_pregunta' => 1,
+                    'respuestas' => '{"respuestas_correctas": "Claude Debussy"}',
+                ];
+                Intentos_pregunta::create($intentosPreguntaData);
+            }
         }
         return "Fake data added successfully";
     }

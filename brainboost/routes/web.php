@@ -53,23 +53,16 @@ Route::get('/registro', function () { return view('registro'); })->name('registr
 Route::post('/registrar', [RegistroController::class, 'registrar'])->name("registrar");  // Ruta para registro de usuario POST
 
 // Rutas para gestion de cuenta de usuario
-Route::get('/cuenta', function () { return view('cuenta'); })->name('cuenta')->middleware('auth'); // Ruta que devuelve la vista de la cuenta de usuario
+Route::get('/cuenta', [VIntentosTestController::class, 'getCuentaView'])->name('cuenta')->middleware('auth'); // Ruta que devuelve la vista de la cuenta de usuario
 Route::post('/cambiarpassword', [RegistroController::class, 'cambiarpassword'])->name("cambiarpassword")->middleware('auth'); // Ruta para cambiar password POST
 
 //Rutas de historial de los test realizados
 
 // Ruta para ver el historial completo de test realizados por el usuario
-//Route::get('/testhistorial', function () {
-//    $idUsuarioAccediendo = auth()->user()->id;
-//    $nombreUsuarioAccediendo= auth()->user()->nombre_usuario;
-//    $intentosPreguntaController = new IntentosPreguntaController();
-//    return $intentosPreguntaController->returnHistorial($idUsuarioAccediendo, $nombreUsuarioAccediendo);
-//})->name('testhistorial')->middleware('auth');
 Route::get('/testhistorial', function () {
     $idUsuarioAccediendo = auth()->user()->id;
-    $nombreUsuarioAccediendo= auth()->user()->nombre_usuario;
-    $intentosPreguntaController = new VIntentosTestController();
-    return $intentosPreguntaController->historialTestRealizados($idUsuarioAccediendo, $nombreUsuarioAccediendo);
+    $VIntentosTestController = new VIntentosTestController();
+    return $VIntentosTestController->historialTestRealizados($idUsuarioAccediendo);
 })->name('testhistorial')->middleware('auth');
 
 // Ruta genérica que devuelve la pagina de materia, dependiendo de que materia se le pase por materia.

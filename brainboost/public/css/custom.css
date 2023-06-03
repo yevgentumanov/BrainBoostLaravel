@@ -12,7 +12,7 @@
     --color10: white;
 
     --color1_05: #cae6e880;
-    --color2_05: #16878C80;
+    --color2_05: hsla(183, 73%, 32%, 0.75);
     --color3_05: #5DA36080;
     --color4_05: #A6141B80;
     --color5_05: #FFCCCC80;
@@ -44,10 +44,26 @@ article {
         0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
 
+button:hover {
+    cursor: pointer;
+}
+
+footer, h6 {
+    color: var(--color4);
+}
+
+footer a {
+    color: black;
+    text-decoration: none;
+}
 
 /*****************************************************************************/
 /*****************************************************************************/
 /*****************************************************************************/
+
+.row {
+    margin: 0 !important;
+}
 
 .cabecera {
     background-color: rgb(0, 0, 0, 0.5);
@@ -159,11 +175,12 @@ nav>div>a>img {
 .exit-card {
     color: black;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .exit-card:hover {
     text-decoration: none;
-    color: red;
+    color: var(--color4) !important;
     animation: slide-fwd-center .25s cubic-bezier(.25, .46, .45, .94) both
 }
 
@@ -185,91 +202,29 @@ nav>div>a>img {
 /*       EFECTO PARALLAX PARA PRESENTACIÓN       */
 /* ********************************************* */
 
-.parallax0 {
-    /* The image used */
-    background-image: url("../images/presentacion0.jpg");
-
-    /* Full height */
-    height: 100vh;
-
-    /* Create the parallax scrolling effect */
+.parallax {
+    width: 100%;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
+    overflow: hidden;
 }
 
-.parallax1 {
-    /* The image used */
-    background-image: url("../images/presentacion1.jpg");
-
-    /* Full height */
-    height: 1000px;
-
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.parallax2 {
-    /* The image used */
-    background-image: url("../images/presentacion2.jpg");
-
-    /* Full height */
-    height: 1000px;
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.parallax3 {
-    /* The image used */
-    background-image: url("../images/presentacion3.jpg");
-
-    /* Full height */
-    height: 1000px;
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.parallax4 {
-    /* The image used */
-    background-image: url("../images/presentacion4.jpg");
-
-    /* Full height */
-    height: 1000px;
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
+.parallax1,
+.parallax2,
+.parallax3,
+.parallax4,
 .parallax5 {
-    /* The image used */
-    background-image: url("../images/presentacion5.jpg");
-
-    /* Full height */
-    height: 1000px;
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    height: 100vh;
 }
+
+.parallax0 {background-image: url("../images/presentacion0.jpg"); height: 100vh;}
+.parallax1 {background-image: url("../images/presentacion1.jpg");}
+.parallax2 {background-image: url("../images/presentacion2.jpg");}
+.parallax3 {background-image: url("../images/presentacion3.jpg");}
+.parallax4 {background-image: url("../images/presentacion4.jpg");}
+.parallax5 {background-image: url("../images/presentacion5.jpg");}
 
 .texto-presentacion {
     transform: translateY(100px);
@@ -285,12 +240,37 @@ nav>div>a>img {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.indicador-down {
-    transform: translateY(150px);
-    height: 6em;
+.texto-presentacion-m p {
+    padding: 1em;
+    font-size: 90%;
+    color: var(--color6);
+    border: 16px solid var(--color6);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: var(--color2_05);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.indicador-down img {
+.parallax1 .indicador-down,
+.parallax2 .indicador-down,
+.parallax3 .indicador-down,
+.parallax4 .indicador-down,
+.parallax5 .indicador-down{
+    position: relative;
+    top: -8%;
+}
+.indicador-down {
+    transform: translateY(80px);
+    height: 100px;
+}
+
+.indicador-down-2 {
+    height: 100px;
+}
+
+.indicador-down img,
+.indicador-down-2 img {
+    height: 100%;
+
     /* Estilos para la primera imagen */
     animation-name: resaltar;
     animation-duration: 0.7s;
@@ -316,3 +296,4 @@ nav>div>a>img {
 /*********************************************************/
 /*********************************************************/
 /*********************************************************/
+

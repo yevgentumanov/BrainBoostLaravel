@@ -1,6 +1,6 @@
-<div class="row parallax0">
+<div class="row parallax parallax0 d-flex">
     <!-- Barra de la cabecera con los social-links -->
-    <header>
+    <header class="col-12">
         <!-- Barra de navegación con el logotipo, la barra de búsqueda y el login -->
         <nav class="row navbar navbar-expand-sm bg-ligth navbar-dark fixed-top cabecera">
             <!-- Logo -->
@@ -18,14 +18,21 @@
             </div>
             <div class="col-2">
                 <a href="{{ route('registro') }}" class="btn btn-secondary m-2 w-100 sombra">Nuevo usuario</a>
-                <a id="btnLogin" href="{{ route('login') }}" class="btn btn-primary m-2 w-100 sombra">Iniciar sesión</a>
+                <a id="btnLogin" href="{{ route('login') }}" class="btn btn-primary m-2 w-100 sombra">Iniciar
+                    sesión</a>
             </div>
         </nav>
 
 
-        <div class="d-flex justify-content-center">
+        <div class="row d-flex justify-content-center align-self-center w-100 p-bloque-texto">
             <div class="text-center p-5">
-                <div class="texto-presentacion">
+                <div class="d-none d-xl-block texto-presentacion">
+                    <h1>
+                        <p>ABRE LAS PUERTAS DEL CONOCIMIENTO, DESAFÍA TUS LÍMITES Y ALCANZA EL ÉXITO A TRAVÉS DE
+                            NUESTROS EXÁMENES</p>
+                    </h1>
+                </div>
+                <div class="d-xl-none texto-presentacion-m">
                     <h1>
                         <p>ABRE LAS PUERTAS DEL CONOCIMIENTO, DESAFÍA TUS LÍMITES Y ALCANZA EL ÉXITO A TRAVÉS DE
                             NUESTROS EXÁMENES</p>
@@ -33,187 +40,139 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex justify-content-center indicador-down">
+        <div class="col-12 d-flex justify-content-center indicador-down">
             <img src="{!! asset('images/indicadorDown.png') !!}" alt="">
         </div>
-
-        <!-- Barra de navegación para las materias de la aplicación -->
-        {{-- <nav class="row navbar bg-dark navbar-light sticky-top">
-
-        <!-- Modo contraido -->
-        <button class="navbar-toggler nav-ico" type="button" data-toggle="collapse" data-target="#" aria-controls=""
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""></span><a class="nav-link" href="{{ route('index') }}">Inicio</a>
-        </button>
-        <button class="navbar-toggler nav-ico" type="button" data-toggle="collapse" data-target="#navbarArtes"
-            aria-controls="navbarArtes" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""></span>&nbsp;Artes
-        </button>
-        <button class="navbar-toggler nav-ico" type="button" data-toggle="collapse" data-target="#navbarNaturales"
-            aria-controls="" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""></span>&nbsp;Naturales
-        </button>
-        <button class="navbar-toggler nav-ico" type="button" data-toggle="collapse" data-target="#navbarHumanidades"
-            aria-controls="navbarHumanidades" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""></span>&nbsp;Humanidades
-        </button>
-        <button class="navbar-toggler nav-ico" type="button" data-toggle="collapse" data-target="#navbarIdiomas"
-            aria-controls="navbarIdiomas" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""></span>&nbsp;Idiomas
-        </button>
-        <button class="navbar-toggler nav-ico" type="button" data-toggle="collapse" data-target="#navbarMatematicas"
-            aria-controls="navbarMatematicas" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""></span>
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Matemáticas']) }}">Matemáticas</a>
-        </button>
-        <button class="navbar-toggler nav-ico" type="button" data-toggle="collapse" data-target="#navbarTecnología"
-            aria-controls="navbarTecnología" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""></span>&nbsp;Tecnología
-        </button>
-
-        <!-- Enlace a la página de creación de test -->
-        <button class="navbar-toggler nav-ico" type="button" data-toggle="collapse" data-target="#" aria-controls=""
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""></span>Crear un test personalizado
-        </button>
-
-        <ul class="collapse navbar-collapse" id="navbarCategorias">
-            <li class="navbar-brand" data-toggle="collapse" data-target="#navbarArtes">Artes</li>
-            <li class="navbar-brand" data-toggle="collapse" data-target="#navbarNaturales">Naturales</li>
-            <li class="navbar-brand" data-toggle="collapse" data-target="#navbarHumanidades">Humanidades</li>
-            <li class="navbar-brand" data-toggle="collapse" data-target="#navbarIdiomas">Idiomas</li>
-            <li class="navbar-brand" data-toggle="collapse" data-target="#navbarTecnología">Tecnología</li>
-        </ul>
-
-        <!-- Links -->
-        <ul class="collapse navbar-collapse" id="navbarArtes">
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Artes']) }}">Artes</a>
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Música']) }}">Música</a>
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Artes Visuales']) }}">Artes
-                Visuales</a>
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Teatro']) }}">Teatro</a>
-        </ul>
-        <ul class="collapse navbar-collapse" id="navbarNaturales">
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Ciencias Naturales']) }}">Ciencias
-                Naturales</a>
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Biología']) }}">Biología</a>
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Química']) }}">Química</a>
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Física']) }}">Física</a>
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Educación Física']) }}">Educación
-                Física</a>
-        </ul>
-        <ul class="collapse navbar-collapse" id="navbarHumanidades">
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Literatura']) }}">Literatura</a>
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Historia']) }}">Historia</a>
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Geografía']) }}">Geografía</a>
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Filosofía']) }}">Filosofía</a>
-        </ul>
-        <ul class="collapse navbar-collapse" id="navbarIdiomas">
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Inglés']) }}">Inglés</a>
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Francés']) }}">Francés</a>
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Italiano']) }}">Italiano</a>
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Alemán']) }}">Alemán</a>
-        </ul>
-        <ul class="collapse navbar-collapse" id="navbarTecnología">
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Tecnología']) }}">Tecnología</a>
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Informática']) }}">Informática</a>
-        </ul>
-
-    </nav> --}}
-
-
-
-
     </header>
 </div>
 
 
 <div class="row">
-    <div class="parallax1">
-        <div class="d-flex justify-content-center w-100">
+    <div class="row parallax parallax1 d-flex">
+        <div class="row d-flex justify-content-center align-self-center w-100 p-bloque-texto">
             <div class="text-center p-5">
-                <div class="texto-presentacion">
+                <div class="d-none d-xl-block texto-presentacion">
+                    <h1>
+                        <p>DESPIERTA TU CREATIVIDAD CON NUESTROS ESTUDIOS DE ARTE</p>
+                    </h1>
+                </div>
+                <div class="d-xl-none texto-presentacion-m">
                     <h1>
                         <p>DESPIERTA TU CREATIVIDAD CON NUESTROS ESTUDIOS DE ARTE</p>
                     </h1>
                 </div>
             </div>
         </div>
-        <div class="d-flex justify-content-center indicador-down w-100">
+        <div class="col-12 d-flex justify-content-center indicador-down-2">
             <img src="{!! asset('images/indicadorDown.png') !!}" alt="">
         </div>
     </div>
 </div>
 
 <div class="row">
-    <div class="parallax2">
-        <div class="d-flex justify-content-center w-100">
+    <div class="row parallax parallax2 d-flex">
+        <div class="row d-flex justify-content-center align-self-center w-100 p-bloque-texto">
             <div class="text-center p-5">
-                <div class="texto-presentacion">
+                <div class="d-none d-xl-block texto-presentacion">
                     <h1>
-                        <p>ABRE LAS PUERTAS DEL CONOCIMIENTO, DESAFÍA TUS LÍMITES Y ALCANZA EL ÉXITO A TRAVÉS DE
-                            NUESTROS
-                            EXÁMENES</p>
+                        <p>DESCUBRE EL PODER DE LA NATURALEZA</p>
+                    </h1>
+                </div>
+                <div class="d-xl-none texto-presentacion-m">
+                    <h1>
+                        <p>DESCUBRE EL PODER DE LA NATURALEZA</p>
                     </h1>
                 </div>
             </div>
         </div>
-        <div class="d-flex justify-content-center indicador-down w-100">
+        <div class="col-12 d-flex justify-content-center indicador-down-2">
             <img src="{!! asset('images/indicadorDown.png') !!}" alt="">
         </div>
     </div>
 </div>
 
 <div class="row">
-    <div class="parallax3">
-        <div class="d-flex justify-content-center w-100">
+    <div class="row parallax parallax3 d-flex">
+        <div class="row d-flex justify-content-center align-self-center w-100 p-bloque-texto">
             <div class="text-center p-5">
-                <div class="texto-presentacion">
+                <div class="d-none d-xl-block texto-presentacion">
                     <h1>
-                        <p>ABRE LAS PUERTAS DEL CONOCIMIENTO, DESAFÍA TUS LÍMITES Y ALCANZA EL ÉXITO A TRAVÉS DE
-                            NUESTROS
-                            EXÁMENES</p>
+                        <p>EXPLORA LAS RAÍCES DE LA HUMANIDAD Y DEMUESTRA TU CONOCIMIENTO</p>
+                    </h1>
+                </div>
+                <div class="d-xl-none texto-presentacion-m">
+                    <h1>
+                        <p>EXPLORA LAS RAÍCES DE LA HUMANIDAD Y DEMUESTRA TU CONOCIMIENTO</p>
                     </h1>
                 </div>
             </div>
         </div>
-        <div class="d-flex justify-content-center indicador-down w-100">
+        <div class="col-12 d-flex justify-content-center indicador-down-2">
             <img src="{!! asset('images/indicadorDown.png') !!}" alt="">
         </div>
     </div>
 </div>
 
 <div class="row">
-    <div class="parallax4">
-        <div class="d-flex justify-content-center w-100">
+    <div class="row parallax parallax4 d-flex">
+        <div class="row d-flex justify-content-center align-self-center w-100 p-bloque-texto">
             <div class="text-center p-5">
-                <div class="texto-presentacion">
+                <div class="d-none d-xl-block texto-presentacion">
                     <h1>
-                        <p>ABRE LAS PUERTAS DEL CONOCIMIENTO, DESAFÍA TUS LÍMITES Y ALCANZA EL ÉXITO A TRAVÉS DE
-                            NUESTROS
-                            EXÁMENES</p>
+                        <p>LOS IDIOMAS ABREN PUERTAS AL CONOCIMIENTO GLOBAL</p>
+                    </h1>
+                </div>
+                <div class="d-xl-none texto-presentacion-m">
+                    <h1>
+                        <p>LOS IDIOMAS ABREN PUERTAS AL CONOCIMIENTO GLOBAL</p>
                     </h1>
                 </div>
             </div>
         </div>
-        <div class="d-flex justify-content-center indicador-down w-100">
+        <div class="col-12 d-flex justify-content-center indicador-down-2">
             <img src="{!! asset('images/indicadorDown.png') !!}" alt="">
         </div>
     </div>
 </div>
 
 <div class="row">
-    <div class="parallax5">
-        <div class="d-flex justify-content-center w-100">
+    <div class="parallax parallax5 d-flex">
+        <div class="d-flex justify-content-center align-self-center w-100 p-bloque-texto">
             <div class="text-center p-5">
-                <div class="texto-presentacion">
+                <div class="d-none d-xl-block texto-presentacion">
                     <h1>
-                        <p>ABRE LAS PUERTAS DEL CONOCIMIENTO, DESAFÍA TUS LÍMITES Y ALCANZA EL ÉXITO A TRAVÉS DE
-                            NUESTROS
-                            EXÁMENES</p>
+                        <p>LA TECNOLOGÍA IMPULSA EL PROGRESO</p>
+                    </h1>
+                </div>
+                <div class="d-xl-none texto-presentacion-m">
+                    <h1>
+                        <p>LA TECNOLOGÍA IMPULSA EL PROGRESO</p>
                     </h1>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    var parallax0 = document.querySelector('.parallax0');
+    var parallax1 = document.querySelector('.parallax1');
+    var parallax2 = document.querySelector('.parallax2');
+    var parallax3 = document.querySelector('.parallax3');
+    var parallax4 = document.querySelector('.parallax4');
+    var parallax5 = document.querySelector('.parallax5');
+    var temporizador = 0;
+
+    window.addEventListener('scroll', function() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        parallax0.style.backgroundPositionY = scrollTop * -0.3 + 'px'; // Ajusta la velocidad del movimiento
+
+        temporizador++;
+
+        if (temporizador > 10) {
+            parallax1.style.backgroundpositiony = scrolltop * (-0.1) +
+            'px'; // ajusta la velocidad del movimiento
+        }
+    });
+</script>

@@ -50,6 +50,10 @@ button:hover {
     cursor: pointer;
 }
 
+footer{
+    height: 14.9vh;
+}
+
 footer,
 h6 {
     color: var(--color4);
@@ -75,6 +79,10 @@ footer a {
 
 .container-fluid {
     padding: 0;
+}
+
+.pie-paginas {
+    text-align: center !important;
 }
 
 .sombra {

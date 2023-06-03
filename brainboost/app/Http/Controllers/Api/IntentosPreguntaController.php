@@ -7,7 +7,7 @@ use App\Models\Intentos_pregunta;
 use Illuminate\Http\Request;
 use App\Models\Pregunta;
 use App\Models\Test;
-
+use App\Models\Intentos_test;
 class IntentosPreguntaController extends Controller
 {
     public function index()
@@ -20,18 +20,39 @@ class IntentosPreguntaController extends Controller
         // Get the user ID from the authenticated user
         $userId = $request->user()->id;
 
-        // Get the request data
-        $requestData = $request->all();
-
-        // Combine the user ID and request data
-        $responseData = [
-            'user_id' => $userId,
-            'request_data' => $requestData
+        $datosTest = [
+            'id_test' => $request->id_test,
+            'id_usuario' => $userId,
+            'intento' => 1,
+            'fecha_realizacion' => now(),
+            'dificultad' => $request->dificultad,
+            'modalidad' => $request->modalidad,
+            'tiempo_inicio' => now(),
+            'tiempo_fin' => now(),
         ];
+        $intentosTest = Intentos_test::create($datosTest);
 
         // Return the response data
-        return response()->json($responseData);
+        return response()->json($datosTest);
     }
+
+//        public function store(Request $request)
+//    {
+//        // Get the user ID from the authenticated user
+//        $userId = $request->user()->id;
+//
+//        // Get the request data
+//        $requestData = $request->all();
+//
+//        // Combine the user ID and request data
+//        $responseData = [
+//            'user_id' => $userId,
+//            'request_data' => $requestData
+//        ];
+//
+//        // Return the response data
+//        return response()->json($responseData);
+//    }
 
     public function show(Request $request, string $id)
     {

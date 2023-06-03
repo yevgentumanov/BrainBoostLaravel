@@ -21,6 +21,8 @@
     --color7_05: #D1EEF080;
     /* secciones */
     --color8_05: #9EB3B580;
+
+    box-sizing: border-box;
 }
 
 body {
@@ -48,7 +50,8 @@ button:hover {
     cursor: pointer;
 }
 
-footer, h6 {
+footer,
+h6 {
     color: var(--color4);
 }
 
@@ -201,8 +204,14 @@ nav>div>a>img {
 /* ********************************************* */
 /*       EFECTO PARALLAX PARA PRESENTACIÓN       */
 /* ********************************************* */
+.slider {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
 
 .parallax {
+    scroll-snap-align: start;
     width: 100%;
     background-attachment: fixed;
     background-position: center;
@@ -211,6 +220,7 @@ nav>div>a>img {
     overflow: hidden;
 }
 
+.parallax0,
 .parallax1,
 .parallax2,
 .parallax3,
@@ -219,12 +229,29 @@ nav>div>a>img {
     height: 100vh;
 }
 
-.parallax0 {background-image: url("../images/presentacion0.jpg"); height: 100vh;}
-.parallax1 {background-image: url("../images/presentacion1.jpg");}
-.parallax2 {background-image: url("../images/presentacion2.jpg");}
-.parallax3 {background-image: url("../images/presentacion3.jpg");}
-.parallax4 {background-image: url("../images/presentacion4.jpg");}
-.parallax5 {background-image: url("../images/presentacion5.jpg");}
+.parallax0 {
+    background-image: url("../images/presentacion0.jpg");
+}
+
+.parallax1 {
+    background-image: url("../images/presentacion1.jpg");
+}
+
+.parallax2 {
+    background-image: url("../images/presentacion2.jpg");
+}
+
+.parallax3 {
+    background-image: url("../images/presentacion3.jpg");
+}
+
+.parallax4 {
+    background-image: url("../images/presentacion4.jpg");
+}
+
+.parallax5 {
+    background-image: url("../images/presentacion5.jpg");
+}
 
 .texto-presentacion {
     transform: translateY(100px);
@@ -254,10 +281,11 @@ nav>div>a>img {
 .parallax2 .indicador-down,
 .parallax3 .indicador-down,
 .parallax4 .indicador-down,
-.parallax5 .indicador-down{
+.parallax5 .indicador-down {
     position: relative;
     top: -8%;
 }
+
 .indicador-down {
     transform: translateY(80px);
     height: 100px;
@@ -296,4 +324,3 @@ nav>div>a>img {
 /*********************************************************/
 /*********************************************************/
 /*********************************************************/
-

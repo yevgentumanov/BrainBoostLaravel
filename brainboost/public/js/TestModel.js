@@ -8,7 +8,7 @@
             ENUMERADOS Y CONSTANTES
 =================================================*/
 
-const TipoPregunta = {
+export const TipoPregunta = {
     NONE: 0, // No se ha definido el tipo de pregunta
     MULTIPLE_RESPONSE: 1, // Múltiples respuestas, única opción correcta
     MULTIPLE_RESPONSE_MULTIPLE_CHOICE: 2, // Múltiples respuestas, de múltiple elección (varias respuestas correctas)
@@ -17,21 +17,21 @@ const TipoPregunta = {
     FILL_GAPS_GIVEN_ONE: 5, // Rellenar huecos dado uno (Ejemplo: verbos irregulares)
     FILL_TABLE: 6 // Rellenar tabla
 }
-const numTiposPregunta = Object.keys(TipoPregunta).length;
+export const numTiposPregunta = Object.keys(TipoPregunta).length;
 
-const TipoModalidad = {
+export const TipoModalidad = {
     ESTUDIAR: 1,
     PRACTICAR: 2,
     DESAFIO: 3,
     REVISAR: 4
 }
 
-const TipoDificultad = {
+export const TipoDificultad = {
     FACIL: 1,
     DIFICIL: 2
 }
 
-const ErroresTest = [
+export const ErroresTest = [
     "__ERR_TEST_OBJECT_INVALID", 
     "__ERR_TEST_ID_INVALID",
     "__ERR_ATTEMPT_TEST_ID_INVALID",
@@ -49,7 +49,7 @@ const ErroresTest = [
     "__ERR_DIFFICULTY"
 ]
 
-const CodigosErrorTest = (() => {
+export const CodigosErrorTest = (() => {
     let codigos = Array();
     let cod = -1;
 
@@ -60,9 +60,9 @@ const CodigosErrorTest = (() => {
     }
     return codigos;
 })();
-const CodigosErrorTestInversa = inversaArray(CodigosErrorTest);
+export const CodigosErrorTestInversa = inversaArray(CodigosErrorTest);
 
-const MensajesErrorTest = (() => {
+export const MensajesErrorTest = (() => {
     let mensajes = {};
     /*-- Añade mensajes a la lista de mensajes --*/
     mensajes[ErroresTest[0]] = {
@@ -148,7 +148,7 @@ const MensajesErrorTest = (() => {
             CLASES
 ======================================*/
 
-class Test {
+export class Test {
     /**
      * Constructor para crear un objeto de tipo test, que contendrá un test recogido de la BB.DD de la aplicación.
      * @param {object} preguntas - (Opcional) Objeto JSON que contiene las preguntas del test y respuestas a cada una de ellas, así como su respuesta correcta.

@@ -4,22 +4,12 @@
  * @version 28.05.2023
  */
 import { createApp } from 'vue'
-// import TestVue from './views/main.js.vue'
-import * as TestModel from "./TestModel.js";
-import {TestController} from "./TestController.js";
+import TestVue from './views/main.js.vue'
 
 document.addEventListener('DOMContentLoaded', () => {
     // const components = import.meta.globEager('./views/*.vue') // Carga la carpeta con los componentes de Vue
 
-    const app = createApp({
-        data() {
-            return {
-                tiposPregunta: TipoPregunta,
-                testObj: new Test(),
-                testCtrl: null
-            }
-        }
-    });
+    const app = createApp(TestVue);
 
     app.mount("#appVue");
 });

@@ -13,6 +13,8 @@
             <form class="form-inline" action="/action_page.php">
                 <input class="form-control mr-2 flex-grow-1" type="text" placeholder="Buscar">
                 <button class="btn btn-success" type="submit">Buscar</button>
+                <button class="btn btn-success" type="button" onclick="sendDataToRoute()">Prueba enviar</button>
+
             </form>
         </div>
 

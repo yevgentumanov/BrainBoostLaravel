@@ -79,24 +79,6 @@ class Intentos_testController extends Controller
         $intentosTest->delete();
         return response()->json(['message' => 'Registro eliminado'], 200);
     }
-
-//    public function addFakeData()
-//    {
-//        for ($i = 1; $i <= 10; $i++) {
-//            $fakeData = [
-//                'id_test' => $i,
-//                'id_usuario' => 1,
-//                'intento' => 1,
-//                'fecha_realizacion' => now(),
-//                'dificultad' => 1,
-//                'modalidad' => 1,
-//                'tiempo_inicio' => now(),
-//                'tiempo_fin' => now(),
-//            ];
-//            $intentosTest = Intentos_test::create($fakeData);
-//        }
-//        return "Fake data added successfully";
-//    }
     public function addFakeData()
     {
         for ($i = 1; $i <= 10; $i++) {

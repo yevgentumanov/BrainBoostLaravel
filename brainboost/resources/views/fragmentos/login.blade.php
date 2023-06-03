@@ -2,7 +2,10 @@
     <div class="row justify-content-center">
         <div id="divlogin" class="col-md-6">
             <div class="card sombra_borde">
-                <div class="card-body bg-primary">
+                <div class="card-body bg-primary pt-0">
+                    <div class="row justify-content-end">
+                        <a class="exit-card" href="{{ route('index') }}">X</a>
+                    </div>
                     <form action="{{ route('logintoapp') }}" method="POST">
                         @csrf
                         @if(session('success'))
@@ -15,9 +18,6 @@
                                 {{ session('warning') }}
                             </div>
                         @endif
-                        <div class="row justify-content-end">
-                            <a  href="{{ route('index') }}">X</a>
-                        </div>
                         <div class="form-group">
                             <label for="email">Correo electrónico</label>
                             <input type="email" id="email" name="email" class="form-control" required>

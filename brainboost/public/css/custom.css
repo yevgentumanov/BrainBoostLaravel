@@ -138,15 +138,33 @@ nav>div>a>img {
 
 .superpuesto {
     position: fixed !important;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 9999;
-  }
+}
 
-  #divlogin {
+.exit-card {
+    color: black;
+    text-decoration: none;
+}
 
-  }
+.exit-card:hover {
+    text-decoration: none;
+    color: red;
+    animation: slide-fwd-center .25s cubic-bezier(.25, .46, .45, .94) both
+}
+
+@keyframes slide-fwd-center {
+    0% {
+        transform: scale(1)
+    }
+
+    100% {
+        transform: scale(1.5)
+    }
+}
+
 /****************************************************************************/
 /****************************************************************************/
 /****************************************************************************/

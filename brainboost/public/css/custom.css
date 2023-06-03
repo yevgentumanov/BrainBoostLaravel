@@ -207,6 +207,7 @@ nav>div>a>img {
     /* Full height */
     height: 1000px;
 
+
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
@@ -311,57 +312,6 @@ nav>div>a>img {
         transform: scale(1);
     }
 }
-
-/* ************************************** */
-/*       ANIMACION PARA LOS BLOQUES       */
-/* ************************************** */
-
-.caida-izquierda {
-    animation: caida-anuncio-izquierda 1.5s 1;
-}
-
-.caida-arriba {
-    animation: caida-anuncio-arriba 1.5s 1;
-}
-
-.caida-abajo {
-    animation: caida-anuncio-abajo 1.5s 1;
-}
-
-.caida-derecha {
-    animation: caida-anuncio-derecha 1.5s 1;
-}
-
-@keyframes sacudido {
-
-    0%,
-    100% {
-        transform: translateX(0);
-    }
-
-    10%,
-    30%,
-    50%,
-    70% {
-        transform: translateX(-10px);
-    }
-
-    20%,
-    40%,
-    60% {
-        transform: translateX(10px);
-    }
-
-    80% {
-        transform: translateX(8px);
-    }
-
-    90% {
-        transform: translateX(-8px);
-    }
-}
-
-
 
 /*********************************************************/
 /*********************************************************/

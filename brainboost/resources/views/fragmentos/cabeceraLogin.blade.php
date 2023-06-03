@@ -1,4 +1,4 @@
-<div class="parallax0">
+<div class="row parallax0">
     <!-- Barra de la cabecera con los social-links -->
     <header>
         <!-- Barra de navegación con el logotipo, la barra de búsqueda y el login -->
@@ -126,28 +126,94 @@
 
     </header>
 </div>
-<div class="parallax1">
-    Scroll Up and Down this page to see the parallax scrolling effect.
-    This div is just here to enable scrolling.
-    Tip: Try to remove the background-attachment property to remove the scrolling effect.
+
+
+<div class="row">
+    <div class="parallax1">
+        <div class="d-flex justify-content-center w-100">
+            <div class="text-center p-5">
+                <div class="texto-presentacion">
+                    <h1>
+                        <p>DESPIERTA TU CREATIVIDAD CON NUESTROS ESTUDIOS DE ARTE</p>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center indicador-down w-100">
+            <img src="{!! asset('images/indicadorDown.png') !!}" alt="">
+        </div>
+    </div>
 </div>
-<div class="parallax2">
-    Scroll Up and Down this page to see the parallax scrolling effect.
-    This div is just here to enable scrolling.
-    Tip: Try to remove the background-attachment property to remove the scrolling effect.
+
+<div class="row">
+    <div class="parallax2">
+        <div class="d-flex justify-content-center w-100">
+            <div class="text-center p-5">
+                <div class="texto-presentacion">
+                    <h1>
+                        <p>ABRE LAS PUERTAS DEL CONOCIMIENTO, DESAFÍA TUS LÍMITES Y ALCANZA EL ÉXITO A TRAVÉS DE
+                            NUESTROS
+                            EXÁMENES</p>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center indicador-down w-100">
+            <img src="{!! asset('images/indicadorDown.png') !!}" alt="">
+        </div>
+    </div>
 </div>
-<div class="parallax3">
-    Scroll Up and Down this page to see the parallax scrolling effect.
-    This div is just here to enable scrolling.
-    Tip: Try to remove the background-attachment property to remove the scrolling effect.
+
+<div class="row">
+    <div class="parallax3">
+        <div class="d-flex justify-content-center w-100">
+            <div class="text-center p-5">
+                <div class="texto-presentacion">
+                    <h1>
+                        <p>ABRE LAS PUERTAS DEL CONOCIMIENTO, DESAFÍA TUS LÍMITES Y ALCANZA EL ÉXITO A TRAVÉS DE
+                            NUESTROS
+                            EXÁMENES</p>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center indicador-down w-100">
+            <img src="{!! asset('images/indicadorDown.png') !!}" alt="">
+        </div>
+    </div>
 </div>
-<div class="parallax4">
-    Scroll Up and Down this page to see the parallax scrolling effect.
-    This div is just here to enable scrolling.
-    Tip: Try to remove the background-attachment property to remove the scrolling effect.
+
+<div class="row">
+    <div class="parallax4">
+        <div class="d-flex justify-content-center w-100">
+            <div class="text-center p-5">
+                <div class="texto-presentacion">
+                    <h1>
+                        <p>ABRE LAS PUERTAS DEL CONOCIMIENTO, DESAFÍA TUS LÍMITES Y ALCANZA EL ÉXITO A TRAVÉS DE
+                            NUESTROS
+                            EXÁMENES</p>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center indicador-down w-100">
+            <img src="{!! asset('images/indicadorDown.png') !!}" alt="">
+        </div>
+    </div>
 </div>
-<div class="parallax5">
-    Scroll Up and Down this page to see the parallax scrolling effect.
-    This div is just here to enable scrolling.
-    Tip: Try to remove the background-attachment property to remove the scrolling effect.
+
+<div class="row">
+    <div class="parallax5">
+        <div class="d-flex justify-content-center w-100">
+            <div class="text-center p-5">
+                <div class="texto-presentacion">
+                    <h1>
+                        <p>ABRE LAS PUERTAS DEL CONOCIMIENTO, DESAFÍA TUS LÍMITES Y ALCANZA EL ÉXITO A TRAVÉS DE
+                            NUESTROS
+                            EXÁMENES</p>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

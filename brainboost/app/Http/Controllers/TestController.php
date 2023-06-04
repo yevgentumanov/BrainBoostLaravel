@@ -14,10 +14,11 @@ class TestController extends Controller
     public function showTest(Request $request) {
         /*-- Variables --*/
         $idTest = $request->idTest; // Recupera el id del test del parámetro de la ruta
-        $test = Test::find($idTest); // Obtención de los datos del test
+        // $test = Test::find($idTest); // Obtención de los datos del test
         $preguntas = Pregunta::where('id_test', $idTest)->get(); // Obtención de las preguntas del test
         if (sizeof($preguntas) > 0) {
-            return view("test", ['test' => $test, 'preguntas' => $preguntas]);
+            // return view("test", ['test' => $test, 'preguntas' => $preguntas]);
+            return view("test");
         } else {
             abort(404);
         }        

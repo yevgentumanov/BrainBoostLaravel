@@ -1,16 +1,32 @@
 <template>
-    <div id="preview" :class="['row', 'm-4']">
-        
+    <div id="eligeToDo" :class="['row', 'm-4']">
+        <section class="col-12 p-2 bg-primary">
+            <h5>Elige una opción</h5>
+        </section>
+        <div class="col-12 mt-4 d-flex justify-content-between">
+            <!-- <button class="btn btn-light" @click="estudiarTest">Estudiar test</button> -->
+            <modal txtbtninvoker="Estudiar test" 
+                   classbtninvoker="btn-dark" 
+                   title="Función no implementada" 
+                   message="La función de previsualización del test para poder estudiarlo aún no ha sido implementada.">
+            </modal>
+            <button class="btn btn-light" @click="practicarTest">Practicar test</button>
+            <button class="btn btn-light" @click="desafioTest">Desafío test</button>
+        </div>
     </div>
 </template>
 
 <script>
+    import Modal from "./modal.js.vue"
     export default {
+        components: {
+            "modal": Modal
+        },
         created() {
-            console.log("createdPreview"); // Mera bandera de debug
+            console.log("createdEligeModalidad"); // Mera bandera de debug
         },
         mounted() {
-            console.log("mountedPreview"); // Mera bandera de debug
+            console.log("mountedEligeModalidad"); // Mera bandera de debug
         }
     }
 </script>
@@ -34,7 +50,8 @@
     ===============================================*/
     function estudiarTest(evento) {
         // window.alert("estudiarTest");
-        props.testobj.setModalidad(TestModel.TipoModalidad.ESTUDIAR);
+        window.alert("No implementado aún.")
+        // props.testobj.setModalidad(TestModel.TipoModalidad.ESTUDIAR);
     }
     
     function practicarTest(evento) {

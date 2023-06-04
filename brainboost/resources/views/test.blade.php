@@ -7,8 +7,11 @@
         <div id="appVue" class="col-12">
             <section class="row bg-primary m-4">
                 <div class="col-12 m-2 d-flex justify-content-between align-items-center">
-                    <h3>TEST - {{ $test->nombre_test }}</h3>
-                    <h5>Tiempo</h5>
+                    {{-- <h3>TEST - {{ $test->nombre_test }}</h3> --}}
+                    <h3 class="d-none" :class='["d-block"]'>TEST - @{{ testObj.getNombreTest() }}</h3>
+                    <h5 class="d-none" :class='["d-block"]' v-if="testObj.getModalidad() != null">@{{modalidadString}}</h5>
+                    <h5 class="d-none" :class='["d-block"]' v-if="testObj.getDificultad() != null">@{{dificultadString}}</h5>
+                    <h5 class="d-none" :class='["d-block"]' v-if="testObj.getTiempoInicio() != null">Tiempo</h5>
                     <h5 class="d-none" :class='["d-block"]'>@{{testObj.getNota() ? "Nota: " + testObj.getNota() : ""}}</h5>
                 </div>
             </section>

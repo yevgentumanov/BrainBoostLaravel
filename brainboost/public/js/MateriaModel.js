@@ -1,3 +1,9 @@
+/**
+ * Fichero donde se implementa el modelo de datos de las materias.
+ * @author Santiago
+ * @version 04.06.2023
+ */
+
 /*====================================
             ENUMERADOS
 ======================================*/
@@ -85,7 +91,7 @@ function iniMaterias() {
  */
 function validaIdMateria(idMateria, withoutDownload = false) {
     /*-- Realiza las validaciones --*/
-    if (typeof (idMateria) != "number" || idMateria < 0) {
+    if (typeof(idMateria) != "number" || idMateria < 0) {
         return false;
     }
     return true;

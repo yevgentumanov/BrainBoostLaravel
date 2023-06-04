@@ -1,7 +1,7 @@
 /**
  * Fichero donde se implementa el modelo de datos que manejará el controlador.
  * @author Santiago
- * @version 24.05.2023
+ * @version 04.06.2023
  */
 
 /*===============================================
@@ -22,14 +22,16 @@ export const numTiposPregunta = Object.keys(TipoPregunta).length;
 export const TipoModalidad = {
     ESTUDIAR: 1,
     PRACTICAR: 2,
-    DESAFIO: 3,
+    DESAFÍO: 3,
     REVISAR: 4
 }
+export const TipoModalidadInversa = inversaJSON(TipoModalidad);
 
 export const TipoDificultad = {
-    FACIL: 1,
-    DIFICIL: 2
+    FÁCIL: 1,
+    DIFÍCIL: 2
 }
+export const TipoDificultadInversa = inversaJSON(TipoDificultad);
 
 export const ErroresTest = [
     "__ERR_TEST_OBJECT_INVALID", 
@@ -42,6 +44,7 @@ export const ErroresTest = [
     "__ERR_TEST_DESCRIPTION_INVALID",
     "__ERR_MARK_INVALID", // Nota de test inválida
     "__ERR_COMPLETION_DATE_TEST_INVALID", // Fecha de realización inválida
+    "__ERR_END_TIME_TEST_INVALID",  // Tiempo de fin de test inválido
     "__ERR_TEST_INFO_FETCH", // Error al recuperar la información del test del servidor
     "__ERR_QUESTIONS_FETCH", // Error al recuperar las preguntas del test del servidor
     "__ERR_ATTEMPT_FETCH", // Error al recuperar la información del intento del test del servidor
@@ -118,26 +121,31 @@ export const MensajesErrorTest = (() => {
     mensajes[ErroresTest[10]] = {
         errorName: ErroresTest[10],
         errorCode: CodigosErrorTest[10],
-        message: "Se ha producido un error al intentar descargar la información del test del servidor."
+        message: "Has especificado una fecha de inicio de test que no es válida. La hora de inicio de test no puede ser posterior a su hora de finalización."
     }
     mensajes[ErroresTest[11]] = {
         errorName: ErroresTest[11],
         errorCode: CodigosErrorTest[11],
-        message: "Se ha producido un error al intentar descargar la información de las preguntas del servidor."
+        message: "Se ha producido un error al intentar descargar la información del test del servidor."
     }
     mensajes[ErroresTest[12]] = {
         errorName: ErroresTest[12],
         errorCode: CodigosErrorTest[12],
-        message: "Se ha producido un error al intentar descargar la información del intento del test del servidor."
-    },
+        message: "Se ha producido un error al intentar descargar la información de las preguntas del servidor."
+    }
     mensajes[ErroresTest[13]] = {
         errorName: ErroresTest[13],
         errorCode: CodigosErrorTest[13],
-        message: "La modalidad de test especificada no es válida."
+        message: "Se ha producido un error al intentar descargar la información del intento del test del servidor."
     },
     mensajes[ErroresTest[14]] = {
         errorName: ErroresTest[14],
         errorCode: CodigosErrorTest[14],
+        message: "La modalidad de test especificada no es válida."
+    },
+    mensajes[ErroresTest[15]] = {
+        errorName: ErroresTest[15],
+        errorCode: CodigosErrorTest[15],
         message: "La dificultad de test especificada no es válida."
     }
 
@@ -196,8 +204,8 @@ export class Test {
         this.descripcion = "";
         this.nombreMateria = "";
         this.setFechaCreacion();
-        this.modalidad = TipoModalidad.PRACTICAR;
-        this.dificultad = TipoDificultad.FACIL;
+        // this.modalidad = TipoModalidad.PRACTICAR;
+        // this.dificultad = TipoDificultad.FÁCIL;
 
         /*-- Rellena los atributos de preguntas y size --*/
         if (preguntas instanceof Array) {
@@ -713,6 +721,85 @@ export class Test {
     }
 
     /**
+     * Método que devuelve la fecha de realización en la que el usuario ha hecho o está haciendo el test.
+     * @returns La fecha de realización en la que el usuario ha hecho o está haciendo el test.
+     */
+    getFechaRealizacion() {
+        return this.fechaRealizacion;
+    }
+
+    /**
+     * Método que establece la fecha de realización en la que el usuario ha hecho o está haciendo el test.
+     * @param {Date} fechaRealizacion - Especifica la fecha de realización en la que el usuario ha hecho o está haciendo el test.
+     */
+    setFechaRealizacion(fechaRealizacion = null) {
+        if (fechaRealizacion != null) {
+            /*-- Realiza las validaciones --*/
+            if (!this.validaFechaByDate(fechaRealizacion)) throw new Error(MensajesErrorTest["__ERR_COMPLETION_DATE_TEST_INVALID"].message);
+            /*-- Realiza la operación --*/
+            this.fechaRealizacion = fechaRealizacion;
+        } else {
+            let fecha = new Date();
+            fecha.setUTCHours(fecha.getHours(), fecha.getMinutes(), fecha.getSeconds(), fecha.getMilliseconds());
+            this.fechaRealizacion = fecha;
+        }
+    }
+
+    /**
+     * Getter que devuelve el objeto Date con los datos de tiempo de inicio.
+     * @returns El objeto Date con los datos de tiempo de inicio.
+     */
+    getTiempoInicio() {
+        return this.tiempoInicio;
+    }
+
+    /**
+     * Setter que establece el objeto Date con los datos de tiempo actuales como fecha de inicio del test.
+     */
+    setTiempoInicio() {
+        /*-- Crea las variables de trabajo --*/
+        let fecha = new Date();
+        fecha.setUTCHours(fecha.getHours(), fecha.getMinutes(), fecha.getSeconds(), fecha.getMilliseconds());
+        /*-- Realiza las validaciones --*/
+        if (!this.validaFechaByDate(fecha)) throw new Error(MensajesErrorTest["__ERR_END_TIME_TEST_INVALID"].message);
+        if (!this.validaTiempoInicioMenorQueFin(fecha)) throw new Error(MensajesErrorTest["__ERR_END_TIME_TEST_INVALID"].message);
+        /*-- Realiza la operación --*/
+        this.tiempoInicio = fecha;
+    }
+
+    /**
+     * Getter que devuelve el objeto Date con los datos de tiempo de fin.
+     * @returns El objeto Date con los datos de tiempo de fin.
+     */
+    getTiempoFin() {
+        return this.tiempoFin;
+    }
+
+    /**
+     * Setter que establece el objeto Date con los datos de tiempo actuales como fecha de finalización del test.
+     */
+    setTiempoFin() {
+        let fecha = new Date();
+        fecha.setUTCHours(fecha.getHours(), fecha.getMinutes(), fecha.getSeconds(), fecha.getMilliseconds());
+        this.tiempoFin = fecha;
+    }
+
+    /**
+     * Getter que devuelve el tiempo transcurrido entre tiempoInicio y tiempoFin.
+     * @returns Un array de horas:minutos:segundos con el tiempo transcurrido entre tiempoInicio y tiempoFin.
+     */
+    getTiempoTranscurrido() {
+        /*-- Restar los valores de tiempo en milisegundos --*/
+        const diferenciaMilisegundos = Math.abs(this.tiempoFin - this.tiempoInicio)
+        /*-- Convertir la diferencia de milisegundos a horas, minutos y segundos --*/
+        const horas = Math.floor(diferenciaMilisegundos / 3600000);
+        const minutos = Math.floor((diferenciaMilisegundos % 3600000) / 60000);
+        const segundos = Math.floor((diferenciaMilisegundos % 60000) / 1000);
+
+        return [horas, minutos, segundos];
+    }
+
+    /**
      * Método que establece el id de la materia.
      * @param {number} idMateria - Especifica el ID de la materia a la que pertenece este test. Es el índice del array que hay en MateriaModel.js.
      */
@@ -858,31 +945,12 @@ export class Test {
     }
 
     /**
-     * Método que devuelve la fecha de realización en la que el usuario ha hecho o está haciendo el test.
-     * @returns La fecha de realización en la que el usuario ha hecho o está haciendo el test.
-     */
-    getFechaRealizacion() {
-        return this.fechaRealizacion;
-    }
-
-    /**
-     * Método que establece la fecha de realización en la que el usuario ha hecho o está haciendo el test.
-     * @param {Date} fechaRealizacion - Especifica la fecha de realización en la que el usuario ha hecho o está haciendo el test.
-     */
-    setFechaRealizacion(fechaRealizacion) {
-        /*-- Realiza las validaciones --*/
-        if (!this.validaFechaByDate(fechaRealizacion)) throw new Error(MensajesErrorTest["__ERR_COMPLETION_DATE_TEST_INVALID"].message);
-        /*-- Realiza la operación --*/
-        this.fechaRealizacion = fechaRealizacion;
-    }
-
-    /**
      * Método que permite establecer una modalidad de test.
      * @param {number} modalidad - Especifica el valor de modalidad elegida para la realización del test.
      */
     setModalidad(modalidad) {
         /*-- Realiza las validaciones --*/
-        if (!this.validaModalidad(fechaRealizacion)) throw new Error(MensajesErrorTest["__ERR_MODALITY"].message);
+        if (!this.validaModalidad(modalidad)) throw new Error(MensajesErrorTest["__ERR_MODALITY"].message);
 
         /*-- Realiza la operación --*/
         this.modalidad = modalidad;
@@ -902,7 +970,7 @@ export class Test {
      */
     setDificultad(dificultad) {
         /*-- Realiza las validaciones --*/
-        if (!this.validaDificultad(fechaRealizacion)) throw new Error(MensajesErrorTest["__ERR_DIFFICULTY"].message);
+        if (!this.validaDificultad(dificultad)) throw new Error(MensajesErrorTest["__ERR_DIFFICULTY"].message);
 
         /*-- Realiza la operación --*/
         this.dificultad = dificultad;

@@ -43,11 +43,11 @@ class IntentosPreguntaController extends Controller
         // Replace "id_intento_test": "id_test_creado" with the ID of the last created test
         $preguntasTestRealizado = $request->preguntasTestRealizado;
         foreach ($preguntasTestRealizado as $preguntaData) {
-            Log::info("BEFORE: id_intento_test: " . $preguntaData['id_intento_test']);
-            Log::info("BEFORE: id_pregunta: " . $preguntaData['id_pregunta']);
+//            Log::info("BEFORE: id_intento_test: " . $preguntaData['id_intento_test']);
+//            Log::info("BEFORE: id_pregunta: " . $preguntaData['id_pregunta']);
             $preguntaData['id_intento_test'] = $lastTest->id;
-            Log::info("AFTER: id_intento_test: " . $preguntaData['id_intento_test']);
-            Log::info("AFTER: id_pregunta: " . $preguntaData['id_pregunta']);
+//            Log::info("AFTER: id_intento_test: " . $preguntaData['id_intento_test']);
+//            Log::info("AFTER: id_pregunta: " . $preguntaData['id_pregunta']);
 //        }
 
         // Create Intentos_pregunta records

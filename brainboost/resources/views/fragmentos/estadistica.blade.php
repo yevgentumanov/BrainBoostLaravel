@@ -7,12 +7,12 @@
                     <h1>Estadísticas</h1>
                 </div>
                 <section id="general" class="row m-2">
-                    <div type="text" class="col-3">Nota media: <span class="font-weight-bold">7.35</span></div>
-                    <div type="text" class="col-3">Test realizados: <span class="font-weight-bold">54</span>
+                    <div type="text" class="col-3">Nota media: <span class="font-weight-bold">{{$notaMedia}}</span></div>
+                    <div type="text" class="col-3">Test realizados: <span class="font-weight-bold">{{$numeroTestRealizados}}</span>
                     </div>
                     <div type="text" class="col-3">Materia favorita: <span
-                            class="font-weight-bold">Historia</span></div>
-                    <div type="text" class="col-3">Última nota: <span class="font-weight-bold">6.75</span></div>
+                            class="font-weight-bold">{{$nombreMateria}}</span></div>
+                    <div type="text" class="col-3">Última nota: <span class="font-weight-bold">{{$ultimaNota}}</span></div>
                 </section>
                 <div id="ultimostests" class="row m-2 p-4">
                     <h2>Últimos test realizados</h2>

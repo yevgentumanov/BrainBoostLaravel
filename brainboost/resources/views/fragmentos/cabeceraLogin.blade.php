@@ -5,21 +5,21 @@
             <!-- Barra de navegación con el logotipo, la barra de búsqueda y el login -->
             <nav class="row navbar navbar-expand-sm bg-ligth navbar-dark fixed-top cabecera">
                 <!-- Logo -->
-                <div class="col-6">
+                <div class="col-4">
                     <a class="navbar-brand" href="{{ route('index') }}">
                         <img src="{!! asset('images/Logo_letras_chicas_con_sombra en blanco y negro-trayectos-v3.svg') !!}" alt="logo">
                     </a>
                 </div>
 
-                <div class="d-flex col-4 justify-content-end">
+                <div class="d-flex col-6 justify-content-end">
                     <form class="form-inline" action="/action_page.php">
                         <input class="form-control mr-2" type="text" placeholder="Buscar">
-                        <button class="btn btn-success boton-arrow" type="submit">Buscar</button>
+                        <button class="boton-arrow" type="submit">Buscar</button>
                     </form>
                 </div>
                 <div class="col-2">
-                    <a href="{{ route('registro') }}" class="btn btn-secondary m-2 w-100 sombra boton-sliding-arriba">Nuevo usuario</a>
-                    <a id="btnLogin" href="{{ route('login') }}" class="btn btn-primary m-2 w-100 sombra boton-sliding-abajo">Iniciar
+                    <a href="{{ route('registro') }}" class="btn m-2 w-100 sombra boton-sliding-arriba">Nuevo usuario</a>
+                    <a id="btnLogin" href="{{ route('login') }}" class="btn m-2 w-100 sombra boton-sliding-abajo">Iniciar
                         sesión</a>
                 </div>
             </nav>
@@ -154,4 +154,7 @@
             </div>
         </div>
     </div>
+
+    {{-- Inserción del pie de página --}}
+    @include('fragmentos.pie')
 </div>

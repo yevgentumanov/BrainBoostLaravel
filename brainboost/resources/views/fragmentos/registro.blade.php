@@ -4,10 +4,10 @@
     <div class="row justify-content-center">
         <div id="divregistro" class="col-md-6">
             <div class="card sombra_borde">
-                <div class="card-body bg-primary pt-0">
-                    <div class="row justify-content-end">
-                        <a class="exit-card" href="{{ route('index') }}">X</a>
-                    </div>
+                <div class="row justify-content-end">
+                    <a class="exit-card" href="{{ route('index') }}">X</a>
+                </div>
+                <div class="card-body pt-0">
                     <form action="{{ route('registrar') }}" method="POST">
                         @csrf
                         @if(session('warning'))

@@ -1,5 +1,5 @@
 <template>
-    <section v-for="(pregunta, indexPregunta) in preguntasRandomOrder" :key="indexPregunta" id="logicaTest" class="pregunta" :class="['d-block', 'row', 'bg-primary', 'my-4']">
+    <section v-for="(pregunta, indexPregunta) in preguntasRandomOrder" :key="indexPregunta" class="pregunta" :class="['d-block', 'row', 'bg-primary', 'my-4']">
         <preguntatipo1 v-if="pregunta.tipo_pregunta == TestModel.TipoPregunta.MULTIPLE_RESPONSE" :testobj="props.testobj" :pregunta="pregunta" :indexPregunta="indexPregunta"></preguntatipo1>
         <!-- <PreguntaTipo2></PreguntaTipo2>
         <PreguntaTipo3></PreguntaTipo3>
@@ -29,9 +29,10 @@
                 PROPIEDADES COMPUTADAS
     ===============================================*/
     const preguntasRandomOrder = computed(() => {
+        // console.log("Hola desde preguntasRandomOrder computed");
         const devolucion = props.testobj.preguntas.sort(() => 0.5 - Random.randomFloat());
 
-        if (props.testobj.getDificultad() == TestModel.TipoDificultad.DIFICIL) {
+        
             devolucion.forEach(element => {
                 switch (element.tipo_pregunta) {
                     case TestModel.TipoPregunta.MULTIPLE_RESPONSE: // Tipo 1
@@ -41,6 +42,9 @@
                     case TestModel.TipoPregunta.UNIQUE_RESPONSE: // Tipo 3
                         break;
                     case TestModel.TipoPregunta.FILL_IN_GAPS: // Tipo 4
+                        if (props.testobj.getDificultad() == TestModel.TipoDificultad.DIFICIL) {
+
+                        }
                         break;
                     case TestModel.TipoPregunta.FILL_GAPS_GIVEN_ONE: // Tipo 5
                         break;
@@ -48,7 +52,6 @@
                         break;
                 }
             });
-        }
 
         return devolucion;
     });

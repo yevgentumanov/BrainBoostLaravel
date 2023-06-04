@@ -14,12 +14,12 @@
                 <div class="d-flex col-4 justify-content-end">
                     <form class="form-inline" action="/action_page.php">
                         <input class="form-control mr-2" type="text" placeholder="Buscar">
-                        <button class="btn btn-success" type="submit">Buscar</button>
+                        <button class="btn btn-success boton-arrow" type="submit">Buscar</button>
                     </form>
                 </div>
                 <div class="col-2">
-                    <a href="{{ route('registro') }}" class="btn btn-secondary m-2 w-100 sombra">Nuevo usuario</a>
-                    <a id="btnLogin" href="{{ route('login') }}" class="btn btn-primary m-2 w-100 sombra">Iniciar
+                    <a href="{{ route('registro') }}" class="btn btn-secondary m-2 w-100 sombra boton-sliding-arriba">Nuevo usuario</a>
+                    <a id="btnLogin" href="{{ route('login') }}" class="btn btn-primary m-2 w-100 sombra boton-sliding-abajo">Iniciar
                         sesión</a>
                 </div>
             </nav>

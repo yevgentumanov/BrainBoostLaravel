@@ -4,10 +4,25 @@
     --color3: #5DA360;
     --color4: #A6141B;
     --color5: #FFCCCC;
-    --color6: #F8F9FA; /* background-color y test-items */
-    --color7: #D1EEF0; /* secciones */
+    --color6: #F8F9FA;
+    /* background-color y test-items */
+    --color7: #D1EEF0;
+    /* secciones */
     --color8: #9EB3B5;
     --color10: white;
+
+    --color1_05: #cae6e880;
+    --color2_05: hsla(183, 73%, 32%, 0.75);
+    --color3_05: #5DA36080;
+    --color4_05: #A6141B80;
+    --color5_05: #FFCCCC80;
+    --color6_05: #F8F9FA80;
+    /* background-color y test-items */
+    --color7_05: #D1EEF080;
+    /* secciones */
+    --color8_05: #9EB3B580;
+
+    box-sizing: border-box;
 }
 
 body {
@@ -18,9 +33,9 @@ section {
     padding: 10px;
     border-radius: 1em;
     box-shadow:
-    inset 0 -3em 3em rgba(0, 0, 0, 0.1),
-    0 0 0 2px var(--color6),
-    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+        inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+        0 0 0 2px var(--color6),
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
 
 article {
@@ -31,9 +46,44 @@ article {
         0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
 
+button:hover {
+    cursor: pointer;
+}
+
+footer{
+    height: 14.9vh;
+}
+
+footer,
+h6 {
+    color: var(--color4);
+}
+
+footer a {
+    color: black;
+    text-decoration: none;
+}
+
 /*****************************************************************************/
 /*****************************************************************************/
 /*****************************************************************************/
+
+.row {
+    margin: 0 !important;
+}
+
+.cabecera {
+    background-color: rgb(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.pie-paginas {
+    text-align: center !important;
+}
 
 .sombra {
     box-shadow:
@@ -54,8 +104,9 @@ article {
 }
 
 .sacudida:hover {
-    animation: sacudido 2s ease 0s 1 normal forwards;
+    animation: sacudido 1s ease 0s 1 normal forwards;
 }
+
 /*****************************************************************************/
 /*****************************************************************************/
 /*****************************************************************************/
@@ -93,7 +144,7 @@ article {
 
 /*-- Navbar --*/
 
-nav > div > a > img {
+nav>div>a>img {
     margin: inherit;
     height: 40px;
 }
@@ -120,50 +171,164 @@ nav > div > a > img {
 /****************************************************************************/
 /****************************************************************************/
 
+/* ********************************************* */
+/*                    LOGIN                      */
+/* ********************************************* */
 
-/* ************************************** */
-/*       ANIMACION PARA LOS BLOQUES       */
-/* ************************************** */
-.caida-izquierda {
-    animation: caida-anuncio-izquierda 1.5s 1;
+.superpuesto {
+    position: fixed !important;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
 }
 
-.caida-arriba {
-    animation: caida-anuncio-arriba 1.5s 1;
+.exit-card {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.caida-abajo {
-    animation: caida-anuncio-abajo 1.5s 1;
+.exit-card:hover {
+    text-decoration: none;
+    color: var(--color4) !important;
+    animation: slide-fwd-center .25s cubic-bezier(.25, .46, .45, .94) both
 }
 
-.caida-derecha {
-    animation: caida-anuncio-derecha 1.5s 1;
+@keyframes slide-fwd-center {
+    0% {
+        transform: scale(1)
+    }
+
+    100% {
+        transform: scale(1.5)
+    }
 }
 
-@keyframes sacudido {
-	0%,
-	100% {
-		transform: translateX(0);
-	}
+/****************************************************************************/
+/****************************************************************************/
+/****************************************************************************/
 
-	10%,
-	30%,
-	50%,
-	70% {
-		transform: translateX(-10px);
-	}
-
-	20%,
-	40%,
-	60% {
-		transform: translateX(10px);
-	}
-
-	80% {
-		transform: translateX(8px);
-	}
-
-	90% {
-		transform: translateX(-8px);
-	}
+/* ********************************************* */
+/*       EFECTO PARALLAX PARA PRESENTACIÓN       */
+/* ********************************************* */
+.slider {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
 }
+
+.parallax {
+    scroll-snap-align: start;
+    width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.parallax0,
+.parallax1,
+.parallax2,
+.parallax3,
+.parallax4,
+.parallax5 {
+    height: 100vh;
+}
+
+.parallax0 {
+    background-image: url("../images/presentacion0.jpg");
+}
+
+.parallax1 {
+    background-image: url("../images/presentacion1.jpg");
+}
+
+.parallax2 {
+    background-image: url("../images/presentacion2.jpg");
+}
+
+.parallax3 {
+    background-image: url("../images/presentacion3.jpg");
+}
+
+.parallax4 {
+    background-image: url("../images/presentacion4.jpg");
+}
+
+.parallax5 {
+    background-image: url("../images/presentacion5.jpg");
+}
+
+.texto-presentacion {
+    transform: translateY(100px);
+}
+
+.texto-presentacion p {
+    padding: 1em;
+    font-size: 160%;
+    color: var(--color6);
+    border: 16px solid var(--color6);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: var(--color2_05);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.texto-presentacion-m p {
+    padding: 1em;
+    font-size: 90%;
+    color: var(--color6);
+    border: 16px solid var(--color6);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: var(--color2_05);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.parallax1 .indicador-down,
+.parallax2 .indicador-down,
+.parallax3 .indicador-down,
+.parallax4 .indicador-down,
+.parallax5 .indicador-down {
+    position: relative;
+    top: -8%;
+}
+
+.indicador-down {
+    transform: translateY(80px);
+    height: 100px;
+}
+
+.indicador-down-2 {
+    height: 100px;
+}
+
+.indicador-down img,
+.indicador-down-2 img {
+    height: 100%;
+
+    /* Estilos para la primera imagen */
+    animation-name: resaltar;
+    animation-duration: 0.7s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes resaltar {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/*********************************************************/
+/*********************************************************/
+/*********************************************************/

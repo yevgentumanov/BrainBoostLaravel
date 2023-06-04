@@ -17,7 +17,6 @@ class Intentos_test extends Model
         'id_test',
         'id_usuario',
         'intento',
-        'nota_test',
         'fecha_realizacion',
         'dificultad',
         'modalidad',
@@ -28,9 +27,10 @@ class Intentos_test extends Model
     protected $casts = [
         'nota_test' => 'decimal:5,2',
         'fecha_realizacion' => 'date',
-        'tiempo_inicio' => 'time',
-        'tiempo_fin' => 'time',
+        'tiempo_inicio' => 'datetime:H:i:s',
+        'tiempo_fin' => 'datetime:H:i:s',
     ];
+
 
     public function usuario()
     {

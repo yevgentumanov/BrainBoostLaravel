@@ -6,6 +6,10 @@ use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Intentos_preguntaController;
+use App\Http\Controllers\Intentos_testController;
+use App\Http\Controllers\VIntentosTestController;
+
 
 
 /*
@@ -49,7 +53,7 @@ Route::get('/registro', function () { return view('registro'); })->name('registr
 Route::post('/registrar', [RegistroController::class, 'registrar'])->name("registrar");  // Ruta para registro de usuario POST
 
 // Rutas para gestion de cuenta de usuario
-Route::get('/cuenta', function () { return view('cuenta'); })->name('cuenta')->middleware('auth'); // Ruta que devuelve la vista de la cuenta de usuario
+Route::get('/cuenta', [VIntentosTestController::class, 'getCuentaView'])->name('cuenta')->middleware('auth'); // Ruta que devuelve la vista de la cuenta de usuario
 Route::post('/cambiarpassword', [RegistroController::class, 'cambiarpassword'])->name("cambiarpassword")->middleware('auth'); // Ruta para cambiar password POST
 
 //Rutas de historial de los test realizados
@@ -57,9 +61,8 @@ Route::post('/cambiarpassword', [RegistroController::class, 'cambiarpassword'])-
 // Ruta para ver el historial completo de test realizados por el usuario
 Route::get('/testhistorial', function () {
     $idUsuarioAccediendo = auth()->user()->id;
-    $nombreUsuarioAccediendo= auth()->user()->nombre_usuario;
-    $intentosPreguntaController = new IntentosPreguntaController();
-    return $intentosPreguntaController->returnHistorial($idUsuarioAccediendo, $nombreUsuarioAccediendo);
+    $VIntentosTestController = new VIntentosTestController();
+    return $VIntentosTestController->historialTestRealizados($idUsuarioAccediendo);
 })->name('testhistorial')->middleware('auth');
 
 // Ruta genérica que devuelve la pagina de materia, dependiendo de que materia se le pase por materia.
@@ -71,5 +74,8 @@ Route::get('/test/{idTest}', [TestController::class, 'showTest'])->name("test");
 
 // Ruta para guardar y mostrar informacion sobre intentos test
 Route::post('/intentos_pregunta', [IntentosPreguntaController::class, 'store']); // Ruta que guarda informacion
-Route::post('/intentos_pregunta', [IntentosPreguntaController::class, 'show']); // Ruta que obtiene informacion por id
+//Route::post('/intentos_pregunta', [IntentosPreguntaController::class, 'show']); // Ruta que obtiene informacion por id
+
+Route::get('/addfaketest', [Intentos_testController::class, 'addFakeData']); // Ruta para añadir test falso
+
 

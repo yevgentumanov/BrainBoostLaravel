@@ -13,6 +13,8 @@
             <form class="form-inline" action="/action_page.php">
                 <input class="form-control mr-2 flex-grow-1" type="text" placeholder="Buscar">
                 <button class="btn btn-success" type="submit">Buscar</button>
+                <button class="btn btn-success" type="button" onclick="sendDataToRoute()">Prueba enviar</button>
+
             </form>
         </div>
 
@@ -63,6 +65,7 @@
             <span class=""></span>Crear un test personalizado
         </button>
 
+        <!-- Opciones de cada submenú -->
         <ul class="collapse navbar-collapse" id="navbarCategorias">
             <li class="navbar-brand" data-toggle="collapse" data-target="#navbarArtes">Artes</li>
             <li class="navbar-brand" data-toggle="collapse" data-target="#navbarNaturales">Naturales</li>

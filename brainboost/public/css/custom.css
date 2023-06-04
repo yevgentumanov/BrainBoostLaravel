@@ -60,6 +60,7 @@ button:hover {
 
 footer {
     height: 14.9vh;
+    scroll-snap-align: start;
 }
 
 footer,
@@ -162,6 +163,11 @@ footer a {
     border-radius: 1em;
 }
 
+.card {
+    padding: 0.2em 0.5em 0 1em;
+    background-color: var(--color1) !important;
+}
+
 /****************************************************************************/
 /****************************************************************************/
 /****************************************************************************/
@@ -241,7 +247,7 @@ nav>div>a>img {
 /****************************************************************************/
 
 .slider {
-    height: 100vh;
+    height: 99.9vh;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
 }

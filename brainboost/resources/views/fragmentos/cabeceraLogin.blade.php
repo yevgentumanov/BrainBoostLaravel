@@ -154,4 +154,7 @@
             </div>
         </div>
     </div>
+
+    {{-- Inserción del pie de página --}}
+    @include('fragmentos.pie')
 </div>

@@ -12,7 +12,7 @@ const ModeAppEnum = {
 /*===================================
         CONSTANTES
 ====================================*/
-const modeApp = ModeAppEnum.LOCALDEBUG;
+const modeApp = ModeAppEnum.PRODUCTION;
 
 const Rutas = {
     "HOST_NAME": modeApp == ModeAppEnum.PRODUCTION ? 

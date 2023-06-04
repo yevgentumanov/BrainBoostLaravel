@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\VIntentosTest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class VIntentosTestController extends Controller
 {
@@ -71,6 +72,15 @@ class VIntentosTestController extends Controller
         $numeroTestRealizados = VIntentosTest::where('id_usuario', $idUsuarioAccediendo)
             ->count();
 
+        // Obtener el nombre de la materia del test más repetido
+        $nombreMateria = DB::table('intentos_tests')
+            ->join('tests', 'intentos_tests.id_test', '=', 'tests.id')
+            ->join('materias', 'tests.id', '=', 'materias.id')
+            ->where('id_usuario', $idUsuarioAccediendo)
+            ->groupBy('intentos_tests.id_test')
+            ->orderByRaw('COUNT(*) DESC')
+            ->value('materias.nombre_materia');
+
         // Obtener la última nota_test del último test realizado por el usuario
         $ultimaNota = VIntentosTest::where('id_usuario', $idUsuarioAccediendo)
             ->orderBy('id', 'desc')
@@ -106,6 +116,6 @@ class VIntentosTestController extends Controller
         }
 
         // Retornar la vista 'cuenta' con los últimos test realizados y los test más populares
-        return view('cuenta', compact('ultimaNota', 'ultimosTestRealizados', 'popularTestResults', 'notaMedia', 'numeroTestRealizados'));
+        return view('cuenta', compact('nombreMateria', 'ultimaNota', 'ultimosTestRealizados', 'popularTestResults', 'notaMedia', 'numeroTestRealizados'));
     }
 }

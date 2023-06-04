@@ -11,7 +11,7 @@
                     <div type="text" class="col-3">Test realizados: <span class="font-weight-bold">{{$numeroTestRealizados}}</span>
                     </div>
                     <div type="text" class="col-3">Materia favorita: <span
-                            class="font-weight-bold">Historia</span></div>
+                            class="font-weight-bold">{{$nombreMateria}}</span></div>
                     <div type="text" class="col-3">Última nota: <span class="font-weight-bold">{{$ultimaNota}}</span></div>
                 </section>
                 <div id="ultimostests" class="row m-2 p-4">

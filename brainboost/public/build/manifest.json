@@ -1,11 +1,42 @@
 {
   "public/css/custom.css": {
-    "file": "assets/custom-070b41be.css",
+    "file": "assets/custom-f211aeb8.css",
     "isEntry": true,
     "src": "public/css/custom.css"
   },
+  "public/images/presentacion0.jpg": {
+    "file": "assets/presentacion0-b1e53a76.jpg",
+    "src": "public/images/presentacion0.jpg"
+  },
+  "public/images/presentacion1.jpg": {
+    "file": "assets/presentacion1-344e6287.jpg",
+    "src": "public/images/presentacion1.jpg"
+  },
+  "public/images/presentacion2.jpg": {
+    "file": "assets/presentacion2-b43b5c2b.jpg",
+    "src": "public/images/presentacion2.jpg"
+  },
+  "public/images/presentacion3.jpg": {
+    "file": "assets/presentacion3-09a1f494.jpg",
+    "src": "public/images/presentacion3.jpg"
+  },
+  "public/images/presentacion4.jpg": {
+    "file": "assets/presentacion4-9102f7cd.jpg",
+    "src": "public/images/presentacion4.jpg"
+  },
+  "public/images/presentacion5.jpg": {
+    "file": "assets/presentacion5-d3df4ea1.jpg",
+    "src": "public/images/presentacion5.jpg"
+  },
+  "public/js/TestVue.css": {
+    "file": "assets/TestVue-e3b0c442.css",
+    "src": "public/js/TestVue.css"
+  },
   "public/js/TestVue.js": {
-    "file": "assets/TestVue-78db093a.js",
+    "css": [
+      "assets/TestVue-e3b0c442.css"
+    ],
+    "file": "assets/TestVue-df69d693.js",
     "isEntry": true,
     "src": "public/js/TestVue.js"
   }

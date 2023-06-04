@@ -55,6 +55,8 @@
             {{-- <script src="{!! asset('js/TestVue.js') !!}"></script> --}}
             @vite('public/js/TestVue.js')
         @endif
+    @else
+        {{-- @vite() --}}
     @endisset
     <!-- Título de la página -->
     <title>BrainBoost</title>

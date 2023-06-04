@@ -19,6 +19,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 testCtrl: null
             }
         },
+        computed: {
+            modalidadString() {
+                let cadena = TestModel.TipoModalidadInversa[this.testObj.getModalidad()];
+                cadena = cadena.charAt(0).toUpperCase() + cadena.slice(1).toLowerCase();
+                return cadena;
+            },
+            dificultadString() {
+                let cadena = TestModel.TipoDificultadInversa[this.testObj.getModalidad()];
+                cadena = cadena.charAt(0).toUpperCase() + cadena.slice(1).toLowerCase();
+                return cadena;
+            }
+        },
         created() {
             console.log("created"); // Mera bandera de debug
             /*-- Crea el controlador para el TestModel.js --*/

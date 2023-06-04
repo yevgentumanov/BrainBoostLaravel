@@ -15,6 +15,17 @@
     </div>
 </template>
 
+<script>
+    export default {
+        created() {
+            console.log("createdTipo1"); // Mera bandera de debug
+        },
+        mounted() {
+            console.log("mountedTipo1"); // Mera bandera de debug
+        }
+    }
+</script>
+
 <script setup>
     import {ref, computed} from "vue"; // habilita la función de reactividad y las propiedades computadas
     import * as TestModel from "../TestModel.js";
@@ -119,18 +130,6 @@
         //         break;
         // }
     }
-</script>
-
-<script>
-    export default {
-        created() {
-            console.log("createdTipo1"); // Mera bandera de debug
-        },
-        mounted() {
-            console.log("mountedTipo1"); // Mera bandera de debug
-        }
-    }
-
 </script>
 
 <style scoped>

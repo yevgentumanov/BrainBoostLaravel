@@ -60,6 +60,20 @@ function inversaArray(array) {
 }
 
 /**
+ * Función que sirve para convertir un objeto JSON en un Array con las mismas claves y valores que el objeto JSON.
+ * @param {object} jsonObject - Especifica un objeto JSON.
+ */
+function convertJSONintoArray(jsonObject) {
+    const keys = Object.keys(jsonObject);
+    const values = Object.values(jsonObject);
+    let array = Array();
+    for (let i = 0; i < keys.length; i++) {
+        array[keys[i]] = values[i];
+    }
+    return array;
+}
+
+/**
  * Función que compara el contenido de dos arrays, cuyo contenido no tiene por qué estar en el mismo orden.
  * Devuelve un array que es el producto de ambas matrices, es decir, devuelve un array que contiene los elementos comunes.
  * @param {Array} arr1 - Especifica el primer array.
@@ -80,6 +94,32 @@ function compareArraysWithoutOrder(arr1, arr2, compareFunction = null) {
             return arr1.filter(x => arr2.some(y => x === y));
         }
     }
+}
+
+/**
+ * Función que compara el contenido de dos arrays, cuyo contenido ha de estar en el mismo orden.
+ * Devuelve un array que es el producto de ambas matrices, es decir, devuelve un array que contiene los elementos comunes.
+ * @param {Array} arr1 - Especifica el primer array.
+ * @param {Array} arr2 - Especifica el segundo array.
+ * @param {Function} compareFunction - (Opcional) Especifica una función comparadora que se encargará de determinar si los objetos del array coinciden con los requisitos requeridos (por ejemplo, ser iguales) o no.
+ */
+function compareArraysInOrder(arr1, arr2, compareFunction = null) {
+    let comunes = Array();
+    // Recorrer los elementos de los arreglos al mismo tiempo
+    for (let i = 0; i < arr1.length; i++) {
+        // Comparar los elementos en las posiciones correspondientes
+        if (compareFunction instanceof Function) {
+            if (compareFunction(arr1[i]), arr2[i]) {
+                comunes[i] = arr1[i];
+            }
+        } else {
+            if (arr1[i] === arr2[i]) {
+                comunes[i] = arr1[i];
+            }
+        }
+    }
+
+    return comunes;
 }
 
 /**
@@ -133,30 +173,3 @@ function comparar(a, b) {
     // Comparar valores primitivos
     return a === b;
   }
-  
-
-/**
- * Función que compara el contenido de dos arrays, cuyo contenido ha de estar en el mismo orden.
- * Devuelve un array que es el producto de ambas matrices, es decir, devuelve un array que contiene los elementos comunes.
- * @param {Array} arr1 - Especifica el primer array.
- * @param {Array} arr2 - Especifica el segundo array.
- * @param {Function} compareFunction - (Opcional) Especifica una función comparadora que se encargará de determinar si los objetos del array coinciden con los requisitos requeridos (por ejemplo, ser iguales) o no.
- */
-function compareArraysInOrder(arr1, arr2, compareFunction = null) {
-    let comunes = Array();
-    // Recorrer los elementos de los arreglos al mismo tiempo
-    for (let i = 0; i < arr1.length; i++) {
-        // Comparar los elementos en las posiciones correspondientes
-        if (compareFunction instanceof Function) {
-            if (compareFunction(arr1[i]), arr2[i]) {
-                comunes[i] = arr1[i];
-            }
-        } else {
-            if (arr1[i] === arr2[i]) {
-                comunes[i] = arr1[i];
-            }
-        }
-    }
-
-    return comunes;
-}

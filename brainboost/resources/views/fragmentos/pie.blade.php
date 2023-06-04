@@ -1,5 +1,5 @@
 <footer class="row bg-dark">
-    <div class="col-12 col-md-6 col-lg-4 order-md-2 pie-paginas">
+    <div id="f-links" class="col-12 col-md-6 col-xl-4 order-md-2 pie-paginas">
         <div class="row justify-content-center p-1">
             <a href="#">
                 <h6 class="row w-100">WWW.BRAINBOOST.COM</h6>
@@ -18,7 +18,7 @@
             <a class="col-12" href="https://animista.net/">animista</a>
         </div>
     </div>
-    <div class="col-12 col-md-6 col-lg-2 order-md-3 p-1">
+    <div id="f-info" class="col-12 col-md-6 col-xl-2 order-md-3 p-1">
         <div class="row justify-content-center">
             <h6>INFORMACI&Oacute;N</h6>
         </div>
@@ -38,7 +38,7 @@
             <a href="" class="col-12 fa fa-envelope-o p-1">&nbsp;3480348&#64;alu.murciaeduca.es</a>
         </div>
     </div>
-    <div class="col-12 col-md-6 col-lg-3 order-md-4" style="display: grid;">
+    <div id="f-redes" class="col-12 col-md-6 col-xl-3 order-md-4" style="display: grid;">
         <div class="row justify-content-center p-1">
             <h6>NUESTRAS REDES HABLAN</h6>
         </div>
@@ -56,7 +56,7 @@
             <h6>S&Iacute;GUENOS, TE GUSTAR&Aacute;</h6>
         </div>
     </div>
-    <div class="col-12 col-md-6 col-lg-3 order-md-1 d-flex align-items-center">
+    <div id="f-logo" class="col-12 col-md-6 col-xl-3 order-md-1 d-flex align-items-center">
         <img src="{!! asset('images/Logo_letras_chicas_con_sombra en blanco y negro-trayectos-v3.svg') !!}" height="150px" class="d-none mx-auto d-md-block"
             style="width: 100%; height: fit-content;" alt="Logo">
         <img src="{!! asset('images/Logo_letras_chicas_con_sombra en blanco y negro-trayectos-v3.svg') !!}" height="100px" class="mx-auto d-md-none"

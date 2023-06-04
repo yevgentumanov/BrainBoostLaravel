@@ -69,7 +69,7 @@ h6 {
 
 footer a {
     color: black;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 /*****************************************************************************/
@@ -132,6 +132,10 @@ footer a {
     background-color: var(--color2);
 }
 
+#f-logo img {
+    max-width: 400px;
+}
+
 /*****************************************************************************/
 /*****************************************************************************/
 /*****************************************************************************/
@@ -172,6 +176,7 @@ nav>div>a>img {
 }
 
 .form-control {
+    width: 26vw !important;
     background-color: var(--color10) !important;
     border-color: #03231d;
     color: #03231d;
@@ -485,4 +490,37 @@ nav>div>a>img {
     top: 0;
     left: -20px;
     transition: 0.4s;
+}
+
+/****************************************************************************/
+/****************************************************************************/
+/****************************************************************************/
+
+/****************************************************************************/
+/*                               MEDIA QUERIES                              */
+/****************************************************************************/
+
+@media (max-width:  767px) { /* Rango de tamaño hasta md */
+    footer {
+        height: 58vh !important; /* El doble del alto en xl */
+    }
+
+    #f-logo {
+        padding: 1.5em;
+    }
+}
+
+@media (max-width: 1199px) { /* Rango de tamaño hasta xl */
+    footer {
+        height: 39.8vh; /* El doble del alto en xl */
+    }
+
+    #f-links {
+        padding-top: 0.5em;
+    }
+
+    #f-info {
+        text-align: center;
+    }
+
 }

@@ -506,9 +506,12 @@ nav>div>a>img {
 /*                               MEDIA QUERIES                              */
 /****************************************************************************/
 
-@media (max-width:  767px) { /* Rango de tamaño hasta md */
+@media (max-width: 767px) {
+
+    /* Rango de tamaño hasta md */
     footer {
-        height: 58vh !important; /* El doble del alto en xl */
+        height: 58vh !important;
+        /* El doble del alto en xl */
     }
 
     #f-logo {
@@ -516,9 +519,12 @@ nav>div>a>img {
     }
 }
 
-@media (max-width: 1199px) { /* Rango de tamaño hasta xl */
+@media (max-width: 1199px) {
+
+    /* Rango de tamaño hasta xl */
     footer {
-        height: 39.8vh; /* El doble del alto en xl */
+        height: 39.8vh;
+        /* El doble del alto en xl */
     }
 
     #f-links {

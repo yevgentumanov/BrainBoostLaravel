@@ -4,7 +4,8 @@
  * @version 24.05.2023
  */
 
-class TestController {
+import {Test} from "./TestModel"
+export class TestController {
     /**
      * Constructor para TestController.
      * @param {Test} test Especifica un objeto de tipo Test.

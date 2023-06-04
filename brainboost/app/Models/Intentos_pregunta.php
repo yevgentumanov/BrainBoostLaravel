@@ -21,7 +21,7 @@ class Intentos_pregunta extends Model
     ];
 
     protected $casts = [
-        'nota_pregunta' => 'decimal:5,2',
+        'nota_pregunta' => 'float',
     ];
 
     public function pregunta()

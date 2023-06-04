@@ -44,11 +44,11 @@ export class TestController {
         if (!this.test.validaIdBD(idTest)) throw new Error(MensajesErrorTest["__ERR_TEST_ID_INVALID"].message);
 
         /*-- Obtiene los datos del servidor --*/
-        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_TEST, "GET", null, { id: idTest })
+        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_TEST.url, Rutas.RUTA_API_TEST.method, null, { id: idTest })
             .then(response => {
                 this.test.size = response.cant_preguntas;
                 this.test.setDescripcion(response.descripcion);
-                this.test.fechaCreacion = response.fecha_creacion;
+                this.test.fechaCreacion = new Date(response.fecha_creacion);
                 this.test.idTest = response.id;
                 this.test.idMateria = response.id_materia; // No usa setIDMateria, porque este invoca a la validacion, y esta podría tener lugar antes de que se hayan descargado los datos de las materias desde la API
                 this.test.idUsuarioCreador = response.id_usuario_creador;
@@ -77,7 +77,7 @@ export class TestController {
         /*-- Obtiene los datos del servidor --*/
         // datos cabecera (sustituir segundo null): {id: idTest, pagina: 1}
         // pagina es un atributo que indica el nº de página que se está mostrando. Los tests se van cargando en páginas, por ejemplo, de 10 en 10 preguntas, para reducir la carga del servidor cuando se trate de tests muy largos.
-        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_PREGUNTAS, "GET", null, { id: idTest })
+        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_PREGUNTAS.url, Rutas.RUTA_API_PREGUNTAS.method, null, { id: idTest })
 
             .then(response => {
                 response.forEach(pregunta => {
@@ -131,6 +131,6 @@ export class TestController {
 
 }
 
-/*==========================================
+/*=============================================
         MÉTODOS ASOCIADOS AL CONTROLADOR
-===========================================*/
+===============================================*/

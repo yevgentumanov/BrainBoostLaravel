@@ -479,7 +479,7 @@ export class Test {
             return false;
         }
         const valores = Object.values(TipoModalidad);
-        if (modalidad in valores == false) {
+        if (valores.includes(modalidad) == false) {
             return false;
         }
         return true;
@@ -495,7 +495,7 @@ export class Test {
             return false;
         }
         const valores = Object.values(TipoDificultad);
-        if (dificultad in valores == false) {
+        if (valores.includes(dificultad) == false) {
             return false;
         }
         return true;
@@ -591,6 +591,13 @@ export class Test {
      */
     length() {
         return this.preguntas.length;
+    }
+
+    /**
+     * Devuelve todo el array de preguntas.
+     */
+    getPreguntas() {
+        return this.preguntas;
     }
 
     /**
@@ -923,6 +930,9 @@ export class Test {
         if (!this.validaIdPregunta(indice)) throw new Error(MensajesErrorTest["__ERR_QUESTION_ID_INVALID"].message);
         if (!this.validaNota(nota)) throw new Error(MensajesErrorTest["__ERR_MARK_INVALID"].message);
         /*-- Realiza la operación --*/
+        if (this.nota == null) {
+            this.nota = 0;
+        }
         if (typeof(this.notasPreguntas[indice]) == "number") {
             this.nota -= this.notasPreguntas[indice];
         }
@@ -971,7 +981,6 @@ export class Test {
     setDificultad(dificultad) {
         /*-- Realiza las validaciones --*/
         if (!this.validaDificultad(dificultad)) throw new Error(MensajesErrorTest["__ERR_DIFFICULTY"].message);
-
         /*-- Realiza la operación --*/
         this.dificultad = dificultad;
     }
@@ -1003,7 +1012,7 @@ export class Test {
         if (!this.validaIdBD(idTest)) throw new Error(MensajesErrorTest["__ERR_TEST_ID_INVALID"].message);
 
         /*-- Obtiene los datos del servidor --*/
-        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_TEST, "GET", null, { id: idTest })
+        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_TEST.url, Rutas.RUTA_API_TEST.method, null, { id: idTest })
             .then(response => {
                 // To do
             }).catch(error => {
@@ -1026,7 +1035,7 @@ export class Test {
         /*-- Obtiene los datos del servidor --*/
         // datos cabecera (sustituir segundo null): {id: idTest, pagina: 1}
         // pagina es un atributo que indica el nº de página que se está mostrando. Los tests se van cargando en páginas, por ejemplo, de 10 en 10 preguntas, para reducir la carga del servidor cuando se trate de tests muy largos.
-        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_PREGUNTAS, "GET", null, { id: idTest })
+        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_PREGUNTAS.url, Rutas.RUTA_API_PREGUNTAS.method, null, { id: idTest })
 
             .then(response => {
                 response.forEach(pregunta => {

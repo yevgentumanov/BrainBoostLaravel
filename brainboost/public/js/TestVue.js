@@ -21,14 +21,22 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         computed: {
             modalidadString() {
-                let cadena = TestModel.TipoModalidadInversa[this.testObj.getModalidad()];
-                cadena = cadena.charAt(0).toUpperCase() + cadena.slice(1).toLowerCase();
-                return cadena;
+                if (this.testObj.getModalidad() != null) {
+                    let cadena = TestModel.TipoModalidadInversa[this.testObj.getModalidad()];
+                    cadena = cadena.charAt(0).toUpperCase() + cadena.slice(1).toLowerCase();
+                    return cadena;
+                }
             },
             dificultadString() {
-                let cadena = TestModel.TipoDificultadInversa[this.testObj.getModalidad()];
-                cadena = cadena.charAt(0).toUpperCase() + cadena.slice(1).toLowerCase();
-                return cadena;
+                if (this.testObj.getDificultad() != null) {
+                    let cadena = TestModel.TipoDificultadInversa[this.testObj.getDificultad()];
+                    cadena = cadena.charAt(0).toUpperCase() + cadena.slice(1).toLowerCase();
+                    return cadena;
+                }
+                
+            },
+            tiempoTranscurrido() {
+                return testobj.getTiempoTranscurrido();
             }
         },
         created() {

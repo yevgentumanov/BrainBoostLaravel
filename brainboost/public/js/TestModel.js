@@ -178,11 +178,12 @@ export class Test {
 
         this.idUsuarioRealizador = null; // (number) (se rescata de la BB.DD desde el servidor / no se puede asignar de otra forma, cuando un usuario cree un test desde el creador de tests, será desde el backend desde donde se reciba el id del usuario y se le asignará allí antes de guardar los datos en la BB.DD. Pero desde el frontend partirá con valor null)
         this.respuestas = null; // (array de objetos JSON) (se rescatan de la BB.DD / se van creando/modificando/eliminando respuestas con los métodos addRespuesta/modifyRespuesta/)
-        this.dificultad = null; // To do
-        this.modalidad = null; // To do
+        this.dificultad = null;
+        this.modalidad = null;
         this.tiempoInicio = null; // To do: guarda una marca temporal de cuándo se inició el test.
         this.tiempoFin = null; // To do: guarda una marca temporal de cuándo se terminó el test.
         this.nota = null; // (number) (se rescata de la BB.DD / se asigna con el setter desde el controlador)
+        this.notasPreguntas = null // (array) Guarda las notas individuales por cada pregunta
         this.fechaRealizacion = null; // (Date) (se rescata de la BB.DD / se asigna con el setter desde el controlador)
 
         /*================================================================
@@ -190,6 +191,7 @@ export class Test {
         =================================================================*/
         this.preguntas = Array();
         this.respuestas = Array();
+        this.notasPreguntas = Array();
         this.nombreTest = "";
         this.descripcion = "";
         this.nombreMateria = "";
@@ -793,18 +795,7 @@ export class Test {
      */
     removeRespuesta(indice) {
         if (!this.validaIdPregunta(indice)) throw new Error(MensajesErrorTest["__ERR_QUESTION_ID_INVALID"].message);
-        this.respuestas[indice] = null;
-    }
-
-    /**
-     * Método que establece la nota que está sacando el usuario en el test.
-     * @param {number} nota - Especifica la nota que está sacando el usuario en el test.
-     */
-    setNota(nota) {
-        /*-- Realiza las validaciones --*/
-        if (!this.validaNota(nota)) throw new Error(MensajesErrorTest["__ERR_MARK_INVALID"].message);
-        /*-- Realiza la operación --*/
-        this.nota = nota;
+        this.respuestas[indice] = null; // To do: ver si se puede eliminar de otra forma que no sea asignándole null
     }
 
     /**
@@ -813,6 +804,57 @@ export class Test {
      */
     getNota() {
         return this.nota;
+    }
+
+    /**
+     * Método que establece la nota que está sacando el usuario en el test.
+     * @param {number} nota - Especifica la nota que está sacando el usuario en el test.
+     */
+    // setNota(nota) {
+    //     /*-- Realiza las validaciones --*/
+    //     if (!this.validaNota(nota)) throw new Error(MensajesErrorTest["__ERR_MARK_INVALID"].message);
+    //     /*-- Realiza la operación --*/
+    //     this.nota = nota;
+    // }
+
+    /**
+     * Método que devuelve la nota que está sacando el usuario en la pregunta.
+     * @param {number} indice - Especifica el índice de la pregunta sobre la que se responde.
+     * @returns La nota que está sacando el usuario en el test.
+     */
+    getNotaPregunta(indice) {
+        return this.notasPreguntas[indice];
+    }
+
+    /**
+     * Método que permite guardar la nota sacada por el usuario en la pregunta, en función de su respuesta.
+     * @param {number} indice - Especifica el índice de la pregunta sobre la que se responde.
+     * @param {object} nota - Especifica la nota que está sacando el usuario en la pregunta.
+     */
+    setNotaPregunta(indice, nota) {
+        /*-- Realiza las validaciones --*/
+        if (!this.validaIdPregunta(indice)) throw new Error(MensajesErrorTest["__ERR_QUESTION_ID_INVALID"].message);
+        if (!this.validaNota(nota)) throw new Error(MensajesErrorTest["__ERR_MARK_INVALID"].message);
+        /*-- Realiza la operación --*/
+        if (typeof(this.notasPreguntas[indice]) == "number") {
+            this.nota -= this.notasPreguntas[indice];
+        }
+        this.notasPreguntas[indice] = nota;
+        if (typeof(nota) == "number") {
+            this.nota += nota;
+        }
+    }
+
+    /**
+     * Método que sirve para eliminar la nota de una pregunta.
+     * @param {number} indice - Especifica el índice de la pregunta sobre la que se desea eliminar la nota.
+     */
+    removeNotaPregunta(indice) {
+        /*-- Realiza las validaciones --*/
+        if (!this.validaIdPregunta(indice)) throw new Error(MensajesErrorTest["__ERR_QUESTION_ID_INVALID"].message);
+        /*-- Realiza la operación --*/
+        this.nota -= this.notasPreguntas[indice];
+        this.notasPreguntas[indice] = null; // To do: ver si se puede eliminar de otra forma que no sea asignándole null
     }
 
     /**
@@ -860,7 +902,7 @@ export class Test {
      */
     setDificultad(dificultad) {
         /*-- Realiza las validaciones --*/
-        if (!this.validaDificultad(fechaRealizacion)) throw new Error(MensajesErrorTest["__ERR_MODALITY"].message);
+        if (!this.validaDificultad(fechaRealizacion)) throw new Error(MensajesErrorTest["__ERR_DIFFICULTY"].message);
 
         /*-- Realiza la operación --*/
         this.dificultad = dificultad;

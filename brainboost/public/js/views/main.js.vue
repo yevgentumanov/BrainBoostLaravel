@@ -6,6 +6,9 @@
         <PreguntaTipo4></PreguntaTipo4>
         <PreguntaTipo5></PreguntaTipo5> -->
     </section>
+    <div class="text-right">
+        <button class="btn btn-light">Enviar test</button>
+    </div>
 </template>
 
 <script setup>

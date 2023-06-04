@@ -10,7 +10,7 @@
             </div>
         </fieldset>
         <div class="d-flex justify-content-end">
-            <span>Nota individual</span>
+            <span v-if="testobj.getNotaPregunta(indexPregunta) != null">Nota: {{ testobj.getNotaPregunta(indexPregunta) }}</span>
         </div>
     </div>
 </template>
@@ -29,7 +29,6 @@
         indexPregunta: Number
     });
     
-
     /*==============================================
                     MÉTODOS
     ===============================================*/
@@ -38,46 +37,37 @@
         const pregunta = props.testobj.preguntas[indice];
         const anteriorRespuestaUsuario = props.testobj.respuestas[indice];
 
-        switch (pregunta.tipo_pregunta) {
-            case TestModel.TipoPregunta.MULTIPLE_RESPONSE:
-            case TestModel.TipoPregunta.MULTIPLE_RESPONSE_MULTIPLE_CHOICE:
-                let respuestaEnObjTest = pregunta.datos_pregunta.respuestas_correctas
-                /*-- Comprueba si la respuesta que ha dado el usuario coincide con alguna de las respuestas posibles para la pregunta --*/
-                if (!Array.isArray(respuestaEnObjTest)) {
-                    respuestaEnObjTest = [respuestaEnObjTest];
-                }
-                // console.log(anteriorRespuestaUsuario);
-                console.log(respuestaEnObjTest);
-                const actualPreguntasAcertadas = compareArraysWithoutOrder(respuesta, respuestaEnObjTest).length
-                console.log(actualPreguntasAcertadas);
+        let respuestaEnObjTest = pregunta.datos_pregunta.respuestas_correctas
+        /*-- Comprueba si la respuesta que ha dado el usuario coincide con alguna de las respuestas posibles para la pregunta --*/
+        if (!Array.isArray(respuestaEnObjTest)) {
+            respuestaEnObjTest = [respuestaEnObjTest];
+        }
+        // console.log(anteriorRespuestaUsuario);
+        console.log(respuestaEnObjTest);
+        const actualPreguntasAcertadas = compareArraysWithoutOrder(respuesta, respuestaEnObjTest).length
+        console.log(actualPreguntasAcertadas);
 
-                /*-- Suma nota (siempre que no estuviera ya contestada una pregunta) --*/
-                const anteriorPreguntasAcertadas = anteriorRespuestaUsuario != null ? compareArraysWithoutOrder(anteriorRespuestaUsuario, respuestaEnObjTest).length : 0;
-                if (anteriorRespuestaUsuario == null || anteriorPreguntasAcertadas == 0) {
-                    props.testobj.nota += actualPreguntasAcertadas / respuestaEnObjTest.length;
-                    if (actualPreguntasAcertadas == respuestaEnObjTest.length) {
-                        const inputs = fieldSet.querySelectorAll("input");
-                        /*-- Deshabilita los inputs cuando la pregunta sea acertada --*/
-                        inputs.forEach(element => {
-                            element.setAttribute("disabled", "disabled");
-                        });
-                    }
+        /*-- Suma nota (siempre que no estuviera ya contestada una pregunta) --*/
+        const anteriorPreguntasAcertadas = anteriorRespuestaUsuario != null ? compareArraysWithoutOrder(anteriorRespuestaUsuario, respuestaEnObjTest).length : 0;
+        if (anteriorRespuestaUsuario == null || anteriorPreguntasAcertadas == 0) {
+            props.testobj.setNotaPregunta(indice, actualPreguntasAcertadas / respuestaEnObjTest.length / props.testobj.getSize() * 10)
+            // props.testobj.nota += actualPreguntasAcertadas / respuestaEnObjTest.length;
+            if (actualPreguntasAcertadas == respuestaEnObjTest.length) {
+                const inputs = fieldSet.querySelectorAll("input");
+                /*-- Deshabilita los inputs cuando la pregunta sea acertada --*/
+                inputs.forEach(element => {
+                    element.setAttribute("disabled", "disabled");
+                });
+            }
 
-                    /*-- Guarda la respuesta --*/
-                    props.testobj.setRespuesta(indice, respuesta);
-                } else {
-                    // props.testobj.nota -= anteriorPreguntasAcertadas / respuestaEnObjTest.length; // Esto es por si se usa en algun futuro
-                    const inputs = fieldSet.querySelectorAll("input");
-                    inputs.forEach(element => {
-                        element.setAttribute("disabled", "disabled")
-                    });
-                }
-                break;
-            case TestModel.TipoPregunta.UNIQUE_RESPONSE:
-                
-            case TestModel.TipoPregunta.FILL_IN_GAPS: // Tipo 4
-            case TestModel.TipoPregunta.FILL_GAPS_GIVEN_ONE: // Tipo 5
-            case TestModel.TipoPregunta.FILL_TABLE: // Tipo 5
+            /*-- Guarda la respuesta --*/
+            props.testobj.setRespuesta(indice, respuesta);
+        } else {
+            // props.testobj.nota -= anteriorPreguntasAcertadas / respuestaEnObjTest.length; // Esto es por si se usa en algun futuro
+            const inputs = fieldSet.querySelectorAll("input");
+            inputs.forEach(element => {
+                element.setAttribute("disabled", "disabled")
+            });
         }
     };
 

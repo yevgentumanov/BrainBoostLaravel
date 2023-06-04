@@ -6,7 +6,7 @@
 import { createApp } from 'vue'
 
 document.addEventListener('DOMContentLoaded', () => {
-    const components = import.meta.globEager('./views/*.vue') // Carga la carpeta con los componentes de Vue
+    // const components = import.meta.globEager('./views/*.vue') // Carga la carpeta con los componentes de Vue
 
     const app = createApp({
         data() {
@@ -151,15 +151,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    Object.entries(components).forEach(([path, component]) => {
-        app.component(
-            path
-                .split("/")
-                .pop()
-                .replace(/\.\w+$/, ''),
-                component.default
-        );
-    });
+    // Object.entries(components).forEach(([path, component]) => {
+    //     app.component(
+    //         path
+    //             .split("/")
+    //             .pop()
+    //             .replace(/\.\w+$/, ''),
+    //             component.default
+    //     );
+    // });
 
     app.mount("#appVue");
 });

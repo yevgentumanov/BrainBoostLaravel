@@ -21,7 +21,7 @@
 
                 <!-- Inicio de sesión y registro de usuario -->
                 <div class="col-12 col-sm-2 justify-content-end">
-                    <a href="{{ route('registro') }}" class="btn m-2 w-100 sombra boton-sliding-arriba">Nuevo usuario</a>
+                    <a id="btnRegistro" href="{{ route('registro') }}" class="btn m-2 w-100 sombra boton-sliding-arriba">Nuevo usuario</a>
                     <a id="btnLogin" href="{{ route('login') }}" class="btn m-2 w-100 sombra boton-sliding-abajo">Iniciar
                         sesión</a>
                 </div>

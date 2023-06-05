@@ -93,6 +93,9 @@
         {{-- Punto de inserción del main en cada página --}}
         @yield('main')
 
+        @auth
+            @include('fragmentos.pie')
+        @endauth
     </div>
 </body>
 

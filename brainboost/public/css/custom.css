@@ -37,8 +37,13 @@ body {
     background-color: var(--color6) !important;
 }
 
+main {
+    /*padding: 1em;*/  /* Si se activa se pierde la estructura en la página de presentación */
+}
+
 section {
     padding: 10px;
+    margin-bottom: 1em;
     border-radius: 1em;
     box-shadow:
         inset 0 -3em 3em rgba(0, 0, 0, 0.1),
@@ -499,6 +504,23 @@ nav>div>a>img {
     transition: 0.4s;
 }
 
+/* CARD INICIO/REGISTRO*/
+.card-portada {
+    animation: slide-rotate-hor-t-fwd .5s cubic-bezier(.455, .03, .515, .955) reverse both
+}
+
+@keyframes slide-rotate-hor-t-fwd {
+    0% {
+        transform: translateY(0) translateZ(0) rotateX(0deg);
+        transform-origin: bottom center
+    }
+
+    100% {
+        transform: translateY(-150px) translateZ(130px) rotateX(-90deg);
+        transform-origin: bottom center
+    }
+}
+
 /****************************************************************************/
 /****************************************************************************/
 /****************************************************************************/
@@ -512,7 +534,7 @@ nav>div>a>img {
     /* Rango de tamaño hasta md */
     /* footer {
         height: 58vh !important;*/
-        /* El doble del alto en xl */
+    /* El doble del alto en xl */
     /*} */
 
     #f-logo {
@@ -525,7 +547,7 @@ nav>div>a>img {
     /* Rango de tamaño hasta xl */
     /*footer {
         height: 39.8vh;*/
-        /* El doble del alto en xl */
+    /* El doble del alto en xl */
     /*}*/
 
     #f-links {

@@ -11,17 +11,17 @@
 
         <div class="col-6 d-flex justify-content-end">
             <form class="form-inline" action="/action_page.php">
-                <input class="form-control mr-2 flex-grow-1" type="text" placeholder="Buscar">
-                <button class="btn btn-success" type="submit">Buscar</button>
-                <button class="btn btn-success" type="button" onclick="sendDataToRoute()">Prueba enviar</button>
+                <input class="form-control mr-2" type="text" placeholder="Buscar">
+                <button class="boton-arrow" type="submit">Buscar</button>
 
+                <button class="btn btn-success" type="button" onclick="sendDataToRoute()">Prueba enviar</button>
             </form>
         </div>
 
         <!-- Botones de cuenta de usuario -->
         <div class="col-2">
-            <a href="{{ route('logout') }}" class="btn btn-secondary m-2 w-100 sombra">Log off, {{ auth()->user()->nombre_usuario }}</a>
-            <a href="{{ route('cuenta') }}" class="btn btn-primary m-2 w-100 sombra">Cuenta usuario</a>
+            <a href="{{ route('logout') }}" class="btn m-2 w-100 sombra boton-sliding-arriba">Log off, {{ auth()->user()->nombre_usuario }}</a>
+            <a href="{{ route('cuenta') }}" class="btn m-2 w-100 sombra boton-sliding-abajo">Cuenta usuario</a>
         </div>
     </nav>
 

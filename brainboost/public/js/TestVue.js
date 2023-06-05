@@ -36,7 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 
             },
             tiempoTranscurrido() {
-                return this.testObj.getTiempoTranscurrido();
+                const tiempo = this.testObj.getTiempoTranscurrido()
+                const horas = `${tiempo[0] < 10 ? "0" : ""}${tiempo[0]}`;
+                const minutos = `${tiempo[1] < 10 ? "0" : ""}${tiempo[1]}`;
+                const segundos = `${tiempo[2] < 10 ? "0" : ""}${tiempo[2]}`;
+                return [horas, minutos, segundos];
             }
         },
         created() {

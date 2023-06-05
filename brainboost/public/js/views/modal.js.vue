@@ -18,7 +18,8 @@
 					{{ message }}
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" data-dismiss="modal" @click="triggeraceptar">Aceptar</button>
+					<!-- <button type="button" class="btn btn-primary" data-dismiss="modal" @click="triggeraceptar">Aceptar</button>-->
+					<button type="button" class="btn btn-primary bt-log boton-sliding-arriba" data-dismiss="modal" @click="triggeraceptar">Aceptar</button>
 				</div>
 			</div>
 		</div>

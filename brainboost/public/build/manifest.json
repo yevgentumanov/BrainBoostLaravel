@@ -33,14 +33,14 @@
     "src": "public/images/presentacion5.jpg"
   },
   "public/js/TestVue.css": {
-    "file": "assets/TestVue-e3b0c442.css",
+    "file": "assets/TestVue-da372113.css",
     "src": "public/js/TestVue.css"
   },
   "public/js/TestVue.js": {
     "css": [
-      "assets/TestVue-e3b0c442.css"
+      "assets/TestVue-da372113.css"
     ],
-    "file": "assets/TestVue-964276d2.js",
+    "file": "assets/TestVue-7d8c8526.js",
     "isEntry": true,
     "src": "public/js/TestVue.js"
   }

@@ -1,4 +1,8 @@
 <template>
+    <alerta v-if="sended == true" 
+            classalert="alert-success" 
+            message="El test ha sido enviado al servidor correctamente">
+    </alerta>
     <section v-for="(pregunta, indexPregunta) in preguntasRandomOrder" :key="indexPregunta" class="pregunta" :class="['d-block', 'row', 'bg-primary', 'my-4']">
         <preguntatipo1 v-if="pregunta.tipo_pregunta == TestModel.TipoPregunta.MULTIPLE_RESPONSE" 
                        :testobj="props.testobj" 
@@ -16,10 +20,12 @@
 </template>
 
 <script>
-    import PreguntaTipo1 from "./tipo1.js.vue"
+    import PreguntaTipo1 from "./tipo1.js.vue";
+    import Alerta from "./alert.js.vue";
     export default {
         components: {
-            "preguntatipo1": PreguntaTipo1
+            "preguntatipo1": PreguntaTipo1,
+            "alerta": Alerta
         },
         created() {
             console.log("createdDoTest"); // Mera bandera de debug
@@ -41,6 +47,7 @@
                 VARIABLES DE COMPONENTE
     ===============================================*/
     const props = defineProps({
+        alert: Object,
         testobj: TestModel.Test,
         testctrl: TestController
     });
@@ -106,6 +113,7 @@
                     // const btn = document.createElement("button");
                     // btn.setAttribute
                     e.target.setAttribute("disabled", "disabled")
+                    window.scrollTo({top: 0, behavior: "smooth"});
                 }
             });
         }

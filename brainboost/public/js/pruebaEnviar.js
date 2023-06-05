@@ -76,7 +76,8 @@ function sendDataToRoute() {
     console.log(testRealizado);
 
     // Send the JSON payload to the route
-    fetch('intentos_pregunta', {
+    // fetch('intentos_pregunta', {
+    fetch("http://localhost/Proyectos/BrainBoostLaravel/brainboost/public/intentos_pregunta", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

@@ -11,7 +11,7 @@
         <PreguntaTipo5></PreguntaTipo5> -->
     </section>
     <div class="text-right">
-        <button class="btn btn-light">Enviar test</button>
+        <button class="btn btn-light" @click="sendTest">Enviar test</button>
     </div>
 </template>
 
@@ -32,8 +32,8 @@
 </script>
 
 <script setup>
-    import {ref, computed} from "vue"; // habilita la función de reactividad y las propiedades computadas
     import * as TestModel from "../TestModel.js";
+    import {ref, computed} from "vue"; // habilita la función de reactividad y las propiedades computadas
     import {TestController} from "../TestController.js";
 
 
@@ -44,6 +44,7 @@
         testobj: TestModel.Test,
         testctrl: TestController
     });
+    const sended = ref(false)
     
     // const testObj = ref(new TestModel.Test());
     // const testCtrl = ref(new TestController(props.testobj));
@@ -82,7 +83,21 @@
     /*==============================================
                     MÉTODOS
     ===============================================*/
-    
+    function sendTest(e) {
+        if (!sended.value) {
+            props.testctrl.sendInfoIntentoTestUsuario((response) => {
+                console.log("Hasta aquí funciona el código: el servidor no ha dado error");
+                // console.log(response);
+                if ("datosTest" in response && "preguntasTestRealizado" in response) {
+                    // window.history.back(); // Para volver a la página anterior
+                    sended.value = true;
+                    // const btn = document.createElement("button");
+                    // btn.setAttribute
+                    e.target.setAttribute("disabled", "disabled")
+                }
+            });
+        }
+    }
 </script>
 
 <style scoped>

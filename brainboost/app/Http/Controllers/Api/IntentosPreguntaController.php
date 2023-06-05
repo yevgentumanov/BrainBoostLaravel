@@ -22,39 +22,41 @@ class IntentosPreguntaController extends Controller
     {
         // Get the user ID from the authenticated user
         $userId = $request->user()->id;
-
         $datosTest = [
             'id_test' => $request->id_test,
             'id_usuario' => $userId,
-            'intento' => 1,
+            'intento' => null, // Esto se crea mediante el trigger de Juan Carlos
+            // 'intento' => 1, // Tal como lo tenía Eugenio
             'fecha_realizacion' => now(),
             'dificultad' => $request->dificultad,
             'modalidad' => $request->modalidad,
-            'tiempo_inicio' => now(),
-            'tiempo_fin' => now(),
+            'tiempo_inicio' => $request->tiempoInicio,
+            'tiempo_fin' => $request->tiempoFin,
         ];
         $intentosTest = Intentos_test::create($datosTest);
 
-        // Find the last created test for the user
+        // /*-- Find the last created test for the user --*/
         $lastTest = Intentos_test::where('id_usuario', $userId)
             ->orderBy('id', 'desc')
-            ->first();
+            ->first(); // Comentado by Santi
 
-        // Replace "id_intento_test": "id_test_creado" with the ID of the last created test
+        /*-- Replace "id_intento_test": "id_test_creado" with the ID of the last created test --*/
         $preguntasTestRealizado = $request->preguntasTestRealizado;
         foreach ($preguntasTestRealizado as $preguntaData) {
-//            Log::info("BEFORE: id_intento_test: " . $preguntaData['id_intento_test']);
-//            Log::info("BEFORE: id_pregunta: " . $preguntaData['id_pregunta']);
-            $preguntaData['id_intento_test'] = $lastTest->id;
-//            Log::info("AFTER: id_intento_test: " . $preguntaData['id_intento_test']);
-//            Log::info("AFTER: id_pregunta: " . $preguntaData['id_pregunta']);
+            // Log::info("BEFORE: id_intento_test: " . $preguntaData['id_intento_test']);
+            // Log::info("BEFORE: id_pregunta: " . $preguntaData['id_pregunta']);
+
+            $preguntaData['id_intento_test'] = $lastTest->id; // Comentado by Santi
+
+            // Log::info("AFTER: id_intento_test: " . $preguntaData['id_intento_test']);
+            // Log::info("AFTER: id_pregunta: " . $preguntaData['id_pregunta']);
 //        }
 
-        // Create Intentos_pregunta records
+        /*-- Create Intentos_pregunta records --*/
 //        foreach ($preguntasTestRealizado as $preguntaData) {
 
             $pregunta = new Intentos_pregunta([
-                'id_intento_test' => $preguntaData['id_intento_test'],
+                'id_intento_test' => $preguntaData['id_intento_test'], // Comentado by Santi
                 'id_pregunta' => $preguntaData['id_pregunta'],
                 'nota_pregunta' => (float)$preguntaData['nota_pregunta'],
                 'respuestas' => json_encode($preguntaData['respuestas']),
@@ -63,7 +65,7 @@ class IntentosPreguntaController extends Controller
             $pregunta->save();
         }
 
-        // Return the response data
+        /*-- Return the response data --*/
         return response()->json([
             'datosTest' => $datosTest,
             'preguntasTestRealizado' => $preguntasTestRealizado

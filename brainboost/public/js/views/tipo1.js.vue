@@ -9,6 +9,9 @@
                 <label :for="indexPregunta + ':' +  indexRespuesta">{{ respuesta }}</label>
             </div>
         </fieldset>
+        <div>
+            <span v-if="mostrarRetroalimentacion">{{ testobj.getPregunta(indexPregunta).retroalimentacion }}</span>
+        </div>
         <div class="d-flex justify-content-end">
             <span v-if="testobj.getNotaPregunta(indexPregunta) != null">Nota: {{ testobj.getNotaPregunta(indexPregunta) }}</span>
         </div>
@@ -39,6 +42,7 @@
         pregunta: Object,
         indexPregunta: Number
     });
+    const mostrarRetroalimentacion = ref(false);
     
     /*==============================================
                     MÉTODOS
@@ -63,12 +67,15 @@
         if (anteriorRespuestaUsuario == null || anteriorPreguntasAcertadas == 0) {
             props.testobj.setNotaPregunta(indice, actualPreguntasAcertadas / respuestaEnObjTest.length / props.testobj.getSize() * 10)
             // props.testobj.nota += actualPreguntasAcertadas / respuestaEnObjTest.length;
+            /*-- Si el usuario ha acertado --*/
             if (actualPreguntasAcertadas == respuestaEnObjTest.length) {
                 const inputs = fieldSet.querySelectorAll("input");
                 /*-- Deshabilita los inputs cuando la pregunta sea acertada --*/
                 inputs.forEach(element => {
                     element.setAttribute("disabled", "disabled");
                 });
+                /*-- Muestra la retroalimentación --*/
+                mostrarRetroalimentacion.value = true;
             }
 
             /*-- Guarda la respuesta --*/
@@ -79,6 +86,8 @@
             inputs.forEach(element => {
                 element.setAttribute("disabled", "disabled")
             });
+            /*-- Muestra la retroalimentación --*/
+            mostrarRetroalimentacion.value = true;
         }
     };
 
@@ -121,14 +130,23 @@
         /*-- Comprueba si la respuesta era correcta --*/
         corregirPregunta(indice, respuesta, fieldSet);
 
-        /*-- Deshabilita los campos de la pregunta --*/
-        // switch (props.testobj.modalidad) {
-        //     case TestModel.TipoModalidad.PRACTICAR:
-        //         break;
+        /*-- Qué hacer a continuación, según la modalidad del test... --*/
+        switch (props.testobj.modalidad) {
+            case TestModel.TipoModalidad.PRACTICAR:
+                // No hace nada
+                break;
         
-        //     case TestModel.TipoModalidad.DESAFIO:
-        //         break;
-        // }
+            case TestModel.TipoModalidad.DESAFÍO:
+                /*-- Deshabilita los campos de la pregunta --*/
+                const inputs = fieldSet.querySelectorAll("input");
+                /*-- Deshabilita los inputs cuando la pregunta sea acertada --*/
+                inputs.forEach(element => {
+                    element.setAttribute("disabled", "disabled");
+                });
+                /*-- Muestra la retroalimentación --*/
+                mostrarRetroalimentacion.value = true;
+                break;
+        }
     }
 </script>
 

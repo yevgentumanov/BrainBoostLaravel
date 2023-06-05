@@ -3,7 +3,7 @@
  * Para comprender cómo funciona el método que acontece, es necesario ver cómo funcionan las promesas de JavaScript:
  * https://desarrolloweb.com/articulos/introduccion-promesas-es6.html
  * @author Santiago San Pablo Raposo
- * @version 17.05.2023
+ * @version 04.06.2023
  */
 
 /**
@@ -12,10 +12,11 @@
  * @param {string} metodo (Opcional) Especifica mediante una cadena de texto el metodo que se quiere emplear en la cabecera de la petición HTTP.
  * @param {object} headers (Opcional) Especifica un objeto literal con los headers que deseas enviar al servidor.
  * @param {object} datos (Opcional) Especifica un objeto literal con los parámetros que deseas enviar al servidor.
+ * @param {Function} todoDone (Opcional) Especifica una función con un parámetro (objJson) que se ejecutará cuando el fetch tenga éxito.
  * @param {object} controller (Opcional) Especifica un objeto de tipo AbortController con el fin de asignar un AbortController y poder abortar la operación de fetch desde fuera.
  * @returns Un JSON / objeto literal con los datos que devuelva la API en el servidor en la ruta especificada.
  */
-function obtenerJSON(url, metodo = "GET", headers = null, datos = null, controller = null) {
+function obtenerJSON(url, metodo = "GET", headers = null, datos = null, todoDone = null, controller = null) {
     return new Promise((resolve, reject) => {
         /*-- Verificar datos de los parámetros --*/
         if (metodo != "GET" && metodo != "POST" && metodo != "PUT" && metodo != "DELETE") {
@@ -55,6 +56,9 @@ function obtenerJSON(url, metodo = "GET", headers = null, datos = null, controll
                     })
                     .then(responseText => {
                         let objJson = JSON.parse(responseText);
+                        if (todoDone instanceof Function) {
+                            todoDone(objJson);
+                        }
                         resolve(objJson);
                     })
                     .catch(err => reject(err));
@@ -90,6 +94,9 @@ function obtenerJSON(url, metodo = "GET", headers = null, datos = null, controll
                     })
                     .then(responseText => {
                         let objJson = JSON.parse(responseText);
+                        if (todoDone instanceof Function) {
+                            todoDone(objJson);
+                        }
                         resolve(objJson);
                     })
                     .catch(err => reject(err));
@@ -112,10 +119,11 @@ function obtenerJSON(url, metodo = "GET", headers = null, datos = null, controll
  * @param {string} metodo (Opcional) Especifica mediante una cadena de texto el metodo que se quiere emplear en la cabecera de la petición HTTP.
  * @param {object} headers (Opcional) Especifica un objeto literal con los headers que deseas enviar al servidor.
  * @param {object} datos (Opcional) Especifica un objeto literal con los parámetros que deseas enviar al servidor.
+ * @param {Function} todoDone (Opcional) Especifica una función con un parámetro (objJson) que se ejecutará cuando el fetch tenga éxito.
  * @param {object} controller (Opcional) Especifica un objeto de tipo AbortController con el fin de asignar un AbortController y poder abortar la operación de fetch desde fuera.
  * @returns Un JSON / objeto literal con los datos que devuelva la API en el servidor en la ruta especificada.
  */
-function obtenerDatosWeb(url, metodo = "GET", headers = null, datos = null, controller = null) {
+function obtenerDatosWeb(url, metodo = "GET", headers = null, datos = null, todoDone = null, controller = null) {
     return new Promise((resolve, reject) => {
         /*-- Verificar datos de los parámetros --*/
         if (metodo != "GET" && metodo != "POST" && metodo != "PUT" && metodo != "DELETE") {
@@ -155,6 +163,9 @@ function obtenerDatosWeb(url, metodo = "GET", headers = null, datos = null, cont
                     })
                     .then(responseText => {
                         // let objJson = JSON.parse(responseText);
+                        if (todoDone instanceof Function) {
+                            todoDone(objJson);
+                        }
                         resolve(responseText);
                     })
                     .catch(err => reject(err));
@@ -190,6 +201,9 @@ function obtenerDatosWeb(url, metodo = "GET", headers = null, datos = null, cont
                     })
                     .then(responseText => {
                         // let objJson = JSON.parse(responseText);
+                        if (todoDone instanceof Function) {
+                            todoDone(objJson);
+                        }
                         resolve(responseText);
                     })
                     .catch(err => reject(err));

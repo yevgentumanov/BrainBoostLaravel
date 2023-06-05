@@ -84,56 +84,18 @@
                     MÉTODOS
     ===============================================*/
     function sendTest(e) {
-        /*-- Prepara los datos para enviarselos al servidor --*/
-        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-        const cabeceras = {
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': csrfToken  // Include the CSRF token in the request headers
-        };
-        let cuerpo = {
-            id_test: props.testobj.getIdTest(),
-            modalidad: props.testobj.getModalidad(),
-            dificultad: props.testobj.getDificultad(),
-            tiempoInicio: props.testobj.getTiempoInicio(),
-            tiempoFin: props.testobj.getTiempoFin(),
-            preguntasTestRealizado: []
-        };
-        for (let i = 0; i < props.testobj.getPreguntas().length; i++) {
-            const pregunta = props.testobj.getPreguntas()[i];
-            const respuestas = props.testobj.getRespuestas()[i];
-            const nota = props.testobj.getNotaPregunta(i)
-
-            const objPreparado = {
-                id_pregunta: pregunta.id,
-                nota_pregunta: nota,
-                respuestas: respuestas
-            };
-
-            cuerpo.preguntasTestRealizado.push(objPreparado)
-        }
-        
-
-        /*-- Envía los datos al servidor --*/
-        // sended.value = false;
         if (!sended.value) {
-            obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_ENVIO_TEST_REALIZADO.url, Rutas.RUTA_API_ENVIO_TEST_REALIZADO.method, cabeceras, JSON.stringify(cuerpo))
-                .then(response => {
-                    console.log("Hasta aquí funciona el código: el servidor no ha dado error");
-                    console.log(response);
-                    if ("datosTest" in response && "preguntasTestRealizado" in response) {
-                        // window.history.back(); // Para volver a la página anterior
-                        sended.value = true;
-                        // const btn = document.createElement("button");
-                        // btn.setAttribute
-                        e.target.setAttribute("disabled", "disabled")
-                        
-                    }
-                }).catch(error => {
-                    /*-- Descarta que haya dado error --*/
-                    console.log(props.testobj);
-                    console.dir(error);
-                    // throw new Error(`${MensajesErrorTest["__ERR_TEST_INFO_FETCH"].message} Mensaje de error: ${error}`);
-                })
+            props.testctrl.sendInfoIntentoTestUsuario((response) => {
+                console.log("Hasta aquí funciona el código: el servidor no ha dado error");
+                // console.log(response);
+                if ("datosTest" in response && "preguntasTestRealizado" in response) {
+                    // window.history.back(); // Para volver a la página anterior
+                    sended.value = true;
+                    // const btn = document.createElement("button");
+                    // btn.setAttribute
+                    e.target.setAttribute("disabled", "disabled")
+                }
+            });
         }
     }
 </script>

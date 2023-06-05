@@ -101,6 +101,54 @@ export class TestController {
     }
 
     /**
+     * Método que envía al servidor la información del intento del test del usuario.
+     * @param {Function} todoDone - (Opcional) Especifica una función con un parámetro (response) que se ejecutará cuando el fetch tenga éxito.
+     */
+    sendInfoIntentoTestUsuario(todoDone = null) {
+        /*-- Prepara los datos para enviarselos al servidor --*/
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        const cabeceras = {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': csrfToken  // Include the CSRF token in the request headers
+        };
+        let cuerpo = {
+            id_test: this.test.getIdTest(),
+            modalidad: this.test.getModalidad(),
+            dificultad: this.test.getDificultad(),
+            tiempoInicio: this.test.getTiempoInicio(),
+            tiempoFin: this.test.getTiempoFin(),
+            preguntasTestRealizado: []
+        };
+        for (let i = 0; i < this.test.getPreguntas().length; i++) {
+            const pregunta = this.test.getPreguntas()[i];
+            const respuestas = this.test.getRespuestas()[i];
+            const nota = this.test.getNotaPregunta(i)
+
+            const objPreparado = {
+                id_pregunta: pregunta.id,
+                nota_pregunta: nota,
+                respuestas: respuestas
+            };
+
+            cuerpo.preguntasTestRealizado.push(objPreparado)
+        }
+        
+        /*-- Envía los datos al servidor --*/
+        // sended.value = false;
+        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_ENVIO_TEST_REALIZADO.url, Rutas.RUTA_API_ENVIO_TEST_REALIZADO.method, cabeceras, JSON.stringify(cuerpo))
+            .then(response => {
+                if (todoDone instanceof Function) {
+                    todoDone(response);
+                }
+            }).catch(error => {
+                /*-- Descarta que haya dado error --*/
+                console.log(this.test);
+                console.dir(error);
+                // throw new Error(`${MensajesErrorTest["__ERR_TEST_INFO_FETCH"].message} Mensaje de error: ${error}`);
+            })
+    }
+
+    /**
      * Método que descarga del servidor (si existe) la información del usuario que ha realizado este intento del test.
      * - test.idUsuarioRealizador
      * - test.idTest

@@ -1,5 +1,5 @@
 <footer class="row bg-dark">
-    <div id="f-links" class="col-12 col-md-6 col-xl-4 order-md-2 pie-paginas">
+    <div id="f-links" class="col-12 col-md-6 col-xl-4 order-md-2 pie-paginas p-3">
         <div class="row justify-content-center p-1">
             <a href="#">
                 <h6 class="row w-100">WWW.BRAINBOOST.COM</h6>
@@ -18,7 +18,7 @@
             <a class="col-12" href="https://animista.net/">animista</a>
         </div>
     </div>
-    <div id="f-info" class="col-12 col-md-6 col-xl-2 order-md-3 p-1">
+    <div id="f-info" class="col-12 col-md-6 col-xl-2 order-md-3 p-3">
         <div class="row justify-content-center">
             <h6>INFORMACI&Oacute;N</h6>
         </div>
@@ -38,7 +38,7 @@
             <a href="" class="col-12 fa fa-envelope-o p-1">&nbsp;3480348&#64;alu.murciaeduca.es</a>
         </div>
     </div>
-    <div id="f-redes" class="col-12 col-md-6 col-xl-3 order-md-4" style="display: grid;">
+    <div id="f-redes" class="col-12 col-md-6 col-xl-3 order-md-4 p-3" style="display: grid;">
         <div class="row justify-content-center p-1">
             <h6>NUESTRAS REDES HABLAN</h6>
         </div>
@@ -52,7 +52,7 @@
             <a href="https://www.youtube.com" class="fa fa-lg fa-youtube-play ico p-1"></a>
             <a href="https://www.pinterest.es" class="fa fa-lg fa-pinterest ico p-1"></a>
         </div>
-        <div class="row justify-content-center align-items-end p-1">
+        <div class="row justify-content-center align-items-end p-3">
             <h6>S&Iacute;GUENOS, TE GUSTAR&Aacute;</h6>
         </div>
     </div>

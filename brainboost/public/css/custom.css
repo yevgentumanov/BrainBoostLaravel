@@ -59,7 +59,8 @@ button:hover {
 }
 
 footer {
-    height: 14.9vh;
+    height: auto;
+    /* height: 14.9vh; */
     scroll-snap-align: start;
 }
 
@@ -300,8 +301,8 @@ nav>div>a>img {
 }
 
 .texto-presentacion p {
-    padding: 1em;
-    font-size: 160%;
+    padding: 0.5em;
+    font-size: 150%;
     color: var(--color6);
     border: 16px solid var(--color6);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -509,10 +510,10 @@ nav>div>a>img {
 @media (max-width: 767px) {
 
     /* Rango de tamaño hasta md */
-    footer {
-        height: 58vh !important;
+    /* footer {
+        height: 58vh !important;*/
         /* El doble del alto en xl */
-    }
+    /*} */
 
     #f-logo {
         padding: 1.5em;
@@ -522,10 +523,10 @@ nav>div>a>img {
 @media (max-width: 1199px) {
 
     /* Rango de tamaño hasta xl */
-    footer {
-        height: 39.8vh;
+    /*footer {
+        height: 39.8vh;*/
         /* El doble del alto en xl */
-    }
+    /*}*/
 
     #f-links {
         padding-top: 0.5em;

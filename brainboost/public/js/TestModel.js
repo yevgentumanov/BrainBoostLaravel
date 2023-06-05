@@ -563,8 +563,26 @@ export class Test {
      * @param {Date} fecha - Especifica el objeto de tipo Date.
      */
     validaFechaByDate(fecha) {
-        if (fecha instanceof Date == false || fecha > new Date()) {
+        let fechaActual = new Date();
+        fechaActual.setUTCHours(fecha.getHours(), fecha.getMinutes(), fecha.getSeconds(), fecha.getMilliseconds());
+        if (fecha instanceof Date == false) {
             return false;
+        }
+        if (fecha > fechaActual) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Método que valida que la fecha de tiempoInicio sea menor que la de tiempoFin.
+     * @param {Date} fecha - Especifica el objeto de tipo Date.
+     */
+    validaTiempoInicioMenorQueFin(fecha) {
+        if (this.tiempoFin != null) {
+            if (fecha > this.tiempoFin) {
+                return false;
+            }
         }
         return true;
     }

@@ -115,8 +115,8 @@ export class TestController {
             id_test: this.test.getIdTest(),
             modalidad: this.test.getModalidad(),
             dificultad: this.test.getDificultad(),
-            tiempoInicio: this.test.getTiempoInicio(),
-            tiempoFin: this.test.getTiempoFin(),
+            tiempoInicio: this.test.getTiempoInicio().toISOString(), // Formato ISO-8601
+            tiempoFin: this.test.getTiempoFin().toISOString(), // Formato ISO-8601
             preguntasTestRealizado: []
         };
         for (let i = 0; i < this.test.getPreguntas().length; i++) {

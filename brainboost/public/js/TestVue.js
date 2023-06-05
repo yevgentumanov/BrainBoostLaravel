@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
             },
             tiempoTranscurrido() {
-                return testobj.getTiempoTranscurrido();
+                return this.testObj.getTiempoTranscurrido();
             }
         },
         created() {

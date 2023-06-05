@@ -5,8 +5,13 @@
  * Enumerado de modos disponibles de aplicación
  */
 const ModeAppEnum = {
-    PRODUCTION: "https://www.clinicadentalsanandres.com/BrainBoostLaravel/brainboost/public",
-    LOCALDEBUG: "http://localhost/Proyectos/BrainBoostLaravel/brainboost/public"
+    PRODUCTION: 1,
+    LOCALDEBUG: 2
+}
+
+const ModeAppDirecciones = {
+    1: "https://www.clinicadentalsanandres.com/BrainBoostLaravel/brainboost/public",
+    2: "http://localhost/Proyectos/BrainBoostLaravel/brainboost/public"
 }
 
 /*===================================
@@ -15,7 +20,7 @@ const ModeAppEnum = {
 const modeApp = ModeAppEnum.PRODUCTION;
 
 const Rutas = {
-    "HOST_NAME": modeApp,
+    "HOST_NAME": ModeAppDirecciones[modeApp],
     "RUTA_API_PREGUNTAS": {
         url: "/api/pregunta",
         method: "GET"

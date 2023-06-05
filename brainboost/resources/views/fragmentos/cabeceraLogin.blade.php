@@ -5,19 +5,22 @@
             <!-- Barra de navegación con el logotipo, la barra de búsqueda y el login -->
             <nav class="row navbar navbar-expand-sm bg-ligth navbar-dark fixed-top cabecera">
                 <!-- Logo -->
-                <div class="col-4">
+                <div class="col-12 col-sm-10">
                     <a class="navbar-brand" href="{{ route('index') }}">
                         <img src="{!! asset('images/Logo_letras_chicas_con_sombra en blanco y negro-trayectos-v3.svg') !!}" alt="logo">
                     </a>
                 </div>
 
-                <div class="d-flex col-6 justify-content-end">
+                <!-- Barra de búsqueda -->
+                <div class="d-none col-6 justify-content-end">
                     <form class="form-inline" action="/action_page.php">
                         <input class="form-control mr-2" type="text" placeholder="Buscar">
                         <button class="boton-arrow" type="submit">Buscar</button>
                     </form>
                 </div>
-                <div class="col-2">
+
+                <!-- Inicio de sesión y registro de usuario -->
+                <div class="col-12 col-sm-2 justify-content-end">
                     <a href="{{ route('registro') }}" class="btn m-2 w-100 sombra boton-sliding-arriba">Nuevo usuario</a>
                     <a id="btnLogin" href="{{ route('login') }}" class="btn m-2 w-100 sombra boton-sliding-abajo">Iniciar
                         sesión</a>

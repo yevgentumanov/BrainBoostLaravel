@@ -71,7 +71,26 @@ class IntentosPreguntaController extends Controller
             'preguntasTestRealizado' => $preguntasTestRealizado
         ]);
     }
+    public function sendCompletedTest(Request $request)
+    {
+        // Get the user ID from the authenticated user
+        $userId = $request->user()->id;
 
+        $intentos_preguntas_id_intento_test = $request->intentos_preguntas_id_intento_test;
+        $intentos_tests_id_test = $request->intentos_tests_id_test;
+
+        $answeredQuestions = Intentos_pregunta::whereHas('intentoTest', function ($query) use ($intentos_preguntas_id_intento_test, $userId, $intentos_tests_id_test) {
+            $query->where('id_intento_test', $intentos_preguntas_id_intento_test) // intentos_preguntas.id_intento_test
+                ->where('id_usuario', $userId) // intentos_tests.id_usuario
+                ->where('id_test', $intentos_tests_id_test); // intentos_tests.id_test
+        })->get();
+
+        if ($answeredQuestions->isEmpty()) {
+            return response()->json(['message' => 'Registro no encontrado'], 404);
+        }
+
+        return response()->json(['data' => $answeredQuestions], 200);
+    }
     public function show(Request $request, string $id)
     {
         $intentosPregunta = Intentos_pregunta::find($id);

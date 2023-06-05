@@ -18,7 +18,7 @@
                     <h2>Últimos test realizados</h2>
                     <div class="col-12">
                         @foreach($ultimosTestRealizados as $ultimoTestRealizado)
-                            <a href="{{ route('test', ['idTest' => $ultimoTestRealizado->id, 'name' => $ultimoTestRealizado->nombre_test,'ultimoTestRealizado' => $ultimoTestRealizado]) }}">
+                            <a href="{{ route('test', ['idTest' => $ultimoTestRealizado->id_test, 'name' => $ultimoTestRealizado->intento]) }}">
                                 <section class="row bg-primary m-4 d-flex justify-content-center">
                                     <div
                                         class="col-6 col-sm-3 col-lg-2 d-left p-2">{{ $ultimoTestRealizado->test->nombre_test }}</div>

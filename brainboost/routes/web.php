@@ -70,12 +70,13 @@ Route::get('/materia/{nombreMateria}', [MateriaController::class, 'index'])->nam
 
 // Ruta genérica para las páginas de los tests de las diferentes materias
 //Route::get('/test/{idTest}', [TestController::class, 'showTest'])->name("test")->middleware('guest'); // Después el caso general (rutas parametrizadas)
-Route::get('/test/{idTest}', [TestController::class, 'showTest'])->name("test"); // Después el caso general (rutas parametrizadas)
+Route::get('/test/{idTest}', [TestController::class, 'showTest'])->name("test")->middleware('auth'); // Después el caso general (rutas parametrizadas)
 
 // Ruta para guardar y mostrar informacion sobre intentos test
 Route::post('/intentos_pregunta', [IntentosPreguntaController::class, 'store']); // Ruta que guarda informacion
 //Route::post('/intentos_pregunta', [IntentosPreguntaController::class, 'show']); // Ruta que obtiene informacion por id
 
 Route::get('/addfaketest', [Intentos_testController::class, 'addFakeData']); // Ruta para añadir test falso
+Route::get('/pruebatest', function () { return view('prueba'); }); // Ruta para añadir test falso
 
 

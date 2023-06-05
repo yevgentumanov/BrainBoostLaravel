@@ -7,8 +7,10 @@
     <title></title>
 </head>
 <body>
-    <?php
-        `git pull | cd /var/www/html/clinicadentalsanandres.com/BrainBoostLaravel/brainboost`;
-    ?>
+<!-- Llamada a popularesTestRealizados()  -->
+@php
+    $popularesTests = app('App\Http\Controllers\VIntentosTestController')->popularesTestRealizados();
+    dd($popularesTests);
+@endphp
 </body>
 </html>

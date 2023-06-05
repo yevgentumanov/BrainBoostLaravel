@@ -90,7 +90,7 @@ footer a {
 /*****************************************************************************/
 
 .row {
-    margin: 0 !important;
+    /*margin: 0 !important;*/
 }
 
 .cabecera {
@@ -165,6 +165,10 @@ footer a {
     max-width: 400px;
 }
 
+#barra-navegacion {
+
+}
+
 /*****************************************************************************/
 /*****************************************************************************/
 /*****************************************************************************/
@@ -209,13 +213,6 @@ nav>div>a>img {
     height: 40px;
 }
 
-.form-control {
-    width: 26vw !important;
-    background-color: var(--color10) !important;
-    border-color: #03231d;
-    color: #03231d;
-}
-
 .navbar-toggler {
     /* background-color: var(--color2) !important; */
     border: 2px solid var(--color2) !important;
@@ -226,6 +223,13 @@ nav>div>a>img {
 .navbar-toggler-icon {
     color: #03231d !important;
     /* background-color: var(--color2) !important; */
+}
+
+.form-control {
+    width: 26vw !important;
+    background-color: var(--color10) !important;
+    border-color: #03231d;
+    color: #03231d;
 }
 
 /****************************************************************************/

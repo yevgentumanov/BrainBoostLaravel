@@ -1,29 +1,32 @@
 <!-- Barra de la cabecera con los social-links -->
 <header>
-    <!-- Barra de navegación con el logotipo, la barra de búsqueda y el login -->
-    <nav class="row navbar navbar-expand-sm bg-ligth navbar-dark">
-        <!-- Logo -->
-        <div class="col-4">
-            <a class="navbar-brand" href="{{ route('index') }}">
-                <img src="{!! asset('images/Logo_letras_chicas_con_sombra en blanco y negro-trayectos-v3.svg') !!}" alt="logo">
-            </a>
-        </div>
+    <div class="cabecera-log">
+        <!-- Barra de navegación con el logotipo, la barra de búsqueda y el login -->
+        <nav class="row navbar navbar-expand-sm cabecera-log-nav">
+            <!-- Logo -->
+            <div class="col-4">
+                <a class="navbar-brand" href="{{ route('index') }}">
+                    <img src="{!! asset('images/Logo_letras_chicas_con_sombra en blanco y negro-trayectos-v3.svg') !!}" alt="logo">
+                </a>
+            </div>
 
-        <div class="col-6 d-flex justify-content-end">
-            <form class="form-inline" action="/action_page.php">
-                <input class="form-control mr-2" type="text" placeholder="Buscar">
-                <button class="boton-arrow" type="submit">Buscar</button>
+            <div class="col-6 d-flex justify-content-end">
+                <form class="form-inline" action="/action_page.php">
+                    <input class="form-control mr-2" type="text" placeholder="Buscar">
+                    <button class="boton-arrow" type="submit">Buscar</button>
 
-                <button class="btn btn-success" type="button" onclick="sendDataToRoute()">Prueba enviar</button>
-            </form>
-        </div>
+                    <button class="btn btn-success" type="button" onclick="sendDataToRoute()">Prueba enviar</button>
+                </form>
+            </div>
 
-        <!-- Botones de cuenta de usuario -->
-        <div class="col-2">
-            <a href="{{ route('logout') }}" class="btn m-2 w-100 sombra boton-sliding-arriba">Log off, {{ auth()->user()->nombre_usuario }}</a>
-            <a href="{{ route('cuenta') }}" class="btn m-2 w-100 sombra boton-sliding-abajo">Cuenta usuario</a>
-        </div>
-    </nav>
+            <!-- Botones de cuenta de usuario -->
+            <div class="col-2">
+                <a href="{{ route('logout') }}" class="btn m-2 w-100 sombra boton-sliding-arriba bt-log">Log off,
+                    {{ auth()->user()->nombre_usuario }}</a>
+                <a href="{{ route('cuenta') }}" class="btn m-2 w-100 sombra boton-sliding-abajo bt-log">Cuenta usuario</a>
+            </div>
+        </nav>
+    </div>
 
     <!-- Barra de navegación para las materias de la aplicación -->
     <nav class="row navbar bg-dark navbar-light sticky-top">
@@ -78,7 +81,8 @@
         <ul class="collapse navbar-collapse" id="navbarArtes">
             <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Artes']) }}">Artes</a>
             <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Música']) }}">Música</a>
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Artes Visuales']) }}">Artes Visuales</a>
+            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Artes Visuales']) }}">Artes
+                Visuales</a>
             <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Teatro']) }}">Teatro</a>
         </ul>
         <ul class="collapse navbar-collapse" id="navbarNaturales">

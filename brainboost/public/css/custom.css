@@ -17,14 +17,16 @@
     --color7: #D1EEF0;
     /* secciones */
     --color8: #9EB3B5;
+    --color9: #13585c;
     --color10: white;
 
     --color1_05: #cae6e880;
-    --color2_05: hsla(183, 73%, 32%, 0.75);
+    --color2_05: #16878dbf;
     --color3_05: #5DA36080;
     --color4_05: #A6141B80;
     --color5_05: #FFCCCC80;
     --color6_05: #F8F9FA80;
+    --color6_x: #f8f9fae0;
     /* background-color y test-items */
     --color7_05: #D1EEF080;
     /* secciones */
@@ -38,7 +40,8 @@ body {
 }
 
 main {
-    /*padding: 1em;*/  /* Si se activa se pierde la estructura en la página de presentación */
+    /*padding: 1em;*/
+    /* Si se activa se pierde la estructura en la página de presentación */
 }
 
 section {
@@ -94,6 +97,18 @@ footer a {
 .cabecera {
     background-color: rgb(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
+}
+
+.cabecera-log {
+    background-image: url("../images/mosaico2.jpg");
+    /* Ajusta el tamaño de la imagen para cubrir el bloque */
+    background-size: inherit;
+    /* Repite la imagen en mosaico */
+    background-repeat: repeat;
+}
+
+.cabecera-log-nav {
+    background-color: var(--color6_x);
 }
 
 .container-fluid {
@@ -378,6 +393,15 @@ nav>div>a>img {
 /****************************************************************************/
 
 /* INICIO DE SESION */
+.bt-log {
+    color: var(--color9) !important;
+    background: var(--color1) !important;
+    border: 2px solid var(--color2) !important;
+}
+
+.bt-log:hover {
+    color: var(--color6) !important;
+}
 
 .boton-sliding-abajo {
     min-width: 130px;

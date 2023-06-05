@@ -45,7 +45,14 @@
         testctrl: TestController
     });
     const sended = ref(false)
+    let intervalo;
     
+    /*==============================================
+         Establece el tiempoInicio en TestModel
+    ================================================*/
+    // props.testobj.setTiempoInicio();
+    // intervalo = setInterval(props.testobj.setTiempoFin, 1000);
+
     // const testObj = ref(new TestModel.Test());
     // const testCtrl = ref(new TestController(props.testobj));
 
@@ -83,8 +90,13 @@
     /*==============================================
                     MÉTODOS
     ===============================================*/
+    // function sumarTiempo() {
+
+    // }
+
     function sendTest(e) {
         if (!sended.value) {
+            clearInterval(intervalo);
             props.testctrl.sendInfoIntentoTestUsuario((response) => {
                 console.log("Hasta aquí funciona el código: el servidor no ha dado error");
                 // console.log(response);

@@ -1,8 +1,12 @@
 {
   "public/css/custom.css": {
-    "file": "assets/custom-1e754d44.css",
+    "file": "assets/custom-307bc328.css",
     "isEntry": true,
     "src": "public/css/custom.css"
+  },
+  "public/images/mosaico2.jpg": {
+    "file": "assets/mosaico2-9c9cafa1.jpg",
+    "src": "public/images/mosaico2.jpg"
   },
   "public/images/presentacion0.jpg": {
     "file": "assets/presentacion0-b1e53a76.jpg",
@@ -36,7 +40,7 @@
     "css": [
       "assets/TestVue-e3b0c442.css"
     ],
-    "file": "assets/TestVue-d4e0be84.js",
+    "file": "assets/TestVue-62268c29.js",
     "isEntry": true,
     "src": "public/js/TestVue.js"
   }

@@ -1,4 +1,4 @@
-<section class="row bg-primary m-4 p-4">
+<section id="test-relacionados" class="row bg-primary seccion-mb p-4">
     <div class="col-12 d-flex justify-content-center">
         <h2>Test relacionados</h2>
     </div>

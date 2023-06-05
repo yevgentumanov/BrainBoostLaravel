@@ -40,8 +40,7 @@ body {
 }
 
 main {
-    /*padding: 1em;*/
-    /* Si se activa se pierde la estructura en la página de presentación */
+    background: url("../images/mosaico2.jpg");
 }
 
 section {
@@ -139,6 +138,14 @@ footer a {
 
 .sacudida:hover {
     animation: sacudido 1s ease 0s 1 normal forwards;
+}
+
+.seccion-mb {
+    margin-bottom: 2em !important
+}
+
+.cuerpo {
+    background-color: var(--color6_x);
 }
 
 /*****************************************************************************/
@@ -542,6 +549,28 @@ nav>div>a>img {
     100% {
         transform: translateY(-150px) translateZ(130px) rotateX(-90deg);
         transform-origin: bottom center
+    }
+}
+
+/* TESTS */
+.realzado {
+    color: var(--color2) !important;
+    font-weight: bold;
+    text-decoration: none !important;
+}
+.realzado:hover {
+    font-weight: bold;
+    color: var(--color9) !important;
+    animation: scale-up-center .2s cubic-bezier(.39, .575, .565, 1.000) both
+}
+
+@keyframes scale-up-center {
+    0% {
+        transform: scale(1, 1)
+    }
+
+    100% {
+        transform: scale(1.02, 1.08)
     }
 }
 

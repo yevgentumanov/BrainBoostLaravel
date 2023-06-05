@@ -62,8 +62,10 @@
     <title>BrainBoost</title>
 </head>
 
+
 <body>
     <div class="container-fluid">
+
         {{-- Inserción de la cabecera --}}
         @auth
             @include('fragmentos.cabeceraLogoff')

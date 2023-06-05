@@ -3,7 +3,7 @@
 @section('main')
 
     <main class="row">
-        <div class="col-12">
+        <div class="row p-4 cuerpo">
             @auth
 
             {{-- Inserción del bloque de test Recientes si el usuario esta logueado--}}

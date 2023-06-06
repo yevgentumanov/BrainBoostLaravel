@@ -11,6 +11,13 @@ use Illuminate\Database\Eloquent\Builder;
 
 class TestController extends Controller
 {
+    public function incrementarVisitas($id)
+    {
+        $test = Test::findOrFail($id);
+        $test->increment('numero_visitas');
+
+        return response()->json(['message' => 'Visits incremented successfully.']);
+    }
     public function showTest(Request $request) {
         /*-- Variables --*/
         $idTest = $request->idTest; // Recupera el id del test del parámetro de la ruta
@@ -21,7 +28,7 @@ class TestController extends Controller
             return view("test");
         } else {
             abort(404);
-        }        
+        }
     }
 
     /**

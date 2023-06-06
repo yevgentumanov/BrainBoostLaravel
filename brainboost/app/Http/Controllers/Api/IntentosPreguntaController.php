@@ -71,26 +71,35 @@ class IntentosPreguntaController extends Controller
             'preguntasTestRealizado' => $preguntasTestRealizado
         ]);
     }
-    public function sendCompletedTest(Request $request)
+
+    public function preguntasRealizadasIntento(Request $request)
     {
-        // Get the user ID from the authenticated user
-        $userId = $request->user()->id;
+        $userId = $request->input('id_usuario');
+        $testId = $request->input('id_test');
+        $intento = $request->input('intento');
 
-        $intentos_preguntas_id_intento_test = $request->intentos_preguntas_id_intento_test;
-        $intentos_tests_id_test = $request->intentos_tests_id_test;
+        $intentosPreguntas = Intentos_test::join('intentos_preguntas', 'intentos_tests.id', '=', 'intentos_preguntas.id_intento_test')
+            ->where('intentos_tests.id_usuario', $userId)
+            ->where('intentos_tests.id_test', $testId)
+            ->where('intentos_tests.intento', $intento)
+            ->select(
+                'intentos_tests.id_usuario',
+                'intentos_tests.id_test',
+                'intentos_tests.intento',
+                'intentos_tests.dificultad',
+                'intentos_tests.modalidad',
+                'intentos_tests.fecha_realizacion',
+                'intentos_tests.tiempo_inicio',
+                'intentos_tests.tiempo_fin',
+                'intentos_preguntas.id_pregunta',
+                'intentos_preguntas.nota_pregunta',
+                'intentos_preguntas.respuestas'
+            )
+            ->get();
 
-        $answeredQuestions = Intentos_pregunta::whereHas('intentoTest', function ($query) use ($intentos_preguntas_id_intento_test, $userId, $intentos_tests_id_test) {
-            $query->where('id_intento_test', $intentos_preguntas_id_intento_test) // intentos_preguntas.id_intento_test
-                ->where('id_usuario', $userId) // intentos_tests.id_usuario
-                ->where('id_test', $intentos_tests_id_test); // intentos_tests.id_test
-        })->get();
-
-        if ($answeredQuestions->isEmpty()) {
-            return response()->json(['message' => 'Registro no encontrado'], 404);
-        }
-
-        return response()->json(['data' => $answeredQuestions], 200);
+        return response()->json(['data' => $intentosPreguntas], 200);
     }
+
     public function show(Request $request, string $id)
     {
         $intentosPregunta = Intentos_pregunta::find($id);

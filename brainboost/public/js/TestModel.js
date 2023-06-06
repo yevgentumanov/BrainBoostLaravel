@@ -564,7 +564,7 @@ export class Test {
      */
     validaFechaByDate(fecha) {
         let fechaActual = new Date();
-        fechaActual.setUTCHours(fecha.getHours(), fecha.getMinutes(), fecha.getSeconds(), fecha.getMilliseconds());
+        fechaActual.setUTCHours(fechaActual.getHours(), fechaActual.getMinutes(), fechaActual.getSeconds(), fechaActual.getMilliseconds());
         if (fecha instanceof Date == false) {
             return false;
         }

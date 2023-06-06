@@ -1,5 +1,5 @@
 <template>
-    <div :class="['row', 'm-4']">
+    <div id="eligeDificultad" :class="['row', 'm-4']">
         <section class="col-12 p-2 bg-primary">
             <h5>Elige la dificultad</h5>
         </section>
@@ -14,8 +14,26 @@
             </fieldset>
         </section> -->
         <div class="col-12 mt-4 d-flex justify-content-between">
-            <button class="btn btn-light" @click="facil">Fácil</button>
-            <button class="btn btn-light" @click="dificil">Difícil</button>
+            <div class="d-flex flex-column justify-content-between">
+                <button class="btn btn-light" @click="facil">Fácil</button>
+                <button class="btn btn-outline-light" 
+                        data-toggle="popover" 
+                        data-trigger="focus" 
+                        title="Fácil" 
+                        :data-content="explicacionModoFacil">
+                    ?
+                </button>
+            </div>
+            <div class="d-flex flex-column justify-content-between">
+                <button class="btn btn-light" @click="dificil">Difícil</button>
+                <button class="btn btn-outline-light" 
+                        data-toggle="popover" 
+                        data-trigger="focus" 
+                        title="Difícil" 
+                        :data-content="explicacionModoDificil">
+                    ?
+                </button>
+            </div>
         </div>
         <!-- <div class="col-12 mt-4 text-right">
             <button class="btn btn-light">Empezar test</button>
@@ -30,6 +48,12 @@
         },
         mounted() {
             console.log("mountedEligeDificultad"); // Mera bandera de debug
+            /*-- Habilita los popovers de Bootstrap --*/
+            $(function () {
+                $('[data-toggle="popover"]').popover({
+                    container: '#eligeDificultad'
+                })
+            })
         }
     }
 </script>
@@ -46,6 +70,9 @@
         testobj: TestModel.Test,
         testctrl: TestController
     });
+
+    const explicacionModoFacil = `En el dificultad "Fácil", podrás ver tu nota (tu progreso) conforme vas respondiendo a las preguntas. Se introducirán "modificadores": por ejemplo, las respuestas numéricas (como fechas), se darán con un control deslizante para mayor facilidad.`;
+    const explicacionModoDificil = `En el dificultad "Difícil", la nota de cada pregunta no se da instantáneamente. Recibirás tu nota al enviar el test. No se introducirán "modificadores": por ejemplo, las respuestas numéricas (por ejemplo, fechas), se introducirán en una caja de texto. En las respuestas de huecos, los huecos aparecerán en orden aleatorio.`;
 
     /*==============================================
                     MÉTODOS

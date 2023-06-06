@@ -1,0 +1,36 @@
+SELECT preguntas.* 
+FROM `preguntas`
+LEFT JOIN tests ON preguntas.id_test = tests.id
+LEFT JOIN materias ON tests.id_materia = materias.id
+WHERE materias.nombre_materia = "Historia"
+
+
+
+
+
+<div class="d-flex flex-column justify-content-between">
+                <button class="btn btn-light" @click="facil">Fácil</button>
+                <button class="btn btn-outline-light" 
+                        data-toggle="popover" 
+                        data-trigger="focus" 
+                        title="Fácil" 
+			data-content='En el dificultad "Fácil", podrás ver tu nota (tu progreso) conforme vas respondiendo a las preguntas.&#13;Se introducirán "modificadores": por ejemplo, las respuestas numéricas (como fechas), se darán con un control deslizante para mayor facilidad.'>
+                        :data-content="explicacionModoFacil">
+                    ?
+                </button>
+            </div>
+            <div class="d-flex flex-column justify-content-between">
+                <button class="btn btn-light" @click="dificil">Difícil</button>
+                <button class="btn btn-outline-light" 
+                        data-toggle="popover" 
+                        data-trigger="focus" 
+                        title="Difícil" 
+			data-content='En el dificultad "Difícil", la nota de cada pregunta no se da instantáneamente. Recibirás tu nota al enviar el test.&#13;No se introducirán "modificadores": por ejemplo, las respuestas numéricas (por ejemplo, fechas), se introducirán en una caja de texto. En las respuestas de huecos, los huecos aparecerán en orden aleatorio.'>
+                        :data-content="explicacionModoDificil">
+                    ?
+                </button>
+            </div>
+
+
+    const explicacionModoFacil = `En el dificultad "Fácil", podrás ver tu nota (tu progreso) conforme vas respondiendo a las preguntas.\nSe introducirán "modificadores": por ejemplo, las respuestas numéricas (como fechas), se darán con un control deslizante para mayor facilidad.`;
+    const explicacionModoDificil = `En el dificultad "Difícil", la nota de cada pregunta no se da instantáneamente. Recibirás tu nota al enviar el test.\nNo se introducirán "modificadores": por ejemplo, las respuestas numéricas (por ejemplo, fechas), se introducirán en una caja de texto. En las respuestas de huecos, los huecos aparecerán en orden aleatorio.`;

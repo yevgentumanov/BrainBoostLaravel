@@ -81,8 +81,11 @@ export class TestController {
         /*-- Obtiene los datos del servidor --*/
         // datos cabecera (sustituir segundo null): {id: idTest, pagina: 1}
         // pagina es un atributo que indica el nº de página que se está mostrando. Los tests se van cargando en páginas, por ejemplo, de 10 en 10 preguntas, para reducir la carga del servidor cuando se trate de tests muy largos.
+        const rutaRelativa = calcularRuta(Rutas.RUTA_API_PREGUNTAS);
+        console.log(rutaRelativa);
         return new Promise((resolve, reject) => {
-            obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_PREGUNTAS.url, Rutas.RUTA_API_PREGUNTAS.method, null, { id: idTest })
+            // obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_PREGUNTAS.url, Rutas.RUTA_API_PREGUNTAS.method, null, { id: idTest })
+            obtenerJSON(rutaRelativa, Rutas.RUTA_API_PREGUNTAS.method, null, { id: idTest })
                 .then(response => {
                     response.forEach(pregunta => {
                         // if (this.test.idTest == null) {

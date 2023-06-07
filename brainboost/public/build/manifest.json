@@ -1,6 +1,6 @@
 {
   "public/css/custom.css": {
-    "file": "assets/custom-4233c7b2.css",
+    "file": "assets/custom-7a8b2b35.css",
     "isEntry": true,
     "src": "public/css/custom.css"
   },
@@ -40,7 +40,7 @@
     "css": [
       "assets/TestVue-8033e9a5.css"
     ],
-    "file": "assets/TestVue-d6f1e0d4.js",
+    "file": "assets/TestVue-e3a26507.js",
     "isEntry": true,
     "src": "public/js/TestVue.js"
   }

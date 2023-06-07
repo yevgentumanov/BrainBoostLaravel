@@ -3,10 +3,8 @@
 use App\Http\Controllers\Api\IntentosPreguntaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PreguntasController;
-//use App\Http\Controllers\Api\BorrarTestUsuarioController;
 use App\Http\Controllers\Api\MateriasController;
 use App\Http\Controllers\Api\TestController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -19,31 +17,14 @@ use App\Http\Controllers\Api\TestController;
 |
 */
 
-/*--  Ver: https://stackoverflow.com/questions/54721576/laravel-route-apiresource-difference-between-apiresource-and-resource-in-route --*/
-// Route::apiResource('pregunta', PreguntasController::class);
-// En TestModel.js se necesita enviar por get/post para que se hagan de manera correcta las solicitudes a la API
-
 // Devuelve todas las materias
-Route::get("materias", [MateriasController::class, "show"]); // devuelve materia con ID de materia indicado
-Route::get("categoria", [MateriasController::class, "showCategoria"]); // devuelve materia con ID de materia indicado
+Route::get("materias", [MateriasController::class, "show"]);
 
-// Ruta de preguntas
-Route::get("pregunta", [PreguntasController::class, "show"]); // devuelve todas las preguntas o las preguntas del ID test
+// Devuelve las preguntas
+Route::get("pregunta", [PreguntasController::class, "show"]);
 
-// Ruta de test
-Route::get("test", [TestController::class, "show"]); // devuelve todas las preguntas de un test con ID indicado
+// Devuelve los tests
+Route::get("test", [TestController::class, "show"]);
 
-// Route::group(['prefix' => 'api'], function () {
-//     Route::get('/test-usuarios', [BorrarTestUsuarioController::class, 'index']);
-//     Route::post('/test-usuarios', [BorrarTestUsuarioController::class, 'store']);
-//     Route::get('/test-usuarios/{id}', [BorrarTestUsuarioController::class, 'show']);
-//     Route::put('/test-usuarios/{id}', [BorrarTestUsuarioController::class, 'update']);
-//     Route::delete('/test-usuarios/{id}', [BorrarTestUsuarioController::class, 'destroy']);
-// });
-
-Route::get('/fake', [IntentosPreguntaController::class, 'addFakeData']);
-Route::get('/intentos-preguntas', [IntentosPreguntaController::class, 'index']);
+// Guarda la informacion sobre el test y las preguntas realizadas por el usuario
 Route::post('/intentos-preguntas/insert', [IntentosPreguntaController::class, 'store']);
-Route::post('/intentos-preguntas/{id}', [IntentosPreguntaController::class, 'show']);
-Route::post('/intentos-preguntas/{id}/update', [IntentosPreguntaController::class, 'update']);
-Route::post('/intentos-preguntas/{id}/delete', [IntentosPreguntaController::class, 'destroy']);

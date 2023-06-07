@@ -167,12 +167,13 @@
     <!-- Formulario de inicio de sesión -->
     <div id="c-login" class="d-none container superpuesto" tabindex="0">
         <div class="row justify-content-center">
-            <div id="divlogin" class="col-7 p-0">
+            <div id="divlogin" class="col-md-7">
                 <div class="card sombra_borde card-portada">
+                    <div class="row justify-content-end">
+                        <div class="exit-card">X</div>
+                        {{-- <a class="exit-card" href="{{ route('index') }}">X</a> --}}
+                    </div>
                     <div class="card-body pt-0">
-                        <div class="row d-flex justify-content-end">
-                            <div class="exit-card text-right p-0">X</div>
-                        </div>
                         <form action="{{ route('logintoapp') }}" method="POST">
                             @csrf
                             @if (session('success'))
@@ -194,13 +195,9 @@
                                 <label for="password">Contraseña</label>
                                 <input type="password" id="password" name="password" class="form-control" required>
                             </div>
-                            <div class="row justify-content-center pt-3 pl-5 pr-5">
-                                <div class="col-12 pb-4">
-                                    <button type="submit" class="btn btn-5">Iniciar sesión</button>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-5">Recuperar contraseña</button>
-                                </div>
+                            <div class="row justify-content-center">
+                                <button type="submit" class="btn btn-success mr-3 ">Iniciar sesión</button>
+                                <button type="submit" class="btn btn-default ml-3 ">Recuperar contraseña</button>
                             </div>
                         </form>
                     </div>
@@ -216,12 +213,13 @@
     <!-- Formulario de registro -->
     <div id="c-registro" class="d-none container superpuesto" tabindex="1">
         <div class="row justify-content-center">
-            <div id="divregistro" class="col-7">
+            <div id="divregistro" class="col-md-6">
                 <div class="card sombra_borde card-portada">
+                    <div class="row justify-content-end">
+                        <div class="exit-card">X</div>
+                        {{-- <a class="exit-card" href="{{ route('index') }}">X</a> --}}
+                    </div>
                     <div class="card-body pt-0">
-                        <div class="row d-flex justify-content-end">
-                            <div class="exit-card text-right p-0">X</div>
-                        </div>
                         <form action="{{ route('registrar') }}" method="POST">
                             @csrf
                             @if (session('warning'))
@@ -237,7 +235,7 @@
 
                             <div class="form-group">
                                 <label for="email">Correo electrónico</label>
-                                <input type="email" id="u-email" name="email" class="form-control" required>
+                                <input type="email" id="email" name="email" class="form-control" required>
                             </div>
 
                             <div class="form-group">
@@ -248,17 +246,17 @@
 
                             <div class="form-group">
                                 <label for="password">Contraseña</label>
-                                <input type="password" id="u-password" name="password" class="form-control" required>
+                                <input type="password" id="password" name="password" class="form-control" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="password_confirmation">Confirmar contraseña</label>
-                                <input type="password" id="u-password_confirmation" name="password_confirmation"
+                                <input type="password" id="password_confirmation" name="password_confirmation"
                                     class="form-control" required>
                             </div>
 
-                            <div class="row justify-content-center pt-3 pl-5 pr-5">
-                                <button type="submit" class="btn btn-5">Enviar</button>
+                            <div class="row justify-content-center">
+                                <button type="submit" class="btn btn-primary">Enviar</button>
                             </div>
 
                         </form>

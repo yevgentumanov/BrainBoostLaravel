@@ -7,10 +7,10 @@
 <script>
     export default {
         created() {
-            console.log("createdModal"); // Mera bandera de debug
+            console.log("createdAlert"); // Mera bandera de debug
         },
         mounted() {
-            console.log("mountedModal"); // Mera bandera de debug
+            console.log("mountedAlert"); // Mera bandera de debug
         }
     }
 </script>

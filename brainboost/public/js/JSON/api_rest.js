@@ -81,7 +81,7 @@ function obtenerJSON(url, metodo = "GET", headers = null, datos = null, todoDone
                 if (datos != null) { //&& datos instanceof Object) {
                     config.body = datos;
                 }
-                console.log(config);
+                // console.log(config);
                 /*-- Realiza la petición al servidor --*/
                 objFetch = fetch(url, config)
                     .then(response => {

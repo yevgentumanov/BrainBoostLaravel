@@ -1,17 +1,44 @@
 <template>
-    <div id="eligeToDo" :class="['row', 'm-4']">
+    <div id="eligeModalidad" :class="['row', 'm-4']">
         <section class="col-12 p-2 bg-primary">
             <h5>Elige una opción</h5>
         </section>
         <div class="col-12 mt-4 d-flex justify-content-between">
             <!-- <button class="btn btn-light" @click="estudiarTest">Estudiar test</button> -->
-            <modal txtbtninvoker="Estudiar test" 
-                   classbtninvoker="btn-dark" 
-                   title="Función no implementada" 
-                   message="La función de previsualización del test para poder estudiarlo aún no ha sido implementada.">
-            </modal>
-            <button class="btn btn-light" @click="practicarTest">Practicar test</button>
-            <button class="btn btn-light" @click="desafioTest">Desafío test</button>
+            <div class="d-flex flex-column justify-content-between">
+                <modal txtbtninvoker="Estudiar test" 
+                       classbtninvoker="btn-dark" 
+                       title="Función no implementada" 
+                       message="La función de previsualización del test para poder estudiarlo aún no ha sido implementada.">
+                </modal>
+                <button class="btn btn-outline-light" 
+                        data-toggle="popover" 
+                        data-trigger="focus" 
+                        title="Estudiar" 
+                        data-content='En el modo "Estudiar" podrás ver el contenido del test para poder estudiártelo antes de enfrentarte a él.'>
+                    ?
+                </button>
+            </div>
+            <div class="d-flex flex-column justify-content-between">
+                <button class="btn btn-light" @click="practicarTest">Practicar test</button>
+                <button class="btn btn-outline-light" 
+                        data-toggle="popover" 
+                        data-trigger="focus" 
+                        title="Practicar" 
+                        data-content='En el modo "Practicar" te enfrentarás al test, con intentos ilimitados para cada pregunta. ¡A practicar y entrenar!'>
+                    ?
+                </button>
+            </div>
+            <div class="d-flex flex-column justify-content-between">
+                <button class="btn btn-light" @click="desafioTest">Desafío test</button>
+                <button class="btn btn-outline-light" 
+                        data-toggle="popover" 
+                        data-trigger="focus" 
+                        title="Desafío" 
+                        data-content='En el modo "Desafío" te enfrentarás al test, con un único intento por pregunta. ¡Ve a por todas!'>
+                    ?
+                </button>
+            </div>
         </div>
     </div>
 </template>
@@ -27,6 +54,12 @@
         },
         mounted() {
             console.log("mountedEligeModalidad"); // Mera bandera de debug
+            /*-- Habilita los popovers de Bootstrap --*/
+            $(function () {
+                $('[data-toggle="popover"]').popover({
+                    container: '#eligeModalidad'
+                })
+            })
         }
     }
 </script>

@@ -40,6 +40,7 @@ export const ErroresTest = [
     "__ERR_QUESTION_ID_INVALID",
     "__ERR_QUESTION_INVALID",
     "__ERR_RESPONSE_INVALID",
+    "__ERR_RESPONSES_INVALID", // Para cuando se pasa un array entero de respuestas del usuario
     "__ERR_TEST_NAME_INVALID",
     "__ERR_TEST_DESCRIPTION_INVALID",
     "__ERR_MARK_INVALID", // Nota de test inválida
@@ -101,51 +102,56 @@ export const MensajesErrorTest = (() => {
     mensajes[ErroresTest[6]] = {
         errorName: ErroresTest[6],
         errorCode: CodigosErrorTest[6],
-        message: "Se esperaba una cadena de texto con el nombre del test."
-    }
+        message: "Se esperaba un array de respuestas con el mismo nº de posiciones que el array interno de preguntas."
+    },
     mensajes[ErroresTest[7]] = {
         errorName: ErroresTest[7],
         errorCode: CodigosErrorTest[7],
-        message: "Se esperaba una cadena de texto con la descripción del test."
+        message: "Se esperaba una cadena de texto con el nombre del test."
     }
     mensajes[ErroresTest[8]] = {
         errorName: ErroresTest[8],
         errorCode: CodigosErrorTest[8],
-        message: "Se esperaba un número mayor entre 0 y 10 como nota de test."
+        message: "Se esperaba una cadena de texto con la descripción del test."
     }
     mensajes[ErroresTest[9]] = {
         errorName: ErroresTest[9],
         errorCode: CodigosErrorTest[9],
-        message: "Has especificado una fecha de realización que no es válida."
+        message: "Se esperaba un número mayor entre 0 y 10 como nota de test."
     }
     mensajes[ErroresTest[10]] = {
         errorName: ErroresTest[10],
         errorCode: CodigosErrorTest[10],
-        message: "Has especificado una fecha de inicio de test que no es válida. La hora de inicio de test no puede ser posterior a su hora de finalización."
+        message: "Has especificado una fecha de realización que no es válida."
     }
     mensajes[ErroresTest[11]] = {
         errorName: ErroresTest[11],
         errorCode: CodigosErrorTest[11],
-        message: "Se ha producido un error al intentar descargar la información del test del servidor."
+        message: "Has especificado una fecha de inicio de test que no es válida. La hora de inicio de test no puede ser posterior a su hora de finalización."
     }
     mensajes[ErroresTest[12]] = {
         errorName: ErroresTest[12],
         errorCode: CodigosErrorTest[12],
-        message: "Se ha producido un error al intentar descargar la información de las preguntas del servidor."
+        message: "Se ha producido un error al intentar descargar la información del test del servidor."
     }
     mensajes[ErroresTest[13]] = {
         errorName: ErroresTest[13],
         errorCode: CodigosErrorTest[13],
-        message: "Se ha producido un error al intentar descargar la información del intento del test del servidor."
-    },
+        message: "Se ha producido un error al intentar descargar la información de las preguntas del servidor."
+    }
     mensajes[ErroresTest[14]] = {
         errorName: ErroresTest[14],
         errorCode: CodigosErrorTest[14],
-        message: "La modalidad de test especificada no es válida."
+        message: "Se ha producido un error al intentar descargar la información del intento del test del servidor."
     },
     mensajes[ErroresTest[15]] = {
         errorName: ErroresTest[15],
         errorCode: CodigosErrorTest[15],
+        message: "La modalidad de test especificada no es válida."
+    },
+    mensajes[ErroresTest[16]] = {
+        errorName: ErroresTest[16],
+        errorCode: CodigosErrorTest[16],
         message: "La dificultad de test especificada no es válida."
     }
 
@@ -188,8 +194,9 @@ export class Test {
         this.respuestas = null; // (array de objetos JSON) (se rescatan de la BB.DD / se van creando/modificando/eliminando respuestas con los métodos addRespuesta/modifyRespuesta/)
         this.dificultad = null;
         this.modalidad = null;
-        this.tiempoInicio = null; // To do: guarda una marca temporal de cuándo se inició el test.
-        this.tiempoFin = null; // To do: guarda una marca temporal de cuándo se terminó el test.
+        this.tiempoInicio = null;
+        this.tiempoFin = null;
+        this.intentos = null; // To do (getters, setters y obtencion del servidor): (number) almacenará el nº de intentos realizado por el usuario (solo se puede rescatar de la BB.DD)
         this.nota = null; // (number) (se rescata de la BB.DD / se asigna con el setter desde el controlador)
         this.notasPreguntas = null // (array) Guarda las notas individuales por cada pregunta
         this.fechaRealizacion = null; // (Date) (se rescata de la BB.DD / se asigna con el setter desde el controlador)
@@ -331,9 +338,9 @@ export class Test {
                     return false;
                 }
                 /*-- Comprueba que no tengan retroalimentación --*/
-                if (typeof(preguntaJSON.retroalimentacion) != "string" || preguntaJSON.retroalimentacion.length > 0) { // To do: verificar si finalmente esto será así
-                    return false;
-                }
+                // if (typeof(preguntaJSON.retroalimentacion) != "string" || preguntaJSON.retroalimentacion.length > 0) { // To do: verificar si finalmente esto será así
+                //     return false;
+                // }
                 /*-- Comprueba los datos que contienen estas propiedades de la pregunta --*/
                 if (typeof(preguntaJSON.datos_pregunta.respuesta) != "string") {
                     return false;
@@ -402,6 +409,7 @@ export class Test {
      * @param {number} idPregunta - (Opcional) Especifica el id de la pregunta (índice del array interno). Para una validación más exhaustiva, es recomendable rellenar este argumento.
      */
     validaRespuesta(respuestaJSON, idPregunta = null) {
+        if (respuestaJSON == null) return true;
         if (typeof(respuestaJSON) != "object") {
             return false;
         }
@@ -465,6 +473,17 @@ export class Test {
                     
                     break;
             }
+        }
+        return true;
+    }
+
+    /**
+     * Método que permite validar un array de respuestas dadas por el usuario.
+     * @param {Array} arrRespuestas - Especifica un array con las respuestas del usuario.
+     */
+    validaRespuestas(arrRespuestas) {
+        if (!Array.isArray(arrRespuestas) || arrRespuestas.length != this.size) {
+            return false;
         }
         return true;
     }
@@ -564,7 +583,7 @@ export class Test {
      */
     validaFechaByDate(fecha) {
         let fechaActual = new Date();
-        fechaActual.setUTCHours(fecha.getHours(), fecha.getMinutes(), fecha.getSeconds(), fecha.getMilliseconds());
+        fechaActual.setUTCHours(fechaActual.getHours(), fechaActual.getMinutes(), fechaActual.getSeconds(), fechaActual.getMilliseconds());
         if (fecha instanceof Date == false) {
             return false;
         }
@@ -634,12 +653,10 @@ export class Test {
         /*-- Realiza las validaciones --*/
         if (!this.validaPregunta(pregunta)) throw new Error();
         /*-- Realiza la operación --*/
-        if (this.preguntas.length < this.size) {
-            this.preguntas.push(pregunta);
-        } else {
-            this.preguntas.push(pregunta);
+        if (this.preguntas.length >= this.size) {
             this.size++;
         }
+        this.preguntas.push(pregunta);
     }
 
     /**
@@ -878,6 +895,15 @@ export class Test {
      */
     getRespuestas() {
         return this.respuestas;
+    }
+
+    /**
+     * Método que permite guardar un array entero de respuestas dadas por el usuario.
+     * @param {Array} respuestas - Especifica un array con las respuestas del usuario.
+     */
+    setRespuestas(respuestas) {
+        if (!this.validaRespuestas(respuestas)) throw new Error(MensajesErrorTest["__ERR_RESPONSES_INVALID"].message);
+        this.respuestas = respuestas;
     }
 
     /**

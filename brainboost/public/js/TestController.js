@@ -1,10 +1,11 @@
 /**
  * Fichero donde se implementarán métodos para crear el controlador, es decir, la lógica de la página de test, así como la descarga de preguntas y la subida de respuestas al servidor.
  * @author Santiago
- * @version 24.05.2023
+ * @version 06.06.2023
  */
 
 import {Test} from "./TestModel"
+import {MensajesErrorTest} from "./TestModel"
 export class TestController {
     /**
      * Constructor para TestController.
@@ -44,23 +45,26 @@ export class TestController {
         if (!this.test.validaIdBD(idTest)) throw new Error(MensajesErrorTest["__ERR_TEST_ID_INVALID"].message);
 
         /*-- Obtiene los datos del servidor --*/
-        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_TEST.url, Rutas.RUTA_API_TEST.method, null, { id: idTest })
-            .then(response => {
-                this.test.size = response.cant_preguntas;
-                this.test.setDescripcion(response.descripcion);
-                this.test.fechaCreacion = new Date(response.fecha_creacion);
-                this.test.idTest = response.id;
-                this.test.idMateria = response.id_materia; // No usa setIDMateria, porque este invoca a la validacion, y esta podría tener lugar antes de que se hayan descargado los datos de las materias desde la API
-                this.test.idUsuarioCreador = response.id_usuario_creador;
-                this.test.setNombreTest(response.nombre_test);
-                this.test.nombreUsuarioCreador = response.nombreUsuarioCreador;
-                this.test.numeroVisitas = response.numero_visitas;
-            }).catch(error => {
-                /*-- Descarta que haya dado error --*/
-                console.log(this.test);
-                console.dir(error);
-                throw new Error(`${MensajesErrorTest["__ERR_TEST_INFO_FETCH"].message} Mensaje de error: ${error}`);
-            })
+        return new Promise((resolve, reject) => {
+            obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_TEST.url, Rutas.RUTA_API_TEST.method, null, { id: idTest })
+                .then(response => {
+                    this.test.size = response.cant_preguntas;
+                    this.test.setDescripcion(response.descripcion);
+                    this.test.fechaCreacion = new Date(response.fecha_creacion);
+                    this.test.idTest = response.id;
+                    this.test.idMateria = response.id_materia; // No usa setIDMateria, porque este invoca a la validacion, y esta podría tener lugar antes de que se hayan descargado los datos de las materias desde la API
+                    this.test.idUsuarioCreador = response.id_usuario_creador;
+                    this.test.setNombreTest(response.nombre_test);
+                    this.test.nombreUsuarioCreador = response.nombreUsuarioCreador;
+                    this.test.numeroVisitas = response.numero_visitas;
+                    resolve("OK");
+                }).catch(error => {
+                    /*-- Descarta que haya dado error --*/
+                    // console.log(this.test);
+                    console.dir(error);
+                    reject(`${MensajesErrorTest["__ERR_TEST_INFO_FETCH"].message} Mensaje de error: ${error}`);
+                });
+        });
     }
 
     /**
@@ -77,27 +81,30 @@ export class TestController {
         /*-- Obtiene los datos del servidor --*/
         // datos cabecera (sustituir segundo null): {id: idTest, pagina: 1}
         // pagina es un atributo que indica el nº de página que se está mostrando. Los tests se van cargando en páginas, por ejemplo, de 10 en 10 preguntas, para reducir la carga del servidor cuando se trate de tests muy largos.
-        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_PREGUNTAS.url, Rutas.RUTA_API_PREGUNTAS.method, null, { id: idTest })
-
-            .then(response => {
-                response.forEach(pregunta => {
-                    // if (this.test.idTest == null) {
-                    //     this.test.idTest = response.id_test;
-                    // }
-                    // delete response.id_test;
-                    this.test.idTest = idTest; // Para prevenir que la petición de obtener los datos del test falle
-
-                    /*-- Agrega la pregunta al array de preguntas --*/
-                    pregunta.datos_pregunta = JSON.parse(pregunta.datos_pregunta);
-                    this.test.addPregunta(pregunta);
-
-                    /*-- To do: Debo inicializar el array de respuestas de TestModel a null, pero con la estructura creada --*/
-                    
+        return new Promise((resolve, reject) => {
+            obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_PREGUNTAS.url, Rutas.RUTA_API_PREGUNTAS.method, null, { id: idTest })
+                .then(response => {
+                    response.forEach(pregunta => {
+                        // if (this.test.idTest == null) {
+                        //     this.test.idTest = response.id_test;
+                        // }
+                        // delete response.id_test;
+                        this.test.idTest = idTest; // Para prevenir que la petición de obtener los datos del test falle
+    
+                        /*-- Agrega la pregunta al array de preguntas --*/
+                        pregunta.datos_pregunta = JSON.parse(pregunta.datos_pregunta);
+                        this.test.addPregunta(pregunta);
+                    });
+                    /*-- Settea a null la respuesta correspondiente a la pregunta --*/
+                    for (let i = 0; i < this.test.getSize(); i++) {
+                        this.test.setRespuesta(i, null);
+                    }
+                    resolve("OK");
+                }).catch(error => {
+                    console.dir(error);
+                    reject(`${MensajesErrorTest["__ERR_QUESTIONS_FETCH"].message} Mensaje de error: ${error}`);
                 });
-            }).catch(error => {
-                /*-- Descarta que haya dado error --*/
-                throw new Error(`${MensajesErrorTest["__ERR_QUESTIONS_FETCH"].message} Mensaje de error: ${error}`);
-            });
+        });
     }
 
     /**
@@ -132,20 +139,26 @@ export class TestController {
 
             cuerpo.preguntasTestRealizado.push(objPreparado)
         }
-        
+        console.log(cuerpo.preguntasTestRealizado.length);
+        console.log(cuerpo.preguntasTestRealizado);
+        console.log(this.test.getRespuestas().length);
+        console.log(this.test.getRespuestas());
         /*-- Envía los datos al servidor --*/
         // sended.value = false;
-        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_ENVIO_TEST_REALIZADO.url, Rutas.RUTA_API_ENVIO_TEST_REALIZADO.method, cabeceras, JSON.stringify(cuerpo))
-            .then(response => {
-                if (todoDone instanceof Function) {
-                    todoDone(response);
-                }
-            }).catch(error => {
-                /*-- Descarta que haya dado error --*/
-                console.log(this.test);
-                console.dir(error);
-                // throw new Error(`${MensajesErrorTest["__ERR_TEST_INFO_FETCH"].message} Mensaje de error: ${error}`);
-            })
+        return new Promise((resolve, reject) => {
+            obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_ENVIO_TEST_REALIZADO.url, Rutas.RUTA_API_ENVIO_TEST_REALIZADO.method, cabeceras, JSON.stringify(cuerpo))
+                .then(response => {
+                    if (todoDone instanceof Function) {
+                        todoDone(response);
+                    }
+                    resolve("OK");
+                }).catch(error => {
+                    /*-- Descarta que haya dado error --*/
+                    // console.log(this.test);
+                    console.dir(error);
+                    reject(`${MensajesErrorTest["__ERR_TEST_INFO_FETCH"].message} Mensaje de error: ${error}`);
+                });
+        });
     }
 
     /**

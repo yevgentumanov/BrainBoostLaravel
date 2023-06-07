@@ -1,5 +1,5 @@
 <template>
-    <alerta v-if="sended == true" 
+    <alerta v-if="sended == true || error == true" 
             :classalert="claseAlerta" 
             :message="mensajeAlerta">
     </alerta>
@@ -51,7 +51,8 @@
         testobj: TestModel.Test,
         testctrl: TestController
     });
-    const sended = ref(false)
+    const sended = ref(false);
+    const error = ref(false);
     
     let intervalo;
     
@@ -69,26 +70,34 @@
                 PROPIEDADES COMPUTADAS
     ===============================================*/
     const claseAlerta = computed(() => {
-        if (props.testobj.getNota() < 5) {
-            return "alert-danger";
-        } else if (props.testobj.getNota() >= 5 && props.testobj.getNota() < 7) {
-            return "alert-warning";
-        } else if (props.testobj.getNota() >= 7 && props.testobj.getNota() < 9) {
-            return "alert-success";
+        if (sended.value == true && error.value == false) {
+            if (props.testobj.getNota() < 5) {
+                return "alert-danger";
+            } else if (props.testobj.getNota() >= 5 && props.testobj.getNota() < 7) {
+                return "alert-warning";
+            } else if (props.testobj.getNota() >= 7 && props.testobj.getNota() < 9) {
+                return "alert-success";
+            } else {
+                return "alert-success sobresaliente";
+            }
         } else {
-            return "alert-success sobresaliente";
+            return "alert-danger";
         }
     });
 
     const mensajeAlerta = computed(() => {
-        if (props.testobj.getNota() < 5) {
-            return "Necesitas estudiar";
-        } else if (props.testobj.getNota() >= 5 && props.testobj.getNota() < 7) {
-            return "Debes repasar";
-        } else if (props.testobj.getNota() >= 7 && props.testobj.getNota() < 9) {
-            return "¡Enhorabuena! Has sacado un notable";
+        if (sended.value == true && error.value == false) {
+            if (props.testobj.getNota() < 5) {
+                return "Necesitas estudiar";
+            } else if (props.testobj.getNota() >= 5 && props.testobj.getNota() < 7) {
+                return "Debes repasar";
+            } else if (props.testobj.getNota() >= 7 && props.testobj.getNota() < 9) {
+                return "¡Enhorabuena! Has sacado un notable";
+            } else {
+                return "Are you a BrainBoost warrior?";
+            }
         } else {
-            return "Are you a BrainBoost warrior?";
+            return "Se ha producido un error al enviar tus respuestas al servidor.";
         }
     });
 
@@ -126,18 +135,41 @@
     function sendTest(e) {
         if (!sended.value) {
             clearInterval(intervalo); // Para el cronómetro
-            props.testctrl.sendInfoIntentoTestUsuario((response) => {
-                console.log("Hasta aquí funciona el código: el servidor no ha dado error");
-                // console.log(response);
-                if ("datosTest" in response && "preguntasTestRealizado" in response) {
-                    // window.history.back(); // Para volver a la página anterior
-                    sended.value = true;
-                    // const btn = document.createElement("button");
-                    // btn.setAttribute
-                    e.target.setAttribute("disabled", "disabled")
+            try {
+                props.testctrl.sendInfoIntentoTestUsuario((response) => {
+                    console.log("Hasta aquí funciona el código: el servidor no ha dado error");
+                    // console.log(response);
+                    if ("datosTest" in response && "preguntasTestRealizado" in response) {
+                        // window.history.back(); // Para volver a la página anterior
+                        sended.value = true;
+                        error.value = false;
+                        // const btn = document.createElement("button");
+                        // btn.setAttribute
+                        e.target.setAttribute("disabled", "disabled")
+                        window.scrollTo({top: 0, behavior: "smooth"});
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    sended.value = false;
+                    error.value = true;
                     window.scrollTo({top: 0, behavior: "smooth"});
-                }
-            });
+                    // Reanuda el cronómetro
+                    intervalo = setInterval(() => {
+                        props.testobj.setTiempoFin();
+                        // console.log("Estoy aumentando el tiempo");
+                    }, 1000);
+                });
+            } catch (err) {
+                sended.value = false;
+                error.value = true;
+                window.scrollTo({top: 0, behavior: "smooth"});
+                // Reanuda el cronómetro
+                intervalo = setInterval(() => {
+                    props.testobj.setTiempoFin();
+                    // console.log("Estoy aumentando el tiempo");
+                }, 1000);
+            }
         }
     }
 </script>
@@ -157,14 +189,17 @@
         0% {
             background-position: 0% 50%;
             color: rgb(21, 87, 36);
+            border-color: rgb(207, 230, 212);
         }
         50% {
             background-position: 100% 50%;
             color: rgb(207, 230, 212);
+            border-color: rgb(21, 87, 36);
         }
         100% {
             background-position: 0% 50%;
             color: rgb(21, 87, 36);
+            border-color: rgb(207, 230, 212);
         }
     }
 </style>

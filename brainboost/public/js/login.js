@@ -26,6 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
         btnCloseLogin.addEventListener("click", (e) => {
             divContainerLogin.classList.add("d-none");
         });
+        divContainerLogin.addEventListener("blur", (e) => {
+            divContainerLogin.classList.add("d-none");
+        });
     }
 
     if (divContainerRegistro != null && btnRegistro != null && btnCloseRegistro != null) {
@@ -39,6 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
             divContainerLogin.classList.add("d-none");
         });
         btnCloseRegistro.addEventListener("click", (e) => {
+            divContainerRegistro.classList.add("d-none");
+        });
+        divContainerRegistro.addEventListener("blur", (e) => {
             divContainerRegistro.classList.add("d-none");
         });
     }

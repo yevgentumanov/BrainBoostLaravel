@@ -338,6 +338,19 @@ nav>div>a>img {
 .texto-presentacion {
     margin-top: 6em;
 }
+.parallax0 .texto-presentacion {
+    animation: slide-fwd-center 0.7s cubic-bezier(.25, .46, .45, .94) both
+}
+
+@keyframes slide-fwd-center {
+    0% {
+        transform: scale(0.5)
+    }
+
+    100% {
+        transform: scale(1)
+    }
+}
 
 /*
 .texto-presentacion-m {
@@ -372,6 +385,7 @@ nav>div>a>img {
     position: relative;
     top: -8%;
 }
+
 
 .indicador-down {
     height: 100px;
@@ -595,6 +609,7 @@ nav>div>a>img {
 /****************************************************************************/
 
 @media (max-width: 575px) {
+
     /* Rango de tamaño hasta sm */
     .indicador-down {
         transform: scale(0.7);
@@ -625,6 +640,7 @@ nav>div>a>img {
 }
 
 @media (max-width: 1199px) {
+
     /* Rango de tamaño hasta xl */
     .texto-presentacion p {
         padding: 1em;

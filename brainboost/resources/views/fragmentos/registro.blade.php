@@ -1,6 +1,4 @@
-<!-- Código Blade para el formulario de registro -->
-
-<div class="container superpuesto">
+{{-- <div class="container superpuesto">
     <div class="row justify-content-center">
         <div id="divregistro" class="col-md-6">
             <div class="card sombra_borde card-portada">
@@ -52,4 +50,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}

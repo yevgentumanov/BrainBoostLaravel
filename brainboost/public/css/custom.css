@@ -67,6 +67,8 @@ button:hover {
 
 footer {
     height: auto;
+    width: 100vw;
+    padding: 0;
     /* height: 14.9vh; */
     scroll-snap-align: start;
 }
@@ -88,10 +90,6 @@ footer a {
 /*****************************************************************************/
 /*                              CLASES GENERALES                             */
 /*****************************************************************************/
-
-.row {
-    /*margin: 0 !important;*/
-}
 
 .cabecera {
     background-color: rgb(0, 0, 0, 0.5);
@@ -162,12 +160,15 @@ footer a {
 }
 
 #f-logo img {
-    max-width: 400px;
+    max-width: 80%;
 }
 
-#barra-navegacion {
-
+#btnRegistro,
+#btnLogin {
+    max-width: 200px;
 }
+
+#barra-navegacion {}
 
 /*****************************************************************************/
 /*****************************************************************************/
@@ -279,19 +280,26 @@ nav>div>a>img {
 /****************************************************************************/
 
 .slider {
+    width: 100vw;
     height: 99.9vh;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
+    margin: 0;
+    padding: 0;
 }
 
 .parallax {
     scroll-snap-align: start;
-    width: 100%;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
+    width: 100vw;
+}
+
+.parallax div {
+    padding: 0;
 }
 
 .parallax0,
@@ -328,8 +336,13 @@ nav>div>a>img {
 }
 
 .texto-presentacion {
-    transform: translateY(100px);
+    margin-top: 6em;
 }
+
+/*
+.texto-presentacion-m {
+    margin-top: 10em;
+} */
 
 .texto-presentacion p {
     padding: 0.5em;
@@ -341,7 +354,7 @@ nav>div>a>img {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.texto-presentacion-m p {
+/* .texto-presentacion-m p {
     padding: 1em;
     font-size: 90%;
     color: var(--color6);
@@ -349,7 +362,7 @@ nav>div>a>img {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     background-color: var(--color2_05);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
+} */
 
 .parallax1 .indicador-down,
 .parallax2 .indicador-down,
@@ -361,16 +374,10 @@ nav>div>a>img {
 }
 
 .indicador-down {
-    transform: translateY(80px);
     height: 100px;
 }
 
-.indicador-down-2 {
-    height: 100px;
-}
-
-.indicador-down img,
-.indicador-down-2 img {
+.indicador-down img {
     height: 100%;
 
     /* Estilos para la primera imagen */
@@ -562,6 +569,7 @@ nav>div>a>img {
     font-weight: bold;
     text-decoration: none !important;
 }
+
 .realzado:hover {
     font-weight: bold;
     color: var(--color9) !important;
@@ -586,26 +594,42 @@ nav>div>a>img {
 /*                               MEDIA QUERIES                              */
 /****************************************************************************/
 
+@media (max-width: 575px) {
+    /* Rango de tamaño hasta sm */
+    .indicador-down {
+        transform: scale(0.7);
+    }
+
+    .texto-presentacion p {
+        font-size: 60% !important;
+    }
+}
+
 @media (max-width: 767px) {
 
     /* Rango de tamaño hasta md */
-    /* footer {
-        height: 58vh !important;*/
-    /* El doble del alto en xl */
-    /*} */
-
     #f-logo {
         padding: 1.5em;
+    }
+
+    #logo,
+    #identificacion,
+    #identificacion div {
+        display: flex;
+        justify-content: center !important;
+    }
+
+    .texto-presentacion p {
+        font-size: 90%;
     }
 }
 
 @media (max-width: 1199px) {
-
     /* Rango de tamaño hasta xl */
-    /*footer {
-        height: 39.8vh;*/
-    /* El doble del alto en xl */
-    /*}*/
+    .texto-presentacion p {
+        padding: 1em;
+        font-size: 110%;
+    }
 
     #f-links {
         padding-top: 0.5em;

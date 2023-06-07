@@ -1,4 +1,4 @@
-<div class="container superpuesto">
+{{-- <div class="container superpuesto">
     <div class="row justify-content-center">
         <div id="divlogin" class="col-md-7">
             <div class="card sombra_borde card-portada">
@@ -36,4 +36,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}

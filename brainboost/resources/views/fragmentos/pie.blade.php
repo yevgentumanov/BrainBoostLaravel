@@ -5,16 +5,16 @@
                 <h6 class="row w-100">WWW.BRAINBOOST.COM</h6>
             </a>
         </div>
-        <div class="row w-100">
+        <div class="row">
             <a class="col-12" href="https://cifpcarlos3.es/">CIFP Carlos III</a>
         </div>
-        <div class="row w-100">
+        <div class="row">
             <a class="col-12" href="https://www.w3schools.com/">W3Schools</a>
         </div>
-        <div class="row w-100">
+        <div class="row">
             <a class="col-12" href="https://github.com/">GitHub</a>
         </div>
-        <div class="row w-100">
+        <div class="row">
             <a class="col-12" href="https://animista.net/">animista</a>
         </div>
     </div>
@@ -62,4 +62,5 @@
         <img src="{!! asset('images/Logo_letras_chicas_con_sombra en blanco y negro-trayectos-v3.svg') !!}" height="100px" class="mx-auto d-md-none"
             style="width: 100%; height: fit-content;" alt="Logo">
     </div>
+
 </footer>

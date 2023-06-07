@@ -103,13 +103,16 @@
 
     const preguntasRandomOrder = computed(() => {
         // console.log("Hola desde preguntasRandomOrder computed");
-        const devolucion = props.testobj.preguntas.sort(() => 0.5 - Random.randomFloat());
+        // const devolucion = props.testobj.preguntas.sort(() => 0.5 - Random.randomFloat());
+        const devolucion = props.testobj.preguntas;
+        barajarArray(devolucion);
 
         devolucion.forEach(element => {
             switch (element.tipo_pregunta) {
                 case TestModel.TipoPregunta.MULTIPLE_RESPONSE: // Tipo 1
                 case TestModel.TipoPregunta.MULTIPLE_RESPONSE_MULTIPLE_CHOICE: // Tipo 2
-                    element.datos_pregunta.respuestas.sort(() => 0.5 - Random.randomFloat());
+                    // element.datos_pregunta.respuestas.sort(() => 0.5 - Random.randomFloat());
+                    barajarArray(element.datos_pregunta.respuestas);
                     break;
                 case TestModel.TipoPregunta.UNIQUE_RESPONSE: // Tipo 3
                     break;

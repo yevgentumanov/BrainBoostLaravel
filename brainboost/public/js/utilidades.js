@@ -123,6 +123,17 @@ function compareArraysInOrder(arr1, arr2, compareFunction = null) {
 }
 
 /**
+ * Función que permite barajar un array, haciendo permutaciones de forma aleatoria, donde cada permutación tiene la misma probabilidad de suceder.
+ * @param {Array} array - Especifica el array a barajar.
+ */
+function barajarArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+/**
  * Función que sirve para comparar dos elementos, sean del tipo que sean (datos de tipo primitivo, arrays, objetos, etc.)
  * @param {*} a 1º Elemento a comparar
  * @param {*} b 2º Elemento a comparar

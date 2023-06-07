@@ -63,7 +63,7 @@
         console.log(actualPreguntasAcertadas);
 
         /*-- Suma nota (siempre que no estuviera ya contestada una pregunta) --*/
-        console.log(anteriorRespuestaUsuario);
+        // console.log(anteriorRespuestaUsuario);
         const anteriorPreguntasAcertadas = anteriorRespuestaUsuario != null ? compareArraysWithoutOrder(anteriorRespuestaUsuario, respuestaEnObjTest).length : 0;
         if (anteriorRespuestaUsuario == null || anteriorPreguntasAcertadas == 0) {
             props.testobj.setNotaPregunta(indice, actualPreguntasAcertadas / respuestaEnObjTest.length / props.testobj.getSize() * 10)

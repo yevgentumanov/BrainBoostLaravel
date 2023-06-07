@@ -1,6 +1,6 @@
 {
   "public/css/custom.css": {
-    "file": "assets/custom-f017aba9.css",
+    "file": "assets/custom-4233c7b2.css",
     "isEntry": true,
     "src": "public/css/custom.css"
   },
@@ -33,14 +33,14 @@
     "src": "public/images/presentacion5.jpg"
   },
   "public/js/TestVue.css": {
-    "file": "assets/TestVue-5004fa17.css",
+    "file": "assets/TestVue-8033e9a5.css",
     "src": "public/js/TestVue.css"
   },
   "public/js/TestVue.js": {
     "css": [
-      "assets/TestVue-5004fa17.css"
+      "assets/TestVue-8033e9a5.css"
     ],
-    "file": "assets/TestVue-884ede82.js",
+    "file": "assets/TestVue-d6f1e0d4.js",
     "isEntry": true,
     "src": "public/js/TestVue.js"
   }

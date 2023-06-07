@@ -25,8 +25,6 @@
                     <div id="btnRegistro" class="col-12 btn m-2 sombra boton-sliding-arriba">Nuevo usuario</div>
                     <div id="btnLogin" class="col-12 btn m-2 sombra boton-sliding-abajo">Iniciar sesión</div>
 
-                    {{-- <a id="btnRegistro" href="{{ route('registro') }}" class="btn m-2 w-100 sombra boton-sliding-arriba">Nuevo usuario</a>
-                    <a id="btnLogin" href="{{ route('login') }}" class="btn m-2 w-100 sombra boton-sliding-abajo">Iniciar sesión</a> --}}
                 </div>
             </div>
         </nav>
@@ -167,7 +165,7 @@
     {{-- ***************************************************************************************************************************************** --}}
 
     <!-- Formulario de inicio de sesión -->
-    <div class="d-none container superpuesto">
+    <div id="c-login" class="d-none container superpuesto">
         <div class="row justify-content-center">
             <div id="divlogin" class="col-md-7">
                 <div class="card sombra_borde card-portada">
@@ -213,7 +211,7 @@
     {{-- ***************************************************************************************************************************************** --}}
 
     <!-- Formulario de registro -->
-    <div class="d-none container superpuesto">
+    <div id="c-registro" class="d-none container superpuesto">
         <div class="row justify-content-center">
             <div id="divregistro" class="col-md-6">
                 <div class="card sombra_borde card-portada">

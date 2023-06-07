@@ -6,9 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Intentos_test;
 use App\Models\Intentos_pregunta;
 use Illuminate\Http\Request;
-use App\Models\Pregunta;
-use App\Models\Test;
-use Illuminate\Support\Facades\Log;
 
 class IntentosPreguntaController extends Controller
 {
@@ -26,7 +23,6 @@ class IntentosPreguntaController extends Controller
             'id_test' => $request->id_test,
             'id_usuario' => $userId,
             'intento' => null, // Esto se crea mediante el trigger de Juan Carlos
-            // 'intento' => 1, // Tal como lo tenía Eugenio
             'fecha_realizacion' => now(),
             'dificultad' => $request->dificultad,
             'modalidad' => $request->modalidad,
@@ -43,17 +39,8 @@ class IntentosPreguntaController extends Controller
         /*-- Replace "id_intento_test": "id_test_creado" with the ID of the last created test --*/
         $preguntasTestRealizado = $request->preguntasTestRealizado;
         foreach ($preguntasTestRealizado as $preguntaData) {
-            // Log::info("BEFORE: id_intento_test: " . $preguntaData['id_intento_test']);
-            // Log::info("BEFORE: id_pregunta: " . $preguntaData['id_pregunta']);
 
             $preguntaData['id_intento_test'] = $lastTest->id; // Comentado by Santi
-
-            // Log::info("AFTER: id_intento_test: " . $preguntaData['id_intento_test']);
-            // Log::info("AFTER: id_pregunta: " . $preguntaData['id_pregunta']);
-//        }
-
-        /*-- Create Intentos_pregunta records --*/
-//        foreach ($preguntasTestRealizado as $preguntaData) {
 
             $pregunta = new Intentos_pregunta([
                 'id_intento_test' => $preguntaData['id_intento_test'], // Comentado by Santi

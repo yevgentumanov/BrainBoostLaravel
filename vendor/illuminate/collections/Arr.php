@@ -410,7 +410,9 @@ class Arr
      */
     public static function isAssoc(array $array)
     {
-        return ! array_is_list($array);
+        $keys = array_keys($array);
+
+        return array_keys($keys) !== $keys;
     }
 
     /**
@@ -423,7 +425,7 @@ class Arr
      */
     public static function isList($array)
     {
-        return array_is_list($array);
+        return ! self::isAssoc($array);
     }
 
     /**
@@ -561,35 +563,6 @@ class Arr
         }
 
         return array_combine($keys, $items);
-    }
-
-    /**
-     * Run an associative map over each of the items.
-     *
-     * The callback should return an associative array with a single key/value pair.
-     *
-     * @template TKey
-     * @template TValue
-     * @template TMapWithKeysKey of array-key
-     * @template TMapWithKeysValue
-     *
-     * @param  array<TKey, TValue>  $array
-     * @param  callable(TValue, TKey): array<TMapWithKeysKey, TMapWithKeysValue>  $callback
-     * @return array
-     */
-    public static function mapWithKeys(array $array, callable $callback)
-    {
-        $result = [];
-
-        foreach ($array as $key => $value) {
-            $assoc = $callback($value, $key);
-
-            foreach ($assoc as $mapKey => $mapValue) {
-                $result[$mapKey] = $mapValue;
-            }
-        }
-
-        return $result;
     }
 
     /**
@@ -786,7 +759,7 @@ class Arr
             }
         }
 
-        if (! array_is_list($array)) {
+        if (static::isAssoc($array)) {
             $descending
                     ? krsort($array, $options)
                     : ksort($array, $options);
@@ -797,18 +770,6 @@ class Arr
         }
 
         return $array;
-    }
-
-    /**
-     * Recursively sort an array by keys and values in descending order.
-     *
-     * @param  array  $array
-     * @param  int  $options
-     * @return array
-     */
-    public function sortRecursiveDesc($array, $options = SORT_REGULAR)
-    {
-        return $this->sortRecursive($array, $options, true);
     }
 
     /**

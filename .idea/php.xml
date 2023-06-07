@@ -129,6 +129,8 @@
       <path value="$PROJECT_DIR$/brainboost/vendor/phpstan/phpdoc-parser" />
       <path value="$PROJECT_DIR$/brainboost/vendor/barryvdh/laravel-ide-helper" />
       <path value="$PROJECT_DIR$/brainboost/vendor/barryvdh/reflection-docblock" />
+      <path value="$PROJECT_DIR$/brainboost/vendor/symfony/polyfill-php83" />
+      <path value="$PROJECT_DIR$/brainboost/vendor/league/flysystem-local" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />

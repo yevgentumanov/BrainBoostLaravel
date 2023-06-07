@@ -115,6 +115,8 @@
       <excludeFolder url="file://$MODULE_DIR$/brainboost/vendor/phar-io/version" />
       <excludeFolder url="file://$MODULE_DIR$/brainboost/vendor/phar-io/manifest" />
       <excludeFolder url="file://$MODULE_DIR$/brainboost/vendor/nesbot/carbon" />
+      <excludeFolder url="file://$MODULE_DIR$/brainboost/vendor/symfony/polyfill-php83" />
+      <excludeFolder url="file://$MODULE_DIR$/brainboost/vendor/league/flysystem-local" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

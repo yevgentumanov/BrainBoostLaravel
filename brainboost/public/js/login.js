@@ -1,18 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const divContainerLogin = document.querySelector(`div#divlogin`);
-    const btnLogin = document.querySelector(`a#btnLogin`)
+    const divContainerLogin = document.querySelector(`div#c-login`);
+    const btnLogin = document.querySelector(`#btnLogin`)
+    const btnCloseLogin = document.querySelector(`div#c-login .exit-card`);
     console.log(btnLogin);
-    const btnCloseLogin = document.querySelector(`div#divlogin a.exit-card`);
+    console.log(divContainerLogin);
+    console.log(btnCloseLogin);
 
-    const divContainerRegistro = document.querySelector(`div#divregistro`);
-    const btnRegistro = document.querySelector(`a#btnRegistro`)
+    const divContainerRegistro = document.querySelector(`div#c-registro`)
+    const btnRegistro = document.querySelector(`#btnRegistro`)
+    const btnCloseRegistro = document.querySelector(`div#c-registro .exit-card`);
     console.log(btnRegistro);
-    const btnCloseRegistro = document.querySelector(`div#divregistro a.exit-card`);
+    console.log(divContainerRegistro);
+    console.log(btnCloseRegistro);
 
     if (divContainerLogin != null && btnLogin != null && btnCloseLogin != null) {
         /*-- Realiza modificaciones para que no se usen las rutas de Eugenio para mostrar la ventana de inicio de sesión --*/
-        btnLogin.removeAttribute("href");
-        btnCloseLogin.removeAttribute("href");
+        // btnLogin.removeAttribute("href");
+        // btnCloseLogin.removeAttribute("href");
 
         /*-- Controla eventos --*/
         btnLogin.addEventListener("click", (e) => {
@@ -26,8 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (divContainerRegistro != null && btnRegistro != null && btnCloseRegistro != null) {
         /*-- Realiza modificaciones para que no se usen las rutas de Eugenio para mostrar la ventana de inicio de sesión --*/
-        btnRegistro.removeAttribute("href");
-        btnCloseRegistro.removeAttribute("href");
+        // btnRegistro.removeAttribute("href");
+        // btnCloseRegistro.removeAttribute("href");
 
         /*-- Controla eventos --*/
         btnRegistro.addEventListener("click", (e) => {

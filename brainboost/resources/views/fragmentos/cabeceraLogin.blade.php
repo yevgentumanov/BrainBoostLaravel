@@ -165,7 +165,7 @@
     {{-- ***************************************************************************************************************************************** --}}
 
     <!-- Formulario de inicio de sesión -->
-    <div id="c-login" class="d-none container superpuesto">
+    <div id="c-login" class="d-none container superpuesto" tabindex="0">
         <div class="row justify-content-center">
             <div id="divlogin" class="col-md-7">
                 <div class="card sombra_borde card-portada">
@@ -211,7 +211,7 @@
     {{-- ***************************************************************************************************************************************** --}}
 
     <!-- Formulario de registro -->
-    <div id="c-registro" class="d-none container superpuesto">
+    <div id="c-registro" class="d-none container superpuesto" tabindex="1">
         <div class="row justify-content-center">
             <div id="divregistro" class="col-md-6">
                 <div class="card sombra_borde card-portada">

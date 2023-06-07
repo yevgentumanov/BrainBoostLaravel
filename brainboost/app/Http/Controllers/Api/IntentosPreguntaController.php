@@ -58,7 +58,7 @@ class IntentosPreguntaController extends Controller
             $pregunta = new Intentos_pregunta([
                 'id_intento_test' => $preguntaData['id_intento_test'], // Comentado by Santi
                 'id_pregunta' => $preguntaData['id_pregunta'],
-                'nota_pregunta' => (float)$preguntaData['nota_pregunta'],
+                'nota_pregunta' => isset($preguntaData['nota_pregunta']) && $preguntaData['nota_pregunta'] != null ? (float)$preguntaData['nota_pregunta'] : 0.0,
                 'respuestas' => json_encode($preguntaData['respuestas']),
             ]);
 

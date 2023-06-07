@@ -15,7 +15,7 @@
                         data-toggle="popover" 
                         data-trigger="focus" 
                         title="Estudiar" 
-                        data-content="En el modo 'Estudiar' podrás ver el contenido del test para poder estudiártelo antes de enfrentarte a él.">
+                        data-content='En el modo "Estudiar" podrás ver el contenido del test para poder estudiártelo antes de enfrentarte a él.'>
                     ?
                 </button>
             </div>
@@ -25,7 +25,7 @@
                         data-toggle="popover" 
                         data-trigger="focus" 
                         title="Practicar" 
-                        data-content='En el modo "Practicar" te enfrentarás al test, con intentos ilimitados para cada pregunta. ¡A practicar y entrenar!.'>
+                        data-content='En el modo "Practicar" te enfrentarás al test, con intentos ilimitados para cada pregunta. ¡A practicar y entrenar!'>
                     ?
                 </button>
             </div>
@@ -35,7 +35,7 @@
                         data-toggle="popover" 
                         data-trigger="focus" 
                         title="Desafío" 
-                        data-content='En el modo "Desafío" te enfrentarás al test, con un único intento por pregunta ¡Ve a por todas!.'>
+                        data-content='En el modo "Desafío" te enfrentarás al test, con un único intento por pregunta. ¡Ve a por todas!'>
                     ?
                 </button>
             </div>

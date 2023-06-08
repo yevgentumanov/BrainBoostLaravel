@@ -176,7 +176,7 @@ footer a {
 
 #bloque-preguntas {
     padding: 20px;
-    background-color: var(--color2);
+    background-color: var(--color1);
 }
 
 #f-logo img {
@@ -759,6 +759,35 @@ nav>div>a>img {
 /****************************************************************************/
 
 /****************************************************************************/
+/*                      FONDO BLOQUE NEÓN EN MOVIMIENTO                     */
+/****************************************************************************/
+
+.glow-back {
+    position: relative;
+    z-index: 0;
+    background: linear-gradient(45deg, #0051ff, #269dff, #c300ff, #269dff, #00ffdd, #002bff, #ea00ff, #002bff, #0051ff);
+    /* background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000); */
+    background-size: 400%;
+    animation: glowing 20s linear infinite;
+}
+
+.glow-back:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--color6_05);
+    left: 0;
+    top: 0;
+    border-radius: 1em;
+}
+
+/****************************************************************************/
+/****************************************************************************/
+/****************************************************************************/
+
+/****************************************************************************/
 /*                      EFECTO NEÓN ALREDEDOR DEL BLOQUE                    */
 /****************************************************************************/
 
@@ -814,7 +843,7 @@ nav>div>a>img {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: var(--color6);
+    background: var(--color1_05);
     left: 0;
     top: 0;
     border-radius: 10px;

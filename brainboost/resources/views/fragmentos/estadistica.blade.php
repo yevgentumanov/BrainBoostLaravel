@@ -6,7 +6,7 @@
                 <div class="mb-4">
                     <h1>Estadísticas</h1>
                 </div>
-                <section id="general" class="row m-2">
+                <section id="general" class="row m-2 glow-back">
                     <div type="text" class="col-3">Nota media: <span class="font-weight-bold">{{$notaMedia}}</span></div>
                     <div type="text" class="col-3">Test realizados: <span class="font-weight-bold">{{$numeroTestRealizados}}</span>
                     </div>

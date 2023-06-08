@@ -5,7 +5,7 @@
 @section('main')
     <main class="row">
         <div id="appVue" class="col-12 p-4 cuerpo">
-            <section class="row bg-primary seccion-mb">
+            <section class="row bg-primary seccion-mb s-materia">
                 <div class="col-12 m-2 d-flex justify-content-between align-items-center">
                     {{-- <h3>TEST - {{ $test->nombre_test }}</h3> --}}
                     <h3 class="d-none" :class='["d-block"]'>TEST - @{{ testObj.getNombreTest() }}</h3>
@@ -16,7 +16,7 @@
                 </div>
             </section>
 
-            <div id="bloque-preguntas" class="row seccion-mb redondeado">
+            <div id="bloque-preguntas" class="row seccion-mb sombra_borde redondeado s-materia">
                 <div class="col-12 seccion-mb">
                     <testvue :testObj="testObj" :testCtrl="testCtrl"></testvue> <!-- No sé por qué, da igual poner :testObj que :testobj. El caso es que luego en los props del main.js.vue, hay que ponerlo con minúscula -->
                 </div>

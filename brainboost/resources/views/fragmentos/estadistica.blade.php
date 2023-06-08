@@ -18,7 +18,7 @@
                     <h2>Últimos test realizados</h2>
                     <div class="col-12">
                         @foreach($ultimosTestRealizados as $ultimoTestRealizado)
-                            <a href="{{ route('test', ['idTest' => $ultimoTestRealizado->id_test, 'name' => $ultimoTestRealizado->intento]) }}">
+                            <a href="{{ route('test', ['idTest' => $ultimoTestRealizado->id_test, 'intento' => $ultimoTestRealizado->intento]) }}">
                                 <section class="row bg-primary m-4 d-flex justify-content-center">
                                     <div
                                         class="col-6 col-sm-3 col-lg-2 d-left p-2">{{ $ultimoTestRealizado->test->nombre_test }}</div>
@@ -39,7 +39,7 @@
                     <h2>Tests con más intentos realizados</h2>
                     <div class="col-12">
                         @foreach($popularTestResults as $popTestRes)
-                            <a href="{{ route('test', ['idTest' => $popTestRes->id, 'name' => $popTestRes->nombre_test,'ultimoTestRealizado' => $popTestRes]) }}">
+                            <a href="{{ route('test', ['idTest' => $ultimoTestRealizado->id_test]) }}">
                                 <section class="row bg-primary m-4 d-flex justify-content-center">
                                     <div
                                         class="col-6 col-sm-3 col-lg-2 d-left p-2">{{ $popTestRes->test->nombre_test }}</div>

@@ -9,7 +9,7 @@
 <body>
 <!-- Llamada a popularesTestRealizados()  -->
 @php
-    $popularesTests = app('App\Http\Controllers\VIntentosTestController')->popularesTestRealizados();
+    $popularesTests = app('App\Http\Controllers\TestController')->testSugeridos();
     dd($popularesTests);
 @endphp
 </body>

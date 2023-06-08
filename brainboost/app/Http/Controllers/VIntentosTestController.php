@@ -9,8 +9,10 @@ use Illuminate\Support\Facades\DB;
 class VIntentosTestController extends Controller
 {
     // Obtener el historial de test realizados por un usuario
-    public function historialTestRealizados($idUsuarioAccediendo)
+    public function historialTestRealizados()
     {
+        $idUsuarioAccediendo = Auth::id();
+
         // Obtener todos los intentos de test realizados por el usuario especificado
         $historialTestRealizados = VIntentosTest::where('id_usuario', $idUsuarioAccediendo)->get();
         // Retornar la vista 'historialTestRealizados' con los intentos de test realizados

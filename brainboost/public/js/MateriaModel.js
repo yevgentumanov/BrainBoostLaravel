@@ -71,7 +71,8 @@ function iniMaterias() {
     // );
 
     /*-- Obtiene los datos del servidor --*/
-    obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_MATERIAS.url, Rutas.RUTA_API_MATERIAS.method, null, null)
+    const rutaRelativa = calcularRuta(Rutas.RUTA_API_MATERIAS.url);
+    obtenerJSON(rutaRelativa, Rutas.RUTA_API_MATERIAS.method, null, null)
     .then(response => {
         response.forEach(materia => {
             /*-- Agrega la materia al array de materias --*/

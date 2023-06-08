@@ -10,9 +10,11 @@ const ModeAppEnum = {
 }
 
 const ModeAppDirecciones = {
-    // 1: "https://www.clinicadentalsanandres.com/BrainBoostLaravel/brainboost/public",
-    1: "https://brainbost.es",
-    2: "http://brainboost.com" // virtual host en local
+    // 1: "https://www.clinicadentalsanandres.com/BrainBoostLaravel/brainboost/public", // PRODUCTION
+    1: "https://brainboost.es", // PRODUCTION
+    2: "http://brainboost.com" // LOCALDEBUG Santi
+    // 2: "" // LOCALDEBUG Eugenio
+    // 2: "" // LOCALDEBUG Juan Carlos
 }
 
 /*===================================

@@ -158,8 +158,12 @@ footer a {
     margin-bottom: 1em !important
 }
 
+.s-materia {
+    margin: 0 2em 3em 2em !important;
+}
+
 .cuerpo {
-    background-color: var(--color6_05);
+    background-color: var(--color6_x);
 }
 
 /*****************************************************************************/
@@ -182,6 +186,11 @@ footer a {
 #btnRegistro,
 #btnLogin {
     max-width: 200px;
+}
+
+#test-relacionados,
+#test-recientes {
+    margin-bottom: 2em !important;
 }
 
 #test-relacionados,

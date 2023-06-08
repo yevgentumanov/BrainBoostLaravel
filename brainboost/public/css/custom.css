@@ -689,12 +689,12 @@ nav>div>a>img {
 .realzado section:hover {
     font-weight: bold;
     color: var(--color9) !important;
-    background-color: var(--color7) !important;
+    background-color: var(--color3) !important;
     animation: disminucion .2s cubic-bezier(.25, .46, .45, .94) both;
     box-shadow:
-        inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+        inset 0 -3em 3em hsla(0, 0%, 0%, 0.1),
         0 0 0 2px var(--color6),
-        0.3em 0.3em 1em rgba(0, 0, 0, 0.6);
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.8);
 }
 
 /****************************************************************************/

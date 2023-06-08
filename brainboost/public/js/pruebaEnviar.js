@@ -3,7 +3,6 @@ function sendDataToRoute() {
 
     // Prepare the request data
     const requestData = {
-        id_usuario: 1, // Replace with the desired user ID
         id_test: 1, // Replace with the desired test ID
         intento: 1 // Replace with the desired intento value
     };

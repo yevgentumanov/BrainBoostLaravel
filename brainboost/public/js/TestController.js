@@ -45,8 +45,10 @@ export class TestController {
         if (!this.test.validaIdBD(idTest)) throw new Error(MensajesErrorTest["__ERR_TEST_ID_INVALID"].message);
 
         /*-- Obtiene los datos del servidor --*/
+        const rutaRelativa = calcularRuta(Rutas.RUTA_API_TEST);
         return new Promise((resolve, reject) => {
-            obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_TEST.url, Rutas.RUTA_API_TEST.method, null, { id: idTest })
+            // obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_TEST.url, Rutas.RUTA_API_TEST.method, null, { id: idTest })
+            obtenerJSON(rutaRelativa, Rutas.RUTA_API_TEST.method, null, { id: idTest })
                 .then(response => {
                     this.test.size = response.cant_preguntas;
                     this.test.setDescripcion(response.descripcion);
@@ -81,8 +83,9 @@ export class TestController {
         /*-- Obtiene los datos del servidor --*/
         // datos cabecera (sustituir segundo null): {id: idTest, pagina: 1}
         // pagina es un atributo que indica el nº de página que se está mostrando. Los tests se van cargando en páginas, por ejemplo, de 10 en 10 preguntas, para reducir la carga del servidor cuando se trate de tests muy largos.
+        // console.log(rutaRelativa);
+        // console.log(Rutas.RUTA_API_PREGUNTAS.url);
         const rutaRelativa = calcularRuta(Rutas.RUTA_API_PREGUNTAS);
-        console.log(rutaRelativa);
         return new Promise((resolve, reject) => {
             // obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_PREGUNTAS.url, Rutas.RUTA_API_PREGUNTAS.method, null, { id: idTest })
             obtenerJSON(rutaRelativa, Rutas.RUTA_API_PREGUNTAS.method, null, { id: idTest })
@@ -142,14 +145,17 @@ export class TestController {
 
             cuerpo.preguntasTestRealizado.push(objPreparado)
         }
-        console.log(cuerpo.preguntasTestRealizado.length);
-        console.log(cuerpo.preguntasTestRealizado);
-        console.log(this.test.getRespuestas().length);
-        console.log(this.test.getRespuestas());
+        // console.log(cuerpo.preguntasTestRealizado.length);
+        // console.log(cuerpo.preguntasTestRealizado);
+        // console.log(this.test.getRespuestas().length);
+        // console.log(this.test.getRespuestas());
+
         /*-- Envía los datos al servidor --*/
-        // sended.value = false;
+        // sended = false; // De cuando estaba en el dotest.js.vue
+        const rutaRelativa = calcularRuta(Rutas.RUTA_API_ENVIO_TEST_REALIZADO);
         return new Promise((resolve, reject) => {
-            obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_ENVIO_TEST_REALIZADO.url, Rutas.RUTA_API_ENVIO_TEST_REALIZADO.method, cabeceras, JSON.stringify(cuerpo))
+            // obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_ENVIO_TEST_REALIZADO.url, Rutas.RUTA_API_ENVIO_TEST_REALIZADO.method, cabeceras, JSON.stringify(cuerpo))
+            obtenerJSON(rutaRelativa, Rutas.RUTA_API_ENVIO_TEST_REALIZADO.method, cabeceras, JSON.stringify(cuerpo))
                 .then(response => {
                     if (todoDone instanceof Function) {
                         todoDone(response);

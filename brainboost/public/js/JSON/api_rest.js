@@ -3,7 +3,7 @@
  * Para comprender cómo funciona el método que acontece, es necesario ver cómo funcionan las promesas de JavaScript:
  * https://desarrolloweb.com/articulos/introduccion-promesas-es6.html
  * @author Santiago San Pablo Raposo
- * @version 04.06.2023
+ * @version 08.06.2023
  */
 
 /**
@@ -34,11 +34,12 @@ function obtenerJSON(url, metodo = "GET", headers = null, datos = null, todoDone
         switch (metodo) {
             case "GET":
                 /*-- Prepara los parámetros en un objeto de tipo URL --*/
-                let direccion = new URL(url);
+                const params = new URLSearchParams();
                 for (let key in datos) {
-                    direccion.searchParams.append(key, datos[key]);
+                    params.append(key, datos[key]);
                 }
-
+                let direccion = `${url}?${params.toString()}`;
+                
                 /*-- Config --*/
                 if (headers != null && headers instanceof Object) {
                     config.headers = headers;
@@ -141,10 +142,11 @@ function obtenerDatosWeb(url, metodo = "GET", headers = null, datos = null, todo
         switch (metodo) {
             case "GET":
                 /*-- Prepara los parámetros en un objeto de tipo URL --*/
-                let direccion = new URL(url);
+                const params = new URLSearchParams();
                 for (let key in datos) {
-                    direccion.searchParams.append(key, datos[key]);
+                    params.append(key, datos[key]);
                 }
+                let direccion = `${url}?${params.toString()}`;
 
                 /*-- Config --*/
                 if (headers != null && headers instanceof Object) {

@@ -11,7 +11,7 @@ const ModeAppEnum = {
 
 const ModeAppDirecciones = {
     1: "https://www.clinicadentalsanandres.com/BrainBoostLaravel/brainboost/public",
-    2: "http://localhost/Proyectos/BrainBoostLaravel/brainboost/public"
+    2: "http://brainboost.com" // virtual host en local
 }
 
 /*===================================

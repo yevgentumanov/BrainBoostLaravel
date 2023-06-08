@@ -5,8 +5,8 @@
         </div>
         <div class="col-12 d-flex justify-content-center col-xl-9 p-0">
             <div class="row w-100 m-0">
-                <div class="col-6 col-md-4 col-lg-2 sacudida">
-                    <article class="border border-box m-2 d-flex justify-content-center bg-light">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <article class="border border-box m-2 d-flex justify-content-center btn-5">
                         <div class="row">
                             <div class="col-12">
                                 <a class="row d-flex justify-content-center pt-3"
@@ -21,8 +21,8 @@
                         </div>
                     </article>
                 </div>
-                <div class="col-6 col-md-4 col-lg-2 sacudida">
-                    <article class="border border-box m-2 d-flex justify-content-center bg-light">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <article class="border border-box m-2 d-flex justify-content-center btn-5">
                         <div class="row">
                             <div class="col-12">
                                 <a class="row d-flex justify-content-center pt-3" href="#">
@@ -36,8 +36,8 @@
                         </div>
                     </article>
                 </div>
-                <div class="col-6 col-md-4 col-lg-2 sacudida">
-                    <article class="border border-box m-2 d-flex justify-content-center bg-light">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <article class="border border-box m-2 d-flex justify-content-center btn-5">
                         <div class="row">
                             <div class="col-12">
                                 <a class="row d-flex justify-content-center pt-3" href="#">
@@ -51,8 +51,8 @@
                         </div>
                     </article>
                 </div>
-                <div class="col-6 col-md-4 col-lg-2 sacudida">
-                    <article class="border border-box m-2 d-flex justify-content-center bg-light">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <article class="border border-box m-2 d-flex justify-content-center btn-5">
                         <div class="row">
                             <div class="col-12">
                                 <a class="row d-flex justify-content-center pt-3" href="#">
@@ -66,8 +66,8 @@
                         </div>
                     </article>
                 </div>
-                <div class="col-6 col-md-4 col-lg-2 sacudida">
-                    <article class="border border-box m-2 d-flex justify-content-center bg-light">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <article class="border border-box m-2 d-flex justify-content-center btn-5">
                         <div class="row">
                             <div class="col-12">
                                 <a class="row d-flex justify-content-center pt-3" href="#">
@@ -81,8 +81,8 @@
                         </div>
                     </article>
                 </div>
-                <div class="col-6 col-md-4 col-lg-2 sacudida">
-                    <article class="border border-box m-2 d-flex justify-content-center bg-light">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <article class="border border-box m-2 d-flex justify-content-center btn-5">
                         <div class="row">
                             <div class="col-12">
                                 <a class="row d-flex justify-content-center pt-3" href="#">
@@ -101,8 +101,8 @@
         {{-- SOLO VISIBLES PARA TAMAÑO ESCRITORIO --}}
         <div class="d-none d-xl-block col-xl-3 p-0">
             <div class="row w-100 m-0">
-                <div class="col-6 sacudida">
-                    <article class="border border-box m-2 d-flex justify-content-center bg-light">
+                <div class="col-6">
+                    <article class="border border-box m-2 d-flex justify-content-center btn-5">
                         <div class="row">
                             <div class="col-12">
                                 <a class="row d-flex justify-content-center pt-3" href="#">
@@ -116,8 +116,8 @@
                         </div>
                     </article>
                 </div>
-                <div class="col-6 sacudida">
-                    <article class="border border-box m-2 d-flex justify-content-center bg-light">
+                <div class="col-6">
+                    <article class="border border-box m-2 d-flex justify-content-center btn-5">
                         <div class="row">
                             <div class="col-12">
                                 <a class="row d-flex justify-content-center pt-3" href="#">

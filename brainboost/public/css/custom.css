@@ -19,7 +19,8 @@
     --color8: #9EB3B5;
     --color9: #13585c;
     --color10: white;
-
+    --color11: #3c4344;
+    --color11_05: #3c434480;
     --color1_05: #cae6e880;
     --color2_05: #16878dbf;
     --color3_05: #5DA36080;
@@ -92,7 +93,7 @@ footer a {
 /*****************************************************************************/
 
 .cabecera {
-    background-color: rgb(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
 }
 
@@ -154,11 +155,11 @@ footer a {
 }
 
 .seccion-mb {
-    margin-bottom: 2em !important
+    margin-bottom: 1em !important
 }
 
 .cuerpo {
-    background-color: var(--color6_x);
+    background-color: var(--color6_05);
 }
 
 /*****************************************************************************/
@@ -183,12 +184,35 @@ footer a {
     max-width: 200px;
 }
 
-/*
+#test-relacionados,
+#test-populares,
+#test-recientes {
+    color: var(--color2);
+    text-transform: uppercase;
+    background-color: var(--color1);
+}
+
 #test-relacionados:hover,
 #test-populares:hover,
 #test-recientes:hover {
+    color: var(--color9);
+    animation: disminucion .2s cubic-bezier(.25, .46, .45, .94) both;
+    background-color: var(--color7) !important;
+    box-shadow:
+        inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+        0 0 0 2px var(--color6),
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.6);
+}
 
-} */
+@keyframes disminucion {
+    0% {
+        transform: scale(1)
+    }
+
+    100% {
+        transform: scale(0.98)
+    }
+}
 
 #barra-navegacion {}
 
@@ -653,20 +677,15 @@ nav>div>a>img {
     text-decoration: none !important;
 }
 
-.realzado:hover {
+.realzado section:hover {
     font-weight: bold;
     color: var(--color9) !important;
-    animation: agrandar-test .2s cubic-bezier(.39, .575, .565, 1.000) both
-}
-
-@keyframes agrandar-test {
-    0% {
-        transform: scale(1, 1)
-    }
-
-    100% {
-        transform: scale(1.02, 1.08)
-    }
+    background-color: var(--color7) !important;
+    animation: disminucion .2s cubic-bezier(.25, .46, .45, .94) both;
+    box-shadow:
+        inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+        0 0 0 2px var(--color6),
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.6);
 }
 
 /****************************************************************************/
@@ -732,6 +751,79 @@ nav>div>a>img {
 
 /****************************************************************************/
 /*                      EFECTO NEÓN ALREDEDOR DEL BLOQUE                    */
+/****************************************************************************/
+
+.glow-on-hover {
+    /* width: 220px; */
+    /* height: 50px; */
+    border: none;
+    outline: none;
+    /* color: #fff; */
+    /* background: var(--color3); */
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #0051ff, var(--color2), #008cff, #00ffdd, var(--color2), #002bff, #7a00ff, var(--color2), #0051ff);
+    /* background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000); */
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--color6);
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+/****************************************************************************/
+/****************************************************************************/
+/****************************************************************************/
+
+/****************************************************************************/
+/*        EFECTO NEÓN ALREDEDOR DEL BLOQUE ROTATIVO Y COLOR DE FONDO        */
 /****************************************************************************/
 /*
 *    <a href="#" class="animated-button1">

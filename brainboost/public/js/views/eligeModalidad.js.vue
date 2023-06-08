@@ -11,7 +11,7 @@
                        title="Función no implementada" 
                        message="La función de previsualización del test para poder estudiarlo aún no ha sido implementada.">
                 </modal>
-                <button class="btn btn-outline-light mt-1" 
+                <button class="btn btn-outline-light mt-2" 
                         data-toggle="popover" 
                         data-trigger="focus" 
                         title="Estudiar" 
@@ -21,7 +21,7 @@
             </div>
             <div class="d-flex flex-column justify-content-between">
                 <button class="btn btn-light btn-5" @click="practicarTest">Practicar test</button>
-                <button class="btn btn-outline-light mt-1" 
+                <button class="btn btn-outline-light mt-2" 
                         data-toggle="popover" 
                         data-trigger="focus" 
                         title="Practicar" 
@@ -31,7 +31,7 @@
             </div>
             <div class="d-flex flex-column justify-content-between">
                 <button class="btn btn-light btn-5" @click="desafioTest">Desafío test</button>
-                <button class="btn btn-outline-light mt-1" 
+                <button class="btn btn-outline-light mt-2" 
                         data-toggle="popover" 
                         data-trigger="focus" 
                         title="Desafío" 

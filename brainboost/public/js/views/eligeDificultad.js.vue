@@ -16,7 +16,7 @@
         <div class="col-12 mt-4 d-flex justify-content-between">
             <div class="d-flex flex-column justify-content-between">
                 <button class="btn btn-light btn-5" @click="facil">Fácil</button>
-                <button class="btn btn-outline-light mt-1" 
+                <button class="btn btn-outline-light mt-2" 
                         data-toggle="popover" 
                         data-trigger="focus" 
                         title="Fácil" 
@@ -26,7 +26,7 @@
             </div>
             <div class="d-flex flex-column justify-content-between">
                 <button class="btn btn-light btn-5" @click="dificil">Difícil</button>
-                <button class="btn btn-outline-light mt-1" 
+                <button class="btn btn-outline-light mt-2" 
                         data-toggle="popover" 
                         data-trigger="focus" 
                         title="Difícil" 

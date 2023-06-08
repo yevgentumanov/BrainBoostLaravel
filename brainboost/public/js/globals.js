@@ -10,14 +10,15 @@ const ModeAppEnum = {
 }
 
 const ModeAppDirecciones = {
-    1: "https://www.clinicadentalsanandres.com/BrainBoostLaravel/brainboost/public",
+    // 1: "https://www.clinicadentalsanandres.com/BrainBoostLaravel/brainboost/public",
+    1: "https://brainbost.es",
     2: "http://brainboost.com" // virtual host en local
 }
 
 /*===================================
             CONSTANTES
 ====================================*/
-const modeApp = ModeAppEnum.LOCALDEBUG; // Flag a cambiar
+const modeApp = ModeAppEnum.PRODUCTION; // Flag a cambiar
 
 const Rutas = {
     "HOST_NAME": ModeAppDirecciones[modeApp],
@@ -60,7 +61,7 @@ let MATERIAS_LOADED = false;
 //     let url = document.location.href;
 
 //     /*-- Obtiene la ruta de la API --*/
-//     let pathApi = `${ModeAppDirecciones[modeApp]}${ruta.url}`;
+//     let pathApi = `${Rutas.HOST_NAME}${ruta.url}`;
 
 //     /*-- Quita la parte común de las dos rutas del principio --*/
 //     const comun = "";
@@ -100,7 +101,7 @@ let MATERIAS_LOADED = false;
 //     let url = document.location.href;
 
 //     /*-- Obtiene la ruta de la API --*/
-//     let pathApi = `${ModeAppDirecciones[modeApp]}${ruta.url}`;
+//     let pathApi = `${Rutas.HOST_NAME}${ruta.url}`;
 
 //     /*-- Quita la parte común de las dos rutas del principio --*/
 //     let comun = "";
@@ -145,7 +146,7 @@ function calcularRuta(ruta) {
     let url = document.location.href;
 
     /*-- Obtiene la ruta de la API --*/
-    let pathApi = `${ModeAppDirecciones[modeApp]}${ruta.url}`;
+    let pathApi = `${Rutas.HOST_NAME}${ruta}`;
 
     /*-- Quita la parte común de las dos rutas del principio --*/
     let comun = "";

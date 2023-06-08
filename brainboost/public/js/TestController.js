@@ -45,7 +45,7 @@ export class TestController {
         if (!this.test.validaIdBD(idTest)) throw new Error(MensajesErrorTest["__ERR_TEST_ID_INVALID"].message);
 
         /*-- Obtiene los datos del servidor --*/
-        const rutaRelativa = calcularRuta(Rutas.RUTA_API_TEST);
+        const rutaRelativa = calcularRuta(Rutas.RUTA_API_TEST.url);
         return new Promise((resolve, reject) => {
             // obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_TEST.url, Rutas.RUTA_API_TEST.method, null, { id: idTest })
             obtenerJSON(rutaRelativa, Rutas.RUTA_API_TEST.method, null, { id: idTest })
@@ -85,7 +85,7 @@ export class TestController {
         // pagina es un atributo que indica el nº de página que se está mostrando. Los tests se van cargando en páginas, por ejemplo, de 10 en 10 preguntas, para reducir la carga del servidor cuando se trate de tests muy largos.
         // console.log(rutaRelativa);
         // console.log(Rutas.RUTA_API_PREGUNTAS.url);
-        const rutaRelativa = calcularRuta(Rutas.RUTA_API_PREGUNTAS);
+        const rutaRelativa = calcularRuta(Rutas.RUTA_API_PREGUNTAS.url);
         return new Promise((resolve, reject) => {
             // obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_PREGUNTAS.url, Rutas.RUTA_API_PREGUNTAS.method, null, { id: idTest })
             obtenerJSON(rutaRelativa, Rutas.RUTA_API_PREGUNTAS.method, null, { id: idTest })
@@ -152,7 +152,7 @@ export class TestController {
 
         /*-- Envía los datos al servidor --*/
         // sended = false; // De cuando estaba en el dotest.js.vue
-        const rutaRelativa = calcularRuta(Rutas.RUTA_API_ENVIO_TEST_REALIZADO);
+        const rutaRelativa = calcularRuta(Rutas.RUTA_API_ENVIO_TEST_REALIZADO.url);
         return new Promise((resolve, reject) => {
             // obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_ENVIO_TEST_REALIZADO.url, Rutas.RUTA_API_ENVIO_TEST_REALIZADO.method, cabeceras, JSON.stringify(cuerpo))
             obtenerJSON(rutaRelativa, Rutas.RUTA_API_ENVIO_TEST_REALIZADO.method, cabeceras, JSON.stringify(cuerpo))
@@ -192,11 +192,27 @@ export class TestController {
 
         /*-- Descarta que la info no exista en el servidor --*/
         // ... To do
+        const rutaRelativa = calcularRuta(Rutas.RUTA_API_ENVIO_TEST_REALIZADO.url);
+        return new Promise((resolve, reject) => {
+            // obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_ENVIO_TEST_REALIZADO.url, Rutas.RUTA_API_ENVIO_TEST_REALIZADO.method, cabeceras, JSON.stringify(cuerpo))
+            obtenerJSON(rutaRelativa, Rutas.RUTA_API_ENVIO_TEST_REALIZADO.method, cabeceras, JSON.stringify(cuerpo))
+                .then(response => {
+                    if (todoDone instanceof Function) {
+                        todoDone(response);
+                    }
 
-        /*-- Descarga la nota y establece los datos en el objeto Test --*/
-        this.test.idUsuarioRealizador = idUsuario;
-        this.test.fechaRealizacion = fechaRealizacion;
-        this.test.nota = nota;
+                    /*-- Descarga la nota y establece los datos en el objeto Test --*/
+                    this.test.idUsuarioRealizador = idUsuario;
+                    this.test.fechaRealizacion = fechaRealizacion;
+                    this.test.nota = nota;
+                    resolve("OK");
+                }).catch(error => {
+                    /*-- Descarta que haya dado error --*/
+                    // console.log(this.test);
+                    console.dir(error);
+                    reject(`${MensajesErrorTest["__ERR_TEST_INFO_FETCH"].message} Mensaje de error: ${error}`);
+                });
+        });
     }
 
 }

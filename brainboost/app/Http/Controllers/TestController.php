@@ -31,9 +31,10 @@ class TestController extends Controller
         }
     }
 
-    public function testSugeridos()
+    public function testSugeridos($numeroTests)
     {
-        $randomTests = Test::inRandomOrder()->take(6)->get(['id', 'nombre_test']);
+        $numeroTests = $numeroTests;
+        $randomTests = Test::inRandomOrder()->take($numeroTests)->get(['id', 'nombre_test']);
 
         return [
             'randomTests' => $randomTests

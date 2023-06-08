@@ -61,7 +61,8 @@ class IntentosPreguntaController extends Controller
 
     public function preguntasRealizadasIntento(Request $request)
     {
-        $userId = $request->input('id_usuario');
+        $userId = $request->user()->id;
+
         $testId = $request->input('id_test');
         $intento = $request->input('intento');
 

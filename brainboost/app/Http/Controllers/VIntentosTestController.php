@@ -19,19 +19,29 @@ class VIntentosTestController extends Controller
         return view('historialTestRealizados', compact('historialTestRealizados'));
     }
 
-    // Obtener los últimos test realizados por un usuario
-    public function ultimosTestRealizados($idUsuarioAccediendo)
+// Obtener los últimos test realizados por un usuario
+    public function ultimosTestRealizados()
     {
-        // Obtener los últimos 5 test realizados por el usuario especificado
+        $idUsuarioAccediendo = Auth::id();
+
+        // Obtener los últimos 6 test realizados por el usuario especificado
         $tests = VIntentosTest::where('id_usuario', $idUsuarioAccediendo)
             ->orderBy('fecha_realizacion', 'desc')
             ->orderBy('tiempo_fin', 'desc')
-            ->limit(5)
+            ->limit(6)
             ->get();
 
-        // Retornar la vista 'estadisticas' con los últimos test realizados
-        return view('estadisticas', compact('tests'));
+        $recienteTestResults = [];
+        foreach ($tests as $test) {
+            // Obtener los datos del test
+            $testData = $test;
+            // Add the test data to the array
+            $recienteTestResults[] = $testData;
+        }
+
+        return $recienteTestResults;
     }
+
 
     // Obtener los test más populares realizados
     public function popularesTestRealizados()
@@ -40,7 +50,7 @@ class VIntentosTestController extends Controller
         $popularTests = VIntentosTest::select('id_test')
             ->groupBy('id_test')
             ->orderByRaw('COUNT(*) DESC')
-            ->limit(5)
+            ->limit(6)
             ->get();
 
         $popularTestResults = [];
@@ -56,9 +66,10 @@ class VIntentosTestController extends Controller
             }
         }
 
-        // Retornar los test más populares realizados
+        // Return the popular test results
         return $popularTestResults;
     }
+
 
     // Obtener la vista de la cuenta del usuario
     public function getCuentaView()

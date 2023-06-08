@@ -28,26 +28,6 @@
                 </div>
             </div>
         </nav>
-
-        {{-- <div class="row d-flex justify-content-center align-self-center w-100">
-                <div class="text-center p-5">
-                    <div class="d-none d-xl-block texto-presentacion">
-                        <h1>
-                        <p>ABRE LAS PUERTAS DEL CONOCIMIENTO, DESAFÍA TUS LÍMITES Y ALCANZA EL ÉXITO A TRAVÉS DE
-                            NUESTROS EXÁMENES</p>
-                    </h1>
-                </div>
-                <div class="d-xl-none texto-presentacion-m">
-                    <h1>
-                        <p>ABRE LAS PUERTAS DEL CONOCIMIENTO, DESAFÍA TUS LÍMITES Y ALCANZA EL ÉXITO A TRAVÉS DE
-                            NUESTROS EXÁMENES</p>
-                        </h1>
-                    </div>
-            </div>
-        </div>
-        <div class="row d-flex justify-content-center indicador-down">
-            <img src="{!! asset('images/indicadorDown.png') !!}" alt="">
-        </div> --}}
     </header>
 
     {{-- ********************************************** PARALLAX 0 ********************************************** --}}

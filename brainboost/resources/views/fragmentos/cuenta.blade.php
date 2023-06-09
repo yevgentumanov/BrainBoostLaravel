@@ -34,7 +34,9 @@
                             required>
                     </div>
 
-                    <button id="btn-save" type="submit" class="btn btn-5">Guardar cambios</button>
+                    <div class="col-12 text-center mt-2">
+                        <button id="btn-save" type="submit" class="btn btn-5">Guardar cambios</button>
+                    </div>
                 </form>
             </section>
         </div>

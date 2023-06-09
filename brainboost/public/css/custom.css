@@ -589,7 +589,7 @@ nav>div>a>img {
 
 .boton-arrow {
     min-width: 130px;
-    color: var(--color2);
+    color: var(--color6);
     padding: 5px 10px;
     font-weight: bold;
     cursor: pointer;
@@ -599,22 +599,22 @@ nav>div>a>img {
     outline: none;
     overflow: hidden;
     border-radius: 5px;
-    border: 2px solid var(--color2) !important;
-    background-color: var(--color6) !important;
+    border: none;
+    background-color: var(--color2) !important;
 }
 
 .boton-arrow:hover {
-    color: var(--color6);
-    background-color: var(--color2) !important;
+    color: var(--color9);
+    background-color: var(--color6) !important;
     border-radius: 5px;
     padding-left: 28px;
     padding-right: 4px;
+    border: 2px solid var(--color2);
 }
 
 .boton-arrow:hover:after {
     opacity: 1;
     left: 20px;
-    border-color: var(--color2);
 }
 
 .boton-arrow:after {

@@ -3,7 +3,7 @@
     <!-- Barra de la cabecera con los social-links -->
     <header>
         <!-- Barra de navegación con el logotipo, la barra de búsqueda y el login -->
-        <nav class="navbar navbar-expand-sm bg-ligth navbar-dark fixed-top cabecera">
+        <nav class="row w-100 navbar navbar-expand-sm bg-ligth navbar-dark fixed-top cabecera">
             <!-- Logo -->
             <div id="logo" class="col-12 col-sm-6">
                 <a class="navbar-brand" href="{{ route('index') }}">

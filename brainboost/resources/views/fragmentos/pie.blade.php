@@ -1,4 +1,4 @@
-<footer class="row bg-dark">
+<footer class="row w-100 m-0 bg-dark">
     <div id="f-links" class="col-12 col-md-6 col-xl-4 order-md-2 pie-paginas p-3">
         <div class="row justify-content-center p-1">
             <a href="#">

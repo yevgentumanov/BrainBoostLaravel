@@ -15,7 +15,8 @@
                         <article class="border border-box m-2 d-flex justify-content-center btn-5">
                             <div class="row">
                                 <div class="col-12">
-                                    <a class="row d-flex justify-content-center pt-3" href="#">
+                                    <a class="row d-flex justify-content-center pt-3"
+                                       href="{{ route('test', ['idTest' => $sugTestResult['id']]) }}">
                                         <img class="col-12" style="margin: inherit;"
                                              src="{!! asset('images/test.png') !!}"
                                              alt="logo" style="width:40px;">
@@ -39,13 +40,16 @@
                             <div class="row">
                                 <div class="col-12">
                                     <a class="row d-flex justify-content-center pt-3" href="#">
-                                        <img class="col-12" style="margin: inherit;"
-                                             src="{!! asset('images/test.png') !!}"
-                                             alt="logo" style="width:40px;">
-                                    </a>
+                                        <div class="col-12">
+                                            <a class="row d-flex justify-content-center pt-3"
+                                                href="{{ route('test', ['idTest' => $sugTestResult['id']]) }}">
+                                                <img class="col-12" style="margin: inherit;"
+                                                     src="{!! asset('images/test.png') !!}"
+                                                     alt="logo" style="width:40px;">
+                                            </a>
                                 </div>
                                 <div class="col-12  d-flex justify-content-center">
-                                    <h3>Test 1</h3>
+                                    <h3>{{ $sugTestResult->nombre_test }}</h3>
                                 </div>
                             </div>
                         </article>

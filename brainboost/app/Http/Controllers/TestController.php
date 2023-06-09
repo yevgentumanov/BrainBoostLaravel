@@ -7,9 +7,23 @@ use App\Models\Test;
 use App\Models\Pregunta;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
-
+use Illuminate\Support\Facades\DB;
 class TestController extends Controller
 {
+    public function getPopularTests($limit = 8)
+    {
+        $popularTests = Test::select('id', 'nombre_test')
+            ->orderBy('numero_visitas', 'desc')
+            ->limit($limit)
+            ->get()
+            ->toArray();
+//        dd($popularTests);
+
+        return [
+            'popularTests' => $popularTests
+        ];
+    }
+
     public function incrementarVisitas($id)
     {
         $test = Test::findOrFail($id);

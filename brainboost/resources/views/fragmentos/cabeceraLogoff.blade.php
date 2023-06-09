@@ -2,7 +2,7 @@
 <header>
     <div class="cabecera-log">
         <!-- Barra de navegación con el logotipo, la barra de búsqueda y el login -->
-        <nav class="row navbar navbar-expand-sm cabecera-log-nav">
+        <nav class="row w-100 m-0 navbar navbar-expand-sm cabecera-log-nav">
             <!-- Logo -->
             <div class="col-4">
                 <a class="navbar-brand" href="{{ route('index') }}">
@@ -13,7 +13,7 @@
             <div class="col-6 d-flex justify-content-end">
                 <form class="form-inline" action="/action_page.php">
                     <input class="form-control mr-2" type="text" placeholder="Buscar">
-                    <button class="boton-arrow" type="submit">Buscar</button>
+                    <button class="boton-arrow sombra" type="submit">Buscar</button>
 
                     <button class="btn btn-success" type="button" onclick="sendDataToRoute()">Prueba enviar</button>
                 </form>
@@ -29,7 +29,7 @@
     </div>
 
     <!-- Barra de navegación para las materias de la aplicación -->
-    <nav class="row navbar bg-dark navbar-light sticky-top">
+    <nav class="row w-100 m-0 navbar bg-dark navbar-light sticky-top">
 
         <!-- Modo contraido -->
         <button class="navbar-toggler nav-ico" type="button" data-toggle="collapse" data-target="#" aria-controls=""

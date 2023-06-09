@@ -4,13 +4,13 @@
         <!-- Barra de navegación con el logotipo, la barra de búsqueda y el login -->
         <nav class="row w-100 m-0 navbar navbar-expand-sm cabecera-log-nav">
             <!-- Logo -->
-            <div class="col-4">
+            <div class="col-12 col-lg-4">
                 <a class="navbar-brand" href="{{ route('index') }}">
                     <img src="{!! asset('images/Logo_letras_chicas_con_sombra en blanco y negro-trayectos-v3.svg') !!}" alt="logo">
                 </a>
             </div>
 
-            <div class="col-6 d-flex justify-content-end">
+            <div class="col-12 col-lg-6 d-flex justify-content-end">
                 <form class="form-inline" action="/action_page.php">
                     <input class="form-control mr-2" type="text" placeholder="Buscar">
                     <button class="boton-arrow sombra" type="submit">Buscar</button>
@@ -20,7 +20,7 @@
             </div>
 
             <!-- Botones de cuenta de usuario -->
-            <div class="col-2">
+            <div class="col-12 col-lg-2">
                 <a href="{{ route('logout') }}" class="btn m-2 w-100 sombra boton-sliding-arriba bt-log">Log off,
                     {{ auth()->user()->nombre_usuario }}</a>
                 <a href="{{ route('cuenta') }}" class="btn m-2 w-100 sombra boton-sliding-abajo bt-log">Cuenta usuario</a>

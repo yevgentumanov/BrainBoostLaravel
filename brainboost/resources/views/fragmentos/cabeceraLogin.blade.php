@@ -1,9 +1,9 @@
 {{-- Bloque deslizante --}}
-<div class="row slider">
+<div class="row w-100 m-0 slider">
     <!-- Barra de la cabecera con los social-links -->
     <header>
         <!-- Barra de navegación con el logotipo, la barra de búsqueda y el login -->
-        <nav class="row w-100 navbar navbar-expand-sm bg-ligth navbar-dark fixed-top cabecera">
+        <nav class="row w-100 m-0 navbar navbar-expand-sm bg-ligth navbar-dark fixed-top cabecera">
             <!-- Logo -->
             <div id="logo" class="col-12 col-sm-6">
                 <a class="navbar-brand" href="{{ route('index') }}">
@@ -31,13 +31,13 @@
     </header>
 
     {{-- ********************************************** PARALLAX 0 ********************************************** --}}
-    <div class="row">
+    <div class="row w-100 m-0">
         <div class="row m-0 parallax parallax0">
             <div class="col-12 d-flex justify-content-center align-self-center">
                 <div class="text-center p-5">
                     <div class="texto-presentacion">
                         <h1>
-                            <p>ABRE LAS PUERTAS DEL CONOCIMIENTO, DESAFÍA TUS LÍMITES Y ALCANZA EL ÉXITO A TRAVÉS DE
+                            <p id="p1">ABRE LAS PUERTAS DEL CONOCIMIENTO, DESAFÍA TUS LÍMITES Y ALCANZA EL ÉXITO A TRAVÉS DE
                                 NUESTROS EXÁMENES</p>
                         </h1>
                     </div>
@@ -50,7 +50,7 @@
     </div>
 
     {{-- ********************************************** PARALLAX 1 ********************************************** --}}
-    <div class="row">
+    <div class="row w-100 m-0">
         <div class="row m-0 parallax parallax1">
             <div class="col-12 d-flex justify-content-center align-self-center">
                 <div class="text-center p-5">
@@ -68,7 +68,7 @@
     </div>
 
     {{-- ********************************************** PARALLAX 2 ********************************************** --}}
-    <div class="row">
+    <div class="row w-100 m-0">
         <div class="row m-0 parallax parallax2">
             <div class="col-12 d-flex justify-content-center align-self-center">
                 <div class="text-center p-5">
@@ -86,7 +86,7 @@
     </div>
 
     {{-- ********************************************** PARALLAX 3 ********************************************** --}}
-    <div class="row">
+    <div class="row w-100 m-0">
         <div class="row m-0 parallax parallax3">
             <div class="col-12 d-flex justify-content-center align-self-center">
                 <div class="text-center p-5">
@@ -104,7 +104,7 @@
     </div>
 
     {{-- ********************************************** PARALLAX 4 ********************************************** --}}
-    <div class="row">
+    <div class="row w-100 m-0">
         <div class="row m-0 parallax parallax4">
             <div class="col-12 d-flex justify-content-center align-self-center">
                 <div class="text-center p-5">
@@ -122,7 +122,7 @@
     </div>
 
     {{-- ********************************************** PARALLAX 5 ********************************************** --}}
-    <div class="row">
+    <div class="row w-100 m-0">
         <div class="row m-0 parallax parallax5">
             <div class="col-12 d-flex justify-content-center align-self-center">
                 <div class="text-center p-5">
@@ -146,11 +146,11 @@
 
     <!-- Formulario de inicio de sesión -->
     <div id="c-login" class="d-none container superpuesto" tabindex="0">
-        <div class="row justify-content-center">
-            <div id="divlogin" class="col-7 p-0">
+        <div class="row w-100 m-0 justify-content-center">
+            <div id="divlogin" class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 p-0">
                 <div class="card sombra_borde card-portada">
                     <div class="card-body pt-0">
-                        <div class="row d-flex justify-content-end">
+                        <div class="row w-100 m-0 d-flex justify-content-end">
                             <div class="exit-card text-right p-0">X</div>
                         </div>
                         <form action="{{ route('logintoapp') }}" method="POST">
@@ -195,11 +195,11 @@
 
     <!-- Formulario de registro -->
     <div id="c-registro" class="d-none container superpuesto" tabindex="1">
-        <div class="row justify-content-center">
-            <div id="divregistro" class="col-7">
+        <div class="row w-100 m-0 justify-content-center">
+            <div id="divregistro" class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 p-0">
                 <div class="card sombra_borde card-portada">
                     <div class="card-body pt-0">
-                        <div class="row d-flex justify-content-end">
+                        <div class="row w-100 m-0 d-flex justify-content-end">
                             <div class="exit-card text-right p-0">X</div>
                         </div>
                         <form action="{{ route('registrar') }}" method="POST">

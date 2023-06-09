@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\VIntentosTest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Test;
+
 
 class VIntentosTestController extends Controller
 {
@@ -41,35 +43,6 @@ class VIntentosTestController extends Controller
 
         return $recienteTestResults;
     }
-
-
-    // Obtener los test más populares realizados
-    public function popularesTestRealizados()
-    {
-        // Obtener los test más populares realizados
-        $popularTests = VIntentosTest::select('id_test')
-            ->groupBy('id_test')
-            ->orderByRaw('COUNT(*) DESC')
-            ->limit(6)
-            ->get();
-
-        $popularTestResults = [];
-        foreach ($popularTests as $test) {
-            // Obtener los datos del test más reciente realizado para cada test popular
-            $testData = VIntentosTest::where('id_test', $test->id_test)
-                ->orderBy('fecha_realizacion', 'desc')
-                ->orderBy('tiempo_fin', 'desc')
-                ->first();
-
-            if ($testData) {
-                $popularTestResults[] = $testData;
-            }
-        }
-
-        // Return the popular test results
-        return $popularTestResults;
-    }
-
 
     // Obtener la vista de la cuenta del usuario
     public function getCuentaView()

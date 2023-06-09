@@ -589,8 +589,7 @@ nav>div>a>img {
 
 .boton-arrow {
     min-width: 130px;
-    height: 36px;
-    color: var(--color1);
+    color: var(--color2);
     padding: 5px 10px;
     font-weight: bold;
     cursor: pointer;
@@ -600,11 +599,13 @@ nav>div>a>img {
     outline: none;
     overflow: hidden;
     border-radius: 5px;
-    border: none;
-    background-color: var(--color2) !important;
+    border: 2px solid var(--color2) !important;
+    background-color: var(--color6) !important;
 }
 
 .boton-arrow:hover {
+    color: var(--color6);
+    background-color: var(--color2) !important;
     border-radius: 5px;
     padding-left: 28px;
     padding-right: 4px;
@@ -613,6 +614,7 @@ nav>div>a>img {
 .boton-arrow:hover:after {
     opacity: 1;
     left: 20px;
+    border-color: var(--color2);
 }
 
 .boton-arrow:after {

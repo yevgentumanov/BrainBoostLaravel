@@ -1,4 +1,4 @@
-<div class="container">
+<div>
     <div class="row w-100 m-0 justify-content-left">
         <div id="divregistro" class="col-md-12">
 

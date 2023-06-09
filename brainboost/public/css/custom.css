@@ -489,12 +489,16 @@ nav>div>a>img {
 /* INICIO DE SESION */
 .bt-log {
     color: var(--color9) !important;
-    background: var(--color1) !important;
+    background: var(--color6) !important;
     border: 2px solid var(--color2) !important;
 }
 
 .bt-log:hover {
     color: var(--color6) !important;
+}
+
+.bt-log:focus {
+    box-shadow: none;
 }
 
 .boton-sliding-abajo {

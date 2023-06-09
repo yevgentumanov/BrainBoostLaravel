@@ -22,5 +22,5 @@ class Usuario extends Model implements Authenticatable
         'password',
         'email'
     ];
-
 }
+

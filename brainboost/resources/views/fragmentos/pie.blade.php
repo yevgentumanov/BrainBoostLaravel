@@ -62,5 +62,5 @@
         <img src="{!! asset('images/Logo_letras_chicas_con_sombra en blanco y negro-trayectos-v3.svg') !!}" height="100px" class="mx-auto d-md-none"
             style="width: 100%; height: fit-content;" alt="Logo">
     </div>
-
+    <button id="scrollToTopButton">&#8679;</button>
 </footer>

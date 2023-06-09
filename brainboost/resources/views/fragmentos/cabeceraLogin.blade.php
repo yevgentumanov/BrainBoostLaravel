@@ -187,11 +187,15 @@
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-5">Recuperar contraseña</button>
                                 </div>
-                                <div class="col-12 row justify-content-center pt-3 pl-5 pr-5">
-                                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                                </div>
                             </div>
                         </form>
+                        <div class="row justify-content-center pt-4 pl-5 pr-5">
+                            <form action="/google-auth/redirect" method="GET">
+                                <div class="col-12 ">
+                                    <button type="submit" class="btn btn-5">Iniciar con Google</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

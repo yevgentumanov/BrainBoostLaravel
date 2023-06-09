@@ -39,10 +39,6 @@
     <!-- Boton Scroll up -->
     <script src="{!! asset('js/scrollBtn.js') !!}"></script>
 
-    <!-- API Google auth -->
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-
-
     <!-- JavaScript: lógica test -->
     @isset($enableScriptTest)
         @if ($enableScriptTest == true)

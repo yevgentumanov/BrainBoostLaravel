@@ -1,8 +1,8 @@
 @extends('plantillas.base')
 
 @section('main')
-    <main class="row">
-        <div class="row d-flex p-4 cuerpo">
+    <main class="row w-100 m-0">
+        <div class="row w-100 m-0 d-flex p-4 cuerpo">
             <section class="row bg-primary seccion-mb s-materia">
                 <div class="col-sm-1 col-md-2 d-lg-none"></div>
                 <div class="col-12 col-sm-10 col-md-8 col-lg-4 p-4">

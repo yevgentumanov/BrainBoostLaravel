@@ -688,13 +688,14 @@ nav>div>a>img {
 
 .realzado section:hover {
     font-weight: bold;
-    color: var(--color9) !important;
+    border: 2px solid;
+    color: var(--color6) !important;
     background-color: var(--color3) !important;
     animation: disminucion .2s cubic-bezier(.25, .46, .45, .94) both;
-    box-shadow:
-        inset 0 -3em 3em hsla(0, 0%, 0%, 0.1),
-        0 0 0 2px var(--color6),
-        0.3em 0.3em 1em rgba(0, 0, 0, 0.8);
+    box-shadow: inset 0 0 20px var(--color6_05), 0 0 20px var(--color11);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px var(--color2);
 }
 
 /****************************************************************************/

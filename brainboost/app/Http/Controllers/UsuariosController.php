@@ -19,16 +19,23 @@ class UsuariosController extends Controller
     {
         $user = Socialite::driver('google')->stateless()->user();
 
-        $usuario = Usuario::updateOrCreate(
-            ['google_id' => $user->id],
-            [
+        $usuario = Usuario::where('email', $user->email)->first();
+
+        if ($usuario) {
+            $usuario->nombre_usuario = $user->name;
+            $usuario->google_id = $user->id;
+            $usuario->save();
+        } else {
+            $usuario = Usuario::create([
                 'nombre_usuario' => $user->name,
+                'google_id' => $user->id,
                 'email' => $user->email,
-            ]
-        );
+            ]);
+        }
 
         Auth::login($usuario);
 
         return redirect('/');
     }
+
 }

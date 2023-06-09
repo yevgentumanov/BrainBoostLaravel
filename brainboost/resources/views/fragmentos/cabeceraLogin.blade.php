@@ -189,7 +189,8 @@
                                 </div>
                             </div>
                         </form>
-                        <div class="row justify-content-center pt-4 pl-5 pr-5">
+                        <hr>
+                        <div class="row justify-content-center pt-1 pl-5 pr-5">
                             <form action="/google-auth/redirect" method="GET">
                                 <div class="col-12 ">
                                     <button type="submit" class="btn btn-5">Iniciar con Google</button>

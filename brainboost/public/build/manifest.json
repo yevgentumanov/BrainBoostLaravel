@@ -5,7 +5,10 @@
     "src": "public/css/custom.css"
   },
   "public/js/TestVue.js": {
-    "file": "assets/TestVue-78db093a.js",
+    "css": [
+      "assets/TestVue-8033e9a5.css"
+    ],
+    "file": "assets/TestVue-a0fbcebb.js",
     "isEntry": true,
     "src": "public/js/TestVue.js"
   }

@@ -77,22 +77,32 @@ export class TestController {
         /*-- Obtiene los datos del servidor --*/
         // datos cabecera (sustituir segundo null): {id: idTest, pagina: 1}
         // pagina es un atributo que indica el nº de página que se está mostrando. Los tests se van cargando en páginas, por ejemplo, de 10 en 10 preguntas, para reducir la carga del servidor cuando se trate de tests muy largos.
-        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_PREGUNTAS, "GET", null, { id: idTest })
-
-            .then(response => {
-                response.forEach(pregunta => {
-                    // if (this.test.idTest == null) {
-                    //     this.test.idTest = response.id_test;
-                    // }
-                    // delete response.id_test;
-                    this.test.idTest = idTest; // Para prevenir que la petición de obtener los datos del test falle
-
-                    /*-- Agrega la pregunta al array de preguntas --*/
-                    pregunta.datos_pregunta = JSON.parse(pregunta.datos_pregunta);
-                    this.test.addPregunta(pregunta);
-
-                    /*-- To do: Debo inicializar el array de respuestas de TestModel a null, pero con la estructura creada --*/
-                    
+        // console.log(rutaRelativa);
+        // console.log(Rutas.RUTA_API_PREGUNTAS.url);
+        const rutaRelativa = calcularRuta(Rutas.RUTA_API_PREGUNTAS.url);
+        return new Promise((resolve, reject) => {
+            // obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_PREGUNTAS.url, Rutas.RUTA_API_PREGUNTAS.method, null, { id: idTest })
+            obtenerJSON(rutaRelativa, Rutas.RUTA_API_PREGUNTAS.method, null, { id: idTest })
+                .then(response => {
+                    response.forEach(pregunta => {
+                        // if (this.test.idTest == null) {
+                        //     this.test.idTest = response.id_test;
+                        // }
+                        // delete pregunta.id_test;
+                        this.test.idTest = idTest; // Por si downloadInfoAboutTestByIdTest() fallara al obtener los datos del test falle
+    
+                        /*-- Agrega la pregunta al array de preguntas --*/
+                        pregunta.datos_pregunta = JSON.parse(pregunta.datos_pregunta);
+                        this.test.addPregunta(pregunta);
+                    });
+                    /*-- Settea a null la respuesta correspondiente a la pregunta --*/
+                    for (let i = 0; i < this.test.getSize(); i++) {
+                        this.test.setRespuesta(i, []);
+                    }
+                    resolve("OK");
+                }).catch(error => {
+                    console.dir(error);
+                    reject(`${MensajesErrorTest["__ERR_QUESTIONS_FETCH"].message} Mensaje de error: ${error}`);
                 });
             }).catch(error => {
                 /*-- Descarta que haya dado error --*/
@@ -108,25 +118,64 @@ export class TestController {
      * - test.fecha_realizacion
      * - test.respuestas
      * Es decir, descarga su nota, dado un id intento de test.
-     * @param {number} idIntentoTest Especifica el id del intento del test.
+     * @param {number} nintentoTest Especifica el id del intento del test.
      */
-    downloadInfoIntentoUsuario(idIntentoTest) {
+    downloadInfoIntentoUsuario(nintentoTest) {
         /*-- Descarta que el idUsuario no sea válido --*/
         if (this.test instanceof Test == false) throw new Error(MensajesErrorTest["__ERR_TEST_OBJECT_INVALID"].message);
-        if (!this.test.validaIdBD(idIntentoTest)) throw new Error(MensajesErrorTest["__ERR_ATTEMPT_TEST_ID_INVALID"].message);
+        if (!this.test.validaIdBD(Number.parseInt(nintentoTest))) throw new Error(MensajesErrorTest["__ERR_ATTEMPT_TEST_ID_INVALID"].message);
 
         /*-- Creación de variables temporales --*/
         let nota = null;
         let idUsuario = null;
         let fechaRealizacion = null;
 
-        /*-- Descarta que la info no exista en el servidor --*/
-        // ... To do
+        /*-- Prepara los datos para enviarselos al servidor --*/
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        const cabeceras = {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': csrfToken  // Include the CSRF token in the request headers
+        };
+        const cuerpo = {
+            id_test: this.test.getIdTest(),
+            intento: nintentoTest
+        };
 
-        /*-- Descarga la nota y establece los datos en el objeto Test --*/
-        this.test.idUsuarioRealizador = idUsuario;
-        this.test.fechaRealizacion = fechaRealizacion;
-        this.test.nota = nota;
+        /*-- Descarga la información de las respuestas dadas por el usuario desde el servidor --*/
+        // ... To do
+        const rutaRelativa = calcularRuta(Rutas.RUTA_API_PREGUNTAS_REALIZADAS_INTENTO.url);
+        return new Promise((resolve, reject) => {
+            // obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_ENVIO_TEST_REALIZADO.url, Rutas.RUTA_API_ENVIO_TEST_REALIZADO.method, cabeceras, JSON.stringify(cuerpo))
+            obtenerJSON(rutaRelativa, Rutas.RUTA_API_PREGUNTAS_REALIZADAS_INTENTO.method, cabeceras, JSON.stringify(cuerpo))
+                .then(response => {
+                    console.log(response);
+                    /*-- Descarga la nota y establece los datos en el objeto Test --*/
+                    this.test.idUsuarioRealizador = response.data[0].id_usuario;
+                    this.test.fechaRealizacion = new Date(response.data[0].fecha_realizacion);
+                    this.test.setModalidad(response.data[0].modalidad);
+                    this.test.setDificultad(response.data[0].dificultad);
+                    this.test.intento = response.data[0].intento; // To do
+                    const tiempoInicioResponse = response.data[0].tiempo_inicio.split(":");
+                    let tiempoInicio = this.test.fechaRealizacion;
+                    tiempoInicio.setUTCHours(tiempoInicioResponse[0]);
+                    tiempoInicio.setUTCMinutes(tiempoInicioResponse[1]);
+                    tiempoInicio.setUTCSeconds(tiempoInicioResponse[2]);
+                    this.test.setTiempoInicio(tiempoInicio);
+
+                    // /*-- Añade las respuestas --*/
+                    for (let i = 0; i < response.data.length; i++) {
+                        this.test.setRespuesta(i, JSON.parse(response.data[i].respuestas));
+                        this.test.setNotaPregunta(i, Number.parseFloat(response.data[i].nota_pregunta));
+                    }
+                    // console.log(this.test);
+                    resolve("OK");
+                }).catch(error => {
+                    /*-- Descarta que haya dado error --*/
+                    // console.log(this.test);
+                    console.dir(error);
+                    reject(`${MensajesErrorTest["__ERR_TEST_INFO_FETCH"].message} Mensaje de error: ${error}`);
+                });
+        });
     }
 
 }

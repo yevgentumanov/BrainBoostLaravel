@@ -34,7 +34,7 @@
                             required>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                    <button id="btn-save" type="submit" class="btn btn-5">Guardar cambios</button>
                 </form>
             </section>
         </div>

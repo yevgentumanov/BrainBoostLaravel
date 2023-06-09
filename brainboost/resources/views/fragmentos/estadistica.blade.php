@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row justify-content-left">
+    <div class="row w-100 m-0 justify-content-left">
         <div id="divregistro" class="col-md-12">
 
             <section class="card-body bg-primary p-4">
@@ -16,10 +16,10 @@
                 </section>
                 <div id="ultimostests" class="row m-2 p-4">
                     <h2>Últimos test realizados</h2>
-                    <div class="col-12">
+                    <div class="col-12 realzado">
                         @foreach($ultimosTestRealizados as $ultimoTestRealizado)
                             <a href="{{ route('test', ['idTest' => $ultimoTestRealizado->id_test, 'intento' => $ultimoTestRealizado->intento]) }}">
-                                <section class="row bg-primary m-4 d-flex justify-content-center">
+                                <section class="row bg-primary mt-2 d-flex justify-content-center">
                                     <div
                                         class="col-6 col-sm-3 col-lg-2 d-left p-2">{{ $ultimoTestRealizado->test->nombre_test }}</div>
                                     <div
@@ -32,15 +32,15 @@
                         @endforeach
                     </div>
                     <div class="col-12 text-right mt-2">
-                        <a href="{{ route('testhistorial') }}" class="btn btn-primary">Ver todos los test realizados</a>
+                        <a id="btn-todos" href="{{ route('testhistorial') }}" class="btn btn-5">Ver todos los test realizados</a>
                     </div>
                 </div>
                 <div id="masrepetidos" class="row m-2 p-4">
                     <h2>Tests con más intentos realizados</h2>
-                    <div class="col-12">
+                    <div class="col-12 realzado">
                         @foreach($popularTestResults as $popTestRes)
                             <a href="{{ route('test', ['idTest' => $ultimoTestRealizado->id_test]) }}">
-                                <section class="row bg-primary m-4 d-flex justify-content-center">
+                                <section class="row bg-primary mt-2 d-flex justify-content-center">
                                     <div
                                         class="col-6 col-sm-3 col-lg-2 d-left p-2">{{ $popTestRes->test->nombre_test }}</div>
                                     <div

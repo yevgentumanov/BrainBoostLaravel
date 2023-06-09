@@ -223,6 +223,17 @@ footer a {
     }
 }
 
+#ultimostests div a,
+#masrepetidos div a {
+    color: var(--color2);
+    text-decoration: none;
+}
+
+#btn-todos,
+#btn-save {
+    color: var(--color6_x) !important;
+}
+
 #barra-navegacion {}
 
 /*****************************************************************************/

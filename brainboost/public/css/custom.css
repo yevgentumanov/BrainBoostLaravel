@@ -693,8 +693,6 @@ nav>div>a>img {
     background-color: var(--color3) !important;
     animation: disminucion .2s cubic-bezier(.25, .46, .45, .94) both;
     box-shadow: inset 0 0 20px var(--color6_05), 0 0 20px var(--color11);
-    outline-color: rgba(255, 255, 255, 0);
-    outline-offset: 15px;
     text-shadow: 1px 1px 2px var(--color2);
 }
 

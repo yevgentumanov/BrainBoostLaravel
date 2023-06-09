@@ -3,7 +3,7 @@
 
 <!-- Página de test -->
 @section('main')
-    <main class="row">
+    <main class="row w-100 m-0">
         <div id="appVue" class="col-12 p-4 cuerpo">
             <section class="row bg-primary seccion-mb s-materia">
                 <div class="col-12 m-2 d-flex justify-content-between align-items-center">

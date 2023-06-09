@@ -2,7 +2,7 @@
     $recienteTestResults = app('App\Http\Controllers\VIntentosTestController')->ultimosTestRealizados();
     $count = count($recienteTestResults);
 @endphp
-
+@if(isset($recienteTestResults[0]))
 <section id="test-recientes" class="row bg-primary seccion-mb p-4 ml-2 mr-2">
     <div class="row">
         <div class="col-12 d-flex justify-content-center text-center">
@@ -62,3 +62,4 @@
         </div>
     </div>
 </section>
+@endif

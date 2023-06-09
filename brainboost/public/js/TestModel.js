@@ -196,8 +196,8 @@ export class Test {
         this.modalidad = null;
         this.tiempoInicio = null;
         this.tiempoFin = null;
-        this.intento = null; // To do (getters, setters y obtención del servidor): (number) almacenará el nº del intento del test realizado por el usuario que ha sido descargado desde el servidor.
-        this.intentos = null; // To do (getters, setters y obtencion del servidor): (number) almacenará el nº de intentos realizado por el usuario (solo se puede rescatar de la BB.DD)
+        this.intento = null; // (number) almacenará el nº del intento del test realizado por el usuario que ha sido descargado desde el servidor.
+        // this.intentos = null; // To do (getters, setters y obtencion del servidor): (number) almacenará el nº de intentos realizado por el usuario (solo se puede rescatar de la BB.DD)
         this.nota = null; // (number) (se rescata de la BB.DD / se asigna con el setter desde el controlador)
         this.notasPreguntas = null // (array) Guarda las notas individuales por cada pregunta
         this.fechaRealizacion = null; // (Date) (se rescata de la BB.DD / se asigna con el setter desde el controlador)
@@ -239,7 +239,7 @@ export class Test {
      * Método genérico que sirve para validar ID's de la BB.DD.
      * En qué se usa:
      * - idTest
-     * - idIntentoTest
+     * - intento
      * @param {number} idBD - Especifica el ID de la tabla de la BB.DD que sea.
      */
     validaIdBD(idBD) {
@@ -1052,95 +1052,21 @@ export class Test {
     }
 
     /**
-     * @deprecated (Deprecado) Descarga información acerca del test.
-     * 
-     * Usa este nuevo método: {@link TestController.downloadInfoAboutTestByIdTest}
-     * - Nombre test
-     * - Descripcion
-     * - Numero de preguntas
-     * - Numero visitas
-     * - Id usuario creador
-     * - Nombre usuario creador
-     * - Id materia
-     * - Nombre materia
-     * @param {number} idTest - Especifica el id del test.
+     * Getter del número de intento correspondiente al test que ha realizado el usuario.
      */
-    downloadInfoAboutTestByIdTest(idTest) {
-        /*-- Realiza las validaciones --*/
-        if (!this.validaIdBD(idTest)) throw new Error(MensajesErrorTest["__ERR_TEST_ID_INVALID"].message);
-
-        /*-- Obtiene los datos del servidor --*/
-        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_TEST.url, Rutas.RUTA_API_TEST.method, null, { id: idTest })
-            .then(response => {
-                // To do
-            }).catch(error => {
-                /*-- Descarta que haya dado error --*/
-                throw new Error(`${MensajesErrorTest["__ERR_TEST_INFO_FETCH"].message} Mensaje de error: ${error}`);
-            })
+    getIntento() {
+        return this.intento;
     }
 
     /**
-     * @deprecated (Deprecado) Método que descarga del servidor las 10 siguientes preguntas (y sus respuestas).
-     * 
-     * Usa este nuevo método: {@link TestController.downloadQuestionsByIdTest}
-     * @param {number} idTest - Especifica el id del test.
-     * @throws {Error} Puede lanzar un error si no consigue descargar la información de las preguntas del servidor.
+     * Setter para establecer el nº de intento del test.
+     * @param {Number} intento - Especifica el nº de intento del test.
      */
-    downloadQuestionsByIdTest(idTest) {
+    setIntento(intento) {
         /*-- Realiza las validaciones --*/
-        if (!this.validaIdBD(idTest)) throw new Error(MensajesErrorTest["__ERR_TEST_ID_INVALID"].message);
-
-        /*-- Obtiene los datos del servidor --*/
-        // datos cabecera (sustituir segundo null): {id: idTest, pagina: 1}
-        // pagina es un atributo que indica el nº de página que se está mostrando. Los tests se van cargando en páginas, por ejemplo, de 10 en 10 preguntas, para reducir la carga del servidor cuando se trate de tests muy largos.
-        obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_PREGUNTAS.url, Rutas.RUTA_API_PREGUNTAS.method, null, { id: idTest })
-
-            .then(response => {
-                response.forEach(pregunta => {
-                    // if (this.idTest == null) {
-                    //     this.idTest = response.id_test;
-                    // }
-                    // delete response.id_test;
-                    this.idTest = idTest;
-
-                    /*-- Agrega la pregunta al array de preguntas --*/
-                    pregunta.datos_pregunta = JSON.parse(pregunta.datos_pregunta);
-                    this.addPregunta(pregunta);
-                });
-            }).catch(error => {
-                /*-- Descarta que haya dado error --*/
-                throw new Error(`${MensajesErrorTest["__ERR_QUESTIONS_FETCH"].message} Mensaje de error: ${error}`);
-            });
-    }
-
-    /**
-     * @deprecated (Deprecado) Método que descarga del servidor (si existe) la información del usuario que ha realizado este intento del test.
-     * 
-     * Usa este nuevo método: {@link TestController.downloadInfoIntentoUsuario}
-     * - this.idUsuarioRealizador
-     * - this.idTest
-     * - this.nota
-     * - this.fecha_realizacion
-     * - this.respuestas
-     * Es decir, descarga su nota, dado un id intento de test.
-     * @param {number} idIntentoTest Especifica el id del intento del test.
-     */
-    downloadInfoIntentoUsuario(idIntentoTest) {
-        /*-- Descarta que el idUsuario no sea válido --*/
-        if (!this.validaIdBD(idIntentoTest)) throw new Error(MensajesErrorTest["__ERR_ATTEMPT_TEST_ID_INVALID"].message);
-
-        /*-- Creación de variables temporales --*/
-        let nota = null;
-        let idUsuario = null;
-        let fechaRealizacion = null;
-
-        /*-- Descarta que la info no exista en el servidor --*/
-        // ... To do
-
-        /*-- Descarga la nota y establece los datos en el objeto Test --*/
-        this.idUsuarioRealizador = idUsuario;
-        this.fechaRealizacion = fechaRealizacion;
-        this.nota = nota;
+        if (!this.validaIdBD(intento)) throw new Error(MensajesErrorTest["__ERR_ATTEMPT_TEST_ID_INVALID"].message);
+        /*-- Realiza la operación --*/
+        this.intento = intento;
     }
 }
 

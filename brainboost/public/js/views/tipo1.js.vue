@@ -3,12 +3,20 @@
         <h4>Pregunta {{ indexPregunta + 1 }}:</h4>
         <!-- {{ indexPregunta = indexPregunta }} -->
         <label class="p-2 px-4 font-weight-bold">{{ pregunta.nombre_pregunta }}</label>
-        <fieldset>
+        <radioset 
+                  :indexoptionsset="indexPregunta"
+                  typeinput="checkbox"
+                  :opciones="pregunta.datos_pregunta.respuestas"
+                  :opcionesmarcadas="testobj.respuestas"
+                  :disabled="deshabilitado"
+                  :onchangeselected="opcionSeleccionada">
+        </radioset>
+        <!-- <fieldset>
             <div v-for="(respuesta, indexRespuesta) in pregunta.datos_pregunta.respuestas" :key="indexRespuesta" class="px-4">
                 <input type="radio" :id="indexPregunta + ':' +  indexRespuesta" :name="indexPregunta" :value="indexRespuesta" class="mr-2" @change="opcionSeleccionada">
                 <label :for="indexPregunta + ':' +  indexRespuesta">{{ respuesta }}</label>
             </div>
-        </fieldset>
+        </fieldset> -->
         <div>
             <span v-if="mostrarRetroalimentacion">{{ testobj.getPregunta(indexPregunta).retroalimentacion }}</span>
         </div>
@@ -19,6 +27,7 @@
 </template>
 
 <script>
+    import radioset from "./optionsset.js.vue";
     export default {
         created() {
             console.log("createdTipo1"); // Mera bandera de debug
@@ -43,6 +52,7 @@
         indexPregunta: Number
     });
     const mostrarRetroalimentacion = ref(false);
+    const deshabilitado = ref(false);
     
     /*==============================================
                     MÉTODOS
@@ -70,17 +80,18 @@
             // props.testobj.nota += actualPreguntasAcertadas / respuestaEnObjTest.length;
             /*-- Si el usuario ha acertado --*/
             if (actualPreguntasAcertadas == respuestaEnObjTest.length) {
-                const inputs = fieldSet.querySelectorAll("input");
-                /*-- Deshabilita los inputs cuando la pregunta sea acertada --*/
-                inputs.forEach(element => {
-                    element.setAttribute("disabled", "disabled");
-                });
+                // const inputs = fieldSet.querySelectorAll("input");
+                // /*-- Deshabilita los inputs cuando la pregunta sea acertada --*/
+                // inputs.forEach(element => {
+                //     element.setAttribute("disabled", "disabled");
+                // });
+                deshabilitado.value = true;
                 /*-- Muestra la retroalimentación --*/
                 mostrarRetroalimentacion.value = true;
             }
 
             /*-- Guarda la respuesta --*/
-            props.testobj.setRespuesta(indice, respuesta);
+            // props.testobj.setRespuesta(indice, respuesta);
         } else {
             // props.testobj.nota -= anteriorPreguntasAcertadas / respuestaEnObjTest.length; // Esto es por si se usa en algun futuro
             const inputs = fieldSet.querySelectorAll("input");

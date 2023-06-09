@@ -17,8 +17,6 @@ class TestController extends Controller
             ->limit($limit)
             ->get()
             ->toArray();
-//        dd($popularTests);
-
         return [
             'popularTests' => $popularTests
         ];

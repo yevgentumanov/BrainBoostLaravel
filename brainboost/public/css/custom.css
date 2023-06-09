@@ -180,7 +180,7 @@ footer a {
 
 #bloque-preguntas {
     padding: 20px;
-    background-color: var(--color1);
+    background-color: var(--color2);
 }
 
 #f-logo img {
@@ -284,8 +284,10 @@ footer a {
     box-shadow: 0 0 0 0.25rem var(--color3_05) !important;
 }
 
-.navbar-brand img {
-    width: 100%;
+
+/* CABECERA */
+.navbar {
+    padding: 1em !important;
 }
 
 /****************************************************************************/

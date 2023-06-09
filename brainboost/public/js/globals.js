@@ -36,6 +36,10 @@ const Rutas = {
         url: "/intentos_pregunta",
         method: "POST"
     },
+    "RUTA_API_PREGUNTAS_REALIZADAS_INTENTO": {
+        url: "/preguntas_realizadas",
+        method: "POST"
+    },
     "RUTA_API_MATERIAS": {
         url: "/api/materias",
         method: "GET"
@@ -58,91 +62,11 @@ let MATERIAS_LOADED = false;
 /*=====================================
             MÉTODOS
 ======================================*/
-// function calcularRuta(ruta) {
-//     /*-- Obtiene la dirección URL del navegador --*/
-//     let url = document.location.href;
-
-//     /*-- Obtiene la ruta de la API --*/
-//     let pathApi = `${Rutas.HOST_NAME}${ruta.url}`;
-
-//     /*-- Quita la parte común de las dos rutas del principio --*/
-//     const comun = "";
-//     for (let i = 0; i < (url.length < pathApi.length ? url.length: pathApi.length) && url.charAt(i) == pathApi.charAt(i); i++) {
-//         comun += url.charAt(i);
-//     }
-//     url = url.replace(comun, "");
-//     pathApi = pathApi.replace(comun, "");
-
-//     /*-- Obtiene las rutas divididas por el separador / --*/
-//     const urlDividida = url.split("/");
-//     const pathApiDividida = pathApi.split("/");
-
-//     /*-- Obtiene la diferencia de las dos rutas (en cuanto a número de profundidad de la ruta) --*/
-//     const diferencia = pathApiDividida.length - urlDividida.length;
-    
-//     /*-- Construye la ruta relativa --*/ {
-//         let rutaRelativa = "";
-//         /*-- Va para atrás en la ruta --*/
-//         if (diferencia > 0) {
-//             for (let i = 0; i < )
-//         } else {
-
-//         }
-//         /*-- Escirbe la ruta de la API --*/
-//         if (i == 0) {
-//             rutaRelativa = `.${ruta.url}`;
-//         } else if (i > 0) {
-
-//         }
-
-//     }
-// }
-
-// function calcularRuta(ruta) {
-//     /*-- Obtiene la dirección URL del navegador --*/
-//     let url = document.location.href;
-
-//     /*-- Obtiene la ruta de la API --*/
-//     let pathApi = `${Rutas.HOST_NAME}${ruta.url}`;
-
-//     /*-- Quita la parte común de las dos rutas del principio --*/
-//     let comun = "";
-//     for (let i = 0; i < (url.length < pathApi.length ? url.length : pathApi.length) && url.charAt(i) == pathApi.charAt(i); i++) {
-//         comun += url.charAt(i);
-//     }
-//     url = url.replace(comun, "");
-//     pathApi = pathApi.replace(comun, "");
-
-//     /*-- Obtiene las rutas divididas por el separador / --*/
-//     const urlDividida = url.split("/");
-//     const pathApiDividida = pathApi.split("/");
-
-//     /*-- Obtiene la diferencia de las dos rutas (en cuanto a número de profundidad de la ruta) --*/
-//     const diferencia = pathApiDividida.length - urlDividida.length;
-
-//     /*-- Obtiene el nº de niveles de directorio necesarios para llegar a la ruta base --*/
-//     // const 
-
-//     /*-- Construye la ruta relativa --*/
-//     let rutaRelativa = "";
-
-//     // Agrega los niveles de directorio necesarios para llegar a la ruta base
-//     for (let i = 0; i < diferencia; i++) {
-//         rutaRelativa += "../";
-//     }
-
-//     // Agrega la parte restante de la ruta de la API
-//     for (let i = diferencia; i < pathApiDividida.length; i++) {
-//         rutaRelativa += pathApiDividida[i];
-//         if (i < pathApiDividida.length - 1) {
-//             rutaRelativa += "/";
-//         }
-//     }
-
-//     return rutaRelativa;
-// }
-
-
+/**
+ * Método que sirve para calcular rutas relativas, dada la dirección de document.location.href (dirección actual), y una ruta de API a la que se desea acceder (pasada por parámetro).
+ * @param {string} ruta - Especifica la ruta de la API (sacada del objeto Rutas).
+ * @returns La ruta convertida a ruta relativa, según la dirección de Rutas.HOST_NAME
+ */
 function calcularRuta(ruta) {
     /*-- Obtiene la dirección URL del navegador --*/
     let url = document.location.href;

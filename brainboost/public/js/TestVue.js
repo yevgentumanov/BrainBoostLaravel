@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return {
                 tiposPregunta: TestModel.TipoPregunta,
                 testObj: new TestModel.Test(),
-                testCtrl: null
+                testCtrl: null,
+                url: new URL(document.location.href)
             }
         },
         computed: {
@@ -49,18 +50,32 @@ document.addEventListener('DOMContentLoaded', () => {
             this.testCtrl = new TestController(this.testObj); // Inicia el controlador
 
             /*-- Obtiene el id de la URL desde donde se está visitando la página que ha importado Vue --*/
-            const rutaDesglosada = document.location.href.split("/");
-            const lastSlash = rutaDesglosada[rutaDesglosada.length - 1];
-            const indiceSeparador = lastSlash.indexOf("?");
-            const id = Number.parseInt(indiceSeparador != -1 ? lastSlash.substring(0, indiceSeparador) : lastSlash);
-            this.testObj.idTest = id;
+            // const rutaDesglosada = document.location.href.split("/");
+            // const lastSlash = rutaDesglosada[rutaDesglosada.length - 1];
+            // const indiceSeparador = lastSlash.indexOf("?");
+            // const id = Number.parseInt(indiceSeparador != -1 ? lastSlash.substring(0, indiceSeparador) : lastSlash);
+            // this.testObj.idTest = id;
+            
+            const pathName = this.url.pathname.split("/");
+            const idTest = Number.parseInt(pathName[pathName.length - 1]);
+            this.testObj.idTest = idTest;
+            
         },
         mounted() {
             console.log("mounted"); // Mera bandera de debug
             /*-- Ordena al controlador que descargue dentro del TestModel las preguntas y la info del test --*/
             try {
-                this.testCtrl.downloadInfoAboutTestByIdTest(this.testObj.getIdTest());
-                this.testCtrl.downloadQuestionsByIdTest(this.testObj.getIdTest());
+                this.testCtrl.downloadInfoAboutTestByIdTest(this.testObj.getIdTest())
+                .then(response => {
+                    /*-- Una vez que obtiene la información general del test, obtiene el resto de datos --*/
+                    this.testCtrl.downloadQuestionsByIdTest(this.testObj.getIdTest());
+                    /*-- Obtiene los datos del test realizado por el usuario (en caso de estar visualizando un test ya realizado dado un numero de intento) --*/
+                    const intento = this.url.searchParams.get("intento");
+                    if (intento != null) {
+                        this.testCtrl.downloadInfoIntentoUsuario(intento);
+                    }
+                });
+                
             } catch (error) {
                 console.error(error);
             }

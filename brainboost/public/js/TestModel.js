@@ -196,6 +196,7 @@ export class Test {
         this.modalidad = null;
         this.tiempoInicio = null;
         this.tiempoFin = null;
+        this.intento = null; // To do (getters, setters y obtención del servidor): (number) almacenará el nº del intento del test realizado por el usuario que ha sido descargado desde el servidor.
         this.intentos = null; // To do (getters, setters y obtencion del servidor): (number) almacenará el nº de intentos realizado por el usuario (solo se puede rescatar de la BB.DD)
         this.nota = null; // (number) (se rescata de la BB.DD / se asigna con el setter desde el controlador)
         this.notasPreguntas = null // (array) Guarda las notas individuales por cada pregunta
@@ -257,6 +258,17 @@ export class Test {
      */
     validaIdPregunta(idPregunta) {
         if (typeof (idPregunta) != "number" || idPregunta < 0 || idPregunta >= this.preguntas.length) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Método que valida un id de pregunta. El índice que valida es el del array de preguntas (pero en base al tamaño de array almacenado en this.size), no el del ID en la BB.DD.
+     * @param {number} idPregunta - Especifica el id de la pregunta (índice del array interno, en base al tamaño de array almacenado en this.size).
+     */
+    validaIdPreguntaSize(idPregunta) {
+        if (typeof (idPregunta) != "number" || idPregunta < 0 || idPregunta >= this.size) {
             return false;
         }
         return true;
@@ -374,27 +386,29 @@ export class Test {
                 }
 
                 /*-- Comprueba los datos que contienen estas propiedades de la pregunta --*/
-                for (let i = 0; i < datosPregunta.length; i++) {
-                    /*-- Variables --*/
-                    const element = datosPregunta[i];
-                    
-                    /*-- Valida si los huecos son válidos y su contenido es number o string --*/
-                    const validacionHuecos = regex.test(element[0]);
-                    if (!validacionHuecos) {
-                        return false;
-                    }
-                    if (typeof(element[1]) != "string" && typeof(element[1]) != "number") {
-                        return false;
-                    }
-
-                    /*-- Verifica que existan los huecos en el enunciado de la preguntaJSON --*/
-                    if (preguntaJSON.tipo_pregunta == TipoPregunta.FILL_IN_GAPS && huecosEnunciado.length <= 0) {
-                        return false;
-                    }
-
-                    /*-- Comprueba si los huecos coinciden con los de datosPregunta (las respuestas posibles) --*/
-                    if (huecosEnunciado[i] != element[0]) {
-                        return false;
+                if (huecosEnunciado.length > 0) {
+                    for (let i = 0; i < datosPregunta.length; i++) {
+                        /*-- Variables --*/
+                        const element = datosPregunta[i];
+    
+                        /*-- Valida si los huecos son válidos y su contenido es number o string --*/
+                        const validacionHuecos = regex.test(element[0]);
+                        if (!validacionHuecos) {
+                            return false;
+                        }
+                        if (typeof(element[1]) != "string" && typeof(element[1]) != "number") {
+                            return false;
+                        }
+    
+                        /*-- Verifica que existan los huecos en el enunciado de la preguntaJSON --*/
+                        if (preguntaJSON.tipo_pregunta == TipoPregunta.FILL_IN_GAPS && huecosEnunciado.length <= 0) {
+                            return false;
+                        }
+    
+                        /*-- Comprueba si los huecos coinciden con los de datosPregunta (las respuestas posibles) --*/
+                        if (huecosEnunciado[i] != element[0]) {
+                            return false;
+                        }
                     }
                 }
                 break;
@@ -651,7 +665,7 @@ export class Test {
      */
     addPregunta(pregunta) {
         /*-- Realiza las validaciones --*/
-        if (!this.validaPregunta(pregunta)) throw new Error();
+        if (!this.validaPregunta(pregunta)) throw new Error(MensajesErrorTest["__ERR_QUESTION_INVALID"].message);
         /*-- Realiza la operación --*/
         if (this.preguntas.length >= this.size) {
             this.size++;
@@ -921,7 +935,7 @@ export class Test {
      * @param {object} respuesta - Especifica el objeto JSON con los datos de la respuesta dada por el usuario.
      */
     setRespuesta(indice, respuesta) {
-        if (!this.validaIdPregunta(indice)) throw new Error(MensajesErrorTest["__ERR_QUESTION_ID_INVALID"].message);
+        if (!this.validaIdPreguntaSize(indice)) throw new Error(MensajesErrorTest["__ERR_QUESTION_ID_INVALID"].message);
         if (!this.validaRespuesta(respuesta)) throw new Error(MensajesErrorTest["__ERR_RESPONSE_INVALID"].message);
 
         this.respuestas[indice] = respuesta;
@@ -971,7 +985,7 @@ export class Test {
      */
     setNotaPregunta(indice, nota) {
         /*-- Realiza las validaciones --*/
-        if (!this.validaIdPregunta(indice)) throw new Error(MensajesErrorTest["__ERR_QUESTION_ID_INVALID"].message);
+        if (!this.validaIdPreguntaSize(indice)) throw new Error(MensajesErrorTest["__ERR_QUESTION_ID_INVALID"].message);
         if (!this.validaNota(nota)) throw new Error(MensajesErrorTest["__ERR_MARK_INVALID"].message);
         /*-- Realiza la operación --*/
         if (this.nota == null) {

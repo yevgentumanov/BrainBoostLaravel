@@ -1,9 +1,9 @@
-window.onscroll = function() {
+window.onscroll = function () {
     scrollFunction();
 };
 
-document.addEventListener("DOMContentLoaded", function() {
-    window.onscroll = function() {
+document.addEventListener("DOMContentLoaded", function () {
+    window.onscroll = function () {
         scrollFunction();
     };
 
@@ -17,12 +17,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    document.getElementById("scrollToTopButton").onclick = function() {
-        scrollToTop();
+    document.getElementById("scrollToTopButton").onclick = function () {
+        window.scrollTo({top: 0, behavior: "smooth"});
     };
 
-    function scrollToTop() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }
 });

@@ -18,7 +18,6 @@ class UsuariosController extends Controller
     public function googleAuthCallback()
     {
         $user = Socialite::driver('google')->stateless()->user();
-
         $usuario = Usuario::where('email', $user->email)->first();
 
         if ($usuario) {
@@ -34,7 +33,6 @@ class UsuariosController extends Controller
         }
 
         Auth::login($usuario);
-
         return redirect('/');
     }
 

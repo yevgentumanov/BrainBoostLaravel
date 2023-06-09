@@ -54,23 +54,7 @@ Route::post('/registrar', [RegistroController::class, 'registrar'])->name('regis
 Route::get('/google-auth/redirect', function () {
     return Socialite::driver('google')->redirect();
 });
-
 Route::get('/google-auth/callback', [UsuariosController::class, 'googleAuthCallback'])->name('googleauthcallback');
-
-//Route::get('/google-auth/callback', 'UsuariosController@googleAuthCallback');
-
-//Route::get('/google-auth/callback', function () {
-//    $user = Socialite::driver('google')->stateless()->user();
-//    $usuario = Usuario::updateOrCreate([
-//        'google_id' => $user->id,
-//    ], [
-//            'nombre_usuario' => $user->name,
-//            'email' => $user->email,
-//        ]
-//    );
-//    Auth::login($usuario);
-//    return redirect('/');
-//});
 
 // Rutas para gestión de cuenta de usuario
 Route::get('/cuenta', [VIntentosTestController::class, 'getCuentaView'])->name('cuenta')->middleware('auth');

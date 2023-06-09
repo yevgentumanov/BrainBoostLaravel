@@ -56,15 +56,17 @@
                     <div class="col-12 realzado">
                         @if(isset($popularTestResults))
                             @foreach($popularTestResults as $popTestRes)
-                                @if(isset($popTestRes->id_test) && isset($popTestRes->test->nombre_test) && isset(popTestRes->test->descripcion))
-                                    <a href="{{ route('test', ['idTest' => $popTestRes->id_test]) }}">
-                                        <section class="row bg-primary mt-2 d-flex justify-content-center">
-                                            <div
-                                                class="col-6 col-sm-3 col-lg-2 d-left p-2">{{ $popTestRes->test->nombre_test }}</div>
-                                            <div
-                                                class="col-sm-6 col-lg-8 d-none d-sm-block p-2 text-center">{{ $popTestRes->test->descripcion }}</div>
-                                        </section>
-                                    </a>
+                                @if(isset($popTestRes))
+                                    @if(isset($popTestRes->id_test) && isset($popTestRes->test->nombre_test) && isset($popTestRes->test->descripcion))
+                                        <a href="{{ route('test', ['idTest' => $popTestRes->id_test]) }}">
+                                            <section class="row bg-primary mt-2 d-flex justify-content-center">
+                                                <div
+                                                    class="col-6 col-sm-3 col-lg-2 d-left p-2">{{ $popTestRes->test->nombre_test }}</div>
+                                                <div
+                                                    class="col-sm-6 col-lg-8 d-none d-sm-block p-2 text-center">{{ $popTestRes->test->descripcion }}</div>
+                                            </section>
+                                        </a>
+                                    @endif
                                 @endif
                             @endforeach
                         @endif

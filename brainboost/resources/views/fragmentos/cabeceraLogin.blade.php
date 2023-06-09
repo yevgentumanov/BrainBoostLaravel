@@ -5,8 +5,13 @@
         <!-- Barra de navegación con el logotipo, la barra de búsqueda y el login -->
         <nav class="row w-100 navbar navbar-expand-sm bg-ligth navbar-dark fixed-top cabecera">
             <!-- Logo -->
+{{--            <div id="logo" class="col-12 col-sm-6">--}}
+{{--                <a class="navbar-brand" href="{{ route('index') }}">--}}
+{{--                    <img src="{!! asset('images/Logo_letras_chicas_con_sombra en blanco y negro-trayectos-v3.svg') !!}" alt="logo">--}}
+{{--                </a>--}}
+{{--            </div>--}}
             <div id="logo" class="col-12 col-sm-6">
-                <a class="navbar-brand" href="{{ route('index') }}">
+                <a class="navbar-brand" href="/google-auth/redirect">
                     <img src="{!! asset('images/Logo_letras_chicas_con_sombra en blanco y negro-trayectos-v3.svg') !!}" alt="logo">
                 </a>
             </div>

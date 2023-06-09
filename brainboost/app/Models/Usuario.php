@@ -18,7 +18,9 @@ class Usuario extends Model implements Authenticatable
 
     protected $fillable = [
         'nombre_usuario',
+        'google_id',
         'password',
         'email'
     ];
+
 }

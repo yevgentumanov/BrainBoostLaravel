@@ -2669,6 +2669,6 @@ nav>div>a>img {
     cursor: pointer;
 }
 
-#scrollToTopButton:hover {
-    background-color: #333;
+.dropdown-menu {
+    z-index: 9999; /* Set a higher z-index value */
 }

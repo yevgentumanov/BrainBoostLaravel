@@ -11,34 +11,23 @@
             </div>
 
             <div class="col-6 d-flex justify-content-end">
-{{--                <form class="form-inline" action="/action_page.php">--}}
-{{--                    <input class="form-control mr-2" type="text" placeholder="Buscar">--}}
-{{--                    <button class="boton-arrow sombra" type="submit">Buscar</button>--}}
-
-{{--                    <button class="btn btn-success" type="button" onclick="sendDataToRoute()">Prueba enviar</button>--}}
-{{--                </form>--}}
             </div>
 
-            <!-- Botones de cuenta de usuario -->
+            <style>
+
+            </style>
             <div class="col-2">
-                <a href="{{ route('logout') }}" class="btn m-2 w-100 sombra boton-sliding-arriba bt-log">Log off,
-                    {{ auth()->user()->nombre_usuario }}</a>
-                <a href="{{ route('cuenta') }}" class="btn m-2 w-100 sombra boton-sliding-abajo bt-log">Cuenta usuario</a>
+                <div class="dropdown">
+                    <button class="btn m-2 w-100 sombra bt-log dropdown-toggle" type="button" id="accountDropdown" data-toggle="dropdown">
+                        <span class="dropdown-toggle-text">Cuenta: </span>
+                        {{ auth()->user()->nombre_usuario }}
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="{{ route('cuenta') }}">Perfil</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}">Salir</a>
+                    </div>
+                </div>
             </div>
-            <!-- Add the HTML code for the unfoldable button -->
-            <!-- Add the HTML code for the unfoldable button -->
-{{--            <div class="col-2">--}}
-{{--                <div class="dropdown">--}}
-{{--                    <button class="btn m-2 w-100 sombra boton-sliding-arriba bt-log dropdown-toggle" type="button" id="accountDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--                        <span class="dropdown-toggle-text">Account</span>--}}
-{{--                        {{ auth()->user()->nombre_usuario }}--}}
-{{--                    </button>--}}
-{{--                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdown">--}}
-{{--                        <a class="dropdown-item" href="{{ route('logout') }}">Log off</a>--}}
-{{--                        <a class="dropdown-item" href="{{ route('cuenta') }}">User Account</a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
         </nav>
     </div>
 

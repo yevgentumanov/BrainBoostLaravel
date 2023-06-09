@@ -5,14 +5,15 @@
         <!-- Barra de navegación con el logotipo, la barra de búsqueda y el login -->
         <nav class="row w-100 navbar navbar-expand-sm bg-ligth navbar-dark fixed-top cabecera">
             <!-- Logo -->
-{{--            <div id="logo" class="col-12 col-sm-6">--}}
-{{--                <a class="navbar-brand" href="{{ route('index') }}">--}}
-{{--                    <img src="{!! asset('images/Logo_letras_chicas_con_sombra en blanco y negro-trayectos-v3.svg') !!}" alt="logo">--}}
-{{--                </a>--}}
-{{--            </div>--}}
+            {{--            <div id="logo" class="col-12 col-sm-6">--}}
+            {{--                <a class="navbar-brand" href="{{ route('index') }}">--}}
+            {{--                    <img src="{!! asset('images/Logo_letras_chicas_con_sombra en blanco y negro-trayectos-v3.svg') !!}" alt="logo">--}}
+            {{--                </a>--}}
+            {{--            </div>--}}
             <div id="logo" class="col-12 col-sm-6">
-                <a class="navbar-brand" href="/google-auth/redirect">
-                    <img src="{!! asset('images/Logo_letras_chicas_con_sombra en blanco y negro-trayectos-v3.svg') !!}" alt="logo">
+                <a class="navbar-brand" href="/">
+                    <img src="{!! asset('images/Logo_letras_chicas_con_sombra en blanco y negro-trayectos-v3.svg') !!}"
+                         alt="logo">
                 </a>
             </div>
 
@@ -186,6 +187,9 @@
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-5">Recuperar contraseña</button>
                                 </div>
+                                <div class="col-12 row justify-content-center pt-3 pl-5 pr-5">
+                                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -217,7 +221,7 @@
                             <div class="form-group">
                                 <label for="nombre_usuario">Nombre de usuario</label>
                                 <input type="text" id="nombre_usuario" name="nombre_usuario" class="form-control"
-                                    required>
+                                       required>
                             </div>
 
                             <div class="form-group">
@@ -228,7 +232,7 @@
                             <div class="form-group">
                                 <label for="email_confirmation">Confirmar correo electrónico</label>
                                 <input type="email" id="email_confirmation" name="email_confirmation"
-                                    class="form-control" required>
+                                       class="form-control" required>
                             </div>
 
                             <div class="form-group">
@@ -239,7 +243,7 @@
                             <div class="form-group">
                                 <label for="password_confirmation">Confirmar contraseña</label>
                                 <input type="password" id="u-password_confirmation" name="password_confirmation"
-                                    class="form-control" required>
+                                       class="form-control" required>
                             </div>
 
                             <div class="row justify-content-center pt-3 pl-5 pr-5">

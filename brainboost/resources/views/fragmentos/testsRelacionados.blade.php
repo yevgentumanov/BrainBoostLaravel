@@ -22,7 +22,7 @@
                                     </a>
                                 </div>
                                 <div class="col-12  d-flex justify-content-center text-center">
-                                    <h3 class="text-wrap">{{ $sugTestResult->nombre_test }}</h3>
+                                    <h3 class="text-wrap t-test">{{ $sugTestResult->nombre_test }}</h3>
                                 </div>
                             </div>
                         </article>
@@ -32,7 +32,7 @@
         </div>
         {{-- SOLO VISIBLES PARA TAMAÑO ESCRITORIO --}}
         <div class="d-none d-xl-block col-xl-3 p-0">
-            <div class="row w-100 m-0">
+            <div class="row w-100 m-0 h-100">
                 @foreach ($sugeridosTestResults2['randomTests'] as $sugTestResult)
                     <div class="col-6 mb-4">
                         <article class="border border-box m-2 d-flex justify-content-center btn-5 h-100 m-0">
@@ -45,7 +45,7 @@
                                     </a>
                                 </div>
                                 <div class="col-12 d-flex justify-content-center text-center">
-                                    <h3 class="text-wrap">{{ $sugTestResult->nombre_test }}</h3>
+                                    <h3 class="text-wrap t-test">{{ $sugTestResult->nombre_test }}</h3>
                                 </div>
                             </div>
                         </article>

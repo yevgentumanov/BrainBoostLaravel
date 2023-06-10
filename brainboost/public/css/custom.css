@@ -79,7 +79,8 @@ h6 {
     color: var(--color4);
 }
 
-h1, h2 {
+h1,
+h2 {
     color: var(--color2);
 }
 
@@ -170,6 +171,13 @@ footer a {
     background-color: var(--color6_x);
 }
 
+.t-test {
+    /* Oculta el contenido que se desborda */
+    overflow: hidden;
+    /* Agrega puntos suspensivos (...) para indicar texto truncado */
+    text-overflow: ellipsis;
+}
+
 /*****************************************************************************/
 /*****************************************************************************/
 /*****************************************************************************/
@@ -200,7 +208,7 @@ footer a {
 #test-relacionados h3,
 #test-populares h3,
 #test-recientes h3 {
-    font-size: 95%;
+    font-size: 100%;
 }
 
 #test-relacionados,
@@ -245,7 +253,7 @@ footer a {
     color: var(--color6_x) !important;
 }
 
-#accountDropdown{
+#accountDropdown {
     color: var(--color2) !important;
     font-weight: bold;
 }
@@ -254,6 +262,7 @@ footer a {
     color: var(--color6) !important;
     background-color: var(--color2) !important;
 }
+
 #scrollToTopButton {
     display: none;
     position: fixed;
@@ -278,7 +287,8 @@ footer a {
 /*# sourceMappingURL=button.css.map */
 
 .dropdown-menu {
-    z-index: 9999; /* Set a higher z-index value */
+    z-index: 9999;
+    /* Set a higher z-index value */
 }
 
 
@@ -802,6 +812,10 @@ nav>div>a>img {
     .texto-presentacion p {
         font-size: 90%;
     }
+
+    #test-relacionados div div div div article div div {
+        padding: 4px !important;
+    }
 }
 
 @media (max-width: 1199px) {
@@ -878,7 +892,7 @@ nav>div>a>img {
     /* background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000); */
     position: absolute;
     top: -2px;
-    left:-2px;
+    left: -2px;
     background-size: 400%;
     z-index: -1;
     filter: blur(5px);
@@ -919,9 +933,17 @@ nav>div>a>img {
 
 
 @keyframes glowing {
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
 }
 
 /****************************************************************************/
@@ -2702,5 +2724,3 @@ nav>div>a>img {
 /****************************************************************************/
 /****************************************************************************/
 /****************************************************************************/
-
-

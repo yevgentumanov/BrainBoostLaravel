@@ -26,7 +26,7 @@
                                     </a>
                                 </div>
                                 <div class="col-12  d-flex justify-content-center">
-                                    <h3 class="text-wrap">{{ $recTestRes->test->nombre_test }}</h3>
+                                    <h3 class="text-wrap t-test">{{ $recTestRes->test->nombre_test }}</h3>
                                 </div>
                             </div>
                         </article>
@@ -36,7 +36,7 @@
         </div>
         {{-- SOLO VISIBLES PARA TAMAÑO ESCRITORIO --}}
         <div class="d-none d-xl-block col-xl-3 p-0">
-            <div class="row w-100 m-0">
+            <div class="row w-100 m-0 h-100">
                 @for($i = 6; $i < min($count, 8); $i++)
                     @php
                         $recTestRes = $recienteTestResults[$i];
@@ -52,7 +52,7 @@
                                     </a>
                                 </div>
                                 <div class="col-12 d-flex justify-content-center text-center">
-                                    <h3 class="text-wrap">Test 1</h3>
+                                    <h3 class="text-wrap t-test">Test 1</h3>
                                 </div>
                             </div>
                         </article>

@@ -26,7 +26,7 @@
                                     </a>
                                 </div>
                                 <div class="col-12  d-flex justify-content-center text-center">
-                                    <h3 class="text-wrap">{{ $popTestRes['nombre_test'] }}</h3>
+                                    <h3 class="text-wrap t-test">{{ $popTestRes['nombre_test'] }}</h3>
                                 </div>
                             </div>
                         </article>
@@ -36,7 +36,7 @@
         </div>
         {{-- SOLO VISIBLES PARA TAMAÑO ESCRITORIO --}}
         <div class="d-none d-xl-block col-xl-3 p-0">
-            <div class="row w-100 m-0">
+            <div class="row w-100 m-0 h-100">
                 @for($i = 6; $i < min($count, 8); $i++)
                     @php
                         $popTestRes = $popularTestResults['popularTests'][$i];
@@ -53,7 +53,7 @@
                                     </a>
                                 </div>
                                 <div class="col-12  d-flex justify-content-center text-center">
-                                    <h3 class="text-wrap">{{ $popTestRes['nombre_test'] }}</h3>
+                                    <h3 class="text-wrap t-test">{{ $popTestRes['nombre_test'] }}</h3>
                                 </div>
                             </div>
                         </article>

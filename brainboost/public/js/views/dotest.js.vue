@@ -81,7 +81,7 @@
             } else if (props.testobj.getNota() >= 7 && props.testobj.getNota() < 9) {
                 return "alert-success";
             } else {
-                return "alert-success sobresaliente";
+                return "alert-success animated-button6";
             }
         } else {
             return "alert-danger";

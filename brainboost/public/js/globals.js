@@ -40,6 +40,10 @@ const Rutas = {
         url: "/preguntas_realizadas",
         method: "POST"
     },
+    "RUTA_API_AUMENTAR_VISITAS_TEST": {
+        url: "/tests//incrementarVisitas",
+        method: "GET"
+    },
     "RUTA_API_MATERIAS": {
         url: "/api/materias",
         method: "GET"

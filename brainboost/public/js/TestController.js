@@ -118,6 +118,9 @@ export class TestController {
      * @param {Function} todoDone - (Opcional) Especifica una función con un parámetro (response) que se ejecutará cuando el fetch tenga éxito.
      */
     sendInfoIntentoTestUsuario(todoDone = null) {
+        /*-- Realiza las validaciones --*/
+        if (this.test instanceof Test == false) throw new Error(MensajesErrorTest["__ERR_TEST_OBJECT_INVALID"].message);
+
         /*-- Prepara los datos para enviarselos al servidor --*/
         const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         const cabeceras = {
@@ -251,6 +254,37 @@ export class TestController {
         });
     }
 
+    /**
+     * Método que sirve para enviar una petición al servidor para informar de que ha habido una nueva visita al test.
+     * @param {number} idTest - Especifica el id del test.
+     */
+    aumentarVisitas(idTest) {
+        /*-- Realiza las validaciones --*/
+        if (this.test instanceof Test == false) throw new Error(MensajesErrorTest["__ERR_TEST_OBJECT_INVALID"].message);
+        if (!this.test.validaIdBD(idTest)) throw new Error(MensajesErrorTest["__ERR_TEST_ID_INVALID"].message);
+
+        /*-- Prepara los datos para enviarselos al servidor --*/
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        const cabeceras = {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': csrfToken  // Include the CSRF token in the request headers
+        };
+
+        let ruta = Rutas.RUTA_API_AUMENTAR_VISITAS_TEST.url.split("/");
+        ruta[2] = idTest;
+        console.log(ruta);
+        const rutaRelativa = ruta.join("/");
+        console.log(rutaRelativa);
+        /*-- Realiza la petición al servidor --*/
+        
+        obtenerJSON(rutaRelativa, Rutas.RUTA_API_AUMENTAR_VISITAS_TEST.method, cabeceras, null)
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
 }
 
 /*=============================================

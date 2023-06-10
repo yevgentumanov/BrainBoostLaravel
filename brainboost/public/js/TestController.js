@@ -212,21 +212,34 @@ export class TestController {
                     /*-- Descarga la nota y establece los datos en el objeto Test --*/
                     this.test.idUsuarioRealizador = response.data[0].id_usuario;
                     this.test.fechaRealizacion = new Date(response.data[0].fecha_realizacion);
-                    this.test.setModalidad(response.data[0].modalidad);
-                    this.test.setDificultad(response.data[0].dificultad);
                     this.test.intento = response.data[0].intento; // To do
                     const tiempoInicioResponse = response.data[0].tiempo_inicio.split(":");
-                    let tiempoInicio = this.test.fechaRealizacion;
+                    let tiempoInicio = new Date(this.test.getFechaRealizacion());
                     tiempoInicio.setUTCHours(tiempoInicioResponse[0]);
                     tiempoInicio.setUTCMinutes(tiempoInicioResponse[1]);
                     tiempoInicio.setUTCSeconds(tiempoInicioResponse[2]);
-                    this.test.setTiempoInicio(tiempoInicio);
+                    // console.log(tiempoInicioResponse);
+                    // console.log(tiempoInicio);
+                    this.test.tiempoInicio = tiempoInicio;
 
-                    // /*-- Añade las respuestas --*/
+                    const tiempoFinResponse = response.data[0].tiempo_fin.split(":");
+                    let tiempoFin = new Date(this.test.getFechaRealizacion());
+                    tiempoFin.setUTCHours(tiempoFinResponse[0]);
+                    tiempoFin.setUTCMinutes(tiempoFinResponse[1]);
+                    tiempoFin.setUTCSeconds(tiempoFinResponse[2]);
+                    // console.log(tiempoFinResponse);
+                    // console.log(tiempoFin);
+                    this.test.tiempoFin = tiempoFin;
+
+                    /*-- Añade las respuestas --*/
                     for (let i = 0; i < response.data.length; i++) {
                         this.test.setRespuesta(i, JSON.parse(response.data[i].respuestas));
                         this.test.setNotaPregunta(i, Number.parseFloat(response.data[i].nota_pregunta));
                     }
+
+                    /*-- Establece la modalidad y la dificultad --*/
+                    this.test.setModalidad(response.data[0].modalidad);
+                    this.test.setDificultad(response.data[0].dificultad);
                     // console.log(this.test);
                     resolve("OK");
                 }).catch(error => {

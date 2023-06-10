@@ -61,16 +61,20 @@
 
         /*-- Verifica si es la respuesta correcta --*/
         const esUnaRespuestaCorrecta = compareArraysWithoutOrder(respuestaActual, respuestaCorrecta).length;        
-        const esLaRespuestaMarcadaPorElUsuario = compareArraysWithoutOrder(respuestaActual, respuestaUsuario).length;
+        const esLaRespuestaMarcadaPorElUsuario = respuestaUsuario != null ? compareArraysWithoutOrder(respuestaActual, respuestaUsuario).length : 0;
         if (esLaRespuestaMarcadaPorElUsuario > 0) {
             clases.push("font-weight-bold");
-            if (esUnaRespuestaCorrecta > 0) {
-                clases.push("text-success");
+            if (props.testobj.intento != null) {
+                if (esUnaRespuestaCorrecta > 0) {
+                    clases.push("text-success");
+                }
             }
         } else {
-            if (esUnaRespuestaCorrecta > 0) {
-            clases.push("text-danger");
-        }
+            if (props.testobj.intento != null) {
+                if (esUnaRespuestaCorrecta > 0) {
+                    clases.push("text-danger");
+                }
+            }
         }
 
         return clases.join(" ");

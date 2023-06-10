@@ -103,7 +103,7 @@ export class TestController {
                     });
                     /*-- Settea a null la respuesta correspondiente a la pregunta --*/
                     for (let i = 0; i < this.test.getSize(); i++) {
-                        this.test.setRespuesta(i, []);
+                        this.test.setRespuesta(i, null);
                     }
                     resolve("OK");
                 }).catch(error => {
@@ -221,7 +221,7 @@ export class TestController {
                     tiempoInicio.setUTCMinutes(tiempoInicioResponse[1]);
                     tiempoInicio.setUTCSeconds(tiempoInicioResponse[2]);
                     this.test.setTiempoInicio(tiempoInicio);
-                    
+
                     // /*-- Añade las respuestas --*/
                     for (let i = 0; i < response.data.length; i++) {
                         this.test.setRespuesta(i, JSON.parse(response.data[i].respuestas));

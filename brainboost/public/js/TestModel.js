@@ -419,12 +419,12 @@ export class Test {
 
     /**
      * Método que valida un objeto JSON que contiene los datos de una pregunta.
-     * @param {object} respuestaJSON - Especifica un objeto literal JSON con los datos de la respuesta.
+     * @param {object} respuesta - Especifica los datos de la respuesta. (Puede ser un objeto JSON, un string o un number, en función del tipo de pregunta que sea)
      * @param {number} idPregunta - (Opcional) Especifica el id de la pregunta (índice del array interno). Para una validación más exhaustiva, es recomendable rellenar este argumento.
      */
-    validaRespuesta(respuestaJSON, idPregunta = null) {
-        if (respuestaJSON == null) return true;
-        if (typeof(respuestaJSON) != "object") {
+    validaRespuesta(respuesta, idPregunta = null) {
+        if (respuesta == null) return true;
+        if (typeof(respuesta) != "object" || typeof(respuesta) != "string" || typeof(respuesta) != "number") {
             return false;
         }
 
@@ -447,21 +447,26 @@ export class Test {
             let elementosRespuesta;
 
             switch (pregunta.tipo_pregunta) {
-                                    // respuestaJSON.forEach(element => {
+                                    // respuesta.forEach(element => {
                     //     if (typeof(element) != "string" || pregunta.datos_pregunta.respuestas.includes(element)) {
                     //         return false;
                     //     }
                     // });
                 case TipoPregunta.MULTIPLE_RESPONSE:
+                    const auxArr = [respuesta];
+                    /*-- Comprueba si la respuesta que ha dado el usuario coincide con alguna de las respuestas posibles para la pregunta --*/
+                    if (compareArraysWithoutOrder(auxArr, pregunta.datos_pregunta.respuestas).length == 0) {
+                        return false;
+                    }
                 case TipoPregunta.MULTIPLE_RESPONSE_MULTIPLE_CHOICE:
                     /*-- Comprueba si la respuesta que ha dado el usuario coincide con alguna de las respuestas posibles para la pregunta --*/
-                    if (compareArraysWithoutOrder(respuestaJSON, pregunta.datos_pregunta.respuestas).length == 0) {
+                    if (compareArraysWithoutOrder(respuesta, pregunta.datos_pregunta.respuestas).length == 0) {
                         return false;
                     }
                     break;
                 case TipoPregunta.UNIQUE_RESPONSE:
                     /*-- Comprueba si la respuesta dada por el usuario es de tipo string o number --*/
-                    if (typeof(respuestaJSON[0]) != "string" && typeof(respuestaJSON[0]) != "number") return false;
+                    if (typeof(respuesta) != "string" && typeof(respuesta[0]) != "number") return false;
                     break;
                 case TipoPregunta.FILL_IN_GAPS: // Tipo 4
                 case TipoPregunta.FILL_GAPS_GIVEN_ONE: // Tipo 5
@@ -478,10 +483,10 @@ export class Test {
                     }
                     if (pregunta.tipo_pregunta == FILL_IN_GAPS) { // Tipo 4
                         /*-- Comprueba si la respuesta que ha dado el usuario coincide con alguna de las respuestas posibles para la pregunta --*/
-                        if (compareArraysWithoutOrder(respuestaJSON, arrDatosPregunta,
+                        if (compareArraysWithoutOrder(respuesta, arrDatosPregunta,
                             (x, y) => comparar(x, y)).length != datosPregunta.length) return false;
                     } else { // Tipos 5 y 6
-                        if (compareArraysInOrder(respuestaJSON, arrDatosPregunta,
+                        if (compareArraysInOrder(respuesta, arrDatosPregunta,
                             (x, y) => comparar(x, y)).length ) return false;
                     }
                     
@@ -493,10 +498,10 @@ export class Test {
 
     /**
      * Método que permite validar un array de respuestas dadas por el usuario.
-     * @param {Array} arrRespuestas - Especifica un array con las respuestas del usuario.
+     * @param {*} respuestas - Especifica un array con las respuestas del usuario.
      */
-    validaRespuestas(arrRespuestas) {
-        if (!Array.isArray(arrRespuestas) || arrRespuestas.length != this.size) {
+    validaRespuestas(respuestas) {
+        if (typeof(respuestas) != "string" || !Array.isArray(respuestas) || respuestas.length != this.size) {
             return false;
         }
         return true;

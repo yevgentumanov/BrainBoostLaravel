@@ -5,7 +5,6 @@
     </alerta>
     <section v-for="(pregunta, indexPregunta) in preguntasRandomOrder" :key="indexPregunta" class="pregunta" :class="['d-block', 'row', 'bg-primary', 'my-4']">
         <preguntatipo1 v-if="pregunta.tipo_pregunta == TestModel.TipoPregunta.MULTIPLE_RESPONSE" 
-                       :testobj="props.testobj" 
                        :pregunta="pregunta" 
                        :indexPregunta="indexPregunta">
         </preguntatipo1>
@@ -41,16 +40,19 @@
     import * as TestModel from "../TestModel.js";
     import {ref, computed} from "vue"; // habilita la función de reactividad y las propiedades computadas
     import {TestController} from "../TestController.js";
-
+    import { storeToRefs } from 'pinia'
+    import { useMyStore } from "../piniastore";
 
     /*==============================================
                 VARIABLES DE COMPONENTE
     ===============================================*/
+    const myStore = useMyStore();
+    const {testObj, testCtrl, url} = storeToRefs(myStore);
+    
     const props = defineProps({
-        alert: Object,
-        testobj: TestModel.Test,
-        testctrl: TestController
+        // alert: Object,
     });
+
     const sended = ref(false);
     const error = ref(false);
     
@@ -59,9 +61,9 @@
     /*==============================================
          Establece el tiempoInicio en TestModel
     ================================================*/
-    props.testobj.setTiempoInicio();
-    props.testobj.setTiempoFin();
-    intervalo = setInterval(() => props.testobj.setTiempoFin(), 1000);
+    testObj.value.setTiempoInicio();
+    testObj.value.setTiempoFin();
+    intervalo = setInterval(() => testObj.value.setTiempoFin(), 1000);
 
     // const testObj = ref(new TestModel.Test());
     // const testCtrl = ref(new TestController(props.testobj));
@@ -71,11 +73,11 @@
     ===============================================*/
     const claseAlerta = computed(() => {
         if (sended.value == true && error.value == false) {
-            if (props.testobj.getNota() < 5) {
+            if (testObj.value.getNota() < 5) {
                 return "alert-danger";
-            } else if (props.testobj.getNota() >= 5 && props.testobj.getNota() < 7) {
+            } else if (testObj.value.getNota() >= 5 && testObj.value.getNota() < 7) {
                 return "alert-warning";
-            } else if (props.testobj.getNota() >= 7 && props.testobj.getNota() < 9) {
+            } else if (testObj.value.getNota() >= 7 && testObj.value.getNota() < 9) {
                 return "alert-success";
             } else {
                 return "alert-success sobresaliente";
@@ -87,11 +89,11 @@
 
     const mensajeAlerta = computed(() => {
         if (sended.value == true && error.value == false) {
-            if (props.testobj.getNota() < 5) {
+            if (testObj.value.getNota() < 5) {
                 return "Necesitas estudiar";
-            } else if (props.testobj.getNota() >= 5 && props.testobj.getNota() < 7) {
+            } else if (testObj.value.getNota() >= 5 && testObj.value.getNota() < 7) {
                 return "Debes repasar";
-            } else if (props.testobj.getNota() >= 7 && props.testobj.getNota() < 9) {
+            } else if (testObj.value.getNota() >= 7 && testObj.value.getNota() < 9) {
                 return "¡Enhorabuena! Has sacado un notable";
             } else {
                 return "Are you a BrainBoost warrior?";
@@ -104,10 +106,10 @@
     const preguntasRandomOrder = computed(() => {
         // console.log("Hola desde preguntasRandomOrder computed");
         // const devolucion = props.testobj.preguntas.sort(() => 0.5 - Random.randomFloat());
-        const devolucion = props.testobj.preguntas;
+        const devolucion = testObj.value.preguntas;
 
         /*-- Comprueba si se está visualizando un intento de test --*/
-        if (props.testobj.getIntento() != null) {
+        if (testObj.value.getIntento() != null) {
             return devolucion; // No hace nada más, devuelve el array de las preguntas tal cual, y no baraja tampoco las respuestas
         }
         
@@ -123,7 +125,7 @@
                 case TestModel.TipoPregunta.UNIQUE_RESPONSE: // Tipo 3
                     break;
                 case TestModel.TipoPregunta.FILL_IN_GAPS: // Tipo 4
-                    if (props.testobj.getDificultad() == TestModel.TipoDificultad.DIFICIL) {
+                    if (testObj.value.getDificultad() == TestModel.TipoDificultad.DIFICIL) {
 
                     }
                     break;
@@ -165,7 +167,7 @@
                     window.scrollTo({top: 0, behavior: "smooth"});
                     // Reanuda el cronómetro
                     intervalo = setInterval(() => {
-                        props.testobj.setTiempoFin();
+                        testObj.value.setTiempoFin();
                         // console.log("Estoy aumentando el tiempo");
                     }, 1000);
                 });
@@ -175,7 +177,7 @@
                 window.scrollTo({top: 0, behavior: "smooth"});
                 // Reanuda el cronómetro
                 intervalo = setInterval(() => {
-                    props.testobj.setTiempoFin();
+                    testObj.value.setTiempoFin();
                     // console.log("Estoy aumentando el tiempo");
                 }, 1000);
             }

@@ -4,7 +4,7 @@
  * @version 06.06.2023
  */
 
-import {Test} from "./TestModel"
+import {Test, TipoPregunta} from "./TestModel"
 import {MensajesErrorTest} from "./TestModel"
 export class TestController {
     /**
@@ -103,7 +103,7 @@ export class TestController {
                     });
                     /*-- Settea a null la respuesta correspondiente a la pregunta --*/
                     for (let i = 0; i < this.test.getSize(); i++) {
-                        this.test.setRespuesta(i, []);
+                        this.test.setRespuesta(i, null);
                     }
                     resolve("OK");
                 }).catch(error => {
@@ -136,6 +136,10 @@ export class TestController {
             const pregunta = this.test.getPreguntas()[i];
             const respuestas = this.test.getRespuestas()[i];
             const nota = this.test.getNotaPregunta(i)
+
+            if (!Array.isArray(respuestas)) {
+                respuestas = [respuestas];
+            }
 
             const objPreparado = {
                 id_pregunta: pregunta.id,
@@ -221,10 +225,24 @@ export class TestController {
                     tiempoInicio.setUTCMinutes(tiempoInicioResponse[1]);
                     tiempoInicio.setUTCSeconds(tiempoInicioResponse[2]);
                     this.test.setTiempoInicio(tiempoInicio);
-                    
+
                     // /*-- Añade las respuestas --*/
                     for (let i = 0; i < response.data.length; i++) {
-                        this.test.setRespuesta(i, JSON.parse(response.data[i].respuestas));
+                        const respuestas = JSON.parse(response.data[i].respuestas);
+                        
+                        switch (this.test.getPregunta(i).tipo_pregunta) {
+                            case TipoPregunta.MULTIPLE_RESPONSE:
+                                this.test.setRespuesta(i, respuestas[0]);
+                                break;
+                            case TipoPregunta.MULTIPLE_RESPONSE_MULTIPLE_CHOICE:
+                                this.test.setRespuesta(i, respuestas);
+                                break;
+                            case TipoPregunta.FILL_IN_GAPS:
+                                this.test.setRespuesta(i, )
+                            
+                        }
+
+                        
                         this.test.setNotaPregunta(i, Number.parseFloat(response.data[i].nota_pregunta));
                     }
                     // console.log(this.test);

@@ -5,9 +5,9 @@
         <label class="p-2 px-4 font-weight-bold">{{ pregunta.nombre_pregunta }}</label>
         <radioset 
                   :indexoptionsset="indexPregunta"
-                  typeinput="checkbox"
+                  typeinput="radio"
                   :opciones="pregunta.datos_pregunta.respuestas"
-                  :opcionesmarcadas="testobj.respuestas"
+                  :opcionesmarcadas="testobj.respuestas[indexPregunta]"
                   :disabled="deshabilitado"
                   :onchangeselected="opcionSeleccionada">
         </radioset>
@@ -18,10 +18,10 @@
             </div>
         </fieldset> -->
         <div>
-            <span v-if="mostrarRetroalimentacion">{{ testobj.getPregunta(indexPregunta).retroalimentacion }}</span>
+            <span v-if="mostrarRetroalimentacion">{{ testObj.getPregunta(indexPregunta).retroalimentacion }}</span>
         </div>
         <div class="d-flex justify-content-end">
-            <span v-if="testobj.getNotaPregunta(indexPregunta) != null">Nota: {{ testobj.getNotaPregunta(indexPregunta) }}</span>
+            <span v-if="testObj.getNotaPregunta(indexPregunta) != null">Nota: {{ testObj.getNotaPregunta(indexPregunta) }}</span>
         </div>
     </div>
 </template>
@@ -42,15 +42,19 @@
     import {ref, computed} from "vue"; // habilita la función de reactividad y las propiedades computadas
     import * as TestModel from "../TestModel.js";
     // import {TestController} from "../TestController.js";
+    import { storeToRefs } from 'pinia'
+    import { useMyStore } from "../piniastore";
 
     /*==============================================
                 VARIABLES DE COMPONENTE
     ===============================================*/
     const props = defineProps({
-        testobj: TestModel.Test,
         pregunta: Object,
         indexPregunta: Number
     });
+    const myStore = useMyStore();
+    const testObj = ref(myStore.testObj);
+
     const mostrarRetroalimentacion = ref(false);
     const deshabilitado = ref(false);
     
@@ -59,8 +63,8 @@
     ===============================================*/
     const corregirPregunta = (indice, respuesta, fieldSet) => {
         console.log(props.pregunta);
-        const pregunta = props.testobj.preguntas[indice];
-        const anteriorRespuestaUsuario = props.testobj.respuestas[indice];
+        const pregunta = testObj.value.preguntas[indice];
+        const anteriorRespuestaUsuario = testObj.value.respuestas[indice];
 
         let respuestaEnObjTest = pregunta.datos_pregunta.respuestas_correctas
         /*-- Comprueba si la respuesta que ha dado el usuario coincide con alguna de las respuestas posibles para la pregunta --*/
@@ -76,7 +80,7 @@
         // console.log(anteriorRespuestaUsuario);
         const anteriorPreguntasAcertadas = anteriorRespuestaUsuario != null ? compareArraysWithoutOrder(anteriorRespuestaUsuario, respuestaEnObjTest).length : 0;
         if (anteriorRespuestaUsuario == null || anteriorPreguntasAcertadas == 0) {
-            props.testobj.setNotaPregunta(indice, actualPreguntasAcertadas / respuestaEnObjTest.length / props.testobj.getSize() * 10)
+            testObj.value.setNotaPregunta(indice, actualPreguntasAcertadas / respuestaEnObjTest.length / testObj.value.getSize() * 10)
             // props.testobj.nota += actualPreguntasAcertadas / respuestaEnObjTest.length;
             /*-- Si el usuario ha acertado --*/
             if (actualPreguntasAcertadas == respuestaEnObjTest.length) {
@@ -143,7 +147,7 @@
         corregirPregunta(indice, respuesta, fieldSet);
 
         /*-- Qué hacer a continuación, según la modalidad del test... --*/
-        switch (props.testobj.modalidad) {
+        switch (testObj.value.modalidad) {
             case TestModel.TipoModalidad.PRACTICAR:
                 // No hace nada
                 break;

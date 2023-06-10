@@ -1,7 +1,7 @@
 <template>
     <fieldset data-componentName="optionsSet">
         <div v-for="(respuesta, indexRespuesta) in opciones" :key="indexRespuesta" class="px-4">
-            <input :type="typeinput" v-model="opcionesmarcadas[opcionesmarcadas.length]" :id="indexoptionsset + ':' +  indexRespuesta" :name="indexoptionsset" :value="respuesta" :disabled="disabled" class="mr-2" @change="opcionSeleccionada">
+            <input :type="typeinput" v-model="opcionesmarcadas" :id="indexoptionsset + ':' +  indexRespuesta" :name="indexoptionsset" :value="respuesta" :disabled="disabled" class="mr-2" @change="opcionSeleccionada">
             <label :for="indexoptionsset + ':' +  indexRespuesta">{{ respuesta }}</label>
         </div>
     </fieldset>
@@ -34,6 +34,7 @@
         disabled: Boolean,
         onchangeselected: Function
     });
+    const emit = defineEmits([""])
     // const optionsMarked = ref(Array());
     // optionsMarked.value = 1;
     /*==============================================

@@ -68,16 +68,16 @@
     // import {ref, computed} from "vue"; // habilita la función de reactividad y las propiedades computadas
     import * as TestModel from "../TestModel.js";
     import {TestController} from "../TestController.js";
+    import { storeToRefs } from 'pinia'
+    import { useMyStore } from "../piniastore";
 
 
     /*==============================================
                 VARIABLES DE COMPONENTE
     ===============================================*/
-    const props = defineProps({
-        testobj: TestModel.Test,
-        testctrl: TestController
-    });
-
+    const myStore = useMyStore();
+    const {testObj, testCtrl, url} = storeToRefs(myStore);
+    
     /*==============================================
                     MÉTODOS
     ===============================================*/
@@ -89,12 +89,12 @@
     
     function practicarTest(evento) {
         // window.alert("practicarTest");
-        props.testobj.setModalidad(TestModel.TipoModalidad.PRACTICAR);
+        testObj.value.setModalidad(TestModel.TipoModalidad.PRACTICAR);
     }
     
     function desafioTest(evento) {
         // window.alert("desafioTest");
-        props.testobj.setModalidad(TestModel.TipoModalidad.DESAFÍO);
+        testObj.value.setModalidad(TestModel.TipoModalidad.DESAFÍO);
     }
 </script>
 

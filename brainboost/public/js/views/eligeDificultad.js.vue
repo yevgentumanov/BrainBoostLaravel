@@ -62,14 +62,14 @@
     // import { ref, computed } from "vue"; // habilita la función de reactividad y las propiedades computadas
     import * as TestModel from "../TestModel.js";
     import {TestController} from "../TestController.js";
+    import { storeToRefs } from 'pinia'
+    import { useMyStore } from "../piniastore";
     
     /*==============================================
                 VARIABLES DE COMPONENTE
     ===============================================*/
-    const props = defineProps({
-        testobj: TestModel.Test,
-        testctrl: TestController
-    });
+    const myStore = useMyStore();
+    const {testObj, testCtrl, url} = storeToRefs(myStore);
 
     const explicacionModoFacil = `En el dificultad "Fácil", podrás ver tu nota (tu progreso) conforme vas respondiendo a las preguntas. Se introducirán "modificadores": por ejemplo, las respuestas numéricas (como fechas), se darán con un control deslizante para mayor facilidad.`;
     const explicacionModoDificil = `En el dificultad "Difícil", la nota de cada pregunta no se da instantáneamente. Recibirás tu nota al enviar el test. No se introducirán "modificadores": por ejemplo, las respuestas numéricas (por ejemplo, fechas), se introducirán en una caja de texto. En las respuestas de huecos, los huecos aparecerán en orden aleatorio.`;
@@ -79,12 +79,12 @@
     ===============================================*/
     function facil(evento) {
         // window.alert("facil");
-        props.testobj.setDificultad(TestModel.TipoDificultad.FÁCIL);
+        testObj.value.setDificultad(TestModel.TipoDificultad.FÁCIL);
     }
 
     function dificil(evento) {
         // window.alert("dificil");
-        props.testobj.setDificultad(TestModel.TipoDificultad.DIFÍCIL);
+        testObj.value.setDificultad(TestModel.TipoDificultad.DIFÍCIL);
     }
 </script>
 

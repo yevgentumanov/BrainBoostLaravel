@@ -26,7 +26,7 @@
                                     </a>
                                 </div>
                                 <div class="col-12  d-flex justify-content-center">
-                                    <h3 class="text-wrap">{{ $recTestRes->test->nombre_test }}</h3>
+                                    <h3 class="text-wrap t-test">{{ $recTestRes->test->nombre_test }}</h3>
                                 </div>
                             </div>
                         </article>
@@ -52,7 +52,7 @@
                                     </a>
                                 </div>
                                 <div class="col-12 d-flex justify-content-center text-center">
-                                    <h3 class="text-wrap">Test 1</h3>
+                                    <h3 class="text-wrap t-test">Test 1</h3>
                                 </div>
                             </div>
                         </article>

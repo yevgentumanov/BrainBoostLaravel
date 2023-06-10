@@ -2,7 +2,7 @@
 
 @section('main')
 
-    <main class="row">
+    <main class="row w-100 m-0">
         <div class="col-12">
 
             @auth

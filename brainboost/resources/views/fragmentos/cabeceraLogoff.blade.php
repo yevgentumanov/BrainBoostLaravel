@@ -2,24 +2,36 @@
 <header>
     <div class="cabecera-log">
         <!-- Barra de navegación con el logotipo, la barra de búsqueda y el login -->
-        <div class="cabecera-log">
+        <div class="row w-100 m-0 cabecera-log">
             <!-- Barra de navegación con el logotipo, la barra de búsqueda y el login -->
-            <nav class="row w-100 m-0 navbar navbar-expand-sm cabecera-log-nav">
+            <nav class="row w-100 m-0 navbar cabecera-log-nav">
                 <!-- Logo -->
-                <div class="col-4">
-                    <a class="navbar-brand" href="{{ route('index') }}">
+                <div class="col-12 d-flex justify-content-center d-lg-none">
+                    <a href="{{ route('index') }}">
+                        <img src="{!! asset('images/Logo_letras_chicas_con_sombra en blanco y negro-trayectos-v3.svg') !!}" alt="logo">
+                    </a>
+                </div>
+                <div class="d-none col-lg-6 d-lg-flex justify-content-start">
+                    <a href="{{ route('index') }}">
                         <img src="{!! asset('images/Logo_letras_chicas_con_sombra en blanco y negro-trayectos-v3.svg') !!}" alt="logo">
                     </a>
                 </div>
 
-                <div class="col-6 d-flex justify-content-end">
-                </div>
-
-                <style>
-
-                </style>
-                <div class="col-2">
+                <div class="col-12 d-flex justify-content-center d-lg-none">
                     <div class="dropdown">
+                        <button class="btn m-2 w-100 sombra bt-log dropdown-toggle" type="button" id="accountDropdown"
+                            data-toggle="dropdown">
+                            <span class="dropdown-toggle-text">Cuenta: </span>
+                            {{ auth()->user()->nombre_usuario }}
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="{{ route('cuenta') }}">Perfil</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}">Salir</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-none col-lg-6 pr-lg-4 d-lg-flex justify-content-end">
+                    <div class="dropdown mr-4">
                         <button class="btn m-2 w-100 sombra bt-log dropdown-toggle" type="button" id="accountDropdown"
                             data-toggle="dropdown">
                             <span class="dropdown-toggle-text">Cuenta: </span>

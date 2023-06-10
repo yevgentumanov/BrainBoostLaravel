@@ -245,7 +245,33 @@ footer a {
     color: var(--color6_x) !important;
 }
 
+#scrollToTopButton {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color2);
+    color: var(--color1);
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+}
+
 #barra-navegacion {}
+
+/*****************************************************************************/
+/*****************************************************************************/
+/*****************************************************************************/
+
+/*# sourceMappingURL=button.css.map */
+
+.dropdown-menu {
+    z-index: 9999; /* Set a higher z-index value */
+}
+
 
 /*****************************************************************************/
 /*****************************************************************************/
@@ -2664,24 +2690,8 @@ nav>div>a>img {
     }
 }
 
-/*# sourceMappingURL=button.css.map */
+/****************************************************************************/
+/****************************************************************************/
+/****************************************************************************/
 
 
-#scrollToTopButton {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background-color: var(--color2);
-    color: var(--color1);
-    border: none;
-    border-radius: 50%;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.dropdown-menu {
-    z-index: 9999; /* Set a higher z-index value */
-}

@@ -4,7 +4,7 @@
 @endphp
 
 <section id="test-populares" class="row bg-primary p-4 ml-2 mr-2">
-    <div class="row">
+    <div class="row w-100 m-0">
         <div class="col-12 d-flex justify-content-center">
             <h2>Test más populares</h2>
         </div>
@@ -14,19 +14,19 @@
                     @php
                         $popTestRes = $popularTestResults['popularTests'][$i];
                     @endphp
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <article class="border border-box m-2 d-flex justify-content-center btn-5">
-                            <div class="row">
+                    <div class="col-6 col-md-4 col-lg-2 mb-4">
+                        <article class="border border-box m-2 d-flex justify-content-center btn-5 h-100 m-0">
+                            <div class="row w-100 m-0">
                                 <div class="col-12">
-                                    <a class="row d-flex justify-content-center pt-3"
+                                    <a class="row w-100 m-0 d-flex justify-content-center pt-3"
                                        href="{{ route('test', ['idTest' => $popTestRes['id']]) }}">
-                                        <img class="col-12" style="margin: inherit;"
+                                        <img class="col-12 p-0" style="margin: inherit;"
                                              src="{!! asset('images/test.png') !!}"
                                              alt="logo" style="width:40px;">
                                     </a>
                                 </div>
-                                <div class="col-12  d-flex justify-content-center">
-                                    <h3>{{ $popTestRes['nombre_test'] }}</h3>
+                                <div class="col-12  d-flex justify-content-center text-center">
+                                    <h3 class="text-wrap">{{ $popTestRes['nombre_test'] }}</h3>
                                 </div>
                             </div>
                         </article>
@@ -41,19 +41,19 @@
                     @php
                         $popTestRes = $popularTestResults['popularTests'][$i];
                     @endphp
-                    <div class="col-6">
-                        <article class="border border-box m-2 d-flex justify-content-center btn-5">
-                            <div class="row">
+                    <div class="col-6 mb-4">
+                        <article class="border border-box m-2 d-flex justify-content-center btn-5 h-100 m-0">
+                            <div class="row w-100 m-0">
                                 <div class="col-12">
-                                    <a class="row d-flex justify-content-center pt-3"
+                                    <a class="row w-100 m-0 d-flex justify-content-center pt-3"
                                        href="{{ route('test', ['idTest' => $popTestRes['id']]) }}">
-                                        <img class="col-12" style="margin: inherit;"
+                                        <img class="col-12 p-0" style="margin: inherit;"
                                              src="{!! asset('images/test.png') !!}"
                                              alt="logo" style="width:40px;">
                                     </a>
                                 </div>
-                                <div class="col-12  d-flex justify-content-center">
-                                    <h3>{{ $popTestRes['nombre_test'] }}</h3>
+                                <div class="col-12  d-flex justify-content-center text-center">
+                                    <h3 class="text-wrap">{{ $popTestRes['nombre_test'] }}</h3>
                                 </div>
                             </div>
                         </article>

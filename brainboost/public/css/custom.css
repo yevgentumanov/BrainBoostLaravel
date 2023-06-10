@@ -200,7 +200,7 @@ footer a {
 #test-relacionados h3,
 #test-populares h3,
 #test-recientes h3 {
-    font-size: 100%;
+    font-size: 95%;
 }
 
 #test-relacionados,
@@ -245,6 +245,15 @@ footer a {
     color: var(--color6_x) !important;
 }
 
+#accountDropdown{
+    color: var(--color2) !important;
+    font-weight: bold;
+}
+
+#accountDropdown:hover {
+    color: var(--color6) !important;
+    background-color: var(--color2) !important;
+}
 #scrollToTopButton {
     display: none;
     position: fixed;

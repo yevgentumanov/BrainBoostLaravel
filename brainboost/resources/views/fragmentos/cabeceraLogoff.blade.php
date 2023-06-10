@@ -52,7 +52,7 @@
                 <span>☰</span><span style="display: none;">✖</span>
             </a>
 
-            <ul class="megamenu">
+            <ul class="megamenu m-0">
                 <!-- Botón de Inicio -->
                 <li class="item">
                     <a class="nav-link" href="{{ route('index') }}">INICIO</a>

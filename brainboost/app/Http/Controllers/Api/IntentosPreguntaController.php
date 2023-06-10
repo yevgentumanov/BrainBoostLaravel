@@ -116,7 +116,7 @@ class IntentosPreguntaController extends Controller
             ->where('intentos_tests.id_usuario', $userId)
             ->where('intentos_tests.id_test', $testId)
             ->where('intentos_tests.intento', $intento)
-            // ->orderBy('intentos_preguntas.id') // Para que me devuelva las preguntas en el mismo orden en el que le aparecieron al usuario cuando hizo el test
+            ->orderBy('intentos_preguntas.id_pregunta') // Para que me devuelva las preguntas en el mismo orden en el que están almacenadas en la BB.DD
             ->select(
                 'intentos_tests.id_usuario',
                 'intentos_tests.id_test',

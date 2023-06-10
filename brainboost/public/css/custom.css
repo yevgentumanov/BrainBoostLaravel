@@ -193,8 +193,14 @@ footer a {
 }
 
 #test-relacionados,
-#test-recientes {
+#test-populares {
     margin-bottom: 2em !important;
+}
+
+#test-relacionados h3,
+#test-populares h3,
+#test-recientes h3 {
+    font-size: 100%;
 }
 
 #test-relacionados,
@@ -203,6 +209,7 @@ footer a {
     color: var(--color2);
     text-transform: uppercase;
     background-color: var(--color1);
+
 }
 
 #test-relacionados:hover,

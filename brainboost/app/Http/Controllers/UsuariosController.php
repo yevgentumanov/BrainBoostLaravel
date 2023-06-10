@@ -1,19 +1,21 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Auth\MustVerifyEmail;
+use Illuminate\Auth\Events\Verified;
 
 class UsuariosController extends Controller
 {
-    public function showFirst()
-    {
-        $usuario = Usuario::first();
-        return $usuario;
-    }
+//    use AuthorizesRequests;
+    use AuthorizesRequests, MustVerifyEmail;
 
     public function googleAuthCallback()
     {
@@ -36,4 +38,102 @@ class UsuariosController extends Controller
         return redirect('/');
     }
 
+    public function logintoapp(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+        $user = Usuario::where('email', $credentials['email'])->first();
+
+        if ($user && Hash::check($credentials['password'], $user->password)) {
+            Auth::login($user);
+            return redirect()->route('index');
+        } else {
+            return redirect()->back()->with('warning', 'Invalid email or password');
+        }
+    }
+
+    public function salir()
+    {
+        Auth::logout();
+        $cookie = Auth::guard()->getCookieJar()->forget(Auth::guard()->getRecallerName());
+        return redirect()->route('index')->withCookie($cookie)->with('success', 'Logged out successfully');
+    }
+//
+//    public function registrar(Request $request)
+//    {
+//        $data = $request->validate([
+//            'nombre_usuario' => 'required',
+//            'email' => 'required|email',
+//            'password' => 'required|min:6|confirmed',
+//        ]);
+//
+//        $data['password'] = Hash::make($data['password']);
+//
+//        try {
+//            $user = Usuario::where('email', $data['email'])->first();
+//
+//            if ($user) {
+//                $user->nombre_usuario = $data['nombre_usuario'];
+//                $user->password = $data['password'];
+//                $user->save();
+//            } else {
+//                $user = Usuario::create($data);
+//            }
+//
+//            $user->sendEmailVerificationNotification(); // Send the email verification notification
+//
+//            return redirect()->route('login')->with('success', 'Usuario creado o actualizado correctamente');
+//        } catch (\Illuminate\Database\QueryException $e) {
+//            return redirect()->route('registro')->with('warning', 'Error al crear o actualizar el usuario');
+//        }
+//    }
+
+    public function registrar(Request $request)
+    {
+        $data = $request->validate([
+            'nombre_usuario' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:6|confirmed',
+        ]);
+
+        $data['password'] = Hash::make($data['password']);
+
+        try {
+            $user = Usuario::where('email', $data['email'])->first();
+
+            if ($user) {
+                $user->nombre_usuario = $data['nombre_usuario'];
+                $user->password = $data['password'];
+                $user->save();
+            } else {
+                $user = Usuario::create($data);
+            }
+
+            $user->sendEmailVerificationNotification(); // Send the email verification notification
+
+            Auth::login($user); // Log in the user
+
+            return redirect()->route('login')->with('success', 'Usuario creado o actualizado correctamente');
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->route('registro')->with('warning', 'Error al crear o actualizar el usuario');
+        }
+    }
+
+    public function cambiarpassword(Request $request)
+    {
+        $request->validate([
+            'password_actual' => 'required',
+            'nueva_password' => 'required|min:6|confirmed',
+        ]);
+
+        $user = Auth::user();
+        $passwordMatch = Hash::check($request->password_actual, $user->password);
+        if ($passwordMatch) {
+            $user->password = Hash::make($request->nueva_password);
+            $user->save();
+
+            return redirect()->route('index')->with('success', 'Contraseña cambiada exitosamente');
+        } else {
+            return redirect()->back()->with('warning', 'La contraseña actual no coincide');
+        }
+    }
 }

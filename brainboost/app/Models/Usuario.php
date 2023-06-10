@@ -3,24 +3,23 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
 
-class Usuario extends Model implements Authenticatable
+class Usuario extends User implements MustVerifyEmail
 {
-    use HasFactory, AuthenticatableTrait;
+    use HasFactory, Notifiable, MustVerifyEmailTrait;
 
     protected $table = 'usuarios';
     public $timestamps = false;
-
-    protected $primaryKey = 'id'; // Nombre de la columna de clave primaria
-
+    protected $primaryKey = 'id';
     protected $fillable = [
         'nombre_usuario',
         'google_id',
         'password',
-        'email'
+        'email',
+        'email_verified_at'
     ];
 }
-

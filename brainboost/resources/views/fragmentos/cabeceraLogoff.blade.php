@@ -26,7 +26,7 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="{{ route('cuenta') }}">Perfil</a>
-                            <a class="dropdown-item" href="{{ route('logout') }}">Salir</a>
+                            <a class="dropdown-item" href="{{ route('salir') }}">Salir</a>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="{{ route('cuenta') }}">Perfil</a>
-                            <a class="dropdown-item" href="{{ route('logout') }}">Salir</a>
+                            <a class="dropdown-item" href="{{ route('salir') }}">Salir</a>
                         </div>
                     </div>
                 </div>

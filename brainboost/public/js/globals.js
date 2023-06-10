@@ -20,7 +20,7 @@ const ModeAppDirecciones = {
 /*===================================
             CONSTANTES
 ====================================*/
-const modeApp = ModeAppEnum.LOCALDEBUG; // Flag a cambiar
+const modeApp = ModeAppEnum.PRODUCTION; // Flag a cambiar
 
 const Rutas = {
     "HOST_NAME": ModeAppDirecciones[modeApp],

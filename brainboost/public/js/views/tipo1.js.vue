@@ -2,21 +2,21 @@
     <div class="col-11 p-2">
         <h4>Pregunta {{ indexPregunta + 1 }}:</h4>
         <!-- {{ indexPregunta = indexPregunta }} -->
-        <label class="p-2 px-4 font-weight-bold">{{ pregunta.nombre_pregunta }}</label>
-        <radioset 
+        <label class="p-2 px-4 font-weight-bold">{{ testObj.getPregunta(indexPregunta).nombre_pregunta }}</label>
+        <!-- <radioset 
                   :indexoptionsset="indexPregunta"
                   typeinput="radio"
                   :opciones="pregunta.datos_pregunta.respuestas"
                   :opcionesmarcadas="testobj.respuestas[indexPregunta]"
                   :disabled="deshabilitado"
                   :onchangeselected="opcionSeleccionada">
-        </radioset>
-        <!-- <fieldset>
-            <div v-for="(respuesta, indexRespuesta) in pregunta.datos_pregunta.respuestas" :key="indexRespuesta" class="px-4">
-                <input type="radio" :id="indexPregunta + ':' +  indexRespuesta" :name="indexPregunta" :value="indexRespuesta" class="mr-2" @change="opcionSeleccionada">
+        </radioset> -->
+        <fieldset>
+            <div v-for="(respuesta, indexRespuesta) in testObj.getPregunta(indexPregunta).datos_pregunta.respuestas" :key="indexRespuesta" class="px-4">
+                <input type="radio" v-model="testObj.respuestas[indexPregunta]" :id="indexPregunta + ':' +  indexRespuesta" :name="indexPregunta" :value="indexRespuesta" class="mr-2" @change="opcionSeleccionada">
                 <label :for="indexPregunta + ':' +  indexRespuesta">{{ respuesta }}</label>
             </div>
-        </fieldset> -->
+        </fieldset>
         <div>
             <span v-if="mostrarRetroalimentacion">{{ testObj.getPregunta(indexPregunta).retroalimentacion }}</span>
         </div>
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-    import radioset from "./optionsset.js.vue";
+    // import radioset from "./optionsset.js.vue";
     export default {
         created() {
             console.log("createdTipo1"); // Mera bandera de debug
@@ -49,7 +49,6 @@
                 VARIABLES DE COMPONENTE
     ===============================================*/
     const props = defineProps({
-        pregunta: Object,
         indexPregunta: Number
     });
     const myStore = useMyStore();
@@ -62,7 +61,7 @@
                     MÉTODOS
     ===============================================*/
     const corregirPregunta = (indice, respuesta, fieldSet) => {
-        console.log(props.pregunta);
+        console.log(testObj.value.getPregunta(indice));
         const pregunta = testObj.value.preguntas[indice];
         const anteriorRespuestaUsuario = testObj.value.respuestas[indice];
 
@@ -72,13 +71,15 @@
             respuestaEnObjTest = [respuestaEnObjTest];
         }
         // console.log(anteriorRespuestaUsuario);
-        console.log(respuestaEnObjTest);
-        const actualPreguntasAcertadas = compareArraysWithoutOrder(respuesta, respuestaEnObjTest).length
-        console.log(actualPreguntasAcertadas);
+        // console.log(respuesta);
+        // console.log(respuestaEnObjTest);
+        const actualPreguntasAcertadas = compareArraysWithoutOrder([respuesta], respuestaEnObjTest).length
+        // console.log(actualPreguntasAcertadas);
 
         /*-- Suma nota (siempre que no estuviera ya contestada una pregunta) --*/
-        // console.log(anteriorRespuestaUsuario);
-        const anteriorPreguntasAcertadas = anteriorRespuestaUsuario != null ? compareArraysWithoutOrder(anteriorRespuestaUsuario, respuestaEnObjTest).length : 0;
+        console.log(anteriorRespuestaUsuario);
+        console.log(respuestaEnObjTest);
+        const anteriorPreguntasAcertadas = anteriorRespuestaUsuario != null || anteriorRespuestaUsuario != [] ? compareArraysWithoutOrder(anteriorRespuestaUsuario, respuestaEnObjTest).length : 0;
         if (anteriorRespuestaUsuario == null || anteriorPreguntasAcertadas == 0) {
             testObj.value.setNotaPregunta(indice, actualPreguntasAcertadas / respuestaEnObjTest.length / testObj.value.getSize() * 10)
             // props.testobj.nota += actualPreguntasAcertadas / respuestaEnObjTest.length;
@@ -139,7 +140,7 @@
         // console.dir(label);
 
         /*-- Almacena la respuesta en el objeto test --*/
-        let respuesta = [label];
+        let respuesta = label;
         // console.log(respuesta);
         
 

@@ -5,7 +5,6 @@
     </alerta>
     <section v-for="(pregunta, indexPregunta) in preguntasRandomOrder" :key="indexPregunta" class="pregunta" :class="['d-block', 'row', 'bg-primary', 'my-4']">
         <preguntatipo1 v-if="pregunta.tipo_pregunta == TestModel.TipoPregunta.MULTIPLE_RESPONSE" 
-                       :pregunta="pregunta" 
                        :indexPregunta="indexPregunta">
         </preguntatipo1>
         <!-- <PreguntaTipo2></PreguntaTipo2>

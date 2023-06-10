@@ -13,29 +13,61 @@ class RegistroController extends Controller
 {
     public function registrar(Request $request)
     {
-        // Retrieve the data from the request
+        // Sacamos los datos del request
         $data = $request->validate([
             'nombre_usuario' => 'required',
             'email' => 'required|email',
-            'password' => 'required',
+            'password' => 'required|min:6|confirmed',
         ]);
 
-        // Hash the password
+        // Creamos un hash del pass
         $data['password'] = Hash::make($data['password']);
 
         try {
-            $user = Usuario::create($data);
+            $user = Usuario::where('email', $data['email'])->first();
 
             if ($user) {
-                Auth::login($user);
-                return redirect()->route('login')->with('success', 'Usuario creado correctamente');
+                // Buscamos al usuario y actualizamos los campos
+                $user->nombre_usuario = $data['nombre_usuario'];
+                $user->password = $data['password'];
+                $user->save();
             } else {
-                return redirect()->route('registro')->with('warning', 'Error al iniciar sesión');
+                // Si el usuario no esta lo creamos
+                $user = Usuario::create($data);
             }
+
+            Auth::login($user);
+            return redirect()->route('login')->with('success', 'Usuario creado o actualizado correctamente');
         } catch (\Illuminate\Database\QueryException $e) {
-            return redirect()->route('registro')->with('warning', 'Error al crear el usuario');
+            return redirect()->route('registro')->with('warning', 'Error al crear o actualizar el usuario');
         }
     }
+//
+//    public function registrar(Request $request)
+//    {
+//        // Retrieve the data from the request
+//        $data = $request->validate([
+//            'nombre_usuario' => 'required',
+//            'email' => 'required|email',
+//            'password' => 'required',
+//        ]);
+//
+//        // Hash the password
+//        $data['password'] = Hash::make($data['password']);
+//
+//        try {
+//            $user = Usuario::create($data);
+//
+//            if ($user) {
+//                Auth::login($user);
+//                return redirect()->route('login')->with('success', 'Usuario creado correctamente');
+//            } else {
+//                return redirect()->route('registro')->with('warning', 'Error al iniciar sesión');
+//            }
+//        } catch (\Illuminate\Database\QueryException $e) {
+//            return redirect()->route('registro')->with('warning', 'Error al crear el usuario');
+//        }
+//    }
 
     public function cambiarpassword(Request $request)
     {

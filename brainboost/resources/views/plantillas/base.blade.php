@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <meta name="google-signin-client_id" content="392754918179-b3ti3nc66u28g6chl55u8s77ethje5nu.apps.googleusercontent.com">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
         integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
@@ -36,8 +36,8 @@
     <!-- JavaScript: páginas en general -->
     <script src="{!! asset('js/main.js') !!}"></script>
 
-    <!-- Pruebas API guardar -->
-    <script src="{!! asset('js/pruebaEnviar.js') !!}"></script>
+    <!-- Boton Scroll up -->
+    <script src="{!! asset('js/scrollBtn.js') !!}"></script>
 
     <!-- JavaScript: lógica test -->
     @isset($enableScriptTest)

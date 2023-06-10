@@ -19,8 +19,7 @@
 
                     <div class="form-group">
                         <label for="password_actual">Contraseña actual</label>
-                        <input type="password" id="password_actual" name="password_actual" class="form-control"
-                            required>
+                        <input type="password" id="password_actual" name="password_actual" class="form-control">
                     </div>
 
                     <div class="form-group">

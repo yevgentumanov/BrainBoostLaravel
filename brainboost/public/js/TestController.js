@@ -103,7 +103,7 @@ export class TestController {
                     });
                     /*-- Settea a null la respuesta correspondiente a la pregunta --*/
                     for (let i = 0; i < this.test.getSize(); i++) {
-                        this.test.setRespuesta(i, null);
+                        this.test.setRespuesta(i, []);
                     }
                     resolve("OK");
                 }).catch(error => {
@@ -178,12 +178,12 @@ export class TestController {
      * - test.fecha_realizacion
      * - test.respuestas
      * Es decir, descarga su nota, dado un id intento de test.
-     * @param {number} idIntentoTest Especifica el id del intento del test.
+     * @param {number} nintentoTest Especifica el id del intento del test.
      */
-    downloadInfoIntentoUsuario(idIntentoTest) {
+    downloadInfoIntentoUsuario(nintentoTest) {
         /*-- Descarta que el idUsuario no sea válido --*/
         if (this.test instanceof Test == false) throw new Error(MensajesErrorTest["__ERR_TEST_OBJECT_INVALID"].message);
-        if (!this.test.validaIdBD(Number.parseInt(idIntentoTest))) throw new Error(MensajesErrorTest["__ERR_ATTEMPT_TEST_ID_INVALID"].message);
+        if (!this.test.validaIdBD(Number.parseInt(nintentoTest))) throw new Error(MensajesErrorTest["__ERR_ATTEMPT_TEST_ID_INVALID"].message);
 
         /*-- Creación de variables temporales --*/
         let nota = null;
@@ -198,7 +198,7 @@ export class TestController {
         };
         const cuerpo = {
             id_test: this.test.getIdTest(),
-            intento: idIntentoTest
+            intento: nintentoTest
         };
 
         /*-- Descarga la información de las respuestas dadas por el usuario desde el servidor --*/
@@ -208,19 +208,20 @@ export class TestController {
             // obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_ENVIO_TEST_REALIZADO.url, Rutas.RUTA_API_ENVIO_TEST_REALIZADO.method, cabeceras, JSON.stringify(cuerpo))
             obtenerJSON(rutaRelativa, Rutas.RUTA_API_PREGUNTAS_REALIZADAS_INTENTO.method, cabeceras, JSON.stringify(cuerpo))
                 .then(response => {
+                    console.log(response);
                     /*-- Descarga la nota y establece los datos en el objeto Test --*/
                     this.test.idUsuarioRealizador = response.data[0].id_usuario;
                     this.test.fechaRealizacion = new Date(response.data[0].fecha_realizacion);
                     this.test.setModalidad(response.data[0].modalidad);
                     this.test.setDificultad(response.data[0].dificultad);
-                    // this.test.intento; // To do
+                    this.test.intento = response.data[0].intento; // To do
                     const tiempoInicioResponse = response.data[0].tiempo_inicio.split(":");
                     let tiempoInicio = this.test.fechaRealizacion;
                     tiempoInicio.setUTCHours(tiempoInicioResponse[0]);
                     tiempoInicio.setUTCMinutes(tiempoInicioResponse[1]);
                     tiempoInicio.setUTCSeconds(tiempoInicioResponse[2]);
                     this.test.setTiempoInicio(tiempoInicio);
-
+                    
                     // /*-- Añade las respuestas --*/
                     for (let i = 0; i < response.data.length; i++) {
                         this.test.setRespuesta(i, JSON.parse(response.data[i].respuestas));

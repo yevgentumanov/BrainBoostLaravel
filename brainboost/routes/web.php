@@ -5,10 +5,15 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\UsuariosController;
+use App\Models\Usuario;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Intentos_preguntaController;
 use App\Http\Controllers\Intentos_testController;
 use App\Http\Controllers\VIntentosTestController;
+use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +49,12 @@ Route::get('/registro', function () {
 })->name('registro')->middleware('guest');
 
 Route::post('/registrar', [RegistroController::class, 'registrar'])->name('registrar');
+
+// Rutas para Google auth
+Route::get('/google-auth/redirect', function () {
+    return Socialite::driver('google')->redirect();
+});
+Route::get('/google-auth/callback', [UsuariosController::class, 'googleAuthCallback'])->name('googleauthcallback');
 
 // Rutas para gestión de cuenta de usuario
 Route::get('/cuenta', [VIntentosTestController::class, 'getCuentaView'])->name('cuenta')->middleware('auth');

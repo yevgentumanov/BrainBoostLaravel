@@ -105,7 +105,13 @@
         // console.log("Hola desde preguntasRandomOrder computed");
         // const devolucion = props.testobj.preguntas.sort(() => 0.5 - Random.randomFloat());
         const devolucion = props.testobj.preguntas;
-        barajarArray(devolucion);
+
+        /*-- Comprueba si se está visualizando un intento de test --*/
+        if (props.testobj.getIntento() != null) {
+            return devolucion; // No hace nada más, devuelve el array de las preguntas tal cual, y no baraja tampoco las respuestas
+        }
+        
+        barajarArray(devolucion); // lo pilla del utilidades.js
 
         devolucion.forEach(element => {
             switch (element.tipo_pregunta) {

@@ -10,13 +10,12 @@
                 </a>
             </div>
 
-            <div class="col-12 col-lg-6 d-flex justify-content-end order-3 order-md-2">
-                <form class="form-inline d-flex justify-content-center" action="/action_page.php">
-                    <input class="form-control m-2" type="text" placeholder="Buscar">
+            <div class="col-6 d-flex justify-content-end">
+                <form class="form-inline" action="/action_page.php">
+                    <input class="form-control mr-2" type="text" placeholder="Buscar">
                     <button class="boton-arrow sombra" type="submit">Buscar</button>
 
-                    <button class="d-none btn btn-success" type="button" onclick="sendDataToRoute()">Prueba
-                        enviar</button>
+                    <button class="btn btn-success" type="button" onclick="sendDataToRoute()">Prueba enviar</button>
                 </form>
             </div>
 

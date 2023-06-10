@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
+    Route::get('/empresa', function () {
+        return view('empresa');
+    })->name('empresa');
+
 // Rutas que no necesitan autentificacion
 Route::middleware('guest')->group(function () {
 

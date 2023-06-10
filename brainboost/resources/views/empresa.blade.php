@@ -5,9 +5,6 @@
     <main class="row w-100 m-0">
         <div class="col-12">
 
-            @auth
-            @endauth
-
             <div>
                 <h1>Conócenos:</h1>
                 <p>

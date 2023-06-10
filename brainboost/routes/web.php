@@ -1,78 +1,102 @@
 <?php
 
 use App\Http\Controllers\Api\IntentosPreguntaController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\MateriaController;
-use App\Http\Controllers\RegistroController;
-use App\Http\Controllers\TestController;
-use App\Http\Controllers\UsuariosController;
-use App\Models\Usuario;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Intentos_preguntaController;
 use App\Http\Controllers\Intentos_testController;
+use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\VIntentosTestController;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\MateriaController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-// Rutas para páginas web definidas
+Auth::routes(['verify' => true]);
 
 // Ruta principal para index
 Route::get('/', function () {
     return view('index');
 })->name('index');
 
-// Rutas para Login
-Route::get('/login', function () {
-    return view('login');
-})->name('login')->middleware('guest');
+    Route::get('/empresa', function () {
+        return view('empresa');
+    })->name('empresa');
 
-Route::post('/logintoapp', [LoginController::class, 'logintoapp'])->name('logintoapp');
+// Rutas que no necesitan autentificacion
+Route::middleware('guest')->group(function () {
 
-// Rutas para Logoff
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+    // Rutas para Google auth
+    Route::get('/google-auth/redirect', function () {
+        return Socialite::driver('google')->redirect();
+    });
+    Route::get('/google-auth/callback', [UsuariosController::class, 'googleAuthCallback'])->name('googleauthcallback');
 
-// Rutas para Registro
-Route::get('/registro', function () {
-    return view('registro');
-})->name('registro')->middleware('guest');
+    Route::get('/login', function () {
+        return view('login');
+    })->name('login');
 
-Route::post('/registrar', [RegistroController::class, 'registrar'])->name('registrar');
+    Route::post('/logintoapp', [UsuariosController::class, 'logintoapp'])->name('logintoapp');
 
-// Rutas para Google auth
-Route::get('/google-auth/redirect', function () {
-    return Socialite::driver('google')->redirect();
+    // Rutas para Registro
+    Route::get('/registro', function () {
+        return view('registro');
+    })->name('registro');
+    Route::post('/registrar', [UsuariosController::class, 'registrar'])->name('registrar');
+
 });
-Route::get('/google-auth/callback', [UsuariosController::class, 'googleAuthCallback'])->name('googleauthcallback');
 
-// Rutas para gestión de cuenta de usuario
-Route::get('/cuenta', [VIntentosTestController::class, 'getCuentaView'])->name('cuenta')->middleware('auth');
-Route::post('/cambiarpassword', [RegistroController::class, 'cambiarpassword'])->name('cambiarpassword')->middleware('auth');
+//Rutas que solo necesitan autentificacion
+Route::middleware(['auth'])->group(function () {
 
-// Rutas de historial de los test realizados
-Route::get('/testhistorial', [VIntentosTestController::class, 'historialTestRealizados'])->name('testhistorial')->middleware('auth');
+    // Rutas para Logoff
+    Route::get('/salir', [UsuariosController::class, 'salir'])->name('salir');
 
-// Ruta genérica que devuelve la página de materia, dependiendo de qué materia se le pase por nombreMateria.
-Route::get('/materia/{nombreMateria}', [MateriaController::class, 'index'])->name('materia');
+    // Email verification routes
+    Route::get('/email/verify', function () {
+        return view('auth.verify-email');
+    })->name('verification.notice');
 
-// Ruta genérica para las páginas de los tests de las diferentes materias
-Route::get('/test/{idTest}', [TestController::class, 'showTest'])->name('test')->middleware('auth');
-Route::get('/tests/{id}/incrementarVisitas', [TestController::class, 'incrementarVisitas'])->name('tests.increment')->middleware('auth');
+    Route::get('/email/verify/{id}/{hash}', function (Illuminate\Foundation\Auth\EmailVerificationRequest $request) {
+        Log::info('Email verification route accessed for user: ' . $request->user()->email);
+        $request->fulfill();
 
-// Ruta para guardar y mostrar información sobre intentos test
-Route::post('/intentos_pregunta', [IntentosPreguntaController::class, 'store'])->middleware('auth');
-Route::post('/preguntas_realizadas', [IntentosPreguntaController::class, 'preguntasRealizadasIntento'])->middleware('auth');
+        // Check if the email_verified_at column is updated
+        Log::info('email_verified_at: ' . $request->user()->email_verified_at);
+
+        return redirect('/')->with('verified', true);
+    })->middleware(['signed'])->name('verification.verify');
+
+    Route::post('/email/verification-notification', function (Illuminate\Http\Request $request) {
+        $request->user()->sendEmailVerificationNotification();
+
+        return back()->with('message', 'Verification link sent!');
+    })->middleware(['throttle:6,1'])->name('verification.send');
+
+});
+
+
+Route::middleware(['auth', 'verified'])->group(function () {
+
+    // Rutas para gestión de cuenta de usuario
+    Route::get('/cuenta', [VIntentosTestController::class, 'getCuentaView'])->name('cuenta');
+    Route::post('/cambiarpassword', [UsuariosController::class, 'cambiarpassword'])->name('cambiarpassword');
+
+    // Rutas de historial de los test realizados
+    Route::get('/testhistorial', [VIntentosTestController::class, 'historialTestRealizados'])->name('testhistorial');
+
+    // Ruta genérica que devuelve la página de materia, dependiendo de qué materia se le pase por nombreMateria.
+    Route::get('/materia/{nombreMateria}', [MateriaController::class, 'index'])->name('materia');
+
+    // Ruta genérica para las páginas de los tests de las diferentes materias
+    Route::get('/test/{idTest}', [TestController::class, 'showTest'])->name('test');
+    Route::get('/tests/{id}/incrementarVisitas', [TestController::class, 'incrementarVisitas'])->name('tests.increment');
+
+    // Ruta para guardar y mostrar información sobre intentos test
+    Route::post('/intentos_pregunta', [IntentosPreguntaController::class, 'store']);
+    Route::post('/preguntas_realizadas', [IntentosPreguntaController::class, 'preguntasRealizadasIntento']);
+
+});
 
 // Rutas de prueba (non-production routes)
 Route::get('/addfaketest', [Intentos_testController::class, 'addFakeData']);

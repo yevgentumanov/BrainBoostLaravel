@@ -5,8 +5,8 @@
         <label class="p-2 px-4 font-weight-bold">{{ pregunta.nombre_pregunta }}</label>
         <fieldset>
             <div v-for="(respuesta, indexRespuesta) in pregunta.datos_pregunta.respuestas" :key="indexRespuesta" class="px-4">
-                <input type="radio" :id="indexPregunta + ':' +  indexRespuesta" :name="indexPregunta" :value="indexRespuesta" class="mr-2" @change="opcionSeleccionada">
-                <label :for="indexPregunta + ':' +  indexRespuesta">{{ respuesta }}</label>
+                <input type="radio" v-if="testobj.intento == null" :id="indexPregunta + ':' +  indexRespuesta" :name="indexPregunta" :value="indexRespuesta" class="mr-2" @change="opcionSeleccionada">
+                <label :for="indexPregunta + ':' +  indexRespuesta" :class="[señalarRespuestaUsuario(indexPregunta, indexRespuesta)]">{{ respuesta }}</label>
             </div>
         </fieldset>
         <div>
@@ -43,6 +43,51 @@
         indexPregunta: Number
     });
     const mostrarRetroalimentacion = ref(false);
+
+    /*==============================================
+                PROPIEDADES COMPUTADAS
+    ===============================================*/
+    const señalarRespuestaUsuario = (indexPregunta, indexRespuesta) => {
+        let clases = [];
+        const respuestasPosibles = props.testobj.getPregunta(indexPregunta).datos_pregunta.respuestas;
+        const respuestaActual = [respuestasPosibles[indexRespuesta]];
+        let respuestaCorrecta = props.testobj.getPregunta(indexPregunta).datos_pregunta.respuestas_correctas;
+        const respuestaUsuario = props.testobj.getRespuestaByQuestion(indexPregunta)
+
+        /*-- Comprueba si la respuesta que ha dado el usuario coincide con alguna de las respuestas posibles para la pregunta --*/
+        if (!Array.isArray(respuestaCorrecta)) {
+            respuestaCorrecta = [respuestaCorrecta];
+        }
+
+        /*-- Verifica si es la respuesta correcta --*/
+        const esUnaRespuestaCorrecta = compareArraysWithoutOrder(respuestaActual, respuestaCorrecta).length;        
+        const esLaRespuestaMarcadaPorElUsuario = respuestaUsuario != null ? compareArraysWithoutOrder(respuestaActual, respuestaUsuario).length : 0;
+        if (esLaRespuestaMarcadaPorElUsuario > 0) {
+            clases.push("font-weight-bold");
+            if (props.testobj.intento != null) {
+                if (esUnaRespuestaCorrecta > 0) {
+                    clases.push("text-success");
+                }
+            }
+        } else {
+            if (props.testobj.intento != null) {
+                if (esUnaRespuestaCorrecta > 0) {
+                    clases.push("text-danger");
+                }
+            }
+        }
+
+        return clases.join(" ");
+    };
+
+    /*================================================
+            LÓGICA VISUALIZACION INTENTOS TESTS
+    =================================================*/
+    /*-- Comprueba si el usuario está visualizando un intento de test, para mostrarle la retroalimentación y la respuesta marcada --*/
+    if (props.testobj.getIntento() != null) {
+        mostrarRetroalimentacion.value = true;
+
+    }
     
     /*==============================================
                     MÉTODOS

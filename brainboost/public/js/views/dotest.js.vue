@@ -14,7 +14,7 @@
         <PreguntaTipo4></PreguntaTipo4>
         <PreguntaTipo5></PreguntaTipo5> -->
     </section>
-    <div class="text-right">
+    <div v-if="testobj.intento == null" class="text-right">
         <button class="btn btn-light" @click="sendTest">Enviar test</button>
     </div>
 </template>
@@ -59,9 +59,12 @@
     /*==============================================
          Establece el tiempoInicio en TestModel
     ================================================*/
-    props.testobj.setTiempoInicio();
-    props.testobj.setTiempoFin();
-    intervalo = setInterval(() => props.testobj.setTiempoFin(), 1000);
+    /*-- Comprueba si se está visualizando un intento de test --*/
+    if (props.testobj.getIntento() == null) {
+        props.testobj.setTiempoInicio();
+        props.testobj.setTiempoFin();
+        intervalo = setInterval(() => props.testobj.setTiempoFin(), 1000);
+    }
 
     // const testObj = ref(new TestModel.Test());
     // const testCtrl = ref(new TestController(props.testobj));

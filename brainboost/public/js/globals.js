@@ -13,14 +13,14 @@ const ModeAppDirecciones = {
     // 1: "https://www.clinicadentalsanandres.com/BrainBoostLaravel/brainboost/public", // PRODUCTION
     1: "https://brainboost.es", // PRODUCTION
     2: "http://brainboost.com" // LOCALDEBUG Santi
-    // 2: "" // LOCALDEBUG Eugenio
+    // 2: "http://127.0.0.1:8000" // LOCALDEBUG Eugenio
     // 2: "" // LOCALDEBUG Juan Carlos
 }
 
 /*===================================
             CONSTANTES
 ====================================*/
-const modeApp = ModeAppEnum.LOCALDEBUG; // Flag a cambiar
+const modeApp = ModeAppEnum.PRODUCTION; // Flag a cambiar
 
 const Rutas = {
     "HOST_NAME": ModeAppDirecciones[modeApp],

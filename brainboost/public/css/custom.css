@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600;800&display=swap');
+
 /*****************************************************************************/
 /*****************************************************************************/
 /*****************************************************************************/
@@ -34,6 +36,7 @@
     --color8_05: #9EB3B580;
 
     box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
 }
 
 body {
@@ -278,10 +281,12 @@ footer a {
     cursor: pointer;
 }
 
-#barra-navegacion {}
+/*****************************************************************************/
+/*****************************************************************************/
+/*****************************************************************************/
 
 /*****************************************************************************/
-/*****************************************************************************/
+/*                        DESPLEGABLE CUENTA USUARIO                         */
 /*****************************************************************************/
 
 /*# sourceMappingURL=button.css.map */
@@ -347,8 +352,181 @@ footer a {
 /****************************************************************************/
 
 /****************************************************************************/
-/*                                 NAVBAR                                   */
+/*                              MENÚ NAVBAR                                 */
 /****************************************************************************/
+
+/* navigation */
+.btn-togglemenu {
+    display: none;
+    border: 2px solid #de5d94;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 3px;
+    padding: 8px;
+    color: #de5d94;
+    z-index: 3;
+}
+
+.navigation {
+    padding: 0 10px;
+}
+
+.megamenu {
+    float: right;
+}
+
+.megamenu>li {
+    display: inline-block;
+    height: 60px;
+}
+
+.item>a {
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    height: 100%;
+    line-height: 36px;
+    color: #333;
+    font-weight: 400;
+}
+
+.item>a .arrow {
+    transform: rotate(270deg);
+    height: 22px;
+    width: 22px;
+    display: inline-block;
+    margin-left: -10px;
+}
+
+.item>a:hover {
+    background-color: var(--color3);
+    color: var(--color6);
+    animation: resaltar 0.4s linear both;
+}
+
+.item>a:hover+.block,
+.item .block:hover {
+    display: block;
+}
+
+/* contenido del bloque submenu */
+.block {
+    display: none;
+    position: absolute;
+    background-color: var(--color6_x);
+    left: 0;
+    right: 0;
+    z-index: 1;
+    padding: 20px 10px;
+    box-shadow: 1px 0 10px var(--color11_05);
+}
+
+.block .sub-menu {
+    float: left;
+    width: 15%;
+}
+
+.block .sub-menu-content {
+    float: right;
+    width: 85%;
+}
+
+.sub-menu li {
+    display: block;
+    padding: 5px;
+    margin-left: 20px;
+}
+
+.sub-menu li a {
+    font-size: 110%;
+    font-weight: 600;
+    color: var(--color9);
+    text-decoration: none;
+}
+
+.sub-menu li a:hover {
+    font-size: 130% !important;
+    font-weight: 900 !important;
+    color: var(--color3);
+}
+
+.sub-menu-content .notice {
+    width: 33.33%;
+    float: left;
+    padding: 10px;
+}
+
+.notice img {
+    max-width: 100%;
+    height: auto;
+}
+
+.notice-detail h4 {
+    padding: 10px 0;
+    font-weight: 800;
+}
+
+.notice-detail p {
+    font-size: .95em;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .btn-togglemenu {
+        display: block;
+    }
+
+    .megamenu>li {
+        display: block;
+        height: auto;
+    }
+
+    .megamenu {
+        display: none;
+        float: initial;
+        position: absolute;
+        background-color: #000;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+    }
+
+    .item>a {
+        color: var(--color6);
+    }
+
+    .item>a:hover {
+        background-color: initial;
+    }
+
+    .block {
+        position: initial;
+    }
+
+    .block .sub-menu {
+        float: initial;
+        width: 100%;
+    }
+
+    .block .sub-menu-content {
+        display: none;
+    }
+}
+
+/****************************************************************************/
+
+.collapse {
+    transition-property: height;
+    transition-duration: 0.5s;
+    transition-delay: 1s;
+    /* Retraso de 200ms antes de que comience la transición */
+}
+
+.collapsed {
+    transition: height 1s !important;
+}
 
 nav>div>a>img {
     margin: inherit;
@@ -392,7 +570,7 @@ nav>div>a>img {
 .exit-card:hover {
     text-decoration: none;
     color: var(--color4) !important;
-    animation: aumento .2s cubic-bezier(.25, .46, .45, .94) both
+    animation: aumento .2s cubic-bezier(.25, .46, .45, .94) both;
 }
 
 @keyframes aumento {
@@ -726,7 +904,7 @@ nav>div>a>img {
     outline-color: rgba(255, 255, 255, 0);
     outline-offset: 15px;
     text-shadow: 1px 1px 2px var(--color2);
-    animation: p-aumento .2s cubic-bezier(.25, .46, .45, .94) both
+    animation: p-aumento .2s cubic-bezier(.25, .46, .45, .94) both;
 }
 
 @keyframes p-aumento {
@@ -743,7 +921,7 @@ nav>div>a>img {
 
 /* CARD INICIO/REGISTRO*/
 .card-portada {
-    animation: aparicion-card .5s cubic-bezier(.455, .03, .515, .955) reverse both
+    animation: aparicion-card .5s cubic-bezier(.455, .03, .515, .955) reverse both;
 }
 
 @keyframes aparicion-card {

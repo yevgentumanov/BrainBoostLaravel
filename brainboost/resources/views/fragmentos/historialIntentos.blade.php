@@ -4,7 +4,7 @@
             <div class="card">
                 <div class="card-body bg-primary">
                     <h1>Historial de test realizados</h1>
-                    <div class="col-12">
+                    <div class="col-12 realzado">
                         @if(isset($historialTestRealizados))
                             @foreach($historialTestRealizados as $intentoTest)
                                 <a href="{{ route('test', ['idTest' => $intentoTest->id_test, 'intento' => $intentoTest->intento]) }}">

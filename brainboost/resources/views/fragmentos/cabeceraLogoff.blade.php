@@ -821,12 +821,14 @@
                             <img src="images/materia13_1.jpg" alt="materia">
                         </div>
                         <div class="notice-detail">
-                            <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
-                                off
-                            </h4>
-                            <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
-                                there's
-                                a sizable mail-in-rebate available.</p>
+                            <h4>Explora la pasión italiana: Aprende el idioma y sumérgete en su cultura</h4>
+                            <p>Descubre la dulzura y el encanto del idioma italiano mientras te sumerges en la rica
+                                cultura de Italia. Aprende la lengua italiana y adquiere habilidades comunicativas para
+                                expresarte con fluidez. Explora las tradiciones italianas, desde la cocina exquisita y
+                                la moda elegante hasta las celebraciones y festividades llenas de alegría. Conoce la
+                                historia y el arte de Italia, desde los antiguos romanos hasta los renombrados artistas
+                                y arquitectos italianos. Aprender italiano te abrirá las puertas a un mundo de pasión,
+                                romance y belleza cultural.</p>
                         </div>
                     </div>
                     <div class="notice">
@@ -834,10 +836,14 @@
                             <img src="images/materia13_2.jpg" alt="materia">
                         </div>
                         <div class="notice-detail">
-                            <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                            <p>According to Mercury Research, AMD's x86 processor share is close to its
-                                all-time
-                                high.</p>
+                            <h4>Viaje a la cuna del Renacimiento: Descubre la grandeza de Italia</h4>
+                            <p>Sumérgete en la riqueza histórica y artística de Italia mientras aprendes italiano.
+                                Explora las ciudades icónicas de Italia, como Roma, Florencia y Venecia, y maravíllate
+                                con sus tesoros arquitectónicos, como el Coliseo, la Basílica de San Pedro y el Palacio
+                                Ducal. Descubre la rica tradición literaria italiana, desde los sonetos de Dante
+                                Alighieri hasta las obras de Umberto Eco. Aprende sobre la música italiana, desde la
+                                ópera hasta las melodías populares. Aprender italiano te permitirá sumergirte en el
+                                legado cultural de Italia y apreciar su belleza en toda su grandeza.</p>
                         </div>
                     </div>
                     <div class="notice">
@@ -845,10 +851,17 @@
                             <img src="images/materia13_3.jpg" alt="materia">
                         </div>
                         <div class="notice-detail">
-                            <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                            <p>Over $340M has been given back as a very strange digital heist story
-                                continues to
-                                develop.</p>
+                            <h4>Deléitate con los sabores de Italia: Explora la gastronomía italiana y aprende el idioma
+                            </h4>
+                            <p>Sumérgete en el apasionante mundo culinario de Italia mientras aprendes el idioma
+                                italiano. Descubre la rica tradición gastronómica italiana, desde la pasta fresca y las
+                                pizzas auténticas hasta los exquisitos postres como el tiramisú y el cannoli. Aprende a
+                                cocinar platos tradicionales italianos y descubre los secretos de la auténtica cocina
+                                italiana. Explora los ingredientes frescos y los productos locales que hacen de la
+                                gastronomía italiana una de las más apreciadas en el mundo. Aprender italiano te
+                                permitirá sumergirte aún más en la cultura culinaria italiana, comunicarte con chefs y
+                                locales, y comprender la pasión que impregna cada plato italiano. ¡Embárcate en un viaje
+                                culinario y lingüístico por Italia!</p>
                         </div>
                     </div>
                 </div>
@@ -858,12 +871,12 @@
                             <img src="images/materia16_1.jpg" alt="materia">
                         </div>
                         <div class="notice-detail">
-                            <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
-                                off
-                            </h4>
-                            <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
-                                there's
-                                a sizable mail-in-rebate available.</p>
+                            <h4>Descubre la belleza del alemán: Aprende el idioma y sumérgete en la cultura alemana</h4>
+                            <p>Explora la riqueza lingüística y cultural de Alemania a través del estudio del idioma
+                                alemán. Sumérgete en la pronunciación única y la gramática fascinante mientras te
+                                adentras en la rica historia y las tradiciones alemanas. Desde la arquitectura
+                                impresionante hasta la música clásica, el cine y la literatura, el alemán te abrirá las
+                                puertas a una cultura llena de emocionantes descubrimientos.</p>
                         </div>
                     </div>
                     <div class="notice">
@@ -871,10 +884,12 @@
                             <img src="images/materia16_2.jpg" alt="materia">
                         </div>
                         <div class="notice-detail">
-                            <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                            <p>According to Mercury Research, AMD's x86 processor share is close to its
-                                all-time
-                                high.</p>
+                            <h4>Saborea Alemania: Explora la gastronomía alemana mientras aprendes alemán</h4>
+                            <p>Deléitate con la diversa y deliciosa gastronomía alemana mientras aprendes el idioma.
+                                Descubre los sabores únicos de las salchichas alemanas, los pretzels, el sauerkraut y
+                                otros platos tradicionales. Aprende a cocinar recetas auténticas alemanas y descubre los
+                                secretos de la cocina regional. Aprender alemán te permitirá comunicarte con chefs y
+                                locales, leer menús y disfrutar de una experiencia culinaria auténtica en Alemania.</p>
                         </div>
                     </div>
                     <div class="notice">
@@ -882,18 +897,78 @@
                             <img src="images/materia16_3.jpg" alt="materia">
                         </div>
                         <div class="notice-detail">
-                            <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                            <p>Over $340M has been given back as a very strange digital heist story
-                                continues to
-                                develop.</p>
+                            <h4>Celebra las tradiciones alemanas: Aprende el idioma y sumérgete en las festividades
+                                alemanas</h4>
+                            <p>Sumérgete en las vibrantes festividades y tradiciones de Alemania mientras aprendes el
+                                idioma. Descubre la famosa Oktoberfest, con sus cervezas artesanales y música
+                                tradicional. Aprende sobre el carnaval alemán, las celebraciones de Navidad y otras
+                                festividades llenas de color y alegría. Aprender alemán te permitirá participar
+                                activamente en estas festividades, comprender las canciones y tradiciones, y conectarte
+                                con la cultura y el espíritu festivo de Alemania.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </li>
         <li class="item">
-            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Matemáticas']) }}"
-                id="m18">MATEMÁTICAS</a>
+            <a href="#">MATEMÁTICAS <span class="arrow">❮</span></a>
+            <div class="block">
+                <div class="sub-menu">
+                    <ul>
+                        <li>
+                            <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Matemáticas']) }}"
+                                id="m18">MATEMÁTICAS</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="sm-m18" class="sub-menu-content">
+                    <div class="notice">
+                        <div class="notice-image">
+                            <img src="images/materia18_1.jpg" alt="materia">
+                        </div>
+                        <div class="notice-detail">
+                            <h4>Explora los avances modernos en matemáticas: Descubre las fronteras del conocimiento
+                            </h4>
+                            <p>Adéntrate en el emocionante mundo de los avances modernos en matemáticas y descubre cómo
+                                esta disciplina está revolucionando campos como la criptografía, la inteligencia
+                                artificial, la teoría de grafos y más. En nuestro centro de formación, te guiaremos a
+                                través de conceptos matemáticos vanguardistas y te prepararemos para enfrentar los
+                                desafíos del futuro en este apasionante campo del conocimiento.</p>
+                        </div>
+                    </div>
+                    <div class="notice">
+                        <div class="notice-image">
+                            <img src="images/materia18_2.jpg" alt="materia">
+                        </div>
+                        <div class="notice-detail">
+                            <h4>Grandes matemáticos de la historia: Un viaje a través de las mentes brillantes</h4>
+                            <p>Sumérgete en la fascinante historia de las matemáticas y conoce a los grandes matemáticos
+                                que han dejado huella en esta disciplina. Desde Arquímedes y Euclides hasta Euler y
+                                Gauss, exploraremos sus contribuciones y descubriremos cómo sus ideas y teoremas siguen
+                                siendo fundamentales en la actualidad. En nuestro centro de formación, te invitamos a
+                                inspirarte en la genialidad de estos grandes pensadores y a comprender cómo han dado
+                                forma a la matemática moderna.</p>
+                        </div>
+                    </div>
+                    <div class="notice">
+                        <div class="notice-image">
+                            <img src="images/materia18_3.jpg" alt="materia">
+                        </div>
+                        <div class="notice-detail">
+                            <h4>Matemáticas aplicadas en el mundo laboral: Potencia tu carrera con habilidades
+                                matemáticas</h4>
+                            <p>Descubre cómo las matemáticas se aplican en el mundo laboral y cómo las habilidades
+                                matemáticas pueden impulsar tu carrera en diversos campos, como la ingeniería, la
+                                economía, la ciencia de datos y más. Aprende a utilizar herramientas matemáticas para
+                                resolver problemas complejos, tomar decisiones informadas y encontrar soluciones
+                                innovadoras. En nuestro centro de formación, te brindaremos las habilidades y el
+                                conocimiento matemático necesarios para destacarte en el mercado laboral actual y
+                                futuro.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- /*********************************************************/ --}}
         </li>
         <li class="item">
             <a href="#">TECNOLOGÍA <span class="arrow">❮</span></a>
@@ -916,12 +991,13 @@
                             <img src="images/materia19_1.jpg" alt="materia">
                         </div>
                         <div class="notice-detail">
-                            <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
-                                off
-                            </h4>
-                            <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
-                                there's
-                                a sizable mail-in-rebate available.</p>
+                            <h4>Explora los avances tecnológicos: Sumérgete en el fascinante mundo de la tecnología</h4>
+                            <p>Descubre cómo los avances tecnológicos están dando forma a nuestro presente y futuro.
+                                Aprende sobre inteligencia artificial, internet de las cosas, realidad virtual, big data
+                                y otras tecnologías disruptivas que están transformando industrias y cambiando la forma
+                                en que vivimos y trabajamos. En nuestro centro de formación, te proporcionaremos las
+                                habilidades y el conocimiento necesarios para mantenerte actualizado en este emocionante
+                                campo.</p>
                         </div>
                     </div>
                     <div class="notice">
@@ -929,10 +1005,13 @@
                             <img src="images/materia19_2.jpg" alt="materia">
                         </div>
                         <div class="notice-detail">
-                            <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                            <p>According to Mercury Research, AMD's x86 processor share is close to its
-                                all-time
-                                high.</p>
+                            <h4>Adéntrate en la robótica: Aprende a programar y construir tus propios robots</h4>
+                            <p>Descubre el emocionante mundo de la robótica y desarrolla habilidades en programación y
+                                construcción de robots. Desde robots industriales hasta drones y asistentes personales,
+                                la robótica está revolucionando diversos sectores. En nuestro centro de formación, te
+                                brindaremos las herramientas y el conocimiento para que puedas diseñar, programar y
+                                poner en marcha tus propios robots, y explorar las infinitas posibilidades que la
+                                robótica ofrece.</p>
                         </div>
                     </div>
                     <div class="notice">
@@ -940,10 +1019,13 @@
                             <img src="images/materia19_3.jpg" alt="materia">
                         </div>
                         <div class="notice-detail">
-                            <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                            <p>Over $340M has been given back as a very strange digital heist story
-                                continues to
-                                develop.</p>
+                            <h4>Entra en la industria tecnológica: Prepara tu carrera en el sector tecnológico</h4>
+                            <p>Conviértete en un profesional altamente demandado en la industria tecnológica. Aprende
+                                sobre las últimas tendencias y habilidades necesarias para destacar en campos como el
+                                desarrollo de software, la ciberseguridad, la analítica de datos y la gestión de
+                                proyectos tecnológicos. Nuestro centro de formación te brindará los conocimientos y
+                                recursos necesarios para que puedas ingresar y crecer en el emocionante mundo de la
+                                tecnología, con amplias oportunidades laborales y un futuro prometedor.</p>
                         </div>
                     </div>
                 </div>
@@ -953,12 +1035,14 @@
                             <img src="images/materia20_1.jpg" alt="materia">
                         </div>
                         <div class="notice-detail">
-                            <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
-                                off
+                            <h4>Explora los avances tecnológicos en informática: Descubre el futuro de la tecnología
                             </h4>
-                            <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
-                                there's
-                                a sizable mail-in-rebate available.</p>
+                            <p>Sumérgete en el mundo de los avances tecnológicos en informática y descubre cómo la
+                                inteligencia artificial, el aprendizaje automático y la computación en la nube están
+                                transformando la forma en que vivimos y trabajamos. En nuestro centro de formación, te
+                                brindaremos las habilidades y el conocimiento necesarios para mantenerte al día con las
+                                últimas tendencias y prepararte para una carrera emocionante en el campo de la
+                                informática.</p>
                         </div>
                     </div>
                     <div class="notice">
@@ -966,10 +1050,14 @@
                             <img src="images/materia20_2.jpg" alt="materia">
                         </div>
                         <div class="notice-detail">
-                            <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                            <p>According to Mercury Research, AMD's x86 processor share is close to its
-                                all-time
-                                high.</p>
+                            <h4>Desarrolla aplicaciones de usuario: Aprende a crear experiencias interactivas y
+                                atractivas</h4>
+                            <p>Descubre cómo crear aplicaciones de usuario que sean intuitivas, funcionales y
+                                atractivas. Aprende a diseñar interfaces de usuario atractivas, a desarrollar
+                                aplicaciones web y móviles interactivas y a utilizar las últimas herramientas y
+                                tecnologías de desarrollo de software. En nuestro centro de formación, te
+                                proporcionaremos los conocimientos y las habilidades necesarias para convertirte en un
+                                desarrollador de aplicaciones de usuario competente y exitoso.</p>
                         </div>
                     </div>
                     <div class="notice">
@@ -977,10 +1065,14 @@
                             <img src="images/materia20_3.jpg" alt="materia">
                         </div>
                         <div class="notice-detail">
-                            <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                            <p>Over $340M has been given back as a very strange digital heist story
-                                continues to
-                                develop.</p>
+                            <h4>Informática en las empresas: Potencia el éxito empresarial con la tecnología</h4>
+                            <p>Descubre cómo la informática impulsa el éxito empresarial y cómo las empresas utilizan la
+                                tecnología para mejorar sus operaciones, aumentar la eficiencia y alcanzar sus objetivos
+                                estratégicos. Aprende sobre sistemas de gestión empresarial, análisis de datos,
+                                seguridad informática y otras áreas clave de la informática empresarial. En nuestro
+                                centro de formación, te prepararemos para desempeñarte en roles relacionados con la
+                                informática empresarial y te brindaremos las habilidades necesarias para aportar valor a
+                                las organizaciones mediante el uso estratégico de la tecnología.</p>
                         </div>
                     </div>
                 </div>

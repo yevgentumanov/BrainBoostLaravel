@@ -917,7 +917,7 @@
                     <ul>
                         <li>
                             <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Matemáticas']) }}"
-                                id="m18">MATEMÁTICAS</a>
+                                id="m18">Matemáticas</a>
                         </li>
                     </ul>
                 </div>

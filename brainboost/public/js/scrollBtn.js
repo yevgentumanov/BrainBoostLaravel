@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     function scrollFunction() {
-        var scrollToTopButton = document.getElementById("scrollToTopButton");
+        let scrollToTopButton = document.getElementById("scrollToTopButton");
 
         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
             scrollToTopButton.style.display = "block";

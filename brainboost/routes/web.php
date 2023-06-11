@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Api\IntentosPreguntaController;
-use App\Http\Controllers\Intentos_preguntaController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\VIntentosTestController;
 use Illuminate\Support\Facades\Log;
@@ -12,16 +11,16 @@ use App\Http\Controllers\MateriaController;
 
 Auth::routes(['verify' => true]);
 
-// Ruta principal para index
+// Ruta principal para el índice
 Route::get('/', function () {
     return view('index');
 })->name('index');
 
-    Route::get('/empresa', function () {
-        return view('empresa');
-    })->name('empresa');
+Route::get('/empresa', function () {
+    return view('empresa');
+})->name('empresa');
 
-// Rutas que no necesitan autentificacion
+// Rutas que no necesitan autenticación
 Route::middleware('guest')->group(function () {
 
     // Rutas para Google auth
@@ -44,22 +43,22 @@ Route::middleware('guest')->group(function () {
 
 });
 
-//Rutas que solo necesitan autentificacion
+// Rutas que solo necesitan autenticación
 Route::middleware(['auth'])->group(function () {
 
     // Rutas para Logoff
     Route::get('/salir', [UsuariosController::class, 'salir'])->name('salir');
 
-    // Email verification routes
+    // Rutas de verificación de correo electrónico
     Route::get('/email/verify', function () {
         return view('auth.verify-email');
     })->name('verification.notice');
 
     Route::get('/email/verify/{id}/{hash}', function (Illuminate\Foundation\Auth\EmailVerificationRequest $request) {
-        Log::info('Email verification route accessed for user: ' . $request->user()->email);
+        Log::info('Ruta de verificación de correo electrónico accedida para el usuario: ' . $request->user()->email);
         $request->fulfill();
 
-        // Check if the email_verified_at column is updated
+        // Comprobar si se actualiza la columna email_verified_at
         Log::info('email_verified_at: ' . $request->user()->email_verified_at);
 
         return redirect('/')->with('verified', true);
@@ -68,29 +67,28 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/email/verification-notification', function (Illuminate\Http\Request $request) {
         $request->user()->sendEmailVerificationNotification();
 
-        return back()->with('message', 'Verification link sent!');
+        return back()->with('message', '¡Enlace de verificación enviado!');
     })->middleware(['throttle:6,1'])->name('verification.send');
 
 });
 
-
 Route::middleware(['auth', 'verified'])->group(function () {
 
-    // Rutas para gestión de cuenta de usuario
+    // Rutas para la gestión de la cuenta de usuario
     Route::get('/cuenta', [VIntentosTestController::class, 'getCuentaView'])->name('cuenta');
     Route::post('/cambiarpassword', [UsuariosController::class, 'cambiarpassword'])->name('cambiarpassword');
 
-    // Rutas de historial de los test realizados
+    // Rutas del historial de los tests realizados
     Route::get('/testhistorial', [VIntentosTestController::class, 'historialTestRealizados'])->name('testhistorial');
 
-    // Ruta genérica que devuelve la página de materia, dependiendo de qué materia se le pase por nombreMateria.
+    // Ruta genérica que devuelve la página de una materia, según el nombre de la materia proporcionado.
     Route::get('/materia/{nombreMateria}', [MateriaController::class, 'index'])->name('materia');
 
     // Ruta genérica para las páginas de los tests de las diferentes materias
     Route::get('/test/{idTest}', [TestController::class, 'showTest'])->name('test');
     Route::get('/tests/{id}/incrementarVisitas', [TestController::class, 'incrementarVisitas'])->name('tests.increment');
 
-    // Ruta para guardar y mostrar información sobre intentos test
+    // Ruta para guardar y mostrar información sobre los intentos de tests
     Route::post('/intentos_pregunta', [IntentosPreguntaController::class, 'store']);
     Route::post('/preguntas_realizadas', [IntentosPreguntaController::class, 'preguntasRealizadasIntento']);
 

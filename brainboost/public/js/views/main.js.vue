@@ -2,12 +2,12 @@
     <eligemodalidad :testobj="testobj" :testctrl="testctrl" 
         v-if="testobj.getModalidad() == null">
     </eligemodalidad>
-    <preview :testobj="testobj" :testctrl="testctrl"
+    <!-- <preview :testobj="testobj" :testctrl="testctrl"
         v-if="testobj.getModalidad() == TestModel.TipoModalidad.ESTUDIAR">
-    </preview>
+    </preview> -->
     <eligedificultad :testobj="testobj" :testctrl="testctrl" 
         v-if="testobj.getModalidad() != null &&
-              testobj.getModalidad() != TestModel.TipoModalidad.ESTUDIAR &&
+            //   testobj.getModalidad() != TestModel.TipoModalidad.ESTUDIAR &&
               testobj.getDificultad() == null">
     </eligedificultad>
     <dotest :testobj="testobj" :testctrl="testctrl" 

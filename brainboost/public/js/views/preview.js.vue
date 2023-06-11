@@ -32,20 +32,6 @@
     /*==============================================
                     MÉTODOS
     ===============================================*/
-    function estudiarTest(evento) {
-        // window.alert("estudiarTest");
-        props.testobj.setModalidad(TestModel.TipoModalidad.ESTUDIAR);
-    }
-    
-    function practicarTest(evento) {
-        // window.alert("practicarTest");
-        props.testobj.setModalidad(TestModel.TipoModalidad.PRACTICAR);
-    }
-    
-    function desafioTest(evento) {
-        // window.alert("desafioTest");
-        props.testobj.setModalidad(TestModel.TipoModalidad.DESAFÍO);
-    }
 </script>
 
 <style scoped>

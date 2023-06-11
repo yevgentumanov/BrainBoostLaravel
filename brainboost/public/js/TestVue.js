@@ -1,7 +1,7 @@
 /**
  * Fichero donde se implementarán métodos para crear la vista del test dinámicamente mediante Vue, con los datos que reciba de TestModel, gracias a TestController.
  * @author Santiago
- * @version 03.06.2023
+ * @version 11.06.2023
  */
 
 import { createApp } from 'vue'

@@ -1,7 +1,7 @@
 /**
  * Fichero donde se implementa el modelo de datos que manejará el controlador.
  * @author Santiago
- * @version 04.06.2023
+ * @version 11.06.2023
  */
 
 /*===============================================
@@ -20,7 +20,7 @@ export const TipoPregunta = {
 export const numTiposPregunta = Object.keys(TipoPregunta).length;
 
 export const TipoModalidad = {
-    ESTUDIAR: 1,
+    // ESTUDIAR: 1,
     PRACTICAR: 2,
     DESAFÍO: 3,
     REVISAR: 4

@@ -1,7 +1,7 @@
 /**
  * Fichero donde se implementarán métodos para crear el controlador, es decir, la lógica de la página de test, así como la descarga de preguntas y la subida de respuestas al servidor.
  * @author Santiago
- * @version 06.06.2023
+ * @version 11.06.2023
  */
 
 import {Test} from "./TestModel"

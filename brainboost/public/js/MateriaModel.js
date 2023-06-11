@@ -1,7 +1,7 @@
 /**
  * Fichero donde se implementa el modelo de datos de las materias.
  * @author Santiago
- * @version 04.06.2023
+ * @version 11.06.2023
  */
 
 /*====================================

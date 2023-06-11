@@ -1,43 +1,42 @@
-@extends('...plantillas.base')
+@extends('plantillas.base')
 
 @section('main')
-    <main>
-        <div class="container card-body pt-4">
-            <div class="row justify-content-center">
-                <div class="flex justify-center items-center h-screen">
-                    <!-- resources/views/auth/verify-email.blade.php -->
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        @if (session('status') == 'verification-link-sent')
-                            <div class="mb-4 text-center">
-                                A new verification link has been sent to the email address you provided during
-                                registration.
-                            </div>
-                        @endif
+    <main class="row w-100 m-0">
+        <div class="col-12 pl-0 pr-0 pt-4 pb-4">
 
-                        <div class="mb-4 text-center">
-                            Thanks for signing up! Before getting started, could you verify your email address by
-                            clicking on
-                            the link we just emailed to you? If you didn't receive the email, we will gladly send you
-                            another.
-                        </div>
-
-                        <div class="mt-4 flex justify-center">
-                            <form method="POST" action="{{ route('verification.send') }}">
-                                @csrf
-
-                                <div>
-                                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Resend
-                                        Verification Email
-                                    </button>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div id="divregistro" class="col-md-12">
+                        <div class="card">
+                            <div class="card-body bg-primary">
+                                <h1>Verificacion de correo</h1>
+                                <div class="col-12">
+                                    <h3>¡Gracias por registrarte! Antes de comenzar, ¿podrías verificar tu dirección de
+                                        correo
+                                        electrónico haciendo clic en el enlace que te acabamos de enviar por correo? Si
+                                        no recibiste
+                                        el correo electrónico, estaremos encantados de enviarte otro. ¡Bienvenido/a al
+                                        proyecto
+                                        BrainBoost.es!</h3>
                                 </div>
-                            </form>
+                            </div>
+                            <div class="mt-4 row justify-content-center">
+                                <form method="POST" action="{{ route('verification.send') }}">
+                                    @csrf
 
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
+                                    <div>
+                                        <button type="submit" class="bg-blue-500 px-4 py-2 rounded-md">Volver a enviar
+                                        </button>
+                                    </div>
+                                </form>
 
-                                <button type="submit" class="bg-red-500 text-white px-4 py-2 ml-2 rounded-md">Log out
-                                </button>
-                            </form>
+                                <form method="POST" action="{{ route('salir') }}">
+                                    @csrf
+
+                                    <button type="submit" class="bg-red-500 px-4 py-2 ml-2 rounded-md"> Salir
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -45,4 +44,3 @@
         </div>
     </main>
 @endsection
-

@@ -30,4 +30,10 @@ class Test extends Model
     protected $casts = [
         'fecha_creacion' => 'datetime',
     ];
+    public function preguntas()
+    {
+        return $this->hasMany(Pregunta::class, 'id_test');
+    }
+
+
 }

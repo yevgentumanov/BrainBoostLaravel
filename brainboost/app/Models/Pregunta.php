@@ -22,12 +22,7 @@ class Pregunta extends Model
 
     public function test()
     {
-        return $this->belongsTo(Test::class, 'id_test');
-    }
-
-    public function tipo()
-    {
-        return $this->belongsTo(TipoPregunta::class, 'tipo_pregunta');
+        return $this->belongsTo(Test::class, 'id_test', 'id');
     }
 
 }

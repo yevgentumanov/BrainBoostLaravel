@@ -679,7 +679,7 @@
                 <div id="sm-m21" class="sub-menu-content">
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia21_1.jpg" alt="materia">
+                            <img src="{!! asset('images/materia21_1.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>El poder de los idiomas: Construyendo puentes en una sociedad diversa</h4>
@@ -694,7 +694,7 @@
                     </div>
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia21_2.jpg" alt="materia">
+                            <img src="{!! asset('images/materia21_2.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>Descubriendo la diversidad lingüística: Explorando idiomas del mundo</h4>
@@ -708,7 +708,7 @@
                     </div>
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia21_3.jpg" alt="materia">
+                            <img src="{!! asset('images/materia21_3.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>Explorando la diversidad cultural a través de los idiomas</h4>
@@ -724,7 +724,7 @@
                 <div id="sm-m14" class="sub-menu-content d-none">
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia14_1.jpg" alt="materia">
+                            <img src="{!! asset('images/materia14_1.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>Dominando el idioma inglés: Explorando una lengua global</h4>
@@ -738,7 +738,7 @@
                     </div>
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia14_2.jpg" alt="materia">
+                            <img src="{!! asset('images/materia14_2.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>Explorando el inglés a través de su país de origen: Descubre el Reino Unido</h4>
@@ -753,7 +753,7 @@
                     </div>
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia14_3.jpg" alt="materia">
+                            <img src="{!! asset('images/materia14_3.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>El poder de la comunicación en inglés: Abriendo puertas a oportunidades internacionales
@@ -771,7 +771,7 @@
                 <div id="sm-m15" class="sub-menu-content d-none">
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia15_1.jpg" alt="materia">
+                            <img src="{!! asset('images/materia15_1.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>Descubre la belleza del francés: Explorando una lengua romántica</h4>
@@ -786,7 +786,7 @@
                     </div>
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia15_2.jpg" alt="materia">
+                            <img src="{!! asset('images/materia15_2.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>Viaje al corazón de Francia: Explorando la cultura francófona</h4>
@@ -801,7 +801,7 @@
                     </div>
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia15_3.jpg" alt="materia">
+                            <img src="{!! asset('images/materia15_3.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>El francés en el mundo profesional: Un idioma de oportunidades internacionales</h4>
@@ -818,7 +818,7 @@
                 <div id="sm-m13" class="sub-menu-content d-none">
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia13_1.jpg" alt="materia">
+                            <img src="{!! asset('images/materia13_1.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>Explora la pasión italiana: Aprende el idioma y sumérgete en su cultura</h4>
@@ -833,7 +833,7 @@
                     </div>
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia13_2.jpg" alt="materia">
+                            <img src="{!! asset('images/materia13_2.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>Viaje a la cuna del Renacimiento: Descubre la grandeza de Italia</h4>
@@ -848,7 +848,7 @@
                     </div>
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia13_3.jpg" alt="materia">
+                            <img src="{!! asset('images/materia13_3.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>Deléitate con los sabores de Italia: Explora la gastronomía italiana y aprende el idioma
@@ -868,7 +868,7 @@
                 <div id="sm-m16" class="sub-menu-content d-none">
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia16_1.jpg" alt="materia">
+                            <img src="{!! asset('images/materia16_1.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>Descubre la belleza del alemán: Aprende el idioma y sumérgete en la cultura alemana</h4>
@@ -881,7 +881,7 @@
                     </div>
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia16_2.jpg" alt="materia">
+                            <img src="{!! asset('images/materia16_2.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>Saborea Alemania: Explora la gastronomía alemana mientras aprendes alemán</h4>
@@ -894,7 +894,7 @@
                     </div>
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia16_3.jpg" alt="materia">
+                            <img src="{!! asset('images/materia16_3.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>Celebra las tradiciones alemanas: Aprende el idioma y sumérgete en las festividades
@@ -924,7 +924,7 @@
                 <div id="sm-m18" class="sub-menu-content">
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia18_1.jpg" alt="materia">
+                            <img src="{!! asset('images/materia18_1.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>Explora los avances modernos en matemáticas: Descubre las fronteras del conocimiento
@@ -938,7 +938,7 @@
                     </div>
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia18_2.jpg" alt="materia">
+                            <img src="{!! asset('images/materia18_2.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>Grandes matemáticos de la historia: Un viaje a través de las mentes brillantes</h4>
@@ -952,7 +952,7 @@
                     </div>
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia18_3.jpg" alt="materia">
+                            <img src="{!! asset('images/materia18_3.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>Matemáticas aplicadas en el mundo laboral: Potencia tu carrera con habilidades
@@ -988,7 +988,7 @@
                 <div id="sm-m19" class="sub-menu-content">
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia19_1.jpg" alt="materia">
+                            <img src="{!! asset('images/materia19_1.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>Explora los avances tecnológicos: Sumérgete en el fascinante mundo de la tecnología</h4>
@@ -1002,7 +1002,7 @@
                     </div>
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia19_2.jpg" alt="materia">
+                            <img src="{!! asset('images/materia19_2.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>Adéntrate en la robótica: Aprende a programar y construir tus propios robots</h4>
@@ -1016,7 +1016,7 @@
                     </div>
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia19_3.jpg" alt="materia">
+                            <img src="{!! asset('images/materia19_3.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>Entra en la industria tecnológica: Prepara tu carrera en el sector tecnológico</h4>
@@ -1032,7 +1032,7 @@
                 <div id="sm-m20" class="sub-menu-content d-none">
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia20_1.jpg" alt="materia">
+                            <img src="{!! asset('images/materia20_1.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>Explora los avances tecnológicos en informática: Descubre el futuro de la tecnología
@@ -1047,7 +1047,7 @@
                     </div>
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia20_2.jpg" alt="materia">
+                            <img src="{!! asset('images/materia20_2.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>Desarrolla aplicaciones de usuario: Aprende a crear experiencias interactivas y
@@ -1062,7 +1062,7 @@
                     </div>
                     <div class="notice">
                         <div class="notice-image">
-                            <img src="images/materia20_3.jpg" alt="materia">
+                            <img src="{!! asset('images/materia20_3.jpg') !!}" alt="materia">
                         </div>
                         <div class="notice-detail">
                             <h4>Informática en las empresas: Potencia el éxito empresarial con la tecnología</h4>

@@ -184,7 +184,7 @@
                                 <div class="col-12 pb-4">
                                     <button type="submit" class="btn btn-5">Iniciar sesión</button>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 d-none">
                                     <button type="submit" class="btn btn-5">Recuperar contraseña</button>
                                 </div>
                             </div>

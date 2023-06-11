@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,23 +9,28 @@ use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Auth\MustVerifyEmail;
-use Illuminate\Auth\Events\Verified;
 
 class UsuariosController extends Controller
 {
-//    use AuthorizesRequests;
     use AuthorizesRequests, MustVerifyEmail;
 
+    /**
+     * Callback para auth con Google.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function googleAuthCallback()
     {
         $user = Socialite::driver('google')->stateless()->user();
         $usuario = Usuario::where('email', $user->email)->first();
 
         if ($usuario) {
+            // Usuario ya existe, actualizar los detalles
             $usuario->nombre_usuario = $user->name;
             $usuario->google_id = $user->id;
             $usuario->save();
         } else {
+            // Usuario no existe, crear un nuevo usuario
             $usuario = Usuario::create([
                 'nombre_usuario' => $user->name,
                 'google_id' => $user->id,
@@ -38,6 +42,12 @@ class UsuariosController extends Controller
         return redirect('/');
     }
 
+    /**
+     * Autenticación y login en la aplicación.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function logintoapp(Request $request)
     {
         $credentials = $request->only('email', 'password');
@@ -47,17 +57,28 @@ class UsuariosController extends Controller
             Auth::login($user);
             return redirect()->route('index');
         } else {
-            return redirect()->back()->with('warning', 'Invalid email or password');
+            return redirect()->back()->with('warning', 'Correo electrónico o contraseña no válidos');
         }
     }
 
+    /**
+     * Cerrar sesión de la aplicación.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function salir()
     {
         Auth::logout();
         $cookie = Auth::guard()->getCookieJar()->forget(Auth::guard()->getRecallerName());
-        return redirect()->route('index')->withCookie($cookie)->with('success', 'Logged out successfully');
+        return redirect()->route('index')->withCookie($cookie)->with('success', 'Cierre de sesión exitoso');
     }
 
+    /**
+     * Registrar un nuevo usuario en la aplicación.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function registrar(Request $request)
     {
         $data = $request->validate([
@@ -72,24 +93,24 @@ class UsuariosController extends Controller
             $user = Usuario::where('email', $data['email'])->first();
 
             if ($user) {
-                // User already exists, check if the provided password matches the stored password
+                // El usuario ya existe, verificar si la contraseña proporcionada coincide con la almacenada
                 if (Hash::check($request->password, $user->password)) {
-                    // Passwords match, update the user's details
+                    // Las contraseñas coinciden, actualizar los detalles del usuario
                     $user->nombre_usuario = $data['nombre_usuario'];
                     $user->password = $data['password'];
                     $user->save();
                 } else {
-                    // Passwords do not match, return an error
+                    // Las contraseñas no coinciden, devolver un error
                     return redirect()->route('index')->with('warning', 'Contraseña incorrecta');
                 }
             } else {
-                // User does not exist, create a new user
+                // El usuario no existe, crear un nuevo usuario
                 $user = Usuario::create($data);
             }
 
-            $user->sendEmailVerificationNotification(); // Send the email verification notification
+            $user->sendEmailVerificationNotification(); // Enviar la notificación de verificación de correo electrónico
 
-            Auth::login($user); // Log in the user
+            Auth::login($user); // Iniciar sesión del usuario
 
             return redirect()->route('index')->with('success', 'Usuario creado o actualizado correctamente');
         } catch (\Illuminate\Database\QueryException $e) {
@@ -97,6 +118,12 @@ class UsuariosController extends Controller
         }
     }
 
+    /**
+     * Cambiar la contraseña del usuario autenticado.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function cambiarpassword(Request $request)
     {
         $request->validate([

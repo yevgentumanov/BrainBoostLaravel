@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\VIntentosTest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Models\Test;
-
 
 class VIntentosTestController extends Controller
 {

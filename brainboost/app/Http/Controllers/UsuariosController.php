@@ -121,7 +121,7 @@ class UsuariosController extends Controller
 
             Auth::login($user); // Log in the user
 
-            return redirect()->route('login')->with('success', 'Usuario creado o actualizado correctamente');
+            return redirect()->route('/')->with('success', 'Usuario creado o actualizado correctamente');
         } catch (\Illuminate\Database\QueryException $e) {
             return redirect()->route('index')->with('warning', 'Error al crear o actualizar el usuario');
         }

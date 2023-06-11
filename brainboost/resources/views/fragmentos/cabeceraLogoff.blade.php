@@ -682,12 +682,14 @@
                             <img src="images/materia21_1.jpg" alt="materia">
                         </div>
                         <div class="notice-detail">
-                            <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
-                                off
-                            </h4>
-                            <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
-                                there's
-                                a sizable mail-in-rebate available.</p>
+                            <h4>El poder de los idiomas: Construyendo puentes en una sociedad diversa</h4>
+                            <p>Los idiomas no solo nos permiten comunicarnos, sino que también desempeñan un papel
+                                crucial en la construcción de puentes entre personas de diferentes orígenes y en la
+                                promoción de la diversidad social. Aprende sobre cómo el aprendizaje de nuevos idiomas
+                                puede fomentar la inclusión, el entendimiento y la colaboración en una sociedad cada vez
+                                más interconectada. Descubre cómo los idiomas pueden romper barreras y fortalecer
+                                nuestras relaciones interculturales, promoviendo así una sociedad más inclusiva y
+                                enriquecedora.</p>
                         </div>
                     </div>
                     <div class="notice">
@@ -695,10 +697,13 @@
                             <img src="images/materia21_2.jpg" alt="materia">
                         </div>
                         <div class="notice-detail">
-                            <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                            <p>According to Mercury Research, AMD's x86 processor share is close to its
-                                all-time
-                                high.</p>
+                            <h4>Descubriendo la diversidad lingüística: Explorando idiomas del mundo</h4>
+                            <p>Sumérgete en un viaje fascinante a través de la diversidad lingüística de nuestro
+                                planeta. Explorarás diferentes idiomas, desde los más hablados hasta los menos
+                                conocidos, y descubrirás cómo cada uno refleja la riqueza cultural y la historia de sus
+                                hablantes. Aprenderás sobre las similitudes y diferencias entre los idiomas, y cómo el
+                                estudio de la diversidad lingüística nos ayuda a comprender y apreciar mejor nuestra
+                                propia lengua y las de los demás.</p>
                         </div>
                     </div>
                     <div class="notice">
@@ -706,10 +711,13 @@
                             <img src="images/materia21_3.jpg" alt="materia">
                         </div>
                         <div class="notice-detail">
-                            <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                            <p>Over $340M has been given back as a very strange digital heist story
-                                continues to
-                                develop.</p>
+                            <h4>Explorando la diversidad cultural a través de los idiomas</h4>
+                            <p>Los idiomas son portadores de cultura, y a través de su estudio podemos sumergirnos en la
+                                diversidad cultural de diferentes comunidades alrededor del mundo. Descubre cómo los
+                                idiomas influyen en las formas de pensar, en las tradiciones, en la literatura y en las
+                                costumbres de diferentes culturas. Explorarás cómo la comprensión de los idiomas nos
+                                permite conectarnos con personas de diferentes orígenes y abrir nuestras mentes a nuevas
+                                perspectivas y experiencias.</p>
                         </div>
                     </div>
                 </div>
@@ -719,12 +727,13 @@
                             <img src="images/materia14_1.jpg" alt="materia">
                         </div>
                         <div class="notice-detail">
-                            <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
-                                off
-                            </h4>
-                            <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
-                                there's
-                                a sizable mail-in-rebate available.</p>
+                            <h4>Dominando el idioma inglés: Explorando una lengua global</h4>
+                            <p>Sumérgete en el apasionante mundo del idioma inglés y descubre por qué es considerado una
+                                lengua global. Aprende sobre su origen, evolución y expansión a lo largo de la historia,
+                                y cómo se ha convertido en una herramienta esencial en los ámbitos académico,
+                                profesional y cultural. Explora las peculiaridades del inglés, sus reglas gramaticales y
+                                su amplio vocabulario, y adquiere las habilidades necesarias para comunicarte con
+                                confianza en este idioma que conecta a personas de todo el mundo.</p>
                         </div>
                     </div>
                     <div class="notice">
@@ -732,10 +741,14 @@
                             <img src="images/materia14_2.jpg" alt="materia">
                         </div>
                         <div class="notice-detail">
-                            <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                            <p>According to Mercury Research, AMD's x86 processor share is close to its
-                                all-time
-                                high.</p>
+                            <h4>Explorando el inglés a través de su país de origen: Descubre el Reino Unido</h4>
+                            <p>Sumérgete en la rica historia y cultura del Reino Unido mientras exploras el idioma
+                                inglés. Conoce los icónicos monumentos y paisajes británicos, desde el Big Ben hasta
+                                Stonehenge, y descubre la importancia de la literatura y el teatro ingleses, con autores
+                                como Shakespeare y obras como Romeo y Julieta. Aprende sobre las tradiciones y
+                                festividades británicas, como el té de la tarde y el famoso Changing of the Guard en el
+                                Palacio de Buckingham. A medida que te sumerjas en la cultura británica, desarrollarás
+                                una comprensión más profunda del idioma inglés.</p>
                         </div>
                     </div>
                     <div class="notice">
@@ -743,10 +756,15 @@
                             <img src="images/materia14_3.jpg" alt="materia">
                         </div>
                         <div class="notice-detail">
-                            <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                            <p>Over $340M has been given back as a very strange digital heist story
-                                continues to
-                                develop.</p>
+                            <h4>El poder de la comunicación en inglés: Abriendo puertas a oportunidades internacionales
+                            </h4>
+                            <p>El inglés es el idioma internacional de los negocios, la tecnología y las relaciones
+                                internacionales. Aprender a comunicarte efectivamente en inglés te abrirá un mundo de
+                                oportunidades profesionales y académicas. Descubre cómo el dominio del inglés te
+                                permitirá acceder a empleos internacionales, estudiar en prestigiosas universidades de
+                                habla inglesa y establecer conexiones con personas de diferentes culturas y países. A
+                                medida que desarrolles tus habilidades en el idioma, estarás preparado para enfrentar
+                                los desafíos y aprovechar las ventajas de un mundo globalizado.</p>
                         </div>
                     </div>
                 </div>
@@ -756,12 +774,14 @@
                             <img src="images/materia15_1.jpg" alt="materia">
                         </div>
                         <div class="notice-detail">
-                            <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
-                                off
-                            </h4>
-                            <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
-                                there's
-                                a sizable mail-in-rebate available.</p>
+                            <h4>Descubre la belleza del francés: Explorando una lengua romántica</h4>
+                            <p>Sumérgete en la elegancia y la musicalidad del idioma francés. Aprende sobre su historia
+                                y su influencia en el arte, la literatura y la moda. Descubre las reglas gramaticales y
+                                la pronunciación característica del francés, y adquiere las habilidades necesarias para
+                                comunicarte con fluidez en este idioma lleno de encanto. Explora la cultura francesa,
+                                desde sus famosos monumentos, como la Torre Eiffel, hasta sus deliciosas especialidades
+                                culinarias, como los croissants y el queso. Aprende francés y déjate seducir por la
+                                magia de esta lengua romántica.</p>
                         </div>
                     </div>
                     <div class="notice">
@@ -769,10 +789,14 @@
                             <img src="images/materia15_2.jpg" alt="materia">
                         </div>
                         <div class="notice-detail">
-                            <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                            <p>According to Mercury Research, AMD's x86 processor share is close to its
-                                all-time
-                                high.</p>
+                            <h4>Viaje al corazón de Francia: Explorando la cultura francófona</h4>
+                            <p>Sumérgete en la rica cultura del país francófono mientras aprendes francés. Descubre la
+                                historia de Francia, desde la época de los reyes hasta la Revolución Francesa, y explora
+                                sus ciudades icónicas, como París y Niza. Aprende sobre la literatura francesa y sus
+                                grandes autores, como Victor Hugo y Marcel Proust. Sumérgete en la gastronomía francesa
+                                y descubre los secretos de la cocina francesa, desde los deliciosos quesos hasta los
+                                exquisitos vinos. Aprender francés te abrirá las puertas a una cultura fascinante llena
+                                de arte, historia y sofisticación.</p>
                         </div>
                     </div>
                     <div class="notice">
@@ -780,10 +804,14 @@
                             <img src="images/materia15_3.jpg" alt="materia">
                         </div>
                         <div class="notice-detail">
-                            <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                            <p>Over $340M has been given back as a very strange digital heist story
-                                continues to
-                                develop.</p>
+                            <h4>El francés en el mundo profesional: Un idioma de oportunidades internacionales</h4>
+                            <p>El francés es uno de los idiomas más hablados en el mundo y tiene una gran influencia en
+                                los negocios internacionales, el turismo y la diplomacia. Aprender francés te permitirá
+                                acceder a oportunidades laborales en empresas multinacionales, trabajar en la industria
+                                del turismo y establecer conexiones internacionales. Además, el francés es el idioma
+                                oficial de numerosas organizaciones internacionales, como la ONU y la Unión Europea. Con
+                                el dominio del francés, podrás comunicarte con personas de diferentes culturas y ampliar
+                                tu perspectiva global. Aprende francés y descubre un mundo lleno de posibilidades.</p>
                         </div>
                     </div>
                 </div>

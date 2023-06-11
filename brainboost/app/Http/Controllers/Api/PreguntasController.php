@@ -9,54 +9,40 @@ use Illuminate\Http\Request;
 class PreguntasController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Muestra una lista de todas las preguntas.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
      */
-    public function index() // devuelve todas las preguntas
+    public function index()
     {
         return Pregunta::all();
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Muestra las preguntas del test especificado.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string|null  $id_test
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Request $request, string $id_test = null) // devuelve las preguntas con ID indicado o todas las preguntas
+    public function show(Request $request, string $id_test = null)
     {
         if (!isset($id_test)) {
             $id_test = $request->get("id");
         }
+
         if (!isset($id_test)) {
             return $this->index();
         }
 
         $preguntas = Pregunta::where('id_test', $id_test)->get();
-        if (sizeof($preguntas) > 0) {
+
+        if ($preguntas->count() > 0) {
             return response()->json($preguntas);
         } else {
             abort(404);
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

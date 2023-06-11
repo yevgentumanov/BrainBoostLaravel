@@ -8,11 +8,12 @@ use App\Models\Test;
 use App\Models\Pregunta;
 use App\Models\Usuario;
 
-
 class TestController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Muestra una lista de todos los tests.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     public function index()
     {
@@ -20,21 +21,18 @@ class TestController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Muestra el test especificado.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string|null  $id
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Request $request, string $id = null) // devuelve las preguntas con ID indicado o todas las preguntas
+    public function show(Request $request, string $id = null)
     {
         if (!isset($id)) {
             $id = $request->get("id");
         }
+
         if (!isset($id)) {
             return $this->index();
         }
@@ -50,35 +48,7 @@ class TestController extends Controller
         $test->cant_preguntas = $cant_preguntas;
         $test->nombreUsuarioCreador = $nombreUsuarioCreador;
 
-        /*
-         * REFACTORIZAR EN EL FUTURO PARA USAR LA RELACION ENTRE MODELOS
-         *
-        $test = Test::with('usuario')->where('id', $id)->first();
-
-        $cant_preguntas = Pregunta::where('id_test', $id)->count();
-
-        $test->cant_preguntas = $cant_preguntas;
-        $test->nombreUsuarioCreador = $test->usuario->nombre_usuario;
-
-        // Removemos el campo 'usuario' del modelo para evitar que se incluya en la respuesta JSON
-        unset($test->usuario);
-        */
         return response()->json($test);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Materia;
 use App\Models\Test;
 use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Builder;
-
 
 class MateriaController extends Controller
 {
+    /**
+     * Muestra la página de una materia y los tests asociados a ella.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function index(Request $request)
     {
         $nombreMateria = $request->nombreMateria;
@@ -27,6 +30,4 @@ class MateriaController extends Controller
 
         return view('materia', ['tests' => $tests, 'materia' => $materia]);
     }
-
-
 }

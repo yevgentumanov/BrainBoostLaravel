@@ -45,9 +45,9 @@
                 </div>
             </nav>
         </div>
-
+    </header>
         <!-- Menú de navegación -->
-        <nav class="row w-100 m-0 bg-dark navigation clear">
+        <nav id="barranav" class="row w-100 m-0 p-0 bg-dark navigation clear stiky-top">
             <a href="#" class="btn-togglemenu">
                 <span>☰</span><span style="display: none;">✖</span>
             </a>
@@ -55,7 +55,7 @@
             <ul class="megamenu m-0">
                 <!-- Botón de Inicio -->
                 <li class="item">
-                    <a class="nav-link" href="{{ route('index') }}">INICIO</a>
+                    <a class="nav-link d-flex align-items-center" href="{{ route('index') }}">INICIO</a>
                 </li>
                 <li class="item">
                     <a href="#">ARTES <span class="arrow">❮</span></a>
@@ -88,7 +88,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Explorando la belleza de la arquitectura: Diseño, estructuras y estilos</h4>
-                                    <p>Descubre los secretos de las grandes construcciones y crea espacios que cautiven
+                                    <p>Descubre los secretos de las grandes construcciones y crea espacios que
+                                        cautiven
                                         los sentidos.</p>
                                 </div>
                             </div>
@@ -98,7 +99,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>El arte tridimensional: Explorando la escultura en todas sus formas</h4>
-                                    <p>Da vida a tus ideas con la escultura y adéntrate en un mundo de formas, texturas
+                                    <p>Da vida a tus ideas con la escultura y adéntrate en un mundo de formas,
+                                        texturas
                                         y expresiones artísticas.</p>
                                 </div>
                             </div>
@@ -108,7 +110,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>El lienzo como medio de expresión: Explorando la pintura y sus técnicas</h4>
-                                    <p>Sumérgete en el mundo del color, la composición y la creatividad a través de la
+                                    <p>Sumérgete en el mundo del color, la composición y la creatividad a través de
+                                        la
                                         pintura, donde cada pincelada cuenta una historia.</p>
                                 </div>
                             </div>
@@ -120,7 +123,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Explorando la belleza de la arquitectura: Diseño, estructuras y estilos</h4>
-                                    <p>Descubre los secretos de las grandes construcciones y crea espacios que cautiven
+                                    <p>Descubre los secretos de las grandes construcciones y crea espacios que
+                                        cautiven
                                         los sentidos.</p>
                                 </div>
                             </div>
@@ -130,7 +134,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>El arte tridimensional: Explorando la escultura en todas sus formas</h4>
-                                    <p>Da vida a tus ideas con la escultura y adéntrate en un mundo de formas, texturas
+                                    <p>Da vida a tus ideas con la escultura y adéntrate en un mundo de formas,
+                                        texturas
                                         y expresiones artísticas.</p>
                                 </div>
                             </div>
@@ -140,7 +145,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>El lienzo como medio de expresión: Explorando la pintura y sus técnicas</h4>
-                                    <p>Sumérgete en el mundo del color, la composición y la creatividad a través de la
+                                    <p>Sumérgete en el mundo del color, la composición y la creatividad a través de
+                                        la
                                         pintura, donde cada pincelada cuenta una historia.</p>
                                 </div>
                             </div>
@@ -152,7 +158,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Explorando la belleza de la arquitectura: Diseño, estructuras y estilos</h4>
-                                    <p>Descubre los secretos de las grandes construcciones y crea espacios que cautiven
+                                    <p>Descubre los secretos de las grandes construcciones y crea espacios que
+                                        cautiven
                                         los sentidos.</p>
                                 </div>
                             </div>
@@ -162,7 +169,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Explorando la belleza de la arquitectura: Diseño, estructuras y estilos</h4>
-                                    <p>Descubre los secretos de las grandes construcciones y crea espacios que cautiven
+                                    <p>Descubre los secretos de las grandes construcciones y crea espacios que
+                                        cautiven
                                         los sentidos.</p>
                                 </div>
                             </div>
@@ -172,7 +180,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>El lienzo como medio de expresión: Explorando la pintura y sus técnicas</h4>
-                                    <p>Sumérgete en el mundo del color, la composición y la creatividad a través de la
+                                    <p>Sumérgete en el mundo del color, la composición y la creatividad a través de
+                                        la
                                         pintura, donde cada pincelada cuenta una historia.</p>
                                 </div>
                             </div>
@@ -184,7 +193,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Explorando la belleza de la arquitectura: Diseño, estructuras y estilos</h4>
-                                    <p>Descubre los secretos de las grandes construcciones y crea espacios que cautiven
+                                    <p>Descubre los secretos de las grandes construcciones y crea espacios que
+                                        cautiven
                                         los sentidos.</p>
                                 </div>
                             </div>
@@ -194,7 +204,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>El arte tridimensional: Explorando la escultura en todas sus formas</h4>
-                                    <p>Da vida a tus ideas con la escultura y adéntrate en un mundo de formas, texturas
+                                    <p>Da vida a tus ideas con la escultura y adéntrate en un mundo de formas,
+                                        texturas
                                         y expresiones artísticas.</p>
                                 </div>
                             </div>
@@ -204,7 +215,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>El lienzo como medio de expresión: Explorando la pintura y sus técnicas</h4>
-                                    <p>Sumérgete en el mundo del color, la composición y la creatividad a través de la
+                                    <p>Sumérgete en el mundo del color, la composición y la creatividad a través de
+                                        la
                                         pintura, donde cada pincelada cuenta una historia.</p>
                                 </div>
                             </div>
@@ -249,9 +261,11 @@
                                     <img src="{!! asset('images/materia5_1.jpg') !!}" alt="materia">
                                 </div>
                                 <div class="notice-detail">
-                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
+                                        off
                                     </h4>
-                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
+                                        there's
                                         a sizable mail-in-rebate available.</p>
                                 </div>
                             </div>
@@ -261,7 +275,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its
+                                        all-time
                                         high.</p>
                                 </div>
                             </div>
@@ -271,7 +286,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                    <p>Over $340M has been given back as a very strange digital heist story
+                                        continues to
                                         develop.</p>
                                 </div>
                             </div>
@@ -282,9 +298,11 @@
                                     <img src="{!! asset('images/materia6_1.jpg') !!}" alt="materia">
                                 </div>
                                 <div class="notice-detail">
-                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
+                                        off
                                     </h4>
-                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
+                                        there's
                                         a sizable mail-in-rebate available.</p>
                                 </div>
                             </div>
@@ -294,7 +312,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its
+                                        all-time
                                         high.</p>
                                 </div>
                             </div>
@@ -304,7 +323,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                    <p>Over $340M has been given back as a very strange digital heist story
+                                        continues to
                                         develop.</p>
                                 </div>
                             </div>
@@ -315,9 +335,11 @@
                                     <img src="{!! asset('images/materia7_1.jpg') !!}" alt="materia">
                                 </div>
                                 <div class="notice-detail">
-                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
+                                        off
                                     </h4>
-                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
+                                        there's
                                         a sizable mail-in-rebate available.</p>
                                 </div>
                             </div>
@@ -327,7 +349,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its
+                                        all-time
                                         high.</p>
                                 </div>
                             </div>
@@ -337,7 +360,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                    <p>Over $340M has been given back as a very strange digital heist story
+                                        continues to
                                         develop.</p>
                                 </div>
                             </div>
@@ -348,9 +372,11 @@
                                     <img src="{!! asset('images/materia8_1.jpg') !!}" alt="materia">
                                 </div>
                                 <div class="notice-detail">
-                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
+                                        off
                                     </h4>
-                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
+                                        there's
                                         a sizable mail-in-rebate available.</p>
                                 </div>
                             </div>
@@ -360,7 +386,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its
+                                        all-time
                                         high.</p>
                                 </div>
                             </div>
@@ -370,7 +397,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                    <p>Over $340M has been given back as a very strange digital heist story
+                                        continues to
                                         develop.</p>
                                 </div>
                             </div>
@@ -381,9 +409,11 @@
                                     <img src="{!! asset('images/materia9_1.jpg') !!}" alt="materia">
                                 </div>
                                 <div class="notice-detail">
-                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
+                                        off
                                     </h4>
-                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
+                                        there's
                                         a sizable mail-in-rebate available.</p>
                                 </div>
                             </div>
@@ -393,7 +423,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its
+                                        all-time
                                         high.</p>
                                 </div>
                             </div>
@@ -403,7 +434,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                    <p>Over $340M has been given back as a very strange digital heist story
+                                        continues to
                                         develop.</p>
                                 </div>
                             </div>
@@ -443,9 +475,11 @@
                                     <img src="{!! asset('images/materia17_1.jpg') !!}" alt="materia">
                                 </div>
                                 <div class="notice-detail">
-                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
+                                        off
                                     </h4>
-                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
+                                        there's
                                         a sizable mail-in-rebate available.</p>
                                 </div>
                             </div>
@@ -455,7 +489,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its
+                                        all-time
                                         high.</p>
                                 </div>
                             </div>
@@ -465,7 +500,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                    <p>Over $340M has been given back as a very strange digital heist story
+                                        continues to
                                         develop.</p>
                                 </div>
                             </div>
@@ -476,9 +512,11 @@
                                     <img src="{!! asset('images/materia12_1.jpg') !!}" alt="materia">
                                 </div>
                                 <div class="notice-detail">
-                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
+                                        off
                                     </h4>
-                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
+                                        there's
                                         a sizable mail-in-rebate available.</p>
                                 </div>
                             </div>
@@ -488,7 +526,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its
+                                        all-time
                                         high.</p>
                                 </div>
                             </div>
@@ -498,7 +537,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                    <p>Over $340M has been given back as a very strange digital heist story
+                                        continues to
                                         develop.</p>
                                 </div>
                             </div>
@@ -509,9 +549,11 @@
                                     <img src="{!! asset('images/materia11_1.jpg') !!}" alt="materia">
                                 </div>
                                 <div class="notice-detail">
-                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
+                                        off
                                     </h4>
-                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
+                                        there's
                                         a sizable mail-in-rebate available.</p>
                                 </div>
                             </div>
@@ -521,7 +563,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its
+                                        all-time
                                         high.</p>
                                 </div>
                             </div>
@@ -531,7 +574,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                    <p>Over $340M has been given back as a very strange digital heist story
+                                        continues to
                                         develop.</p>
                                 </div>
                             </div>
@@ -542,9 +586,11 @@
                                     <img src="{!! asset('images/materia10_1.jpg') !!}" alt="materia">
                                 </div>
                                 <div class="notice-detail">
-                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
+                                        off
                                     </h4>
-                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
+                                        there's
                                         a sizable mail-in-rebate available.</p>
                                 </div>
                             </div>
@@ -554,7 +600,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its
+                                        all-time
                                         high.</p>
                                 </div>
                             </div>
@@ -564,7 +611,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                    <p>Over $340M has been given back as a very strange digital heist story
+                                        continues to
                                         develop.</p>
                                 </div>
                             </div>
@@ -605,9 +653,11 @@
                                     <img src="images/materia21_1.jpg" alt="materia">
                                 </div>
                                 <div class="notice-detail">
-                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
+                                        off
                                     </h4>
-                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
+                                        there's
                                         a sizable mail-in-rebate available.</p>
                                 </div>
                             </div>
@@ -617,7 +667,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its
+                                        all-time
                                         high.</p>
                                 </div>
                             </div>
@@ -627,7 +678,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                    <p>Over $340M has been given back as a very strange digital heist story
+                                        continues to
                                         develop.</p>
                                 </div>
                             </div>
@@ -638,9 +690,11 @@
                                     <img src="images/materia14_1.jpg" alt="materia">
                                 </div>
                                 <div class="notice-detail">
-                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
+                                        off
                                     </h4>
-                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
+                                        there's
                                         a sizable mail-in-rebate available.</p>
                                 </div>
                             </div>
@@ -650,7 +704,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its
+                                        all-time
                                         high.</p>
                                 </div>
                             </div>
@@ -660,7 +715,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                    <p>Over $340M has been given back as a very strange digital heist story
+                                        continues to
                                         develop.</p>
                                 </div>
                             </div>
@@ -671,9 +727,11 @@
                                     <img src="images/materia15_1.jpg" alt="materia">
                                 </div>
                                 <div class="notice-detail">
-                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
+                                        off
                                     </h4>
-                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
+                                        there's
                                         a sizable mail-in-rebate available.</p>
                                 </div>
                             </div>
@@ -683,7 +741,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its
+                                        all-time
                                         high.</p>
                                 </div>
                             </div>
@@ -693,7 +752,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                    <p>Over $340M has been given back as a very strange digital heist story
+                                        continues to
                                         develop.</p>
                                 </div>
                             </div>
@@ -704,9 +764,11 @@
                                     <img src="images/materia13_1.jpg" alt="materia">
                                 </div>
                                 <div class="notice-detail">
-                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
+                                        off
                                     </h4>
-                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
+                                        there's
                                         a sizable mail-in-rebate available.</p>
                                 </div>
                             </div>
@@ -716,7 +778,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its
+                                        all-time
                                         high.</p>
                                 </div>
                             </div>
@@ -726,7 +789,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                    <p>Over $340M has been given back as a very strange digital heist story
+                                        continues to
                                         develop.</p>
                                 </div>
                             </div>
@@ -737,9 +801,11 @@
                                     <img src="images/materia16_1.jpg" alt="materia">
                                 </div>
                                 <div class="notice-detail">
-                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
+                                        off
                                     </h4>
-                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
+                                        there's
                                         a sizable mail-in-rebate available.</p>
                                 </div>
                             </div>
@@ -749,7 +815,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its
+                                        all-time
                                         high.</p>
                                 </div>
                             </div>
@@ -759,7 +826,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                    <p>Over $340M has been given back as a very strange digital heist story
+                                        continues to
                                         develop.</p>
                                 </div>
                             </div>
@@ -793,9 +861,11 @@
                                     <img src="images/materia19_1.jpg" alt="materia">
                                 </div>
                                 <div class="notice-detail">
-                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
+                                        off
                                     </h4>
-                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
+                                        there's
                                         a sizable mail-in-rebate available.</p>
                                 </div>
                             </div>
@@ -805,7 +875,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its
+                                        all-time
                                         high.</p>
                                 </div>
                             </div>
@@ -815,7 +886,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                    <p>Over $340M has been given back as a very strange digital heist story
+                                        continues to
                                         develop.</p>
                                 </div>
                             </div>
@@ -826,9 +898,11 @@
                                     <img src="images/materia20_1.jpg" alt="materia">
                                 </div>
                                 <div class="notice-detail">
-                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100
+                                        off
                                     </h4>
-                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus
+                                        there's
                                         a sizable mail-in-rebate available.</p>
                                 </div>
                             </div>
@@ -838,7 +912,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its
+                                        all-time
                                         high.</p>
                                 </div>
                             </div>
@@ -848,7 +923,8 @@
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                    <p>Over $340M has been given back as a very strange digital heist story
+                                        continues to
                                         develop.</p>
                                 </div>
                             </div>
@@ -860,9 +936,6 @@
                 </li>
             </ul>
         </nav>
-
-
-
 
         <script>
             $(document).ready(function() {
@@ -913,4 +986,4 @@
         </script>
         {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="js/script.js"></script> --}}
-</header>
+

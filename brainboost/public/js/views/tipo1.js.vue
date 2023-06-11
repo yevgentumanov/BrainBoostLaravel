@@ -118,12 +118,12 @@
             /*-- Si el usuario ha acertado --*/
             if (actualPreguntasAcertadas == respuestaEnObjTest.length) {
                 /*-- Deshabilita los inputs cuando la pregunta sea acertada, siempre que la dificultad no sea dificil --*/
-                if (props.testobj.getDificultad() != TestModel.TipoDificultad.DIFÍCIL) {
+                // if (props.testobj.getDificultad() != TestModel.TipoDificultad.DIFÍCIL) {
                     const inputs = fieldSet.querySelectorAll("input");
                     inputs.forEach(element => {
                         element.setAttribute("disabled", "disabled");
                     });
-                }
+                // }
                 
                 /*-- Muestra la retroalimentación --*/
                 mostrarRetroalimentacion.value = true;
@@ -134,12 +134,12 @@
         } else {
             // props.testobj.nota -= anteriorPreguntasAcertadas / respuestaEnObjTest.length; // Esto es por si se usa en algun futuro
             /*-- Deshabilita los inputs cuando la pregunta sea acertada, siempre que la dificultad no sea dificil --*/
-            if (props.testobj.getDificultad() != TestModel.TipoDificultad.DIFÍCIL) {
+            // if (props.testobj.getDificultad() != TestModel.TipoDificultad.DIFÍCIL) {
                 const inputs = fieldSet.querySelectorAll("input");
                 inputs.forEach(element => {
                     element.setAttribute("disabled", "disabled")
                 });
-            }
+            // }
             
             /*-- Muestra la retroalimentación --*/
             mostrarRetroalimentacion.value = true;

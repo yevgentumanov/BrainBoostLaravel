@@ -157,13 +157,13 @@
                                 </div>
                             </div>
                             <div class="notice">
-                                <div class="notice-image d-none">
+                                <div class="notice-image">
                                     <img src="{!! asset('images/materia3_2.jpg') !!}" alt="materia">
                                 </div>
                                 <div class="notice-detail">
-                                    <h4>El arte tridimensional: Explorando la escultura en todas sus formas</h4>
-                                    <p>Da vida a tus ideas con la escultura y adéntrate en un mundo de formas, texturas
-                                        y expresiones artísticas.</p>
+                                    <h4>Explorando la belleza de la arquitectura: Diseño, estructuras y estilos</h4>
+                                    <p>Descubre los secretos de las grandes construcciones y crea espacios que cautiven
+                                        los sentidos.</p>
                                 </div>
                             </div>
                             <div class="notice">
@@ -218,24 +218,27 @@
                             <ul>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Ciencias Naturales']) }}" id="m5">Ciencias
+                                        href="{{ route('materia', ['nombreMateria' => 'Ciencias Naturales']) }}"
+                                        id="m5">Ciencias
                                         Naturales</a>
                                 </li>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Biología']) }}" id="m6">Biología</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Biología']) }}"
+                                        id="m6">Biología</a>
+                                </li>
+                                <li>
+                                    <a class="sub-item" href="{{ route('materia', ['nombreMateria' => 'Química']) }}"
+                                        id="m7">Química</a>
+                                </li>
+                                <li>
+                                    <a class="sub-item" href="{{ route('materia', ['nombreMateria' => 'Física']) }}"
+                                        id="m8">Física</a>
                                 </li>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Química']) }}" id="m7">Química</a>
-                                </li>
-                                <li>
-                                    <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Física']) }}" id="m8">Física</a>
-                                </li>
-                                <li>
-                                    <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Educación Física']) }}" id="m9">Educación
+                                        href="{{ route('materia', ['nombreMateria' => 'Educación Física']) }}"
+                                        id="m9">Educación
                                         Física</a>
                                 </li>
                             </ul>
@@ -414,19 +417,23 @@
                             <ul>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Literatura']) }}" id="m17">Literatura</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Literatura']) }}"
+                                        id="m17">Literatura</a>
                                 </li>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Historia']) }}" id="m12">Historia</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Historia']) }}"
+                                        id="m12">Historia</a>
                                 </li>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Geografía']) }}" id="m11">Geografía</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Geografía']) }}"
+                                        id="m11">Geografía</a>
                                 </li>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Filosofía']) }}" id="m10">Filosofía</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Filosofía']) }}"
+                                        id="m10">Filosofía</a>
                                 </li>
                             </ul>
                         </div>
@@ -570,24 +577,25 @@
                         <div class="sub-menu">
                             <ul>
                                 <li>
-                                    <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Idiomas']) }}" id="m21">Todos</a>
+                                    <a class="sub-item" href="{{ route('materia', ['nombreMateria' => 'Idiomas']) }}"
+                                        id="m21">Todos</a>
+                                </li>
+                                <li>
+                                    <a class="sub-item" href="{{ route('materia', ['nombreMateria' => 'Inglés']) }}"
+                                        id="m14">Inglés</a>
+                                </li>
+                                <li>
+                                    <a class="sub-item" href="{{ route('materia', ['nombreMateria' => 'Francés']) }}"
+                                        id="m15">Francés</a>
                                 </li>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Inglés']) }}" id="m14">Inglés</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Italiano']) }}"
+                                        id="m13">Italiano</a>
                                 </li>
                                 <li>
-                                    <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Francés']) }}" id="m15">Francés</a>
-                                </li>
-                                <li>
-                                    <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Italiano']) }}" id="m13">Italiano</a>
-                                </li>
-                                <li>
-                                    <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Alemán']) }}" id="m16">Alemán</a>
+                                    <a class="sub-item" href="{{ route('materia', ['nombreMateria' => 'Alemán']) }}"
+                                        id="m16">Alemán</a>
                                 </li>
                             </ul>
                         </div>
@@ -759,8 +767,8 @@
                     </div>
                 </li>
                 <li class="item">
-                    <a class="nav-link"
-                        href="{{ route('materia', ['nombreMateria' => 'Matemáticas']) }}" id="m18">MATEMÁTICAS</a>
+                    <a class="nav-link" href="{{ route('materia', ['nombreMateria' => 'Matemáticas']) }}"
+                        id="m18">MATEMÁTICAS</a>
                 </li>
                 <li class="item">
                     <a href="#">TECNOLOGÍA <span class="arrow">❮</span></a>
@@ -769,11 +777,13 @@
                             <ul>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Tecnología']) }}" id="m19">Tecnología</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Tecnología']) }}"
+                                        id="m19">Tecnología</a>
                                 </li>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Informática']) }}" id="m20">Informática</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Informática']) }}"
+                                        id="m20">Informática</a>
                                 </li>
                             </ul>
                         </div>

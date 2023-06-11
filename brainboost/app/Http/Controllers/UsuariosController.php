@@ -81,12 +81,13 @@ class UsuariosController extends Controller
 //
 //            $user->sendEmailVerificationNotification(); // Send the email verification notification
 //
+//            Auth::login($user); // Log in the user
+//
 //            return redirect()->route('login')->with('success', 'Usuario creado o actualizado correctamente');
 //        } catch (\Illuminate\Database\QueryException $e) {
 //            return redirect()->route('registro')->with('warning', 'Error al crear o actualizar el usuario');
 //        }
 //    }
-
     public function registrar(Request $request)
     {
         $data = $request->validate([
@@ -101,10 +102,18 @@ class UsuariosController extends Controller
             $user = Usuario::where('email', $data['email'])->first();
 
             if ($user) {
-                $user->nombre_usuario = $data['nombre_usuario'];
-                $user->password = $data['password'];
-                $user->save();
+                // User already exists, check if the provided password matches the stored password
+                if (Hash::check($request->password, $user->password)) {
+                    // Passwords match, update the user's details
+                    $user->nombre_usuario = $data['nombre_usuario'];
+                    $user->password = $data['password'];
+                    $user->save();
+                } else {
+                    // Passwords do not match, return an error
+                    return redirect()->route('index')->with('warning', 'Contraseña incorrecta');
+                }
             } else {
+                // User does not exist, create a new user
                 $user = Usuario::create($data);
             }
 
@@ -114,7 +123,7 @@ class UsuariosController extends Controller
 
             return redirect()->route('login')->with('success', 'Usuario creado o actualizado correctamente');
         } catch (\Illuminate\Database\QueryException $e) {
-            return redirect()->route('registro')->with('warning', 'Error al crear o actualizar el usuario');
+            return redirect()->route('index')->with('warning', 'Error al crear o actualizar el usuario');
         }
     }
 

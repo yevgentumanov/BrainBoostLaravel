@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         data() {
             return {
                 tiposPregunta: TestModel.TipoPregunta,
+                tiposDificultad: TestModel.TipoDificultad,
                 testObj: new TestModel.Test(),
                 testCtrl: null,
                 url: new URL(document.location.href)

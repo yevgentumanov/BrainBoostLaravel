@@ -12,7 +12,7 @@
                     <h5 class="d-none m-0" :class='["d-block"]' v-if="testObj.getModalidad() != null">@{{modalidadString}}</h5>
                     <h5 class="d-none m-0" :class='["d-block"]' v-if="testObj.getDificultad() != null">@{{dificultadString}}</h5>
                     <h5 class="d-none m-0" :class='["d-block"]' v-if="testObj.getTiempoInicio() != null">@{{tiempoTranscurrido[0]}}:@{{tiempoTranscurrido[1]}}:@{{tiempoTranscurrido[2]}}</h5>
-                    <h5 class="d-none m-0" :class='["d-block"]'>@{{testObj.getNota() != null ? "Nota: " + testObj.getNota() : ""}}</h5>
+                    <h5 class="d-none m-0" :class='["d-block"]' v-if="testObj.getDificultad() == tiposDificultad.DIFÍCIL ? testCtrl.sended : true">@{{testObj.getNota() != null ? "Nota: " + testObj.getNota() : ""}}</h5>
                 </div>
             </section>
 

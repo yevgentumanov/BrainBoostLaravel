@@ -10,10 +10,10 @@
             </div>
         </fieldset>
         <div>
-            <span v-if="mostrarRetroalimentacion">{{ testobj.getPregunta(indexPregunta).retroalimentacion }}</span>
+            <span v-if="mostrarRetroalimentacion && (testobj.getDificultad() == TestModel.TipoDificultad.DIFÍCIL ? sended : true )">{{ testobj.getPregunta(indexPregunta).retroalimentacion }}</span>
         </div>
         <div class="d-flex justify-content-end">
-            <span v-if="testobj.getNotaPregunta(indexPregunta) != null">Nota: {{ testobj.getNotaPregunta(indexPregunta) }}</span>
+            <span v-if="testobj.getNotaPregunta(indexPregunta) != null && (testobj.getDificultad() == TestModel.TipoDificultad.DIFÍCIL ? sended : true )">Nota: {{ testobj.getNotaPregunta(indexPregunta) }}</span>
         </div>
     </div>
 </template>
@@ -40,7 +40,8 @@
     const props = defineProps({
         testobj: TestModel.Test,
         pregunta: Object,
-        indexPregunta: Number
+        indexPregunta: Number,
+        sended: Boolean
     });
     const mostrarRetroalimentacion = ref(false);
 
@@ -116,11 +117,14 @@
             // props.testobj.nota += actualPreguntasAcertadas / respuestaEnObjTest.length;
             /*-- Si el usuario ha acertado --*/
             if (actualPreguntasAcertadas == respuestaEnObjTest.length) {
-                const inputs = fieldSet.querySelectorAll("input");
-                /*-- Deshabilita los inputs cuando la pregunta sea acertada --*/
-                inputs.forEach(element => {
-                    element.setAttribute("disabled", "disabled");
-                });
+                /*-- Deshabilita los inputs cuando la pregunta sea acertada, siempre que la dificultad no sea dificil --*/
+                if (props.testobj.getDificultad() != TestModel.TipoDificultad.DIFÍCIL) {
+                    const inputs = fieldSet.querySelectorAll("input");
+                    inputs.forEach(element => {
+                        element.setAttribute("disabled", "disabled");
+                    });
+                }
+                
                 /*-- Muestra la retroalimentación --*/
                 mostrarRetroalimentacion.value = true;
             }
@@ -129,10 +133,14 @@
             props.testobj.setRespuesta(indice, respuesta);
         } else {
             // props.testobj.nota -= anteriorPreguntasAcertadas / respuestaEnObjTest.length; // Esto es por si se usa en algun futuro
-            const inputs = fieldSet.querySelectorAll("input");
-            inputs.forEach(element => {
-                element.setAttribute("disabled", "disabled")
-            });
+            /*-- Deshabilita los inputs cuando la pregunta sea acertada, siempre que la dificultad no sea dificil --*/
+            if (props.testobj.getDificultad() != TestModel.TipoDificultad.DIFÍCIL) {
+                const inputs = fieldSet.querySelectorAll("input");
+                inputs.forEach(element => {
+                    element.setAttribute("disabled", "disabled")
+                });
+            }
+            
             /*-- Muestra la retroalimentación --*/
             mostrarRetroalimentacion.value = true;
         }

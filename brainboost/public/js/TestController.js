@@ -17,6 +17,8 @@ export class TestController {
 
         /*-- Almacena el test --*/
         this.test = test;
+
+        this.sended = false;
     }
 
     /**
@@ -25,6 +27,21 @@ export class TestController {
      */
     getTest() {
         return this.test;
+    }
+
+    /**
+     * Método que permite saber si el intento de test ha sido enviado al servidor o no.
+     */
+    getSended() {
+        return this.sended;
+    }
+
+    /**
+     * Método que establecer saber si el intento de test ha sido enviado al servidor o no.
+     * @param {Boolean} sended - Especifica si el intento de test ha sido enviado al servidor o no.
+     */
+    setSended(sended) {
+        this.sended = sended;
     }
 
     /**

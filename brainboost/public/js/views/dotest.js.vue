@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center" v-if="testobj.intento != null || sended == true || error == true" >
+    <div class="text-center" v-if="testobj.intento != null || testctrl.sended == true || error == true" >
         <alerta
                 :classalert="claseAlerta" 
                 :message="mensajeAlerta">
@@ -9,7 +9,8 @@
         <preguntatipo1 v-if="pregunta.tipo_pregunta == TestModel.TipoPregunta.MULTIPLE_RESPONSE" 
                        :testobj="props.testobj" 
                        :pregunta="pregunta" 
-                       :indexPregunta="indexPregunta">
+                       :indexPregunta="indexPregunta"
+                       :sended="testctrl.sended">
         </preguntatipo1>
         <!-- <PreguntaTipo2></PreguntaTipo2>
         <PreguntaTipo3></PreguntaTipo3>
@@ -53,7 +54,6 @@
         testobj: TestModel.Test,
         testctrl: TestController
     });
-    const sended = ref(false);
     const error = ref(false);
     
     let intervalo;
@@ -75,7 +75,7 @@
                 PROPIEDADES COMPUTADAS
     ===============================================*/
     const claseAlerta = computed(() => {
-        if ((sended.value == true && error.value == false) || props.testobj.getIntento() != null) {
+        if ((props.testctrl.getSended() == true && error.value == false) || props.testobj.getIntento() != null) {
             if (props.testobj.getNota() < 5) {
                 return "alert-danger animated-button1";
             } else if (props.testobj.getNota() >= 5 && props.testobj.getNota() < 7) {
@@ -91,7 +91,7 @@
     });
 
     const mensajeAlerta = computed(() => {
-        if ((sended.value == true && error.value == false) || props.testobj.getIntento() != null) {
+        if ((props.testctrl.getSended() == true && error.value == false) || props.testobj.getIntento() != null) {
             if (props.testobj.getNota() < 5) {
                 return "Necesitas estudiar";
             } else if (props.testobj.getNota() >= 5 && props.testobj.getNota() < 7) {
@@ -147,7 +147,7 @@
     ===============================================*/
 
     function sendTest(e) {
-        if (!sended.value) {
+        if (!props.testctrl.getSended()) {
             clearInterval(intervalo); // Para el cronómetro
             try {
                 props.testctrl.sendInfoIntentoTestUsuario((response) => {
@@ -155,7 +155,7 @@
                     // console.log(response);
                     if ("datosTest" in response && "preguntasTestRealizado" in response) {
                         // window.history.back(); // Para volver a la página anterior
-                        sended.value = true;
+                        props.testctrl.setSended(true);
                         error.value = false;
                         // const btn = document.createElement("button");
                         // btn.setAttribute
@@ -165,7 +165,7 @@
                 })
                 .catch(err => {
                     console.error(err);
-                    sended.value = false;
+                    props.testctrl.setSended(false);
                     error.value = true;
                     window.scrollTo({top: 0, behavior: "smooth"});
                     // Reanuda el cronómetro
@@ -175,7 +175,7 @@
                     }, 1000);
                 });
             } catch (err) {
-                sended.value = false;
+                props.testctrl.setSended(false);
                 error.value = true;
                 window.scrollTo({top: 0, behavior: "smooth"});
                 // Reanuda el cronómetro

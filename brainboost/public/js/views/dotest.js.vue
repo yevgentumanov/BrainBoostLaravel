@@ -1,6 +1,6 @@
 <template>
-    <div class="text-center">
-        <alerta v-if="testobj.intento != null || sended == true || error == true" 
+    <div class="text-center" v-if="testobj.intento != null || sended == true || error == true" >
+        <alerta
                 :classalert="claseAlerta" 
                 :message="mensajeAlerta">
         </alerta>

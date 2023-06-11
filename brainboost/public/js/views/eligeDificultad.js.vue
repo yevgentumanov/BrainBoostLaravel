@@ -1,7 +1,7 @@
 <template>
     <div id="eligeDificultad" :class="['row', 'm-4']">
         <section class="col-12 p-2 bg-primary text-center">
-            <h5>Elige la dificultad</h5>
+            <h5 class="m-0">Elige la dificultad</h5>
         </section>
         <!-- <section class="col-12 p-2 bg-primary">
             <fieldset class="d-flex justify-content-between">

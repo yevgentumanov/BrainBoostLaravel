@@ -1,11 +1,11 @@
 <template>
     <div id="eligeModalidad" :class="['row', 'm-4']">
         <section class="col-12 p-2 bg-primary text-center">
-            <h5>Elige una opción</h5>
+            <h5 class="m-0">Elige una opción</h5>
         </section>
         <div class="col-12 mt-4 d-flex justify-content-between">
             <!-- <button class="btn btn-light" @click="estudiarTest">Estudiar test</button> -->
-            <div class="d-flex flex-column justify-content-between">
+            <!-- <div class="d-flex flex-column justify-content-between">
                 <modal txtbtninvoker="Estudiar test" 
                        classbtninvoker="btn-dark btn-5" 
                        title="Función no implementada" 
@@ -18,7 +18,7 @@
                         data-content='En el modo "Estudiar" podrás ver el contenido del test para poder estudiártelo antes de enfrentarte a él.'>
                     ?
                 </button>
-            </div>
+            </div> -->
             <div class="d-flex flex-column justify-content-between">
                 <button class="btn btn-light btn-5" @click="practicarTest">Practicar test</button>
                 <button class="btn btn-outline-light mt-2" 

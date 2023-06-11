@@ -95,6 +95,7 @@
     const corregirPregunta = (indice, respuesta, fieldSet) => {
         console.log(props.pregunta);
         const pregunta = props.testobj.preguntas[indice];
+        console.log(pregunta);
         const anteriorRespuestaUsuario = props.testobj.respuestas[indice];
 
         let respuestaEnObjTest = pregunta.datos_pregunta.respuestas_correctas
@@ -174,6 +175,7 @@
         
 
         /*-- Comprueba si la respuesta era correcta --*/
+        console.log(indice);
         corregirPregunta(indice, respuesta, fieldSet);
 
         /*-- Qué hacer a continuación, según la modalidad del test... --*/

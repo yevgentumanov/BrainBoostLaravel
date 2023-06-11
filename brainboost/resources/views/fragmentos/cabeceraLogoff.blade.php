@@ -1086,34 +1086,6 @@
 </nav>
 
 <script>
-    /*$(document).ready(function() {*/
-
-    /* show menu */
-    /*$('.btn-togglemenu').click(function(event) {
-        event.preventDefault();
-        $('.megamenu').animate({
-            width: "toggle"
-        })
-        $('.btn-togglemenu span').toggle();
-    })*/
-
-    /* reset menu */
-    /*$(window).resize(function() {
-            var $window = $(window);
-
-            function checkWidth() {
-                var windowsize = $window.width();
-                if (windowsize > 480) {
-                    $('.megamenu').show();
-                    $('.btn-togglemenu').html('<span>☰</span><span style="display: none;">✖</span>');
-                } else {
-                    $('.megamenu').hide();
-                }
-            }
-            checkWidth()
-        })
-    })*/
-
     document.addEventListener('DOMContentLoaded', function() {
         let toggleMenuBtn = document.querySelector('.btn-togglemenu');
         let megamenu = document.querySelector('.megamenu');

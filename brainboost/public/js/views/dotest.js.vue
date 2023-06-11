@@ -1,8 +1,10 @@
 <template>
-    <alerta v-if="sended == true || error == true" 
-            :classalert="claseAlerta" 
-            :message="mensajeAlerta">
-    </alerta>
+    <div class="text-center">
+        <alerta v-if="testobj.intento != null || sended == true || error == true" 
+                :classalert="claseAlerta" 
+                :message="mensajeAlerta">
+        </alerta>
+    </div>
     <section v-for="(pregunta, indexPregunta) in preguntasRandomOrder" :key="indexPregunta" class="pregunta" :class="['d-block', 'row', 'bg-primary', 'my-4']">
         <preguntatipo1 v-if="pregunta.tipo_pregunta == TestModel.TipoPregunta.MULTIPLE_RESPONSE" 
                        :testobj="props.testobj" 
@@ -73,23 +75,23 @@
                 PROPIEDADES COMPUTADAS
     ===============================================*/
     const claseAlerta = computed(() => {
-        if (sended.value == true && error.value == false) {
+        if ((sended.value == true && error.value == false) || props.testobj.getIntento() != null) {
             if (props.testobj.getNota() < 5) {
-                return "alert-danger";
+                return "alert-danger animated-button1";
             } else if (props.testobj.getNota() >= 5 && props.testobj.getNota() < 7) {
-                return "alert-warning";
+                return "alert-warning animated-button3";
             } else if (props.testobj.getNota() >= 7 && props.testobj.getNota() < 9) {
-                return "alert-success";
+                return "alert-success animated-button6";
             } else {
-                return "alert-success sobresaliente";
+                return "alert-success animated-button7";
             }
         } else {
-            return "alert-danger";
+            return "alert-danger animated-button1";
         }
     });
 
     const mensajeAlerta = computed(() => {
-        if (sended.value == true && error.value == false) {
+        if ((sended.value == true && error.value == false) || props.testobj.getIntento() != null) {
             if (props.testobj.getNota() < 5) {
                 return "Necesitas estudiar";
             } else if (props.testobj.getNota() >= 5 && props.testobj.getNota() < 7) {

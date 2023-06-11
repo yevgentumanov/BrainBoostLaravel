@@ -51,7 +51,7 @@
         },
         mounted() {
             console.log("mountedEligeDificultad"); // Mera bandera de debug
-            /*-- Habilita los popovers de Bootstrap --*/
+            /*-- Habilita los popovers de Bootstrap (JQuery) --*/
             $(function () {
                 $('[data-toggle="popover"]').popover({
                     container: '#eligeDificultad'
@@ -74,8 +74,8 @@
         testctrl: TestController
     });
 
-    const explicacionModoFacil = `En el dificultad "Fácil", podrás ver tu nota (tu progreso) conforme vas respondiendo a las preguntas. Se introducirán "modificadores": por ejemplo, las respuestas numéricas (como fechas), se darán con un control deslizante para mayor facilidad.`;
-    const explicacionModoDificil = `En el dificultad "Difícil", la nota de cada pregunta no se da instantáneamente. Recibirás tu nota al enviar el test. No se introducirán "modificadores": por ejemplo, las respuestas numéricas (por ejemplo, fechas), se introducirán en una caja de texto. En las respuestas de huecos, los huecos aparecerán en orden aleatorio.`;
+    const explicacionModoFacil = `En la dificultad "Fácil", podrás ver tu nota (tu progreso) conforme vas respondiendo a las preguntas.` //Se introducirán "modificadores": por ejemplo, las respuestas numéricas (como fechas), se darán con un control deslizante para mayor facilidad.`;
+    const explicacionModoDificil = `En la dificultad "Difícil", la nota de cada pregunta no se da instantáneamente. Recibirás tu nota al enviar el test.` //No se introducirán "modificadores": por ejemplo, las respuestas numéricas (por ejemplo, fechas), se introducirán en una caja de texto. En las respuestas de huecos, los huecos aparecerán en orden aleatorio.`;
 
     /*==============================================
                     MÉTODOS

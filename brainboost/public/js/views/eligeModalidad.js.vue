@@ -54,7 +54,7 @@
         },
         mounted() {
             console.log("mountedEligeModalidad"); // Mera bandera de debug
-            /*-- Habilita los popovers de Bootstrap --*/
+            /*-- Habilita los popovers de Bootstrap (JQuery) --*/
             $(function () {
                 $('[data-toggle="popover"]').popover({
                     container: '#eligeModalidad'

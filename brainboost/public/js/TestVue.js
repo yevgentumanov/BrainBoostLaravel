@@ -73,6 +73,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     const intento = this.url.searchParams.get("intento");
                     if (intento != null) {
                         this.testCtrl.downloadInfoIntentoUsuario(intento);
+                    } else {
+                        // Realiza una peticion para aumentar en 1 las visitas de este test
+                        const pathName = this.url.pathname.split("/");
+                        const idTest = Number.parseInt(pathName[pathName.length - 1]);
+                        
+                        this.testCtrl.aumentarVisitas(idTest);
                     }
                 });
                 

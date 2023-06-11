@@ -57,37 +57,7 @@ class UsuariosController extends Controller
         $cookie = Auth::guard()->getCookieJar()->forget(Auth::guard()->getRecallerName());
         return redirect()->route('index')->withCookie($cookie)->with('success', 'Logged out successfully');
     }
-//
-//    public function registrar(Request $request)
-//    {
-//        $data = $request->validate([
-//            'nombre_usuario' => 'required',
-//            'email' => 'required|email',
-//            'password' => 'required|min:6|confirmed',
-//        ]);
-//
-//        $data['password'] = Hash::make($data['password']);
-//
-//        try {
-//            $user = Usuario::where('email', $data['email'])->first();
-//
-//            if ($user) {
-//                $user->nombre_usuario = $data['nombre_usuario'];
-//                $user->password = $data['password'];
-//                $user->save();
-//            } else {
-//                $user = Usuario::create($data);
-//            }
-//
-//            $user->sendEmailVerificationNotification(); // Send the email verification notification
-//
-//            Auth::login($user); // Log in the user
-//
-//            return redirect()->route('login')->with('success', 'Usuario creado o actualizado correctamente');
-//        } catch (\Illuminate\Database\QueryException $e) {
-//            return redirect()->route('registro')->with('warning', 'Error al crear o actualizar el usuario');
-//        }
-//    }
+
     public function registrar(Request $request)
     {
         $data = $request->validate([
@@ -121,7 +91,7 @@ class UsuariosController extends Controller
 
             Auth::login($user); // Log in the user
 
-            return redirect()->route('/')->with('success', 'Usuario creado o actualizado correctamente');
+            return redirect()->route('index')->with('success', 'Usuario creado o actualizado correctamente');
         } catch (\Illuminate\Database\QueryException $e) {
             return redirect()->route('index')->with('warning', 'Error al crear o actualizar el usuario');
         }

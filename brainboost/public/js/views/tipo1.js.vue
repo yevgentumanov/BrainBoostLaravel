@@ -4,9 +4,9 @@
         <!-- {{ indexPregunta = indexPregunta }} -->
         <label class="p-2 px-4 font-weight-bold">{{ pregunta.nombre_pregunta }}</label>
         <fieldset>
-            <div v-for="(respuesta, indexRespuesta) in pregunta.datos_pregunta.respuestas" :key="indexRespuesta" class="px-4">
-                <input type="radio" v-if="testobj.intento == null" :id="indexPregunta + ':' +  indexRespuesta" :name="indexPregunta" :value="indexRespuesta" class="mr-2" @change="opcionSeleccionada">
-                <label :for="indexPregunta + ':' +  indexRespuesta" :class="[señalarRespuestaUsuario(indexPregunta, indexRespuesta)]">{{ respuesta }}</label>
+            <div v-for="(respuesta, indexRespuesta) in pregunta.datos_pregunta.respuestas" :key="indexRespuesta" class="px-4 my-2 d-flex flex-row align-items-center cursor pointer">
+                <input type="radio" v-if="testobj.intento == null" :id="indexPregunta + ':' +  indexRespuesta" :name="indexPregunta" :value="indexRespuesta" class="mr-2 cursor pointer" @change="opcionSeleccionada">
+                <label :for="indexPregunta + ':' +  indexRespuesta" class="m-0 px-2 w-100 cursor pointer" :class="[señalarRespuestaUsuario(indexPregunta, indexRespuesta)]">{{ respuesta }}</label>
             </div>
         </fieldset>
         <div>
@@ -197,5 +197,7 @@
 </script>
 
 <style scoped>
-
+    .cursor.pointer {
+        cursor: pointer;
+    }
 </style>

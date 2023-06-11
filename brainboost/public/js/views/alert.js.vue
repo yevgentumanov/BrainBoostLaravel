@@ -1,5 +1,9 @@
 <template>
     <div class="alert" :class="[classalert]" role="alert">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
         {{ message }}
     </div>
 </template>

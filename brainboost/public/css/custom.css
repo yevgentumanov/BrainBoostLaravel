@@ -381,18 +381,13 @@ footer a {
     height: 60px;
 }
 
-.item {
-    z-index: 9999;
-    /* position: relative; */
-}
-
 .item>a {
     text-decoration: none;
     padding: 10px 20px;
     display: block;
     height: 100%;
     line-height: 36px;
-    color: #333;
+    color: var(--color9);
     font-weight: 400;
 }
 

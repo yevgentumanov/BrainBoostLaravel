@@ -63,54 +63,149 @@
                         <div class="sub-menu">
                             <ul>
                                 <li>
-                                    <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Artes']) }}">Artes</a>
+                                    <a class="sub-item" href="{{ route('materia', ['nombreMateria' => 'Artes']) }}"
+                                        id="m1">Artes</a>
+                                </li>
+                                <li>
+                                    <a class="sub-item" href="{{ route('materia', ['nombreMateria' => 'Música']) }}"
+                                        id="m2">Música</a>
                                 </li>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Música']) }}">Música</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Artes Visuales']) }}"
+                                        id="m3">Artes Visuales</a>
                                 </li>
                                 <li>
-                                    <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Artes Visuales']) }}">Artes
-                                        Visuales</a>
-                                </li>
-                                <li>
-                                    <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Teatro']) }}">Teatro</a>
+                                    <a class="sub-item" href="{{ route('materia', ['nombreMateria' => 'Teatro']) }}"
+                                        id="m4">Teatro</a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="sub-menu-content">
+                        <div id="sm-m1" class="sub-menu-content">
                             <div class="notice">
                                 <div class="notice-image">
-                                    <img src="{!! asset('images/materia1_1.jpg') !!}" alt="keyboard">
+                                    <img src="{!! asset('images/materia1_1.jpg') !!}" alt="materia">
                                 </div>
                                 <div class="notice-detail">
-                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
-                                    </h4>
-                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
-                                        a sizable mail-in-rebate available.</p>
+                                    <h4>Explorando la belleza de la arquitectura: Diseño, estructuras y estilos</h4>
+                                    <p>Descubre los secretos de las grandes construcciones y crea espacios que cautiven
+                                        los sentidos.</p>
                                 </div>
                             </div>
                             <div class="notice">
                                 <div class="notice-image">
-                                    <img src="{!! asset('images/materia1_2.jpg') !!}" alt="keyboard">
+                                    <img src="{!! asset('images/materia1_2.jpg') !!}" alt="materia">
                                 </div>
                                 <div class="notice-detail">
-                                    <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
-                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
-                                        high.</p>
+                                    <h4>El arte tridimensional: Explorando la escultura en todas sus formas</h4>
+                                    <p>Da vida a tus ideas con la escultura y adéntrate en un mundo de formas, texturas
+                                        y expresiones artísticas.</p>
                                 </div>
                             </div>
                             <div class="notice">
                                 <div class="notice-image">
-                                    <img src="{!! asset('images/materia1_3.jpg') !!}" alt="keyboard">
+                                    <img src="{!! asset('images/materia1_3.jpg') !!}" alt="materia">
                                 </div>
                                 <div class="notice-detail">
-                                    <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
-                                    <p>Over $340M has been given back as a very strange digital heist story continues to
-                                        develop.</p>
+                                    <h4>El lienzo como medio de expresión: Explorando la pintura y sus técnicas</h4>
+                                    <p>Sumérgete en el mundo del color, la composición y la creatividad a través de la
+                                        pintura, donde cada pincelada cuenta una historia.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sm-m2" class="sub-menu-content d-none">
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia2_1.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>Explorando la belleza de la arquitectura: Diseño, estructuras y estilos</h4>
+                                    <p>Descubre los secretos de las grandes construcciones y crea espacios que cautiven
+                                        los sentidos.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia2_2.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>El arte tridimensional: Explorando la escultura en todas sus formas</h4>
+                                    <p>Da vida a tus ideas con la escultura y adéntrate en un mundo de formas, texturas
+                                        y expresiones artísticas.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia2_3.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>El lienzo como medio de expresión: Explorando la pintura y sus técnicas</h4>
+                                    <p>Sumérgete en el mundo del color, la composición y la creatividad a través de la
+                                        pintura, donde cada pincelada cuenta una historia.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sm-m3" class="sub-menu-content d-none">
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia3_1.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>Explorando la belleza de la arquitectura: Diseño, estructuras y estilos</h4>
+                                    <p>Descubre los secretos de las grandes construcciones y crea espacios que cautiven
+                                        los sentidos.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image d-none">
+                                    <img src="{!! asset('images/materia3_2.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>El arte tridimensional: Explorando la escultura en todas sus formas</h4>
+                                    <p>Da vida a tus ideas con la escultura y adéntrate en un mundo de formas, texturas
+                                        y expresiones artísticas.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia3_3.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>El lienzo como medio de expresión: Explorando la pintura y sus técnicas</h4>
+                                    <p>Sumérgete en el mundo del color, la composición y la creatividad a través de la
+                                        pintura, donde cada pincelada cuenta una historia.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sm-m4" class="sub-menu-content d-none">
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia4_1.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>Explorando la belleza de la arquitectura: Diseño, estructuras y estilos</h4>
+                                    <p>Descubre los secretos de las grandes construcciones y crea espacios que cautiven
+                                        los sentidos.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia4_2.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>El arte tridimensional: Explorando la escultura en todas sus formas</h4>
+                                    <p>Da vida a tus ideas con la escultura y adéntrate en un mundo de formas, texturas
+                                        y expresiones artísticas.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia4_3.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>El lienzo como medio de expresión: Explorando la pintura y sus técnicas</h4>
+                                    <p>Sumérgete en el mundo del color, la composición y la creatividad a través de la
+                                        pintura, donde cada pincelada cuenta una historia.</p>
                                 </div>
                             </div>
                         </div>
@@ -123,32 +218,32 @@
                             <ul>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Ciencias Naturales']) }}">Ciencias
+                                        href="{{ route('materia', ['nombreMateria' => 'Ciencias Naturales']) }}" id="m5">Ciencias
                                         Naturales</a>
                                 </li>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Biología']) }}">Biología</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Biología']) }}" id="m6">Biología</a>
                                 </li>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Química']) }}">Química</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Química']) }}" id="m7">Química</a>
                                 </li>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Física']) }}">Física</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Física']) }}" id="m8">Física</a>
                                 </li>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Educación Física']) }}">Educación
+                                        href="{{ route('materia', ['nombreMateria' => 'Educación Física']) }}" id="m9">Educación
                                         Física</a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="sub-menu-content">
+                        <div id="sm-m5" class="sub-menu-content">
                             <div class="notice">
                                 <div class="notice-image">
-                                    <img src="{!! asset('images/materia6_1.jpg') !!}" alt="keyboard">
+                                    <img src="{!! asset('images/materia5_1.jpg') !!}" alt="materia">
                                 </div>
                                 <div class="notice-detail">
                                     <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
@@ -159,7 +254,7 @@
                             </div>
                             <div class="notice">
                                 <div class="notice-image">
-                                    <img src="{!! asset('images/materia6_1.jpg') !!}" alt="keyboard">
+                                    <img src="{!! asset('images/materia5_2.jpg') !!}" alt="materia">
                                 </div>
                                 <div class="notice-detail">
                                     <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
@@ -169,7 +264,139 @@
                             </div>
                             <div class="notice">
                                 <div class="notice-image">
-                                    <img src="{!! asset('images/materia6_1.jpg') !!}" alt="keyboard">
+                                    <img src="{!! asset('images/materia5_3.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
+                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                        develop.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sm-m6" class="sub-menu-content d-none">
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia6_1.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    </h4>
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                        a sizable mail-in-rebate available.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia6_2.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                        high.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia6_3.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
+                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                        develop.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sm-m7" class="sub-menu-content d-none">
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia7_1.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    </h4>
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                        a sizable mail-in-rebate available.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia7_2.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                        high.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia7_3.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
+                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                        develop.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sm-m8" class="sub-menu-content d-none">
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia8_1.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    </h4>
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                        a sizable mail-in-rebate available.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia8_2.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                        high.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia8_3.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
+                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                        develop.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sm-m9" class="sub-menu-content d-none">
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia9_1.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    </h4>
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                        a sizable mail-in-rebate available.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia9_2.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                        high.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia9_3.jpg') !!}" alt="materia">
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
@@ -187,26 +414,26 @@
                             <ul>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Literatura']) }}">Literatura</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Literatura']) }}" id="m17">Literatura</a>
                                 </li>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Historia']) }}">Historia</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Historia']) }}" id="m12">Historia</a>
                                 </li>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Geografía']) }}">Geografía</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Geografía']) }}" id="m11">Geografía</a>
                                 </li>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Filosofía']) }}">Filosofía</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Filosofía']) }}" id="m10">Filosofía</a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="sub-menu-content">
+                        <div id="sm-m17" class="sub-menu-content">
                             <div class="notice">
                                 <div class="notice-image">
-                                    <img src="{!! asset('images/materia6_1.jpg') !!}" alt="keyboard">
+                                    <img src="{!! asset('images/materia17_1.jpg') !!}" alt="materia">
                                 </div>
                                 <div class="notice-detail">
                                     <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
@@ -217,7 +444,7 @@
                             </div>
                             <div class="notice">
                                 <div class="notice-image">
-                                    <img src="{!! asset('images/materia6_1.jpg') !!}" alt="keyboard">
+                                    <img src="{!! asset('images/materia17_2.jpg') !!}" alt="materia">
                                 </div>
                                 <div class="notice-detail">
                                     <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
@@ -227,7 +454,106 @@
                             </div>
                             <div class="notice">
                                 <div class="notice-image">
-                                    <img src="{!! asset('images/materia6_1.jpg') !!}" alt="keyboard">
+                                    <img src="{!! asset('images/materia17_3.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
+                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                        develop.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sm-m12" class="sub-menu-content d-none">
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia12_1.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    </h4>
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                        a sizable mail-in-rebate available.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia12_2.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                        high.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia12_3.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
+                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                        develop.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sm-m11" class="sub-menu-content d-none">
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia11_1.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    </h4>
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                        a sizable mail-in-rebate available.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia11_2.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                        high.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia11_3.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
+                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                        develop.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sm-m10" class="sub-menu-content d-none">
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia10_1.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    </h4>
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                        a sizable mail-in-rebate available.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia10_2.jpg') !!}" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                        high.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="{!! asset('images/materia10_3.jpg') !!}" alt="materia">
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
@@ -245,30 +571,30 @@
                             <ul>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Idiomas']) }}">Todos</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Idiomas']) }}" id="m21">Todos</a>
                                 </li>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Inglés']) }}">Inglés</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Inglés']) }}" id="m14">Inglés</a>
                                 </li>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Francés']) }}">Francés</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Francés']) }}" id="m15">Francés</a>
                                 </li>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Italiano']) }}">Italiano</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Italiano']) }}" id="m13">Italiano</a>
                                 </li>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Alemán']) }}">Alemán</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Alemán']) }}" id="m16">Alemán</a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="sub-menu-content">
+                        <div id="sm-m21" class="sub-menu-content">
                             <div class="notice">
                                 <div class="notice-image">
-                                    <img src="images/keyboard1.jpg" alt="keyboard">
+                                    <img src="images/materia21_1.jpg" alt="materia">
                                 </div>
                                 <div class="notice-detail">
                                     <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
@@ -279,7 +605,7 @@
                             </div>
                             <div class="notice">
                                 <div class="notice-image">
-                                    <img src="images/keyboard2.jpg" alt="keyboard">
+                                    <img src="images/materia21_2.jpg" alt="materia">
                                 </div>
                                 <div class="notice-detail">
                                     <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
@@ -289,7 +615,139 @@
                             </div>
                             <div class="notice">
                                 <div class="notice-image">
-                                    <img src="images/keyboard3.jpg" alt="keyboard">
+                                    <img src="images/materia21_3.jpg" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
+                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                        develop.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sm-m14" class="sub-menu-content d-none">
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="images/materia14_1.jpg" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    </h4>
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                        a sizable mail-in-rebate available.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="images/materia14_2.jpg" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                        high.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="images/materia14_3.jpg" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
+                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                        develop.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sm-m15" class="sub-menu-content d-none">
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="images/materia15_1.jpg" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    </h4>
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                        a sizable mail-in-rebate available.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="images/materia15_2.jpg" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                        high.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="images/materia15_3.jpg" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
+                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                        develop.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sm-m13" class="sub-menu-content d-none">
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="images/materia13_1.jpg" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    </h4>
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                        a sizable mail-in-rebate available.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="images/materia13_2.jpg" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                        high.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="images/materia13_3.jpg" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
+                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                        develop.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sm-m16" class="sub-menu-content d-none">
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="images/materia16_1.jpg" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    </h4>
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                        a sizable mail-in-rebate available.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="images/materia16_2.jpg" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                        high.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="images/materia16_3.jpg" alt="materia">
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
@@ -302,7 +760,7 @@
                 </li>
                 <li class="item">
                     <a class="nav-link"
-                        href="{{ route('materia', ['nombreMateria' => 'Matemáticas']) }}">MATEMÁTICAS</a>
+                        href="{{ route('materia', ['nombreMateria' => 'Matemáticas']) }}" id="m18">MATEMÁTICAS</a>
                 </li>
                 <li class="item">
                     <a href="#">TECNOLOGÍA <span class="arrow">❮</span></a>
@@ -311,18 +769,18 @@
                             <ul>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Tecnología']) }}">Tecnología</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Tecnología']) }}" id="m19">Tecnología</a>
                                 </li>
                                 <li>
                                     <a class="sub-item"
-                                        href="{{ route('materia', ['nombreMateria' => 'Informática']) }}">Informática</a>
+                                        href="{{ route('materia', ['nombreMateria' => 'Informática']) }}" id="m20">Informática</a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="sub-menu-content">
+                        <div id="sm-m19" class="sub-menu-content">
                             <div class="notice">
                                 <div class="notice-image">
-                                    <img src="images/keyboard1.jpg" alt="keyboard">
+                                    <img src="images/materia19_1.jpg" alt="materia">
                                 </div>
                                 <div class="notice-detail">
                                     <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
@@ -333,7 +791,7 @@
                             </div>
                             <div class="notice">
                                 <div class="notice-image">
-                                    <img src="images/keyboard2.jpg" alt="keyboard">
+                                    <img src="images/materia19_2.jpg" alt="materia">
                                 </div>
                                 <div class="notice-detail">
                                     <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
@@ -343,7 +801,40 @@
                             </div>
                             <div class="notice">
                                 <div class="notice-image">
-                                    <img src="images/keyboard3.jpg" alt="keyboard">
+                                    <img src="images/materia19_3.jpg" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
+                                    <p>Over $340M has been given back as a very strange digital heist story continues to
+                                        develop.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sm-m20" class="sub-menu-content d-none">
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="images/materia20_1.jpg" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>This decked out Aero 15 is way more laptop than you need, but it’s $1,100 off
+                                    </h4>
+                                    <p>Gigabyte's Aero 15 with a 4K display is deeply discounted right now, plus there's
+                                        a sizable mail-in-rebate available.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="images/materia20_2.jpg" alt="materia">
+                                </div>
+                                <div class="notice-detail">
+                                    <h4>AMD claims its largest share of the overall x86 CPU market in 14 years</h4>
+                                    <p>According to Mercury Research, AMD's x86 processor share is close to its all-time
+                                        high.</p>
+                                </div>
+                            </div>
+                            <div class="notice">
+                                <div class="notice-image">
+                                    <img src="images/materia20_3.jpg" alt="materia">
                                 </div>
                                 <div class="notice-detail">
                                     <h4>Hacker steals over $600M in cryptocurrency, returns over half of it</h4>
@@ -365,14 +856,16 @@
 
         <script>
             $(document).ready(function() {
+
                 /* show menu */
                 $('.btn-togglemenu').click(function(event) {
                     event.preventDefault();
                     $('.megamenu').animate({
                         width: "toggle"
-                    });
+                    })
                     $('.btn-togglemenu span').toggle();
-                });
+                })
+
                 /* reset menu */
                 $(window).resize(function() {
                     var $window = $(window);
@@ -386,26 +879,28 @@
                             $('.megamenu').hide();
                         }
                     }
-                    checkWidth();
-                });
-                /* finally: load content submenu */
-                $('.sub-item').click(function(event) {
-                    event.preventDefault();
-                    var id = $(this).attr('data-id');
-                    $('.sub-menu-content').html(
-                        '<img src="images/load.gif" style="margin:0 auto; display:block" alt="load" />');
-                    $.ajax({
-                        method: 'get',
-                        url: 'partials/content' + id + '.html',
-                        success: function(data) {
-                            setTimeout(function() {
-                                $('.sub-menu-content').html(data);
-                            }, 200);
-                        }
-                    })
+                    checkWidth()
                 })
-            });
+            })
+
+            /* finally: load content submenu */
+            let subItems = document.querySelectorAll('.sub-item');
+
+            subItems.forEach(sItem => {
+                sItem.addEventListener('mouseenter', function() {
+                    let sigSubMenuContent = sItem.parentElement.parentElement.parentElement.nextElementSibling;
+
+                    while (sigSubMenuContent) {
+                        let smActual = 'sm-' + sItem.id
+
+                        if (sigSubMenuContent.id == smActual) sigSubMenuContent.classList.remove('d-none')
+                        else sigSubMenuContent.classList.add('d-none')
+
+                        sigSubMenuContent = sigSubMenuContent.nextElementSibling;
+                    }
+                })
+            })
         </script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="js/script.js"></script>
+        {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="js/script.js"></script> --}}
 </header>

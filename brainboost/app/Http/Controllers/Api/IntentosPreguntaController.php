@@ -10,16 +10,29 @@ use Illuminate\Http\Request;
 
 class IntentosPreguntaController extends Controller
 {
+    /**
+     * Obtiene todas las preguntas de intentos.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index()
     {
         $intentosPreguntas = Intentos_pregunta::all();
         return response()->json(['data' => $intentosPreguntas], 200);
     }
 
+    /**
+     * Almacena una nueva pregunta de intento.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(Request $request)
     {
-    // Obtener el ID del usuario autenticado
+        // Obtener el ID del usuario autenticado
         $userId = $request->user()->id;
+
+        // Preparar los datos para el nuevo intento de test
         $datosTest = [
             'id_test' => $request->id_test,
             'id_usuario' => $userId,
@@ -30,18 +43,21 @@ class IntentosPreguntaController extends Controller
             'tiempo_inicio' => $request->tiempoInicio,
             'tiempo_fin' => $request->tiempoFin,
         ];
+
+        // Crear el intento de test
         $intentosTest = Intentos_test::create($datosTest);
-        // /*-- Encontrar el último test creado por el usuario --*/
+
+        // Encontrar el último test creado por el usuario
         $lastTest = Intentos_test::where('id_usuario', $userId)
             ->orderBy('id', 'desc')
             ->first();
 
-        /*-- Reemplazar "id_intento_test": "id_test_creado" con el ID del último test creado --*/
+        // Reemplazar "id_intento_test": "id_test_creado" con el ID del último test creado
         $preguntasTestRealizado = $request->preguntasTestRealizado;
         foreach ($preguntasTestRealizado as $preguntaData) {
-
             $preguntaData['id_intento_test'] = $lastTest->id;
 
+            // Crear una nueva pregunta de intento
             $pregunta = new Intentos_pregunta([
                 'id_intento_test' => $preguntaData['id_intento_test'],
                 'id_pregunta' => $preguntaData['id_pregunta'],
@@ -52,58 +68,19 @@ class IntentosPreguntaController extends Controller
             $pregunta->save();
         }
 
-        /*-- Devolver los datos de la respuesta --*/
+        // Devolver los datos de la respuesta
         return response()->json([
             'datosTest' => $datosTest,
             'preguntasTestRealizado' => $preguntasTestRealizado
         ]);
     }
 
-//
-//    public function store(Request $request)
-//    {
-//        // Get the user ID from the authenticated user
-//        $userId = $request->user()->id;
-//        $datosTest = [
-//            'id_test' => $request->id_test,
-//            'id_usuario' => $userId,
-//            'intento' => null, // Esto se crea mediante el trigger de Juan Carlos
-//            'fecha_realizacion' => now(),
-//            'dificultad' => $request->dificultad,
-//            'modalidad' => $request->modalidad,
-//            'tiempo_inicio' => $request->tiempoInicio,
-//            'tiempo_fin' => $request->tiempoFin,
-//        ];
-//        $intentosTest = Intentos_test::create($datosTest);
-//
-//        // /*-- Find the last created test for the user --*/
-//        $lastTest = Intentos_test::where('id_usuario', $userId)
-//            ->orderBy('id', 'desc')
-//            ->first(); // Comentado by Santi
-//
-//        /*-- Replace "id_intento_test": "id_test_creado" with the ID of the last created test --*/
-//        $preguntasTestRealizado = $request->preguntasTestRealizado;
-//        foreach ($preguntasTestRealizado as $preguntaData) {
-//
-//            $preguntaData['id_intento_test'] = $lastTest->id; // Comentado by Santi
-//
-//            $pregunta = new Intentos_pregunta([
-//                'id_intento_test' => $preguntaData['id_intento_test'], // Comentado by Santi
-//                'id_pregunta' => $preguntaData['id_pregunta'],
-//                'nota_pregunta' => isset($preguntaData['nota_pregunta']) && $preguntaData['nota_pregunta'] != null ? (float)$preguntaData['nota_pregunta'] : 0.0,
-//                'respuestas' => json_encode($preguntaData['respuestas']),
-//            ]);
-//
-//            $pregunta->save();
-//        }
-//
-//        /*-- Return the response data --*/
-//        return response()->json([
-//            'datosTest' => $datosTest,
-//            'preguntasTestRealizado' => $preguntasTestRealizado
-//        ]);
-//    }
-
+    /**
+     * Obtiene las preguntas realizadas en un intento específico de un usuario y un test.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function preguntasRealizadasIntento(Request $request)
     {
         $userId = $request->user()->id;
@@ -135,6 +112,13 @@ class IntentosPreguntaController extends Controller
         return response()->json(['data' => $intentosPreguntas], 200);
     }
 
+    /**
+     * Muestra los detalles de una pregunta de intento específica.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string  $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function show(Request $request, string $id)
     {
         $intentosPregunta = Intentos_pregunta::find($id);
@@ -146,6 +130,13 @@ class IntentosPreguntaController extends Controller
         return response()->json(['data' => $intentosPregunta], 200);
     }
 
+    /**
+     * Actualiza los datos de una pregunta de intento específica.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string  $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function update(Request $request, string $id)
     {
         $intentosPregunta = Intentos_pregunta::find($id);
@@ -165,6 +156,13 @@ class IntentosPreguntaController extends Controller
         return response()->json(['message' => 'Registro actualizado', 'data' => $intentosPregunta], 200);
     }
 
+    /**
+     * Elimina una pregunta de intento específica.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string  $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function destroy(Request $request, string $id)
     {
         $intentosPregunta = Intentos_pregunta::find($id);

@@ -49,9 +49,10 @@
 
 <!-- Menú de navegación -->
 <nav id="barranav" class="row w-100 m-0 p-0 bg-dark navigation clear stiky-top">
-    <a href="#" class="btn-togglemenu">
+    <button class="btn-togglemenu navbar-toggler sombra-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span>☰</span><span style="display: none;">✖</span>
-    </a>
+    </button>
 
     <ul class="megamenu m-0">
         <!-- Botón de Inicio -->
@@ -1085,19 +1086,19 @@
 </nav>
 
 <script>
-    $(document).ready(function() {
+    /*$(document).ready(function() {*/
 
-        /* show menu */
-        $('.btn-togglemenu').click(function(event) {
-            event.preventDefault();
-            $('.megamenu').animate({
-                width: "toggle"
-            })
-            $('.btn-togglemenu span').toggle();
+    /* show menu */
+    /*$('.btn-togglemenu').click(function(event) {
+        event.preventDefault();
+        $('.megamenu').animate({
+            width: "toggle"
         })
+        $('.btn-togglemenu span').toggle();
+    })*/
 
-        /* reset menu */
-        $(window).resize(function() {
+    /* reset menu */
+    /*$(window).resize(function() {
             var $window = $(window);
 
             function checkWidth() {
@@ -1111,19 +1112,59 @@
             }
             checkWidth()
         })
-    })
+    })*/
+
+    document.addEventListener('DOMContentLoaded', function() {
+        let toggleMenuBtn = document.querySelector('.btn-togglemenu');
+        let megamenu = document.querySelector('.megamenu');
+        let toggleMenuSpan = toggleMenuBtn.querySelectorAll('span');
+
+        // Mostrar menú
+        toggleMenuBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            megamenu.style.display = (megamenu.style.display === 'none') ? 'block' : 'none';
+            toggleMenuSpan[0].style.display = (toggleMenuSpan[0].style.display === 'none') ?
+                'inline-block' : 'none';
+            toggleMenuSpan[1].style.display = (toggleMenuSpan[1].style.display === 'none') ?
+                'inline-block' : 'none';
+        });
+
+        // Reiniciar menú
+        function resetMenu() {
+            let windowsize = window.innerWidth || document.documentElement.clientWidth || document
+                .body.clientWidth;
+            if (windowsize > 991) {
+                megamenu.style.display = 'block';
+                toggleMenuSpan[0].style.display = 'inline-block';
+                toggleMenuSpan[1].style.display = 'none';
+            } else {
+                megamenu.style.display = 'none';
+            }
+        }
+
+        resetMenu();
+
+        window.addEventListener('resize', function() {
+            resetMenu();
+        });
+    });
+
+
+
 
     /* finally: load content submenu */
     let subItems = document.querySelectorAll('.sub-item');
 
     subItems.forEach(sItem => {
         sItem.addEventListener('mouseenter', function() {
-            let sigSubMenuContent = sItem.parentElement.parentElement.parentElement.nextElementSibling;
+            let sigSubMenuContent = sItem.parentElement.parentElement.parentElement
+                .nextElementSibling;
 
             while (sigSubMenuContent) {
                 let smActual = 'sm-' + sItem.id
 
-                if (sigSubMenuContent.id == smActual) sigSubMenuContent.classList.remove('d-none')
+                if (sigSubMenuContent.id == smActual) sigSubMenuContent.classList.remove(
+                    'd-none')
                 else sigSubMenuContent.classList.add('d-none')
 
                 sigSubMenuContent = sigSubMenuContent.nextElementSibling;

@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Api\IntentosPreguntaController;
 use App\Http\Controllers\Intentos_preguntaController;
-use App\Http\Controllers\Intentos_testController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\VIntentosTestController;
 use Illuminate\Support\Facades\Log;
@@ -10,7 +9,6 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\MateriaController;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 Auth::routes(['verify' => true]);
 
@@ -96,10 +94,4 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/intentos_pregunta', [IntentosPreguntaController::class, 'store']);
     Route::post('/preguntas_realizadas', [IntentosPreguntaController::class, 'preguntasRealizadasIntento']);
 
-});
-
-// Rutas de prueba (non-production routes)
-Route::get('/addfaketest', [Intentos_testController::class, 'addFakeData']);
-Route::get('/pruebatest', function () {
-    return view('prueba');
 });

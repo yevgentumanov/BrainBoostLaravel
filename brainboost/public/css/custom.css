@@ -23,6 +23,7 @@
     --color10: white;
     --color11: #3c4344;
     --color11_05: #3c434480;
+    --color11_09: #3c4344d5;
     --color1_05: #cae6e880;
     --color2_05: #16878dbf;
     --color3_05: #5DA36080;
@@ -137,6 +138,13 @@ footer a {
         inset 0 -3em 3em rgba(0, 0, 0, 0.1),
         0 0 0 2px var(--color6),
         0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+.sombra-toggle {
+    box-shadow:
+        inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+        0 0 0 4px var(--color2),
+        0.3em 0.3em 3em rgba(0, 0, 0, 0.5);
 }
 
 .redondeado {
@@ -364,14 +372,16 @@ footer a {
 /* navigation */
 .btn-togglemenu {
     display: none;
-    border: 2px solid #de5d94;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 12px;
+    right: 12px;
     border-radius: 3px;
     padding: 8px;
-    color: #de5d94;
     z-index: 3;
+    width: 40px;
+    height: 40px;
+    font-weight: bold;
+    background-color: var(--color6) !important;
 }
 
 .navigation {
@@ -475,50 +485,6 @@ footer a {
 
 .notice-detail p {
     font-size: .95em;
-}
-
-@media (min-width: 320px) and (max-width: 480px) {
-    .btn-togglemenu {
-        display: block;
-    }
-
-    .megamenu>li {
-        display: block;
-        height: auto;
-    }
-
-    .megamenu {
-        display: none;
-        float: initial;
-        position: absolute;
-        background-color: #000;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 2;
-    }
-
-    .item>a {
-        color: var(--color6);
-    }
-
-    .item>a:hover {
-        background-color: initial;
-    }
-
-    .block {
-        position: initial;
-    }
-
-    .block .sub-menu {
-        float: initial;
-        width: 100%;
-    }
-
-    .block .sub-menu-content {
-        display: none;
-    }
 }
 
 /****************************************************************************/
@@ -1018,6 +984,71 @@ nav>div>a>img {
         text-align: center;
     }
 
+}
+
+/****************************************************************************/
+/*                               BARRA MENU                                 */
+/****************************************************************************/
+
+@media (max-width: 991px) {
+    .cabecera-log-nav {
+        background-color: var(--color11_09);
+    }
+
+    .btn-togglemenu {
+        display: block;
+    }
+
+    .btn-togglemenu:focus,
+    .btn-togglemenu:active {
+        outline: none;
+    }
+
+    .megamenu>li {
+        display: block;
+        height: auto;
+    }
+
+    .megamenu {
+        display: none;
+        float: initial;
+        position: absolute;
+        background-color: #000;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+    }
+
+    .item>a {
+        color: var(--color6) !important;
+        background-color: var(--color8) !important;
+    }
+
+    .item>a:focus,
+    .item>a:active {
+        color: var(--color6);
+        background-color: var(--color2);
+    }
+
+    .item>a:hover {
+        background-color: var(--color3) !important;
+        animation: resaltar 0.4s linear both;
+    }
+
+    .block {
+        position: initial;
+    }
+
+    .block .sub-menu {
+        float: initial;
+        width: 100%;
+    }
+
+    .block .sub-menu-content {
+        display: none;
+    }
 }
 
 /****************************************************************************/

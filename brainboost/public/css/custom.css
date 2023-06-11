@@ -915,6 +915,10 @@ nav>div>a>img {
     text-decoration: none !important;
 }
 
+.realzado a:hover {
+    text-decoration: none;
+}
+
 .realzado section:hover {
     font-weight: bold;
     border: 2px solid;

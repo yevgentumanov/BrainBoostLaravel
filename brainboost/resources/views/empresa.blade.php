@@ -6,8 +6,8 @@
         <div class="col-12 p-2 cuerpo">
 
             <section class="row bg-primary seccion-mb p-5 m-3 seccion-mb">
-                <h1 class="pl-1">Conócenos:</h1>
-                <p class="p-2 text-justify">
+                <h1 class="pl-2">Conócenos:</h1>
+                <p class="p-3 text-justify">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¡Descubre el camino hacia el éxito académico con nuestra plataforma de enseñanza a través de exámenes!
                     Prepárate para alcanzar tus metas y desbloquear todo tu potencial con nuestra amplia gama de recursos y
                     herramientas diseñados para impulsar tu aprendizaje.

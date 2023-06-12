@@ -11,19 +11,19 @@
             {{--                </a>--}}
             {{--            </div>--}}
             <div id="logo" class="col-12 col-sm-6">
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand m-0" href="/">
                     <img src="{!! asset('images/Logo_letras_chicas_con_sombra en blanco y negro-trayectos-v3.svg') !!}"
                          alt="logo">
                 </a>
             </div>
 
             <!-- Barra de búsqueda -->
-            <div class="d-none col-6 justify-content-end">
+            <!--<div class="d-none col-6 justify-content-end">
                 <form class="form-inline" action="/action_page.php">
                     <input class="form-control mr-2" type="text" placeholder="Buscar">
                     <button class="boton-arrow" type="submit">Buscar</button>
                 </form>
-            </div>
+            </div>-->
 
             <!-- Inicio de sesión y registro de usuario -->
             <div id="identificacion" class="col-12 col-sm-6 d-flex justify-content-end">

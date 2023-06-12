@@ -5,10 +5,10 @@
         <div class="row w-100 m-0 d-flex p-4 cuerpo">
             <section class="row bg-primary seccion-mb s-materia">
                 <div class="col-sm-1 col-md-2 d-lg-none"></div>
-                <div class="col-12 col-sm-10 col-md-8 col-lg-4 p-4">
+                <div id="m-img" class="col-12 col-sm-10 col-md-8 col-lg-4 p-4">
                     <img style="width: inherit;" src="{!! asset('images/materia' . $materia->id . '.jpg') !!}" alt="test">
                 </div>
-                <div class="col-12 col-lg-8 p-4">
+                <div id="m-texto" class="col-12 col-lg-8 p-4">
                     <div class="col-12">
                         <h2>{{ $materia->nombre_materia }}</h2>
                     </div>

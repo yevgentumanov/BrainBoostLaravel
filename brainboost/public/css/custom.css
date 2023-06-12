@@ -227,8 +227,6 @@ footer a {
 #test-recientes {
     color: var(--color2);
     text-transform: uppercase;
-    background-color: var(--color1);
-
 }
 
 #test-relacionados:hover,
@@ -963,12 +961,63 @@ nav>div>a>img {
         justify-content: center !important;
     }
 
+    #test-relacionados div div div div article div div {
+        padding: 4px !important;
+    }
+
+    #m-img,
+    #m-texto {
+        padding: 0.5em !important;
+        text-align: justify;
+    }
+
+    #eligeModalidad,
+    #eligeDificultad {
+        justify-content: center;;
+        margin: 1em 0.2em 0.2em 0.2em !important;
+    }
+
     .texto-presentacion p {
         font-size: 90%;
     }
 
-    #test-relacionados div div div div article div div {
-        padding: 4px !important;
+    .realzado section {
+        padding: 0.2em !important;
+    }
+
+    .cuerpo {
+        padding: 2em 0.2em 0 0.2em !important;
+    }
+
+    .s-materia {
+        padding: 0.5em 0.1em !important;
+        margin: 0 0.5em !important;
+        margin-bottom: 2em !important;
+    }
+
+    .mr-4, .ml-4 {
+        margin-left: 0.5em !important;
+        margin-right: 0.5em !important;
+    }
+    h2 {
+        text-align: center;
+    }
+    section.p-4, section.p-5 {
+        padding: 0.5em 0.1em !important;
+        margin: 0 0.5em 2em 0.5em !important;
+    }
+    section {
+        margin-left: 0.5em !important;
+        margin-right: 0.5em !important;
+        padding: 1em !important;
+    }
+}
+
+@media (max-width: 1223px) {
+    .item a {
+        font-size: 90%;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
     }
 }
 

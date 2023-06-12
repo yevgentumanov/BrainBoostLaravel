@@ -966,6 +966,7 @@ nav>div>a>img {
     }
 
     #m-img,
+    #v-texto,
     #m-texto {
         padding: 0.5em !important;
         text-align: justify;

@@ -25,7 +25,7 @@
                                     @csrf
 
                                     <div>
-                                        <button type="submit" class="btn btn-5 px-4 py-2 rounded-md">Volver a enviar
+                                        <button type="submit" class="btn btn-light btn-5 px-4 py-2 rounded-md">Volver a enviar
                                         </button>
                                     </div>
                                 </form>
@@ -33,7 +33,7 @@
                                 <form method="POST" action="{{ route('salir') }}">
                                     @csrf
 
-                                    <button type="submit" class="btn btn-5 px-4 py-2 ml-2 rounded-md"> Salir
+                                    <button type="submit" class="bg-red-500 px-4 py-2 ml-2 rounded-md"> Salir
                                     </button>
                                 </form>
                             </div>

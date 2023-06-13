@@ -36,10 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /*-- Si existe formulario de registro en la página... --*/
     if (divContainerRegistro != null && btnRegistro != null && btnCloseRegistro != null) {
-        /*-- Realiza modificaciones para que no se usen las rutas de Eugenio para mostrar la ventana de inicio de sesión --*/
-        // btnRegistro.removeAttribute("href");
-        // btnCloseRegistro.removeAttribute("href");
-
         /*-- Controla eventos --*/
         btnRegistro.addEventListener("click", (e) => {
             divContainerRegistro.classList.remove("d-none");

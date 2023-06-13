@@ -14,11 +14,11 @@
             </fieldset>
         </section> -->
         <div class="col-12 mt-4 d-flex justify-content-between">
-            <div class="row d-flex flex-column justify-content-between">
-                <button class="btn btn-light btn-5" @click="testobj.modalidad = null">Volver</button>
+            <div class="row d-flex flex-column justify-content-center">
+                <button class="btn btn-5" @click="testobj.modalidad = null">Volver</button>
             </div>
-            <div class="row d-flex flex-column justify-content-between">
-                <button class="btn btn-light btn-5" @click="facil">Fácil</button>
+            <div class="row d-flex flex-column justify-content-center">
+                <button class="btn btn-5" @click="facil">Fácil</button>
                 <button class="btn btn-outline-light mt-2"
                         data-toggle="popover"
                         data-trigger="focus"
@@ -27,8 +27,8 @@
                     ?
                 </button>
             </div>
-            <div class="row d-flex flex-column justify-content-between">
-                <button class="btn btn-light btn-5" @click="dificil">Difícil</button>
+            <div class="row d-flex flex-column justify-content-center">
+                <button class="btn btn-5" @click="dificil">Difícil</button>
                 <button class="btn btn-outline-light mt-2"
                         data-toggle="popover"
                         data-trigger="focus"

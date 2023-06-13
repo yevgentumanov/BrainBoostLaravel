@@ -19,8 +19,8 @@
                     ?
                 </button>
             </div> -->
-            <div class="row d-flex flex-column justify-content-between">
-                <button class="btn btn-light btn-5" @click="practicarTest">Practicar test</button>
+            <div class="row d-flex flex-column justify-content-center">
+                <button class="btn btn-5" @click="practicarTest">Practicar test</button>
                 <button class="btn btn-outline-light mt-2"
                         data-toggle="popover"
                         data-trigger="focus"
@@ -29,8 +29,8 @@
                     ?
                 </button>
             </div>
-            <div class="row d-flex flex-column justify-content-between">
-                <button class="btn btn-light btn-5" @click="desafioTest">Desafío test</button>
+            <div class="row d-flex flex-column justify-content-center">
+                <button class="btn btn-5" @click="desafioTest">Desafío test</button>
                 <button class="btn btn-outline-light mt-2"
                         data-toggle="popover"
                         data-trigger="focus"

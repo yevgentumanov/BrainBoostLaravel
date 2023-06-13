@@ -13,11 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // console.log(divContainerRegistro);
     // console.log(btnCloseRegistro);
 
+    /*-- Si existe formulario de login en la página... --*/
     if (divContainerLogin != null && btnLogin != null && btnCloseLogin != null) {
-        /*-- Realiza modificaciones para que no se usen las rutas de Eugenio para mostrar la ventana de inicio de sesión --*/
-        // btnLogin.removeAttribute("href");
-        // btnCloseLogin.removeAttribute("href");
-
         /*-- Controla eventos --*/
         btnLogin.addEventListener("click", (e) => {
             divContainerLogin.classList.remove("d-none");
@@ -29,8 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // divContainerLogin.addEventListener("blur", (e) => {
         //     divContainerLogin.classList.add("d-none");
         // });
+
+        /*-- Si existe una alerta, muestra el formulario de login (ya que puede haber introducido mal la contraseña) --*/
+        const alerta = divContainerLogin.querySelector(".alert");
+        if (alerta != null) {
+            divContainerLogin.classList.remove("d-none");
+        }
     }
 
+    /*-- Si existe formulario de registro en la página... --*/
     if (divContainerRegistro != null && btnRegistro != null && btnCloseRegistro != null) {
         /*-- Realiza modificaciones para que no se usen las rutas de Eugenio para mostrar la ventana de inicio de sesión --*/
         // btnRegistro.removeAttribute("href");
@@ -47,5 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // divContainerRegistro.addEventListener("blur", (e) => {
         //     divContainerRegistro.classList.add("d-none");
         // });
+
+        /*-- Si existe una alerta, muestra el formulario de registro (ya que puede haber introducido mal algún dato) --*/
+        const alerta = divContainerRegistro.querySelector(".alert");
+        if (alerta != null) {
+            divContainerRegistro.classList.remove("d-none");
+        }
     }
 });

@@ -57,7 +57,7 @@ class UsuariosController extends Controller
             Auth::login($user);
             return redirect()->route('index');
         } else {
-            return redirect()->back()->with('warning', 'Correo electrónico o contraseña no válidos');
+            return redirect()->back()->with('warningLogin', 'Correo electrónico o contraseña no válidos');
         }
     }
 
@@ -70,7 +70,7 @@ class UsuariosController extends Controller
     {
         Auth::logout();
         $cookie = Auth::guard()->getCookieJar()->forget(Auth::guard()->getRecallerName());
-        return redirect()->route('index')->withCookie($cookie)->with('success', 'Cierre de sesión exitoso');
+        return redirect()->route('index')->withCookie($cookie)->with('successSalir', 'Cierre de sesión exitoso');
     }
 
     /**
@@ -101,7 +101,7 @@ class UsuariosController extends Controller
                     $user->save();
                 } else {
                     // Las contraseñas no coinciden, devolver un error
-                    return redirect()->route('index')->with('warning', 'Contraseña incorrecta');
+                    return redirect()->route('index')->with('warningRegistrar', 'Contraseña incorrecta');
                 }
             } else {
                 // El usuario no existe, crear un nuevo usuario

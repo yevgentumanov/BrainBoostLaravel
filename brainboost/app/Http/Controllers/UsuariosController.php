@@ -37,6 +37,7 @@ class UsuariosController extends Controller
                 'email' => $user->email,
             ]);
         }
+        $usuario->sendEmailVerificationNotification(); // Enviar la notificación de verificación de correo electrónico
 
         Auth::login($usuario);
         return redirect('/');

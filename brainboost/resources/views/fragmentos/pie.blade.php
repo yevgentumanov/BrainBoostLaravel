@@ -35,7 +35,7 @@
             <a href="" class="col-12 fa fa-fax p-1">&nbsp;+34 968 26 26 34</a>
         </div> --}}
         <div class="row">
-            <a href="" class="col-12 fa fa-envelope-o p-1">&nbsp;3480348&#64;alu.murciaeduca.es</a>
+            <a href="" class="col-12 fa fa-envelope-o p-1">&nbsp;info&#64;brainboost.es</a>
         </div>
     </div>
     <div id="f-redes" class="col-12 col-md-6 col-xl-3 order-md-4 p-3" style="display: grid;">

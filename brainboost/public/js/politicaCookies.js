@@ -5,21 +5,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (decision == null || Number.parseInt(decision) != 1) {
         /*-- Estilos --*/
         banner.id = "bannerCookies";
-        banner.classList.add("d-flex")
-        banner.classList.add("flex-row");
+        banner.classList.add("row");
+        banner.classList.add("m-0");
         banner.classList.add("justify-content-center");
         banner.classList.add("align-items-center");
 
         /*-- Componente: texto --*/
-        const texto = document.createElement("span");
+        const texto = document.createElement("div");
+        texto.id = "t-banner";
         texto.textContent = "Al navegar por nuestro sitio web, usted acepta que usemos cookies para brindarle la mejor experiencia en nuestra web.";
+        texto.classList.add("col-12");
+        texto.classList.add("col-md-10");
 
         /*-- Componente: botón aceptar cookies --*/
         const btnAceptar = creaBoton("Aceptar", fAceptarCookies);
-        const btnVerPoliticaPrivacidad = creaBoton("Política de privacidad");
+        // const btnVerPoliticaPrivacidad = creaBoton("Política de privacidad");
 
         /*-- Agrega componentes al banner --*/
-        banner.append(texto, creaSeparadorHorizontal("1em"), btnAceptar);
+        banner.append(texto, btnAceptar);
 
         /*-- Agrega el banner a la página --*/
         body.append(banner);
@@ -28,8 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function creaBoton(texto, handler = null) {
     const btnAceptar = document.createElement("button");
+    btnAceptar.id = "b-banner";
 
     /*-- Estilos --*/
+    btnAceptar.classList.add("col-12");
+    btnAceptar.classList.add("col-md-2");
     btnAceptar.classList.add("btn");
     btnAceptar.classList.add("btn-5");
     

@@ -168,6 +168,7 @@
                         e.target.setAttribute("disabled", "disabled")
                         window.scrollTo({top: 0, behavior: "smooth"});
                     }
+                    props.testobj.intento = ""; // Para que al enviar el test, no se puedan modificar las respuestas
                 })
                 .catch(err => {
                     console.error(err);

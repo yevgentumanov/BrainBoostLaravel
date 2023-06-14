@@ -302,6 +302,10 @@ footer a {
     position: fixed;
 }
 
+#bannerCookies div {
+    margin: 1em;
+}
+
 /*****************************************************************************/
 /*****************************************************************************/
 /*****************************************************************************/
@@ -988,8 +992,11 @@ nav>div>a>img {
     #eligeModalidad,
     #eligeDificultad {
         justify-content: center;
-        ;
         margin: 1em 0.2em 0.2em 0.2em !important;
+    }
+
+    #divregistro {
+        padding: 0 !important;
     }
 
     .texto-presentacion p {

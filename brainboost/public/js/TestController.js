@@ -182,6 +182,9 @@ export class TestController {
                 .then(response => {
                     if (todoDone instanceof Function) {
                         todoDone(response);
+                        if (this.test.nota == null) {
+                            this.test.nota = 0;
+                        }
                     }
                     resolve("OK");
                 }).catch(error => {

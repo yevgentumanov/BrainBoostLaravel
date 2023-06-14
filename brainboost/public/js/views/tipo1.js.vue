@@ -9,10 +9,10 @@
                 <label :for="indexPregunta + ':' +  indexRespuesta" class="m-0 px-2 w-100 cursor pointer" :class="[señalarRespuestaUsuario(indexPregunta, indexRespuesta)]">{{ respuesta }}</label>
             </div>
         </fieldset>
-        <div>
-            <span v-if="mostrarRetroalimentacion && (testobj.getDificultad() == TestModel.TipoDificultad.DIFÍCIL ? sended : true )">{{ testobj.getPregunta(indexPregunta).retroalimentacion }}</span>
+        <div class="pt-4 pl-4">
+            <span v-if="mostrarRetroalimentacion && (testobj.getDificultad() == TestModel.TipoDificultad.DIFÍCIL ? sended : true )"><b>Retroalimentaci&oacute;n:</b><br> {{ testobj.getPregunta(indexPregunta).retroalimentacion }}</span>
         </div>
-        <div class="d-flex justify-content-end">
+        <div class="pt-2 pl-2 d-flex justify-content-end">
             <span v-if="testobj.getNotaPregunta(indexPregunta) != null && (testobj.getDificultad() == TestModel.TipoDificultad.DIFÍCIL ? sended : true )">Nota: {{ testobj.getNotaPregunta(indexPregunta) }}</span>
         </div>
     </div>

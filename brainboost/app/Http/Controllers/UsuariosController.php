@@ -117,7 +117,6 @@ class UsuariosController extends Controller
             return redirect()->route('index')->with('warning', 'Error al crear o actualizar el usuario');
         }
     }
-
     /**
      * Cambiar la contraseña del usuario autenticado.
      *
@@ -126,20 +125,24 @@ class UsuariosController extends Controller
      */
     public function cambiarpassword(Request $request)
     {
-        $request->validate([
-            'password_actual' => 'required',
-            'nueva_password' => 'required|min:6|confirmed',
-        ]);
 
         $user = Auth::user();
-        $passwordMatch = Hash::check($request->password_actual, $user->password);
+        $passwordMatch = false;
+        $currentPassword = $request->password_actual;
+
+        if ($currentPassword) {
+            $passwordMatch = Hash::check($currentPassword, $user->password);
+        } elseif ($user->password === null) {
+            $passwordMatch = true;
+        }
+
         if ($passwordMatch) {
             $user->password = Hash::make($request->nueva_password);
             $user->save();
 
-            return redirect()->route('index')->with('success', 'Contraseña cambiada exitosamente');
+            return redirect()->back()->with('correcto', 'Contraseña cambiada exitosamente');
         } else {
-            return redirect()->back()->with('warning', 'La contraseña actual no coincide');
+            return redirect()->back()->with('error', 'Se ha producido un error');
         }
     }
 }

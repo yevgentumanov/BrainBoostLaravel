@@ -242,12 +242,13 @@
 
                             <div class="form-group">
                                 <label for="password">Contraseña</label>
-                                <input type="password" id="u-password" name="password" class="form-control" required>
+                                <input type="password" id="u-password" name="password" class="form-control" minlength="6" required>
                             </div>
+
 
                             <div class="form-group">
                                 <label for="password_confirmation">Confirmar contraseña</label>
-                                <input type="password" id="u-password_confirmation" name="password_confirmation"
+                                <input type="password" id="u-password_confirmation" name="password_confirmation" minlength="6"
                                        class="form-control" required>
                             </div>
 

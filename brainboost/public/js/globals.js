@@ -10,8 +10,8 @@ const ModeAppEnum = {
 }
 
 const ModeAppDirecciones = {
-    1: "https://www.clinicadentalsanandres.com/BrainBoostLaravel/brainboost/public", // PRODUCTION
-    // 1: "https://brainboost.es", // PRODUCTION
+    // 1: "https://www.clinicadentalsanandres.com/BrainBoostLaravel/brainboost/public", // PRODUCTION
+    1: "https://brainboost.es", // PRODUCTION
     2: "http://brainboost.com" // LOCALDEBUG Santi
     // 2: "http://127.0.0.1:8000" // LOCALDEBUG Eugenio
     // 2: "" // LOCALDEBUG Juan Carlos

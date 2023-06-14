@@ -8,13 +8,13 @@
 
                     <div class="row d-flex justify-content-center">
                         <img class="card-img-top col-5 p-3" src="{!! asset('images/usuario.jfif') !!}" alt="Card image"
-                            style="width:100%">
+                             style="width:100%">
                     </div>
 
                     <div class="form-group">
                         <label for="nombre_usuario">Nombre de usuario</label>
                         <input type="text" id="nombre_usuario" name="nombre_usuario"
-                            value="{{ auth()->user()->nombre_usuario }}" class="form-control" readonly>
+                               value="{{ auth()->user()->nombre_usuario }}" class="form-control" readonly>
                     </div>
 
                     <div class="form-group">
@@ -24,15 +24,24 @@
 
                     <div class="form-group">
                         <label for="nueva_password">Nueva contraseña</label>
-                        <input type="password" id="nueva_password" name="nueva_password" class="form-control" required>
+                        <input type="password" id="nueva_password" name="nueva_password" class="form-control" minlength="6" required>
                     </div>
 
                     <div class="form-group">
                         <label for="confirmar_password">Confirmar contraseña</label>
-                        <input type="password" id="confirmar_password" name="confirmar_password" class="form-control"
-                            required>
+                        <input type="password" id="confirmar_password" name="confirmar_password" class="form-control" minlength="6"
+                               required>
                     </div>
-
+                    @if (session('correcto'))
+                        <div class="alert alert-success">
+                            {{ session('correcto') }}
+                        </div>
+                    @endif
+                    @if (session('error'))
+                        <div class="alert alert-warning">
+                            {{ session('error') }}
+                        </div>
+                    @endif
                     <div class="col-12 text-center mt-2">
                         <button id="btn-save" type="submit" class="btn btn-5">Guardar cambios</button>
                     </div>

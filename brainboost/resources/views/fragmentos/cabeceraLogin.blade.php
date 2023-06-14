@@ -166,9 +166,9 @@
                                     {{ session('success') }}
                                 </div>
                             @endif
-                            @if (session('warning'))
+                            @if (session('warningLogin'))
                                 <div class="alert alert-warning">
-                                    {{ session('warning') }}
+                                    {{ session('warningLogin') }}
                                 </div>
                             @endif
                             <div class="form-group">
@@ -218,9 +218,9 @@
                         </div>
                         <form action="{{ route('registrar') }}" method="POST">
                             @csrf
-                            @if (session('warning'))
+                            @if (session('warningRegistrar'))
                                 <div class="alert alert-warning">
-                                    {{ session('warning') }}
+                                    {{ session('warningRegistrar') }}
                                 </div>
                             @endif
                             <div class="form-group">

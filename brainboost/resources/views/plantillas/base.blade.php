@@ -34,6 +34,9 @@
     <!-- JavaScript: Cabecera login -->
     <script src="{!! asset('js/login.js') !!}"></script>
 
+    <!-- JavaScript: Política de cookies -->
+    <script src="{!! asset('js/politicaCookies.js') !!}"></script>
+
     <!-- JavaScript: páginas en general -->
     <script src="{!! asset('js/main.js') !!}"></script>
 

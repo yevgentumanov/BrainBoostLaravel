@@ -65,13 +65,13 @@
         }
 
         /*-- Verifica si es la respuesta correcta --*/
-        console.log(respuestaActual);
-        console.log(respuestaCorrecta);
-        console.log(respuestaUsuario);
+        // console.log(respuestaActual);
+        // console.log(respuestaCorrecta);
+        // console.log(respuestaUsuario);
         const esUnaRespuestaCorrecta = compareArraysWithoutOrder(respuestaActual, respuestaCorrecta).length;        
         const esLaRespuestaMarcadaPorElUsuario = respuestaUsuario != null ? compareArraysWithoutOrder(respuestaActual, respuestaUsuario).length : 0;
-        console.log("Es una respuesta correcta: " + esUnaRespuestaCorrecta);
-        console.log("Es la respuesta marcada por el usuario: " + esLaRespuestaMarcadaPorElUsuario);
+        // console.log("Es una respuesta correcta: " + esUnaRespuestaCorrecta);
+        // console.log("Es la respuesta marcada por el usuario: " + esLaRespuestaMarcadaPorElUsuario);
         if (esLaRespuestaMarcadaPorElUsuario > 0) {
             clases.push("font-weight-bold");
             if (props.testobj.intento != null) {

@@ -4,16 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const decision = localStorage.getItem("acceptedCookies")
     if (decision == null || Number.parseInt(decision) != 1) {
         /*-- Estilos --*/
+        banner.id = "bannerCookies";
         banner.classList.add("d-flex")
         banner.classList.add("flex-row");
         banner.classList.add("justify-content-center");
         banner.classList.add("align-items-center");
-        banner.style.backgroundColor = "var(--color2)";
-        banner.style.color = "var(--color6)";
-        banner.style.height = "50px";
-        banner.style.width = "100%";
-        banner.style.bottom = "0px";
-        banner.style.position = "fixed";
 
         /*-- Componente: texto --*/
         const texto = document.createElement("span");
@@ -35,7 +30,8 @@ function creaBoton(texto, handler = null) {
     const btnAceptar = document.createElement("button");
 
     /*-- Estilos --*/
-    btnAceptar.classList.add("boton-arrow");
+    btnAceptar.classList.add("btn");
+    btnAceptar.classList.add("btn-5");
     
     /*-- Configuración botón --*/
     btnAceptar.textContent = texto;

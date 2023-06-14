@@ -943,8 +943,8 @@ export class Test {
             if (!this.validaRespuesta(respuesta)) throw new Error(MensajesErrorTest["__ERR_RESPONSE_INVALID"].message);
         }
         this.respuestas[indice] = respuesta;
-        console.log("He añadido la respuesta");
-        console.log(this.respuestas[indice]);
+        // console.log("He añadido la respuesta");
+        // console.log(this.respuestas[indice]);
     }
 
     /**

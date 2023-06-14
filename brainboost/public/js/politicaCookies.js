@@ -30,21 +30,28 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function creaBoton(texto, handler = null) {
-    const btnAceptar = document.createElement("button");
-    btnAceptar.id = "b-banner";
+    const divAceptar = document.createElement("div");
+    divAceptar.id = "b-banner";
 
     /*-- Estilos --*/
-    btnAceptar.classList.add("col-12");
-    btnAceptar.classList.add("col-md-2");
+    divAceptar.classList.add("col-12");
+    divAceptar.classList.add("col-md-2");
+
+    const btnAceptar = document.createElement("button");
+
+    /*-- Estilos --*/
     btnAceptar.classList.add("btn");
     btnAceptar.classList.add("btn-5");
-    
+
     /*-- Configuración botón --*/
     btnAceptar.textContent = texto;
     btnAceptar.addEventListener("click", handler);
 
+    /*-- Encapsulación botón --*/
+    divAceptar.appendChild(btnAceptar);
+
     /*-- Devuelve el botón --*/
-    return btnAceptar;
+    return divAceptar;
 }
 
 function creaSeparadorHorizontal(size) {

@@ -296,13 +296,14 @@ footer a {
 #bannerCookies {
     background-color: var(--color2);
     color: var(--color6);
-    height: 50px;
     width: 100%;
+    height: auto;
     bottom: 0px;
     position: fixed;
 }
 
-#bannerCookies div {
+#t-banner,
+#b-banner {
     padding: 1em;
 }
 

@@ -22,10 +22,14 @@
     import dotest from "./dotest.js.vue"
     export default {
         created() {
-            console.log("createdMain"); // Mera bandera de debug
+            if (modeApp == ModeAppEnum.LOCALDEBUG) {
+                console.log("createdMain"); // Mera bandera de debug
+            }
         },
         mounted() {
-            console.log("mountedMain"); // Mera bandera de debug
+            if (modeApp == ModeAppEnum.LOCALDEBUG) {
+                console.log("mountedMain"); // Mera bandera de debug
+            }
         }
     }
 </script>

@@ -7,10 +7,14 @@
 <script>
     export default {
         created() {
-            console.log("createdPreview"); // Mera bandera de debug
+            if (modeApp == ModeAppEnum.LOCALDEBUG) {
+                console.log("createdPreview"); // Mera bandera de debug
+            }
         },
         mounted() {
-            console.log("mountedPreview"); // Mera bandera de debug
+            if (modeApp == ModeAppEnum.LOCALDEBUG) {
+                console.log("mountedPreview"); // Mera bandera de debug
+            }
         }
     }
 </script>

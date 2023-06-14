@@ -50,10 +50,14 @@
             "modal": Modal
         },
         created() {
-            console.log("createdEligeModalidad"); // Mera bandera de debug
+            if (modeApp == ModeAppEnum.LOCALDEBUG) {
+                console.log("createdEligeModalidad"); // Mera bandera de debug
+            }
         },
         mounted() {
-            console.log("mountedEligeModalidad"); // Mera bandera de debug
+            if (modeApp == ModeAppEnum.LOCALDEBUG) {
+                console.log("mountedEligeModalidad"); // Mera bandera de debug
+            }
             /*-- Habilita los popovers de Bootstrap (JQuery) --*/
             $(function () {
                 $('[data-toggle="popover"]').popover({

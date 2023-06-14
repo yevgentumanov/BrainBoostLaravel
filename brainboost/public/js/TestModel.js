@@ -4,6 +4,8 @@
  * @version 11.06.2023
  */
 
+import {Materias} from './MateriaModel.js';
+import {validaIdMateria} from './MateriaModel.js';
 /*===============================================
             ENUMERADOS Y CONSTANTES
 =================================================*/
@@ -933,12 +935,16 @@ export class Test {
      * Método que permite guardar la respuesta dada por el usuario a una pregunta.
      * @param {number} indice - Especifica el índice de la pregunta sobre la que se responde.
      * @param {object} respuesta - Especifica el objeto JSON con los datos de la respuesta dada por el usuario.
+     * @param {Boolean} validar - Especifica si desea validar los datos pasados por argumento.
      */
-    setRespuesta(indice, respuesta) {
-        if (!this.validaIdPreguntaSize(indice)) throw new Error(MensajesErrorTest["__ERR_QUESTION_ID_INVALID"].message);
-        if (!this.validaRespuesta(respuesta)) throw new Error(MensajesErrorTest["__ERR_RESPONSE_INVALID"].message);
-
+    setRespuesta(indice, respuesta, validar = true) {
+        if (validar == true) {
+            if (!this.validaIdPreguntaSize(indice)) throw new Error(MensajesErrorTest["__ERR_QUESTION_ID_INVALID"].message);
+            if (!this.validaRespuesta(respuesta)) throw new Error(MensajesErrorTest["__ERR_RESPONSE_INVALID"].message);
+        }
         this.respuestas[indice] = respuesta;
+        console.log("He añadido la respuesta");
+        console.log(this.respuestas[indice]);
     }
 
     /**
@@ -982,11 +988,14 @@ export class Test {
      * Método que permite guardar la nota sacada por el usuario en la pregunta, en función de su respuesta.
      * @param {number} indice - Especifica el índice de la pregunta sobre la que se responde.
      * @param {object} nota - Especifica la nota que está sacando el usuario en la pregunta.
+     * @param {Boolean} validar - Especifica si desea validar los datos pasados por argumento.
      */
-    setNotaPregunta(indice, nota) {
-        /*-- Realiza las validaciones --*/
-        if (!this.validaIdPreguntaSize(indice)) throw new Error(MensajesErrorTest["__ERR_QUESTION_ID_INVALID"].message);
-        if (!this.validaNota(nota)) throw new Error(MensajesErrorTest["__ERR_MARK_INVALID"].message);
+    setNotaPregunta(indice, nota, validar = true) {
+        if (validar == true) {
+            /*-- Realiza las validaciones --*/
+            if (!this.validaIdPreguntaSize(indice)) throw new Error(MensajesErrorTest["__ERR_QUESTION_ID_INVALID"].message);
+            if (!this.validaNota(nota)) throw new Error(MensajesErrorTest["__ERR_MARK_INVALID"].message);
+        }
         /*-- Realiza la operación --*/
         if (this.nota == null) {
             this.nota = 0;

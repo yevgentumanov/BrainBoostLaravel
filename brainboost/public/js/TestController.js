@@ -19,6 +19,7 @@ export class TestController {
         this.test = test;
 
         this.sended = false;
+        this.dataDownloaded = true;
     }
 
     /**
@@ -120,7 +121,9 @@ export class TestController {
                     });
                     /*-- Settea a null la respuesta correspondiente a la pregunta --*/
                     for (let i = 0; i < this.test.getSize(); i++) {
-                        this.test.setRespuesta(i, null);
+                        if (this.test.getRespuestaByQuestion(i) == undefined) {
+                            this.test.setRespuesta(i, null);
+                        }
                     }
                     resolve("OK");
                 }).catch(error => {
@@ -228,7 +231,9 @@ export class TestController {
             // obtenerJSON(Rutas.HOST_NAME + Rutas.RUTA_API_ENVIO_TEST_REALIZADO.url, Rutas.RUTA_API_ENVIO_TEST_REALIZADO.method, cabeceras, JSON.stringify(cuerpo))
             obtenerJSON(rutaRelativa, Rutas.RUTA_API_PREGUNTAS_REALIZADAS_INTENTO.method, cabeceras, JSON.stringify(cuerpo))
                 .then(response => {
-                    console.log(response);
+                    if (modeApp == ModeAppEnum.LOCALDEBUG) {
+                        console.log(response);
+                    }
                     /*-- Descarga la nota y establece los datos en el objeto Test --*/
                     this.test.idUsuarioRealizador = response.data[0].id_usuario;
                     this.test.fechaRealizacion = new Date(response.data[0].fecha_realizacion);
@@ -253,8 +258,8 @@ export class TestController {
 
                     /*-- Añade las respuestas --*/
                     for (let i = 0; i < response.data.length; i++) {
-                        this.test.setRespuesta(i, JSON.parse(response.data[i].respuestas));
-                        this.test.setNotaPregunta(i, Number.parseFloat(response.data[i].nota_pregunta));
+                        this.test.setRespuesta(i, JSON.parse(response.data[i].respuestas), false);
+                        this.test.setNotaPregunta(i, Number.parseFloat(response.data[i].nota_pregunta), false);
                     }
 
                     /*-- Establece la modalidad y la dificultad --*/
@@ -289,14 +294,18 @@ export class TestController {
 
         let ruta = Rutas.RUTA_API_AUMENTAR_VISITAS_TEST.url.split("/");
         ruta[2] = idTest;
-        console.log(ruta);
         const rutaRelativa = ruta.join("/");
-        console.log(rutaRelativa);
+        if (modeApp == ModeAppEnum.LOCALDEBUG) {
+            console.log(ruta);
+            console.log(rutaRelativa);
+        }
+
         /*-- Realiza la petición al servidor --*/
-        
         obtenerJSON(rutaRelativa, Rutas.RUTA_API_AUMENTAR_VISITAS_TEST.method, cabeceras, null)
         .then(response => {
-            console.log(response);
+            if (modeApp == ModeAppEnum.LOCALDEBUG) {
+                console.log(response);
+            }
         })
         .catch(error => {
             console.log(error);

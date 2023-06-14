@@ -1,13 +1,13 @@
 {
   "public/js/TestVue.css": {
-    "file": "assets/TestVue-50450dd3.css",
+    "file": "assets/TestVue-76fc9c1b.css",
     "src": "public/js/TestVue.css"
   },
   "public/js/TestVue.js": {
     "css": [
-      "assets/TestVue-50450dd3.css"
+      "assets/TestVue-76fc9c1b.css"
     ],
-    "file": "assets/TestVue-82e68b62.js",
+    "file": "assets/TestVue-03d73b15.js",
     "isEntry": true,
     "src": "public/js/TestVue.js"
   }

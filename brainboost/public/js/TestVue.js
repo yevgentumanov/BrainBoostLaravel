@@ -46,7 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
         created() {
-            console.log("created"); // Mera bandera de debug
+            if (modeApp == ModeAppEnum.LOCALDEBUG) {
+                console.log("created"); // Mera bandera de debug
+            }
             /*-- Crea el controlador para el TestModel.js --*/
             this.testCtrl = new TestController(this.testObj); // Inicia el controlador
 
@@ -63,31 +65,36 @@ document.addEventListener('DOMContentLoaded', () => {
             
         },
         mounted() {
-            console.log("mounted"); // Mera bandera de debug
+            if (modeApp == ModeAppEnum.LOCALDEBUG) {
+                console.log("mounted"); // Mera bandera de debug
+            }
             /*-- Ordena al controlador que descargue dentro del TestModel las preguntas y la info del test --*/
             try {
                 this.testCtrl.downloadInfoAboutTestByIdTest(this.testObj.getIdTest())
-                .then(response => {
+                // .then(response => {
                     /*-- Una vez que obtiene la información general del test, obtiene el resto de datos --*/
-                    this.testCtrl.downloadQuestionsByIdTest(this.testObj.getIdTest());
-                    /*-- Obtiene los datos del test realizado por el usuario (en caso de estar visualizando un test ya realizado dado un numero de intento) --*/
-                    const intento = this.url.searchParams.get("intento");
-                    if (intento != null) {
-                        this.testCtrl.downloadInfoIntentoUsuario(intento);
-                    } else {
-                        // Realiza una peticion para aumentar en 1 las visitas de este test
-                        const pathName = this.url.pathname.split("/");
-                        const idTest = Number.parseInt(pathName[pathName.length - 1]);
-                        
-                        this.testCtrl.aumentarVisitas(idTest);
-                    }
-                });
+                    this.testCtrl.downloadQuestionsByIdTest(this.testObj.getIdTest())
+                    // .then(response => {
+                        /*-- Obtiene los datos del test realizado por el usuario (en caso de estar visualizando un test ya realizado dado un numero de intento) --*/
+                        const intento = this.url.searchParams.get("intento");
+                        if (intento != null) {
+                            this.testCtrl.downloadInfoIntentoUsuario(intento);
+                        } else {
+                            // Realiza una peticion para aumentar en 1 las visitas de este test
+                            const pathName = this.url.pathname.split("/");
+                            const idTest = Number.parseInt(pathName[pathName.length - 1]);
+                            
+                            this.testCtrl.aumentarVisitas(idTest);
+                        }
+                    // })
+                // });
                 
             } catch (error) {
                 console.error(error);
             }
-            
-            console.log(this.testObj);
+            if (modeApp == ModeAppEnum.LOCALDEBUG) {
+                console.log(this.testObj);
+            }
         }
     });
 

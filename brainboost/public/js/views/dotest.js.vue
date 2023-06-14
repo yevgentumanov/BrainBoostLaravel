@@ -31,10 +31,14 @@
             "alerta": Alerta
         },
         created() {
-            console.log("createdDoTest"); // Mera bandera de debug
+            if (modeApp == ModeAppEnum.LOCALDEBUG) {
+                console.log("createdDoTest"); // Mera bandera de debug
+            }
         },
         mounted() {
-            console.log("mountedDoTest"); // Mera bandera de debug
+            if (modeApp == ModeAppEnum.LOCALDEBUG) {
+                console.log("mountedDoTest"); // Mera bandera de debug
+            }
         }
     }
 
@@ -151,7 +155,9 @@
             clearInterval(intervalo); // Para el cronómetro
             try {
                 props.testctrl.sendInfoIntentoTestUsuario((response) => {
-                    console.log("Hasta aquí funciona el código: el servidor no ha dado error");
+                    if (modeApp == ModeAppEnum.LOCALDEBUG) {
+                        console.log("Hasta aquí funciona el código: el servidor no ha dado error");
+                    }
                     // console.log(response);
                     if ("datosTest" in response && "preguntasTestRealizado" in response) {
                         // window.history.back(); // Para volver a la página anterior

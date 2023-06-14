@@ -51,8 +51,8 @@
             <script src="{!! asset('js/JSON/api_rest.js') !!}"></script>
             <script src="{!! asset('js/JSON/json.js') !!}"></script>
 
-            <script src="{!! asset('js/MateriaModel.js') !!}"></script>
             {{--
+            <script src="{!! asset('js/MateriaModel.js') !!}"></script>
             <script src="{!! asset('js/TestModel.js') !!}"></script>
             <script src="{!! asset('js/TestController.js') !!}"></script> --}}
             {{-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> <!-- Importa la librería de Vue.js --> --}}

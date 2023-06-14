@@ -47,10 +47,14 @@
 <script>
     export default {
         created() {
-            console.log("createdEligeDificultad"); // Mera bandera de debug
+            if (modeApp == ModeAppEnum.LOCALDEBUG) {
+                console.log("createdEligeDificultad"); // Mera bandera de debug
+            }
         },
         mounted() {
-            console.log("mountedEligeDificultad"); // Mera bandera de debug
+            if (modeApp == ModeAppEnum.LOCALDEBUG) {
+                console.log("mountedEligeDificultad"); // Mera bandera de debug
+            }
             /*-- Habilita los popovers de Bootstrap (JQuery) --*/
             $(function () {
                 $('[data-toggle="popover"]').popover({

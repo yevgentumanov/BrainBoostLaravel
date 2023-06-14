@@ -11,10 +11,14 @@
 <script>
     export default {
         created() {
-            console.log("createdAlert"); // Mera bandera de debug
+            if (modeApp == ModeAppEnum.LOCALDEBUG) {
+                console.log("createdAlert"); // Mera bandera de debug
+            }
         },
         mounted() {
-            console.log("mountedAlert"); // Mera bandera de debug
+            if (modeApp == ModeAppEnum.LOCALDEBUG) {
+                console.log("mountedAlert"); // Mera bandera de debug
+            }
         }
     }
 </script>

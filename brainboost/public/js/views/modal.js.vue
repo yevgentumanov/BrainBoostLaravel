@@ -29,10 +29,14 @@
 <script>
     export default {
         created() {
-            console.log("createdModal"); // Mera bandera de debug
+			if (modeApp == ModeAppEnum.LOCALDEBUG) {
+				console.log("createdModal"); // Mera bandera de debug
+			}
         },
         mounted() {
-            console.log("mountedModal"); // Mera bandera de debug
+			if (modeApp == ModeAppEnum.LOCALDEBUG) {
+				console.log("mountedModal"); // Mera bandera de debug
+			}
         }
     }
 </script>

@@ -21,10 +21,14 @@
 <script>
     export default {
         created() {
-            console.log("createdTipo1"); // Mera bandera de debug
+            if (modeApp == ModeAppEnum.LOCALDEBUG) {
+                console.log("createdTipo1"); // Mera bandera de debug
+            }
         },
         mounted() {
-            console.log("mountedTipo1"); // Mera bandera de debug
+            if (modeApp == ModeAppEnum.LOCALDEBUG) {
+                console.log("mountedTipo1"); // Mera bandera de debug
+            }
         }
     }
 </script>
@@ -61,8 +65,13 @@
         }
 
         /*-- Verifica si es la respuesta correcta --*/
+        console.log(respuestaActual);
+        console.log(respuestaCorrecta);
+        console.log(respuestaUsuario);
         const esUnaRespuestaCorrecta = compareArraysWithoutOrder(respuestaActual, respuestaCorrecta).length;        
         const esLaRespuestaMarcadaPorElUsuario = respuestaUsuario != null ? compareArraysWithoutOrder(respuestaActual, respuestaUsuario).length : 0;
+        console.log("Es una respuesta correcta: " + esUnaRespuestaCorrecta);
+        console.log("Es la respuesta marcada por el usuario: " + esLaRespuestaMarcadaPorElUsuario);
         if (esLaRespuestaMarcadaPorElUsuario > 0) {
             clases.push("font-weight-bold");
             if (props.testobj.intento != null) {
@@ -94,9 +103,13 @@
                     MÉTODOS
     ===============================================*/
     const corregirPregunta = (indice, respuesta, fieldSet) => {
-        console.log(props.pregunta);
+        if (modeApp == ModeAppEnum.LOCALDEBUG) {
+            console.log(props.pregunta);
+        }
         const pregunta = props.testobj.preguntas[indice];
-        console.log(pregunta);
+        if (modeApp == ModeAppEnum.LOCALDEBUG) {
+            console.log(pregunta);
+        }
         const anteriorRespuestaUsuario = props.testobj.respuestas[indice];
 
         let respuestaEnObjTest = pregunta.datos_pregunta.respuestas_correctas
@@ -105,9 +118,13 @@
             respuestaEnObjTest = [respuestaEnObjTest];
         }
         // console.log(anteriorRespuestaUsuario);
-        console.log(respuestaEnObjTest);
+        if (modeApp == ModeAppEnum.LOCALDEBUG) {
+            console.log(respuestaEnObjTest);
+        }
         const actualPreguntasAcertadas = compareArraysWithoutOrder(respuesta, respuestaEnObjTest).length
-        console.log(actualPreguntasAcertadas);
+        if (modeApp == ModeAppEnum.LOCALDEBUG) {
+            console.log(actualPreguntasAcertadas);
+        }
 
         /*-- Suma nota (siempre que no estuviera ya contestada una pregunta) --*/
         // console.log(anteriorRespuestaUsuario);
@@ -183,7 +200,9 @@
         
 
         /*-- Comprueba si la respuesta era correcta --*/
-        console.log(indice);
+        if (modeApp == ModeAppEnum.LOCALDEBUG) {
+            console.log(indice);
+        }
         corregirPregunta(indice, respuesta, fieldSet);
 
         /*-- Qué hacer a continuación, según la modalidad del test... --*/

@@ -302,6 +302,11 @@ footer a {
     position: fixed;
 }
 
+#f-info img {
+    width: 35%;
+    padding-bottom: 5px;
+}
+
 #t-banner,
 #b-banner {
     padding: 1em;

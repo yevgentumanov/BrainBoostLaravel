@@ -20,7 +20,7 @@
                     <h5 class="d-none m-0" :class='["d-block"]' v-if="testObj.getTiempoInicio() != null">@{{tiempoTranscurrido[0]}}:@{{tiempoTranscurrido[1]}}:@{{tiempoTranscurrido[2]}}</h5>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3 p-2 d-flex justify-content-center align-items-center m-0">
-                    <h5 class="d-none m-0" :class='["d-block"]' v-if="testObj.getDificultad() == tiposDificultad.DIFÍCIL ? testCtrl.sended : true">@{{testObj.getNota() != null ? "Nota: " + testObj.getNota() : ""}}</h5>
+                    <h5 class="d-none m-0" :class='["d-block"]' v-if="testObj.getDificultad() == tiposDificultad.DIFÍCIL ? testCtrl.sended || testObj.intento : true">@{{testObj.getNota() != null ? "Nota: " + testObj.getNota() : ""}}</h5>
                 </div>
             </section>
 

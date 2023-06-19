@@ -10,10 +10,10 @@
             </div>
         </fieldset>
         <div class="pt-4 pl-4">
-            <span v-if="mostrarRetroalimentacion && (testobj.getDificultad() == TestModel.TipoDificultad.DIFÍCIL ? sended : true )"><b>Retroalimentaci&oacute;n:</b><br> {{ testobj.getPregunta(indexPregunta).retroalimentacion }}</span>
+            <span v-if="mostrarRetroalimentacion && (testobj.getDificultad() == TestModel.TipoDificultad.DIFÍCIL ? sended || testobj.intento : true )"><b>Retroalimentaci&oacute;n:</b><br> {{ testobj.getPregunta(indexPregunta).retroalimentacion }}</span>
         </div>
         <div class="pt-2 pl-2 d-flex justify-content-end">
-            <span v-if="testobj.getNotaPregunta(indexPregunta) != null && (testobj.getDificultad() == TestModel.TipoDificultad.DIFÍCIL ? sended : true )">Nota: {{ testobj.getNotaPregunta(indexPregunta) }}</span>
+            <span v-if="testobj.getNotaPregunta(indexPregunta) != null && (testobj.getDificultad() == TestModel.TipoDificultad.DIFÍCIL ? sended || testobj.intento : true )">Nota: {{ testobj.getNotaPregunta(indexPregunta) }}</span>
         </div>
     </div>
 </template>
